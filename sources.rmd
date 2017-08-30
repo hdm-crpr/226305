@@ -20,6 +20,7 @@ Barabasi, A.-L.: Network Science: http://networksciencebook.com/chapter/1
 
 
 
+
 ## Open Source Datasets
 * Stanford Large Dataset Collection (Stanford University): https://snap.stanford.edu/data/
 * Mark Newman Datasets (University of Michigan): http://www-personal.umich.edu/~mejn/netdata/
