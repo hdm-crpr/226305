@@ -1,5 +1,7 @@
-#Sources for SNA with R
+# Sources for SNA with R
 
-##Introductiont to R
-https://bookdown.org/ndphillips/YaRrr/jumpin.html
+## Introduction to R
+Pirate's Guide to R: https://bookdown.org/ndphillips/YaRrr/jumpin.html
+R for Data Science: http://r4ds.had.co.nz/
+
 
