@@ -14,4 +14,13 @@
 ## Open Source Datasets
 
 
+# SNA Courses 
 
+* Social Network Analysis (Lada Adamic, (MOOC on Coursera): http://ai.umich.edu/portfolio/social-network-analysis/
+* Social and Information Networks (Stanford): http://web.stanford.edu/class/cs224w/
+* Social Network Analysis (Steve Borgatti, U of Kentucky): https://sites.google.com/site/mgt780sna/
+* Social Networks (James M. Cook, University of Maine at Augusta): http://www.umasocialmedia.com/socialnetworks/
+
+
+# Online Courses
+* Social Network Analysis in R (Curt Frye, Lynda): https://www.lynda.com/course-tutorials/Social-Network-Analysis-Using-R/508872-2.html
