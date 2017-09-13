@@ -3,23 +3,26 @@
 ## Introduction to R
 * Pirate's Guide to R: https://bookdown.org/ndphillips/YaRrr/jumpin.html
 * R for Data Science: http://r4ds.had.co.nz/
-
+* How to install R: https://www.paballand.com/install-r
+* General introduction to SNA and Visualization: http://miriamposner.com/classes/dh101f16/tutorials-guides/data-visualization/network-analysis/
+* Intro to R Tutorial: http://statnet.github.io/nme/prep-tut-R.html
 
 ## Tutorials for igraph package
+* General introduction to the igraph package: http://igraph.org/r/
+* Excellent tutorial by Katya Ognyanova: http://kateto.net/networks-r-igraph
+* Tutorial by Rstudio: https://rstudio-pubs-static.s3.amazonaws.com/74248_3bd99f966ed94a91b36d39d8f21e3dc3.html
+* Nice examples by Michael Hahsler: http://michael.hahsler.net/SMU/LearnROnYourOwn/code/igraph.html
 
-
-## Tutorials for sna package
-
-## Tutorials für statnet package
+## Tutorials for statnet package
+* General introduction to the package: http://www.statnet.org/
+* Workshop at Sunbelt 2016: https://statnet.org/trac/wiki/Sunbelt2016
+* Statnet Tutorials: https://github.com/statnet/Workshops/wiki
 
 # Books on Social Network Analysis
 
 ## Open Source Online Books
-Barabasi, A.-L.: Network Science: http://networksciencebook.com/chapter/1
-
-
-
-
+Barabasi, A.-L. (o.J.): Network Science: http://networksciencebook.com/chapter/1
+Chen, B. (2017): Social Network Analysis in Education: https://bookdown.org/chen/snaEd/
 
 ## Open Source Datasets
 * Stanford Large Dataset Collection (Stanford University): https://snap.stanford.edu/data/
@@ -27,16 +30,15 @@ Barabasi, A.-L.: Network Science: http://networksciencebook.com/chapter/1
 
 
 # SNA Courses at Universities (small sample)
-
 * Topics in Social Network Analysis (Shariq Hasan, Stanford Business School): https://usablestrategy.org/2017/04/04/topics-in-social-network-analysis-phd-syllabus/
 * Social and Information Networks (Stanford University): http://web.stanford.edu/class/cs224w/
 * Social Network Analysis (Steve Borgatti, University of Kentucky): https://sites.google.com/site/mgt780sna/
 * Social Networks (James M. Cook, University of Maine at Augusta): http://www.umasocialmedia.com/socialnetworks/
 * Theory and Methods for Social Network Analysis (Duke University): http://www2.stat.duke.edu/courses/Spring17/sta650.001//outline/
 * Social Network Analysis (HSE Higher School of Economics, http://www.leonidzhukov.net/hse/2017/sna/ and https://cs.hse.ru/ai/magolego/sna
-*
 
 
 # Online Courses
 * Social Network Analysis in R (Curt Frye, Lynda): https://www.lynda.com/course-tutorials/Social-Network-Analysis-Using-R/508872-2.html
 * Social Network Analysis (Lada Adamic, (MOOC on Coursera): http://ai.umich.edu/portfolio/social-network-analysis/
+* Network Modeling for Epidemics: http://statnet.github.io/nme/index.html
