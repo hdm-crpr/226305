@@ -1,5 +1,30 @@
 #226305 Modul Netzwerk- und Beziehungsmanagement
 
 ##Kurzbeschreibung
+Mit der sozialen Netzwerkanalyse lassen sich Beziehungsstrukturen aufdecken, die ohne die Analyse häufig unentdeckt bleiben. Dadurch eignet sich die Methode und Theorie sehr gut für die Recherche und Analyse von Beziehungen zwischen Akteuren. 
+In der Veranstaltung lernen Sie die Geschichte der sozialen Netzwerke und deren Anwendungsfelder kennen. Es geht dabei explizit nicht nur um soziale Netzwerke im Internet, sondern jede Form von Beziehungen. Sie können verschiedene Netzwerktypen unterscheiden und deren Vor- und Nachteile benennen. Nach der Veranstaltung können Sie in Verbindung mit der Übung kleinere Forschungsdesigns entwickeln und empirisch umsetzen.
+In der praktischen Übung werden Sie vor allem Instrumente der sozialen Netzwerkanalyse in Theorie und Praxis verstehen und anwenden können. Sie lernen die Übersetzung von theoretischen Konzepten in methodisch operationalisierbare Einheiten wie etwa Knoten und Kanten. Sie können einfache Ego-Netzwerke grafisch abbilden und Relationen zwischen Knoten basierend auf bestimmten Maßen wie Zentralität oder Dichte berechnen. Studierende können einfache Netzwerkdiagramme interpretieren und deren theoretische Annahmen reflektieren. Sie haben sich in praktischen Übungen die Kompetenz erarbeitet, gängige Software der computergestützten Netzwerkanalyse für ein selbstgewähltes Forschungsprojekt einzusetzen.
+
+#Workload
+5 ECTS entsprechend 150 Zeitstunden
+* Präsenzphase an der HdM (4 SWS): 56h
+* Vor- und Nachbereitung (eigenständige Lektüre, Bearbeitung der Übungen, Recherchen. etc.) der Termine mit je 2h: 56h
+* Konzeption und Umsetzung eines eigenen Projekts zur sozialen Netzwerkanalyse: 48h
+
 Das Modul Netzwerk- und Beziehungsmanagement besteht aus den Veranstaltungen 226503a „Grundlagen sozialer Netzwerke“ (3. Semester) und 226503b „Methoden der Netzwerkanalyse“ (4. Semester). Als Prüfungsleistung führen Sie im 3. Semester ein Online-Testat (bestanden/nicht-bestanden) durch  und entwickeln ein eigenes Forschungsdesign für Netzwerke. Dieses Forschungsdesign setzen Sie im 4. Semester in einem Team (Gruppenarbeit mit maximal 4 Personen) mit eigener Datenerhebung, Datensatz, Visualisierung und Interpretation der Ergebnisse (Forschungsbericht) um und präsentieren ihre Ergebnisse.
+
+##Learning Outcomes
+Nach dem Besuch der Veranstaltung sind Sie in der Lage
+* Grundbegriffe aus der Theorie sozialer Netzwerke zu erklären und in einem Forschungskontext zu erläutern,
+* eine eigene Datenerhebung von Netzwerkdaten in Form einer edgelist zu erheben,
+* Akteure und Netzwerke nach bestimmten theoretischen Annahmen und Modellen zu interpretieren (Zentralitätsmaße, Dichte, etc.),
+* das Netzwerk entsprechend zu visualisieren.
+
+Zudem haben Sie die Grundzüge von R und RStudio erlernt und können nun
+* Netzwerkdaten erheben und bereinigen,
+* Datenformate wie edgelists als CSV-Datei in R importieren,
+* das R-Paket "igraph" und weitere zur Analyse und Visualisierung von Netzwerdaten einsetzen.
+
+
+
 
