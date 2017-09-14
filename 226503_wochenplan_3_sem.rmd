@@ -17,21 +17,29 @@
 * Soziale Netzwerke vs. Soziale Netzwerkanalyse
 * Nutzen von und Kritik an Netzwerken
 * Grundbegriffe der sozialen Netzwerkanalyse
-* Milgram's Studie: Six degrees of separation
 * Netzwerke im Alltag
 
 *Literatur für Woche 2:* 
 * Krüger, U. (2013): Die Nähe zur Macht. message, 2013(1), 22-28. 
-* Video: https://www.youtube.com/watch?v=y_bmegfMyVI
+* Video: [Die Anstalt] (https://www.youtube.com/watch?v=y_bmegfMyVI)
 * Grimm, R. (2013): Gespräch mit Mark Granovetter. Die Stärke des Schwachen. In: GDI Impuls 3/2013, 16-21.
 
 *Moodle-Aufgabe: Recherche der Mitgliedschaften eines Journalisten über Wikipedia, Kress, Torial, twitter
 
 # Woche 3: Klassische Studien und Anwendungen der Netzwerkanalyse
-* Studie 1: Georg Simmel 
-* Studie 2: 
-* Studie 3: Mark S. Granovetter 1974: Getting a Job (Text Lutter 2017a)
-* Studie 4: Ronald S. Burt 1992: Structural Holes (Text Lutter 2017b)
-* Studie 5:
-* Studie 6: 
+* Studie 1: Simmel, G. (1908): Die Kreuzung sozialer Kreise. [Text Nollert 2010] (https://link.springer.com/chapter/10.1007%2F978-3-531-92575-2_14)
+
+* Studie 2: Milgram, S. (1967): The small world Problem. [Text Stauffer 2010] (https://link.springer.com/chapter/10.1007/978-3-531-92575-2_19)
+
+* Studie 3: Granovetter, M. S. 1974: Getting a Job [Text Lutter 2017] (https://link.springer.com/chapter/10.1007/978-3-658-08184-3_21)
+
+* Studie 4: Burt, R. S. 1992: Structural Holes [Text Lutter 2017] https://link.springer.com/chapter/10.1007/978-3-658-08184-3_26
+
+* Studie 5: Uzzi, B. (1977): Social Structure and Competition in Interfirm Networks [Text Wansleben 2017] (https://link.springer.com/chapter/10.1007/978-3-658-08184-3_34)
+
+* Studie 6: Florenz 
+
+* Studie 7: Zachary's Karate Club
+
+* Studie 8: Sozialkapital
 
