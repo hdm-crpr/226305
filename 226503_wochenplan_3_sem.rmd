@@ -9,7 +9,7 @@
 
 *Aufgaben Woche 1*
 * XING-Challenge
-* Installation [R]https://cran.uni-muenster.de/ und [RStudio]https://www.rstudio.com/products/rstudio/download/#download
+* Installation [R](https://cran.uni-muenster.de/) und [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
 * Literatur besorgen: Fuhse, Jan Arendt (2016): [Soziale Netzwerke. Konzepte und Forschungsmethoden.](https://link.springer.com/chapter/10.1007/978-3-531-92575-2_19) Konstanz/München: UVK.
 
 ## Woche 2: Warum Netzwerke?
@@ -22,24 +22,18 @@
 *Literatur für Woche 2:* 
 * Krüger, U. (2013): Die Nähe zur Macht. message, 2013(1), 22-28. 
 * Video: [Die Anstalt](https://www.youtube.com/watch?v=y_bmegfMyVI)
-* Grimm, R. (2013): Gespräch mit Mark Granovetter. Die Stärke des Schwachen. In: GDI Impuls 3/2013, 16-21.
+* Grimm, R. (2013): Gespräch mit Mark Granovetter. Die Stärke des Schwachen. In: [GDI Impuls](https://gdiabo.genios.de/document?id=GDI__D50387D40F7C8AAEC3206E31B8965BDF&src=hitlist&offset=0) 3/2013, 16-21.
 
 *Moodle-Aufgabe: Recherche der Mitgliedschaften eines Journalisten über Wikipedia, Kress, Torial, twitter
 
 # Woche 3: Klassische Studien und Anwendungen der Netzwerkanalyse
+*Klassische Studien*
 * Studie 1: Simmel, G. (1908): Die Kreuzung sozialer Kreise. [Text Nollert 2010](https://link.springer.com/chapter/10.1007%2F978-3-531-92575-2_14)
-
 * Studie 2: Milgram, S. (1967): The small world Problem. [Text Stauffer 2010](https://link.springer.com/chapter/10.1007/978-3-531-92575-2_19)
-
 * Studie 3: Granovetter, M. S. 1974: Getting a Job [Text Lutter 2017](https://link.springer.com/chapter/10.1007/978-3-658-08184-3_21)
-
 * Studie 4: Burt, R. S. 1992: Structural Holes [Text Lutter 2017]https://link.springer.com/chapter/10.1007/978-3-658-08184-3_26
-
 * Studie 5: Uzzi, B. (1977): Social Structure and Competition in Interfirm Networks [Text Wansleben 2017](https://link.springer.com/chapter/10.1007/978-3-658-08184-3_34)
+*Neuere Ansätze*
 
-* Studie 6: Florenz 
 
-* Studie 7: Zachary's Karate Club
-
-* Studie 8: Sozialkapital
 
