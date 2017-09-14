@@ -1,20 +1,22 @@
-## Wochenplan (3. Semester)
+# Wochenplan (3. Semester)
 
-# Woche 1: Einführung
+## Woche 1: Einführung
 * Einführung und Übersicht über die Veranstaltung
 * Workload und Prüfungsleistung
 * Literatur
 * Lernziele und Kompetenzen
 * Zeitplan und Gruppeneinteilung
 
-*Aufgabe*
+*Aufgaben Woche 1*
 * XING-Challenge
 * Installation R https://cran.uni-muenster.de/ und RStudio https://www.rstudio.com/products/rstudio/download/#download
+* Literatur besorgen: Fuhse, Jan Arendt (2016): Soziale Netzwerke. Konzepte und Forschungsmethoden. Konstanz/München: UVK https://www.utb-studi-e-book.de/soziale-netzwerke.html
 
-# Woche 2: Warum Netzwerke?
+## Woche 2: Warum Netzwerke?
 * Netzwerke als "the next big thing"
 * Soziale Netzwerke vs. Soziale Netzwerkanalyse
 * Nutzen von und Kritik an Netzwerken
+* Grundbegriffe der sozialen Netzwerkanalyse
 * Milgram's Studie: Six degrees of separation
 * Netzwerke im Alltag
 
@@ -23,9 +25,13 @@
 * Video: https://www.youtube.com/watch?v=y_bmegfMyVI
 * Grimm, R. (2013): Gespräch mit Mark Granovetter. Die Stärke des Schwachen. In: GDI Impuls 3/2013, 16-21.
 
-*Moodle Aufgabe*
-* Recherche der Mitgliedschaften eines Journalisten über Wikipedia, Kress, Torial, twitter
+*Moodle-Aufgabe: Recherche der Mitgliedschaften eines Journalisten über Wikipedia, Kress, Torial, twitter
 
-# Woche 3: Klassische Positionen
-
+# Woche 3: Klassische Studien und Anwendungen der Netzwerkanalyse
+* Studie 1: Georg Simmel 
+* Studie 2: 
+* Studie 3: Mark S. Granovetter 1974: Getting a Job (Text Lutter 2017a)
+* Studie 4: Ronald S. Burt 1992: Structural Holes (Text Lutter 2017b)
+* Studie 5:
+* Studie 6: 
 
