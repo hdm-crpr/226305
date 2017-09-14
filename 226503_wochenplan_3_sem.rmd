@@ -17,7 +17,9 @@
 * Soziale Netzwerke vs. Soziale Netzwerkanalyse
 * Nutzen von und Kritik an Netzwerken
 * Grundbegriffe der sozialen Netzwerkanalyse
-** Egonetzwerke, 
+* Unterscheidung von Egonetzwerk von Gesamtnetzwerk
+* gerichtete und ungerichtete Beziehungen
+* two-mode und multiplexe Netzwerke
 * Netzwerke im Alltag
 
 *Literatur für Woche 2:* 
@@ -25,10 +27,14 @@
 * Video: [Die Anstalt](https://www.youtube.com/watch?v=y_bmegfMyVI)
 * Grimm, R. (2013): Gespräch mit Mark Granovetter. Die Stärke des Schwachen. In: [GDI Impuls](https://gdiabo.genios.de/document?id=GDI__D50387D40F7C8AAEC3206E31B8965BDF&src=hitlist&offset=0) 3/2013, 16-21.
 
-*Moodle-Aufgabe: Recherche der Mitgliedschaften eines Journalisten über Wikipedia, Kress, Torial, twitter*
+*Moodle-Aufgabe:*
+* Recherche der Mitgliedschaften eines Journalisten über Wikipedia, Kress, Torial, twitter
+* Mini-Test der Kernbegriffe der Netzwerkanalyse
 
 ## Woche 3: Klassische Studien und Anwendungen der Netzwerkanalyse
 *Klassische Studien*
+Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentiert die Studie in einer Fishbowl-Diskussion. Dabei nehmen Sie die Rolle des jeweiligen Forschers ein und stellen möglichst überzeugend ihre Ergebnisse vor. 
+
 * Studie 1: Simmel, G. (1908): Die Kreuzung sozialer Kreise. [Text Nollert 2010](https://link.springer.com/chapter/10.1007%2F978-3-531-92575-2_14)
 * Studie 2: Rogers, E. M. (1962): Diffusion of Innovations. [Text Karnowski & Kümpel 2016](https://link.springer.com/chapter/10.1007/978-3-658-09923-7_9)
 * Studie 3: Milgram, S. (1967): The small world Problem. [Text Stauffer 2010](https://link.springer.com/chapter/10.1007/978-3-531-92575-2_19)
@@ -55,8 +61,32 @@
 
 ## Woche 5: Netzwerkmaße und -konfigurationen
 * Dyaden, Triaden und Cliquen
-* Akteursbezogene Maße: Zentralität
+* Akteursbezogene Maße: Zentralität, Betweenness
 * Netzwerkbezogene Maße: Dichte, Clustering
+
+## Woche 6: Netzwerkmechanismen
+* Reziprozität, Homophilie und Transitivität
+* Clustering
+* Metcalfe's law
+
+## Woche 7: Sozialkapital und Netzwerke in Organisationen
+* Sozialkapital: Grundlagen und Definitionen
+* Netzwerke in Organisationen
+
+## Woche 8: Diffusionsforschung
+* Diffusion von Innovation
+* Meinungsführer in Netzwerken
+
+## Woche 9: Forschungsdesigns der Netzwerkanalyse
+
+## Woche 10/11: Entwicklung eines Forschungsdesigns
+* Forschungsfrage und Hypothese
+* Datenzugang und Pretest
+
+## Woche 12/13: Präsentation Forschungsdesigns
+
+## Woche 14/15: Wrap-up
+* Abgabe überarbeitetes Forschungsdesign
 
 
 
