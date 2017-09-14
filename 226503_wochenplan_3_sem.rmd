@@ -17,6 +17,7 @@
 * Soziale Netzwerke vs. Soziale Netzwerkanalyse
 * Nutzen von und Kritik an Netzwerken
 * Grundbegriffe der sozialen Netzwerkanalyse
+** Egonetzwerke, 
 * Netzwerke im Alltag
 
 *Literatur für Woche 2:* 
@@ -24,9 +25,9 @@
 * Video: [Die Anstalt](https://www.youtube.com/watch?v=y_bmegfMyVI)
 * Grimm, R. (2013): Gespräch mit Mark Granovetter. Die Stärke des Schwachen. In: [GDI Impuls](https://gdiabo.genios.de/document?id=GDI__D50387D40F7C8AAEC3206E31B8965BDF&src=hitlist&offset=0) 3/2013, 16-21.
 
-*Moodle-Aufgabe: Recherche der Mitgliedschaften eines Journalisten über Wikipedia, Kress, Torial, twitter
+*Moodle-Aufgabe: Recherche der Mitgliedschaften eines Journalisten über Wikipedia, Kress, Torial, twitter*
 
-# Woche 3: Klassische Studien und Anwendungen der Netzwerkanalyse
+## Woche 3: Klassische Studien und Anwendungen der Netzwerkanalyse
 *Klassische Studien*
 * Studie 1: Simmel, G. (1908): Die Kreuzung sozialer Kreise. [Text Nollert 2010](https://link.springer.com/chapter/10.1007%2F978-3-531-92575-2_14)
 * Studie 2: Rogers, E. M. (1962): Diffusion of Innovations. [Text Karnowski & Kümpel 2016](https://link.springer.com/chapter/10.1007/978-3-658-09923-7_9)
@@ -36,7 +37,26 @@
 * Studie 6: Burt, R. S. (1992): Structural Holes [Text Lutter 2017](https://link.springer.com/chapter/10.1007/978-3-658-08184-3_26)
 * Studie 7: Krackhardt, D. (1992): The Strength of Strong Ties. [Text Reischauer 2015](https://link.springer.com/chapter/10.1007/978-3-658-09068-5_2)
 
+*Moodle-Aufgaben*
+* Zuordnung der Kernaussagen der Ansätze
+* Vollerhebung des Datensatzes des Kurses
 
+## Woche 4: Visualisierung: Soziometrie und Graphen
+* Moreno's Erbe: Soziometrie
+* Aufbau eines Graphs, Konventionen
+* Repräsentation eines Graphs: Edgelist, Matrix
+* Prämissen guter Visualisierung
+* Schnelle Visualisierungstools
+* Übersicht über igraph
+
+*Moodle-Aufgaben*
+* Bestandteile einer Edgelist erheben
+* Visualisierung Zachary's Karate Club mittels ipgrah (Tutorial)
+
+## Woche 5: Netzwerkmaße und -konfigurationen
+* Dyaden, Triaden und Cliquen
+* Akteursbezogene Maße: Zentralität
+* Netzwerkbezogene Maße: Dichte, Clustering
 
 
 
