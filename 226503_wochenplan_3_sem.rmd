@@ -1,20 +1,31 @@
 ## Wochenplan (3. Semester)
 
-#Woche 1: Einführung
+# Woche 1: Einführung
 * Einführung und Übersicht über die Veranstaltung
 * Workload und Prüfungsleistung
 * Literatur
 * Lernziele und Kompetenzen
 * Zeitplan und Gruppeneinteilung
-* XING-Challenge
 
-#Woche 2: Warum Netzwerke?
+*Aufgabe*
+* XING-Challenge
+* Installation R https://cran.uni-muenster.de/ und RStudio https://www.rstudio.com/products/rstudio/download/#download
+
+# Woche 2: Warum Netzwerke?
 * Netzwerke als "the next big thing"
 * Soziale Netzwerke vs. Soziale Netzwerkanalyse
 * Nutzen von und Kritik an Netzwerken
+* Milgram's Studie: Six degrees of separation
 * Netzwerke im Alltag
 
-Literatur füt Woche 2: 
+*Literatur für Woche 2:* 
 * Krüger, U. (2013): Die Nähe zur Macht. message, 2013(1), 22-28. 
 * Video: https://www.youtube.com/watch?v=y_bmegfMyVI
-* Interview mit Granovetter in GDI 
+* Grimm, R. (2013): Gespräch mit Mark Granovetter. Die Stärke des Schwachen. In: GDI Impuls 3/2013, 16-21.
+
+*Moodle Aufgabe*
+* Recherche der Mitgliedschaften eines Journalisten über Wikipedia, Kress, Torial, twitter
+
+# Woche 3: Klassische Positionen
+
+
