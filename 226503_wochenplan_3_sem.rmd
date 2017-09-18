@@ -9,8 +9,8 @@
 
 *Aufgaben Woche 1*
 * XING-Challenge
-* Installation [R](https://cran.uni-muenster.de/) und [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
 * Literatur besorgen: Fuhse, Jan Arendt (2016): [Soziale Netzwerke. Konzepte und Forschungsmethoden.](https://link.springer.com/chapter/10.1007/978-3-531-92575-2_19) Konstanz/München: UVK.
+* Installation [SocNetV](http://socnetv.org/downloads/)
 
 ## Woche 2: Warum Netzwerke?
 * Netzwerke als "the next big thing"
@@ -53,16 +53,20 @@ Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentier
 * Repräsentation eines Graphs: Edgelist, Matrix
 * Prämissen guter Visualisierung
 * Schnelle Visualisierungstools
-* Übersicht über igraph
 
 *Moodle-Aufgaben*
 * Bestandteile einer Edgelist erheben
-* Visualisierung Zachary's Karate Club mittels ipgrah (Tutorial)
+* Visualisierung Zachary's Karate Club in SocNetV
 
 ## Woche 5: Netzwerkmaße und -konfigurationen
 * Dyaden, Triaden und Cliquen
 * Akteursbezogene Maße: Zentralität, Betweenness
 * Netzwerkbezogene Maße: Dichte, Clustering
+
+*Moodle-Aufgaben*
+* Bestandteile einer Edgelist erheben
+* Analyse & Visualisierung Zachary's Karate Club in SocNetV
+* Analyse und Interpretation [Moviegalaxies](http://moviegalaxies.com/)
 
 ## Woche 6: Netzwerkmechanismen
 * Reziprozität, Homophilie und Transitivität
@@ -77,7 +81,10 @@ Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentier
 * Diffusion von Innovation
 * Meinungsführer in Netzwerken
 
+
 ## Woche 9: Forschungsdesigns der Netzwerkanalyse
+
+* Installation [R](https://cran.uni-muenster.de/) und [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
 
 ## Woche 10/11: Entwicklung eines Forschungsdesigns
 * Forschungsfrage und Hypothese
