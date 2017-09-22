@@ -6,8 +6,7 @@ Zur Lektüre & Anschaffung empfohlen
 * Fuhse, J. A. (2016): [Soziale Netzwerke](https://www.utb-studi-e-book.de/mylibrary/?q=jan+fuhse&order=relevance&dir=desc). Konstanz: UTB. *Aktuelles und lesenswertes Lehrbuch zum aktuellen Stand der Netzwerkforschung mit Übungen.* 
 * Holzer, B. (2010): [Netzwerke](https://www.degruyter.com/viewbooktoc/product/461661?rskey=oguDzH&result=2). (2., unveränderte Auflage 2010). Bielefeld: transcript. *Stärker theoretisch ausgerichtete Einführung in soziologische Netzwerkkonzepte*.
 
-image: ![Cover Fuhse](http://www.utb-shop.de/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/9/7/9783825245634_3.jpg)
-
+<img src="http://www.utb-shop.de/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/9/7/9783825245634_3.jpg" alt="example" width="100">
 
 Generelle Literatur:
 * Weyer, J. (2014): [Soziale Netzwerke. Konzepte und Methoden der sozialwissenschaftlichen Netzwerkforschung] https://www.degruyter.com/viewbooktoc/product/214091?rskey=dxybCo&result=3. (3. Auflage.) München: Oldenbourg.
