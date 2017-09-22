@@ -6,15 +6,52 @@ In der Veranstaltung lernen Sie die Geschichte der sozialen Netzwerke und deren 
 In der praktischen Übung werden Sie vor allem Instrumente der sozialen Netzwerkanalyse in Theorie und Praxis verstehen und anwenden können. Sie lernen die Übersetzung von theoretischen Konzepten in methodisch operationalisierbare Einheiten wie etwa Knoten und Kanten. Sie können einfache Ego-Netzwerke grafisch abbilden und Relationen zwischen Knoten basierend auf bestimmten Maßen wie Zentralität oder Dichte berechnen. Studierende können einfache Netzwerkdiagramme interpretieren und deren theoretische Annahmen reflektieren. Sie haben sich in praktischen Übungen die Kompetenz erarbeitet, gängige Software der computergestützten Netzwerkanalyse für ein selbstgewähltes Forschungsprojekt einzusetzen.
 
 ## Workload
-5 ECTS entsprechen 150 Zeitstunden für das gesamte Modul
+5 ECTS entsprechen 150 Zeitstunden für das gesamte Modul und sind wie folgt verteilt:
 
 Zeit  |Aufgaben
 ----- |----------
 56 h  |Präsenzphase an der HdM (4 SWS in zwei Semestern, inklusive Blockveranstaltung)
 28 h  |Vor- und Nachbereitung der Veranstaltungen (Lektüre und Übungen)
-66 h  |Konzeption und Umsetzung eines eigenen Forschungsprojekts
+66 h  |Konzeption, Umsetzung, Präsentation und Dokumentation eines eigenen Forschungsprojekts
 
-Das Modul Netzwerk- und Beziehungsmanagement besteht aus den Veranstaltungen 226503a „Grundlagen sozialer Netzwerke“ (3. Semester) und 226503b „Methoden der Netzwerkanalyse“ (4. Semester). Als Prüfungsleistung führen Sie im 3. Semester ein Online-Testat (bestanden/nicht-bestanden) durch  und entwickeln ein eigenes Forschungsdesign für Netzwerke. Dieses Forschungsdesign setzen Sie im 4. Semester in einem Team (Gruppenarbeit mit maximal 4 Personen) mit eigener Datenerhebung, Datensatz, Visualisierung und Interpretation der Ergebnisse (Forschungsbericht) um und präsentieren ihre Ergebnisse.
+Für das Forschungsprojekt schreibt jedes Team einen Forschungsbericht, in dem detailliert der Zeitaufwand aller Teammitglieder stundengenau aufgeschlüsselt ist.
+
+## Prüfungsformen und Beurteilungsraster
+
+Das Modul Netzwerk- und Beziehungsmanagement besteht aus den Veranstaltungen 226503a „Grundlagen sozialer Netzwerke“ (3. Semester) und 226503b „Methoden der Netzwerkanalyse“ (4. Semester). Als Prüfungsleistung führen Sie im 3. Semester ein Online-Testat (bestanden/nicht-bestanden) durch  und entwickeln ein eigenes Forschungsdesign für Netzwerke. Dieses Forschungsdesign setzen Sie im 4. Semester in einem Team (Gruppenarbeit mit maximal 5 Personen) mit eigener Datenerhebung, Datensatz, Visualisierung und Interpretation der Ergebnisse (Forschungsbericht) um und präsentieren ihre Ergebnisse in einer öffentlichen Abschlussveranstaltung.
+
+## Anforderungen an das Forschungsprojekt
+
+Ein Netzwerkprojekt umfasst
+* eine klar umrissenenForschungsfrage,
+* eine eigenständig durchgeführte Datenerhebung, -bereinigung, und -auswertung,
+* eine Analyse des Netzwerks nach gängigen Netzwerkmaßen (z.B. Zentralitätsmaße, Netzwerkmaße, etc.)
+* eine stimmige Visualisierung des Netzwerks, 
+* eine Interpretation der Ergebnisse,
+* und Rohdaten (CSV-Datei) im Anhang.
+
+## Umfang des Projekts bzw. erforderte Abgaben
+1. Zwischenpräsentation mit Vorgehen (5 Folien pro Team, Gruppenarbeit): 
++ Forschungsfrage, 
++ Gegenstand, 
++ Datenzugang, 
++ erwartetes Netzwerk (Art und Skizze), 
++ grober Zeitplan
+2.  Poster mit Visualisierung für die Postersession (Gruppenarbeit)
++ Poster im Format A3 ausgedruckt
++ digitales Poster für Beamer als PDF
+  + Visualisierung, Legende, Quellenmaterial, Vorgehen/Methode, Interpretation, Limitationen
+3. Forschungsbericht im Umfang von ca. 10 bis 15 Seiten ohne Anhang (Gruppenarbeit): 
++ Begründung der Forschungsfrage,
++ Verlauf der Datenerhebung,
++ Interpretation der Daten, 
++ Kernergebnisse und Limitationen, 
++ Teamreflektion über das Vorgehen
+* Anhang zum Forschungsbericht 
++ Datensatz als CSV, Poster, eingesetzte Arbeitszeit bzw. Teamaufteilung
+4. „Lessons learned“/ Reflexionspapier über persönlichen Lernerfolg (Einzelabgabe)
+  + Was habe ich über Netzwerke gelernt? Was habe ich über Gruppenarbeiten gelernt? 
+  + Was würde ich anders machen? Warum?
 
 ## Learning Outcomes
 Nach dem Besuch der Veranstaltung sind Sie in der Lage
