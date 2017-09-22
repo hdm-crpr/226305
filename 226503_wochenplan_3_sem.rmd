@@ -6,8 +6,11 @@ Zur Lektüre & Anschaffung empfohlen
 * Fuhse, J. A. (2016): [Soziale Netzwerke](https://www.utb-studi-e-book.de/mylibrary/?q=jan+fuhse&order=relevance&dir=desc). Konstanz: UTB. *Aktuelles und lesenswertes Lehrbuch zum aktuellen Stand der Netzwerkforschung mit Übungen.* 
 * Holzer, B. (2010): [Netzwerke](https://www.degruyter.com/viewbooktoc/product/461661?rskey=oguDzH&result=2). (2., unveränderte Auflage 2010). Bielefeld: transcript. *Stärker theoretisch ausgerichtete Einführung in soziologische Netzwerkkonzepte*.
 
+image: ![Cover Fuhse](http://www.utb-shop.de/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/9/7/9783825245634_3.jpg)
+
+
 Generelle Literatur:
-* Weyer, J. (2014): [Soziale Netzwerke. Konzepte und Methoden der sozialwissenschaftlichen Netzwerkforschung]https://www.degruyter.com/viewbooktoc/product/214091?rskey=dxybCo&result=3. (3. Auflage.) München: Oldenbourg.
+* Weyer, J. (2014): [Soziale Netzwerke. Konzepte und Methoden der sozialwissenschaftlichen Netzwerkforschung] https://www.degruyter.com/viewbooktoc/product/214091?rskey=dxybCo&result=3. (3. Auflage.) München: Oldenbourg.
 * Schönhuth, M.; Gamper, M.; Kronenwett, M. & Stark, M. (2014): [Visuelle Netzwerkforschung. Qualitative, quantitative und partizipative Zugänge](https://www.degruyter.com/viewbooktoc/product/397622?rskey=lVcTIr&result=8). Bielefeld: transcript. 
 
 
@@ -38,9 +41,9 @@ https://link.springer.com/content/pdf/10.1007%2Fs00608-017-0503-z.pdf
 * Netzwerke im Alltag
 
 *Literatur für Woche 2:* 
-* Krüger, U. (2013): Die Nähe zur Macht. message, 2013(1), 22-28. 
+* Krüger, U. (2013): [Die Nähe zur Macht](http://www.message-online.com/wp-content/uploads/Artikel_Krueger_Die_Naehe_zur_Macht_Message_1_2013.pdf). In: message, 2013(1), 22-28. 
 * Video: [Die Anstalt](https://www.youtube.com/watch?v=y_bmegfMyVI)
-* Grimm, R. (2013): Gespräch mit Mark Granovetter. Die Stärke des Schwachen. In: [GDI Impuls](https://gdiabo.genios.de/document?id=GDI__D50387D40F7C8AAEC3206E31B8965BDF&src=hitlist&offset=0) 3/2013, 16-21.
+* Grimm, R. (2013): [Gespräch mit Mark Granovetter. Die Stärke des Schwachen](https://gdiabo.genios.de/document?id=GDI__D50387D40F7C8AAEC3206E31B8965BDF&src=hitlist&offset=0). In: GDI Impuls 3/2013, 16-21.
 
 *Moodle-Aufgabe:*
 * Recherche der Mitgliedschaften eines Journalisten über Wikipedia, Kress, Torial, twitter
@@ -48,7 +51,7 @@ https://link.springer.com/content/pdf/10.1007%2Fs00608-017-0503-z.pdf
 
 ## Woche 3: Klassische Studien und Anwendungen der Netzwerkanalyse
 *Klassische Studien*
-Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentiert die Studie in einer Fishbowl-Diskussion. Dabei nehmen Sie die Rolle des jeweiligen Forschers ein und stellen möglichst überzeugend ihre Ergebnisse vor. 
+Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentiert die Studie in einer Fishbowl-Diskussion. Dabei nehmen Sie die Rolle des jeweiligen Forschers ein und stellen möglichst überzeugend ihre Ergebnisse vor (5 min pro Team, alle Formen der Präsentation erlaubt, so lange Sie ohne Beamer auskommen).
 
 * Studie 1: Simmel, G. (1908): Die Kreuzung sozialer Kreise. [Text Nollert 2010](https://link.springer.com/chapter/10.1007%2F978-3-531-92575-2_14)
 * Studie 2: Rogers, E. M. (1962): Diffusion of Innovations. [Text Karnowski & Kümpel 2016](https://link.springer.com/chapter/10.1007/978-3-658-09923-7_9)
