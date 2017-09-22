@@ -1,5 +1,16 @@
 # Wochenplan (3. Semester)
 
+## Generelle Literaturhinweise
+
+Zur Lektüre & Anschaffung empfohlen
+* Fuhse, J. A. (2016): [Soziale Netzwerke](https://www.utb-studi-e-book.de/mylibrary/?q=jan+fuhse&order=relevance&dir=desc). Konstanz: UTB. *Aktuelles und lesenswertes Lehrbuch zum aktuellen Stand der Netzwerkforschung mit Übungen.* 
+* Holzer, B. (2010): [Netzwerke](https://www.degruyter.com/viewbooktoc/product/461661?rskey=oguDzH&result=2). (2., unveränderte Auflage 2010). Bielefeld: transcript. *Stärker theoretisch ausgerichtete Einführung in soziologische Netzwerkkonzepte*.
+
+Generelle Literatur:
+* Weyer, J. (2014): [Soziale Netzwerke. Konzepte und Methoden der sozialwissenschaftlichen Netzwerkforschung]https://www.degruyter.com/viewbooktoc/product/214091?rskey=dxybCo&result=3. (3. Auflage.) München: Oldenbourg.
+* Schönhuth, M.; Gamper, M.; Kronenwett, M. & Stark, M. (2014): [Visuelle Netzwerkforschung. Qualitative, quantitative und partizipative Zugänge](https://www.degruyter.com/viewbooktoc/product/397622?rskey=lVcTIr&result=8). Bielefeld: transcript. 
+
+
 ## Woche 1: Einführung
 * Einführung und Übersicht über die Veranstaltung
 * Workload und Prüfungsleistung
@@ -11,6 +22,10 @@
 * XING-Challenge
 * Literatur besorgen: Fuhse, Jan Arendt (2016): [Soziale Netzwerke. Konzepte und Forschungsmethoden.](https://link.springer.com/chapter/10.1007/978-3-531-92575-2_19) Konstanz/München: UVK.
 * Installation [SocNetV](http://socnetv.org/downloads/)
+
+*Literatur für Woche 1*
+* Krajic, K. (2017): Netzwerke überall? Anmerkungen zum wissenschaftlichen und praktischen Gebrauch von Netzwerk und Netzwerkanalyse. Paediatric Paedology 2017, 52, Suppl. 1: S4–S9; DOI 10.1007/s00608-017-0503-z.
+https://link.springer.com/content/pdf/10.1007%2Fs00608-017-0503-z.pdf
 
 ## Woche 2: Warum Netzwerke?
 * Netzwerke als "the next big thing"
@@ -61,7 +76,7 @@ Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentier
 ## Woche 5: Netzwerkmaße und -konfigurationen
 * Dyaden, Triaden und Cliquen
 * Akteursbezogene Maße: Zentralität, Betweenness
-* Netzwerkbezogene Maße: Dichte, Clustering
+* Netzwerkbezogene Maße: Dichte, Cluster, Pfaddistanz
 
 *Moodle-Aufgaben*
 * Bestandteile einer Edgelist erheben
@@ -70,8 +85,7 @@ Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentier
 
 ## Woche 6: Netzwerkmechanismen
 * Reziprozität, Homophilie und Transitivität
-* Clustering
-* Metcalfe's law
+* Powerlaws: Metcalfe's law
 
 ## Woche 7: Sozialkapital und Netzwerke in Organisationen
 * Sozialkapital: Grundlagen und Definitionen
@@ -80,6 +94,9 @@ Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentier
 ## Woche 8: Diffusionsforschung
 * Diffusion von Innovation
 * Meinungsführer in Netzwerken
+
+## Woche 9: Semanatische Netzwerke
+
 
 
 ## Woche 9: Forschungsdesigns der Netzwerkanalyse
