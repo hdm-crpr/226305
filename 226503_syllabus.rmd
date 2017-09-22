@@ -6,10 +6,13 @@ In der Veranstaltung lernen Sie die Geschichte der sozialen Netzwerke und deren 
 In der praktischen Übung werden Sie vor allem Instrumente der sozialen Netzwerkanalyse in Theorie und Praxis verstehen und anwenden können. Sie lernen die Übersetzung von theoretischen Konzepten in methodisch operationalisierbare Einheiten wie etwa Knoten und Kanten. Sie können einfache Ego-Netzwerke grafisch abbilden und Relationen zwischen Knoten basierend auf bestimmten Maßen wie Zentralität oder Dichte berechnen. Studierende können einfache Netzwerkdiagramme interpretieren und deren theoretische Annahmen reflektieren. Sie haben sich in praktischen Übungen die Kompetenz erarbeitet, gängige Software der computergestützten Netzwerkanalyse für ein selbstgewähltes Forschungsprojekt einzusetzen.
 
 ## Workload
-5 ECTS entsprechend 150 Zeitstunden
-* Präsenzphase an der HdM (4 SWS): 56h
-* Vor- und Nachbereitung (eigenständige Lektüre, Bearbeitung der Übungen, Recherchen. etc.) der Termine mit je 2h: 56h
-* Konzeption und Umsetzung eines eigenen Projekts zur sozialen Netzwerkanalyse: 48h
+5 ECTS entsprechen 150 Zeitstunden für das gesamte Modul
+
+Zeit  | Aufgaben
+----- |----------
+56 h  | Präsenzphase an der HdM (4 SWS in zwei Semestern, inklusive Blockveranstaltung)
+28 h  | Vor- und Nachbereitung der Veranstaltungen (Lektüre und Übungen)
+66 h  | Konzeption und Umsetzung eines eigenen Forschungsprojekts
 
 Das Modul Netzwerk- und Beziehungsmanagement besteht aus den Veranstaltungen 226503a „Grundlagen sozialer Netzwerke“ (3. Semester) und 226503b „Methoden der Netzwerkanalyse“ (4. Semester). Als Prüfungsleistung führen Sie im 3. Semester ein Online-Testat (bestanden/nicht-bestanden) durch  und entwickeln ein eigenes Forschungsdesign für Netzwerke. Dieses Forschungsdesign setzen Sie im 4. Semester in einem Team (Gruppenarbeit mit maximal 4 Personen) mit eigener Datenerhebung, Datensatz, Visualisierung und Interpretation der Ergebnisse (Forschungsbericht) um und präsentieren ihre Ergebnisse.
 
@@ -24,3 +27,21 @@ Zudem haben Sie die Grundzüge von R und RStudio erlernt und können nun
 * Netzwerkdaten erheben und bereinigen,
 * Datenformate wie edgelists als CSV-Datei in R importieren,
 * das R-Paket "igraph" und weitere zur Analyse und Visualisierung von Netzwerdaten einsetzen.
+
+## Literatur
+## Generelle Literaturhinweise
+
+Zur Lektüre empfohlen:
+* Fuhse, J. A. (2016): [Soziale Netzwerke](https://www.utb-studi-e-book.de/mylibrary/?q=jan+fuhse&order=relevance&dir=desc). Konstanz: UTB. *Aktuelles und lesenswertes Lehrbuch zum aktuellen Stand der Netzwerkforschung mit Übungen.* 
+* Holzer, B. (2010): [Netzwerke](https://www.degruyter.com/viewbooktoc/product/461661?rskey=oguDzH&result=2). (2., unveränderte Auflage 2010). Bielefeld: transcript. *Stärker theoretisch ausgerichtete Einführung in soziologische Netzwerkkonzepte*.
+
+<img src="http://www.utb-shop.de/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/9/7/9783825245634_3.jpg" alt="Fuhse_Netzwerke" width="200">  <img src="http://www.transcript-verlag.de/media/image/thumbnail/9783899423655_720x720.jpg" alt="Holzer_Netzwerke" width="175">
+
+Generelle Literatur:
+* Christakis, N. F., Fowler, J. H. (2011): Die Macht sozialer Netzwerke. Frankfurt/Main: Fischer TB. *Das Taschenbuch ist nicht teuer und liefert einen guten Einstieg in die soziale Netzwerkanalyse. Leider nicht in unserer ebook-Sammlung vertreten, aber zur vertieften Anschaffung empfohlen. Eher einfach und für ein breites Publikum geschrieben*
+* Easley, D., & Kleinberg, J. (2010): Networks, Crowds, and Markets. Reasoning about a highly Connected World. Cambridge: Cambridge University Press. *Kostenlos als PDF erhältlich, mit 800 Seiten eine sehr umfangreiche Analyse relevanter Themen mit einem besonderen Schwerpunkt auf Wirtschaft und neuen Medien.*
+* Jansen, D. (2010): Netzwerkanalyse als Instrument der Organisationsforschung. In: Mayrhofer, W., Meyer, M., & Tischer, S. (Hg.): Praxis der Organisationsanalyse. Wien: facultas, 208-226. *Wie führt man eine Netzwerkanalyse aus? Praktische Hinweise für eigene Forschungsdesigns, insbesondere in der Organisationsforschung.*
+* Schönhuth, M.; Gamper, M.; Kronenwett, M. & Stark, M. (2014): [Visuelle Netzwerkforschung. Qualitative, quantitative und partizipative Zugänge](https://www.degruyter.com/viewbooktoc/product/397622?rskey=lVcTIr&result=8). Bielefeld: transcript. 
+* Stegbauer, C., & Häußling, R. (Hg.) (2010): Handbuch Netzwerkforschung. Wiesbaden: VS Verlag für Sozialwissenschaften. *Umfassendes Handbuch zu allen Aspekten der Netzwerkforschung. Wir vertiefen spezifische Elemente daraus in der Veranstaltung. Gut geeignet als Nachschlagewerk, um sich einen Überblick zu verschaffen.*
+* Stegbauer, C. & Rausch, A. (2013): Einführung in Netdraw. Erste Schritte mit dem Netzvisualisierungsprogramm. Wiesbaden: Springer VS. *Hilfreiche und detaillierte Erklärung zur Visualisierung mit Netdraw.*.
+* Weyer, J. (2014): [Soziale Netzwerke. Konzepte und Methoden der sozialwissenschaftlichen Netzwerkforschung] https://www.degruyter.com/viewbooktoc/product/214091?rskey=dxybCo&result=3. (3. Auflage.) München: Oldenbourg. *Sammelband mit gutem Überblick über verschiedene Aspekte der Netzwerkforschung.*
