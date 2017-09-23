@@ -88,15 +88,15 @@ Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentier
 
 
 
-## Woche 9: Forschungsdesigns der Netzwerkanalyse
+## Woche 10: Forschungsdesigns der Netzwerkanalyse
 
 * Installation [R](https://cran.uni-muenster.de/) und [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
 
-## Woche 10/11: Entwicklung eines Forschungsdesigns
+## Woche 11/12: Entwicklung eines Forschungsdesigns
 * Forschungsfrage und Hypothese
 * Datenzugang und Pretest
 
-## Woche 12/13: Präsentation Forschungsdesigns
+## Woche 13: Präsentation Forschungsdesigns
 
 ## Woche 14/15: Wrap-up
 * Abgabe überarbeitetes Forschungsdesign
