@@ -1,0 +1,358 @@
+# 226503 Block Tag 1 (Einführung R)
+
+## Ziele Tag 1
+* Installation von R und RStudio
+* Installation von SocNetV
+* Grundlegendes Verständnis von R Objekten und Befehlen
+* Installation von R Paketen: igraph
+
+## Übungen Tag 1
+* Übung 1: igraph-Format
+* Übung 2: import von Daten als igraph Objekt
+* Übung 3: Lesen des igraph Datenformats
+* Übung 4: Eingabe und Visualisierung eines einfachen Netzwerks
+
+# Installation von R, RStudio und SocNetV
+Soziale Netzwerkanalyse (SNA) hat eine theoretische und empirische Ausrichtung. Wir überprüfen theoretische Annahmen mit empirischen Methoden. Dazu verwenden wir folgende open-source Software
+
+R ist eine der wichtigsten open-source Software-Pakete für Datenanalyse und Visualisierung. Installation via https://cran.uni-muenster.de/
+
+RStudio ist eine grafische Oberfläche für R. Installation via https://www.rstudio.com/products/rstudio/download/
+
+SocNetV ist eine integrierte Open-Source Software für die Analyse und Visualisierung von Netzwerken. Es bietet nicht so viele Möglichkeiten wie R, ist aber teilweise einfacher zu bedienen. Der Fokus der Analyse liegt allerdings auf R. Installation via http://socnetv.org/downloads/
+
+## Was ist R und warum sollte ich mich damit beschäftigen?
+
+Im Gegensatz zu den meisten Software-Pakete, die Sie kennen (Microsoft Office, Photoshop, etc.) oder Apps auf Mobilgeräten (Instagram, Youtube, etc.) arbeiten Sie in R direkt auf der Kommando-Zeile. Das bedeutet, dass Sie direkt sehen, was Sie tun. Mit RStudio erhalten Sie eine grafische Oberfläche, aber die Idee der Kommando-Zeile (Konsole) bleibt bestehen.
+
+Das bedeutet:
+* R macht nur das, was Sie R sagen.
+* Sie müssen einige Konventionen lernen und beherrschen.
+* Sie haben die volle Kontrolle über ihren Code und die Daten.
+* Fehler bei der Eingabe im Syntax werden gnadenlos von R bestraft. Der Voreil ist, dass Sie nachvollziehen können, wo der Fehler liegt und diesen korrigieren.
+* Das setzt ein sorgfältiges und konzentriertes Arbeiten voraus.
+
+## Aufbau von RStudio
+RStudio ist eine grafische Oberfläche von R. Sie haben in der Regel vier Felder, die unter RStudio > Preferences > Pane Layout konfigurieren können.
+
+Ich verwende folgende Anordnung:
+
+oben links: Source
+oben rechts: Environment
+unten links: Console
+unten rechts: Files, Plots, Help, etc.
+
+Source: hier können Sie Skripte und Dateien laden und ansehen.
+Environment: zeigt Datein, Datensätze und die Geschichte der Eingaben.
+Console: hier werden die Befehle direkt eingegeben und die Ergebnisse ausgegeben.
+Files, Plots: Anzeige von Dateienstruktur, Visualisierung, Installation von Paketen und Hilfsfunktion.
+
+## Konfiguration von R
+R kommt mit den Standard-Paketen für die statistische Analyse. Wir brauchen aber zusätzliche Pakete zur Netzwerkanalyse. Ein Paket ist ein Software-Paket, das wir über die Rubrik "Packages" > Install installieren können.
+
+Unter Packages sehen Sie alle aktuell installierten Pakete. Mit dem Befehl "install" können Sie aus einem Repository (einer Datenbank, auf der alle Pakete liegen) die notwendigen Pakete installieren.
+
+Geben Sie dazu in der Console folgenden Befehl ein:
+
+```{r}
+install.packages("igraph")
+```
+
+Damit wird das Paket "igraph" installiert.
+
+*Installation via RStudio*
+Suchen Sie das Paket "igraph" und installieren Sie es in ihrer R Version. Dazu sollen alle abhängigen Pakete ("install dependencies") mit installiert werden. Sie sehen dann das Paket "igraph" unter packages.
+
+Über die Kommando-Zeile geht das aber viel schneller.
+
+Installieren Sie folgende Pakete und deren abhängige Pakete:
+* igraph
+* igraphdata
+* intergraph
+
+```{r}
+install.packages("intergraph")
+```
+
+## Wichtige Befehle in R und Konventionen für die Installation
+
+* R ist kontext-sensitiv, d.h. die Groß- und Kleinschreibung und die Zeichensetzung sind relevant! 
+* alle Befehle werden in der Console direkt eingegeben oder kopiert. Alternativ können auch komplexere Befehle über Source geladen werden und dann mit den "Run"-Befehl gestartet werden.
+* In der Console ist > der Indikator, dass Sie den Befehl eingeben können. Wenn Sie hier feststecken kommen Sie mit der Taste ESC wieder zurück.
+
+Übung: geben Sie den Befehl "demo(graphics)" in der Console ein und schauen Sie sich die Visualisierungen an.
+
+```{r}
+demo(graphics)
+```
+
+
+* alle Pakete und Objekte werden in " " gesetzt, Beispiel: "igraph"
+* mit dem ? vor einem direkten Befehl wird die Hilfefunktion aufgerufen, Beispiel: "?install.packages". Für jedes Paket werden die Argumente und Funktionen auch mit Beispielen erklärt.
+* Jeder Befehl schließt mit einer Klammer (), in der das Objekt und damit verbundende Funktionen und Argumente erläutert. Achten Sie darauf, dass die Klammern immer geschlossen werden, da manche Argumente verschachtelt sind.
+
+*Sie rufen ein Paket (bzw. eine Funktion) auf, indem sie den Befehl direkt nach > in die Konsole eingeben. Die Ausgaben erhalten Sie dann direkt darunter.
+
+Bei vielen Befehlen macht Ihnen RStudio Vorschläge zur Vervollständigung, beispielsweise Klammer, Datensätze, etc.
+
+Wir werden das an einigen Beispielen üben.
+
+Sie müssen jetzt noch die *working directory" festlegen. Das ist der Ordner, in dem alle Dateien abgelegt werden. Dazu gehen Sie auf das Feld Files und wählen das entsprechende Verzeichnis aus (i.d.R. ein neuer Ordner auf dem Desktop). Gehen Sie dann auf > More > Set as Working Directory. 
+
+
+# Konventionen in R 
+
+Damit Sie einen Überblick über die Kernfunktionen von R haben emfehle ich, dass Sie das Paket "swirl" installieren und dann damit arbeiten. 
+
+http://swirlstats.com/students.html
+
+Swirl ist eine Lernsoftware, mit der Sie direkt in R lernen können (dauert ca. 30 bis 60 min)
+
+```{r}
+install.packages("swirl")
+swirl()
+```
+
+Das Programm führt Sie interaktiv durch die wichtigsten Funktionen in R.
+
+Sie sollten folgende Kapitel auf jeden Fall machen:
+
+1: R Programming: The basics of programming in R
+daraus folgende Unterkapitel
+
+Wer noch etwas vertiefen möchte:
+4. Exploratory Data Analysis, Kapitel 1-7.
+
+Ebenso sollten Sie das Video auf Video2Brain zur Einführung in R anschauen, wenn Ihnen etwas unklar ist. 
+
+-> Video R
+
+
+# igraph und igraphdata Pakete: Grundlagen
+
+Bitte laden Sie die Pakete "igraph" und "igraphdata"
+
+```{r}
+library("igraph")
+library("igraphdata")
+```
+
+Verschaffen Sie sich eine Übersicht in der Hilfefunktion über das Paket "igraphdata"
+
+```{r}
+??igraphdata
+```
+
+Klären Sie, welche Datensätze in "igraphdata" hinterlegt sind:
+
+```{r}
+data(package="igraphdata")
+```
+
+Der Befehl zeigt Ihnen die kompletten Datensätze als Datei im Feld Source an.
+
+Uns interessiert jetzt der Datensatz "karate". Das ist der berühmte Datensatz von W.W. Zachary von 1977: Zachary, W.W. (1977): (An information flow model for conflict and fission in small groups.)[http://www1.ind.ku.dk/complexLearning/zachary1977.pdf] Journal of Anthropological Research 33, 452-473.
+
+Das ist ein kleines Netzwerk mit 34 Knoten und 78 Edges, das Zachary im Laufe von zwei Jahren erhoben hat. Es sind nur zwei Knoten benannt: Mr. Hi, der Karate-Trainer und Mr. A, der Präsident des Klubs. Beide waren in einem Wettbewerb, der zu einem Bruch zwischen Mr. A und Mr. Hi geführt hat. 
+
+Mit dem Befehl >karate
+
+```{r}
+karate
+```
+
+wird das igraph Objekt aufgerufen. Es ist wichtig, dass Sie die Konventionen für das igraph Objekt verstehen:
+
+In der ersten Zeile steht der zufällige Datencode des Netzwerks:
+U = undirected
+D = directed
+N = named graph
+W = weighted
+B = bipartite graph
+
+Danach kommt der Name des Netzwerks: Zachary's karate club network
+
+Was bedeutet jetzt UNW?
+
+In der nächsten Zeile "+ attr:" werden die Attribute bzw. Eigenschaften der Knoten abgetragen. Jedes Attribut hat einen Namen und eine genauere Erläuterung in der Klammer: C steht für Charakter, also einen Texteintrag, N steht für numerical, also einen Zahleneintrag.
+
+Unter +edges wird dann ein Auszug des Datensatzes dargestellt. igraph verwendet dafür eine einfache graphische Darstellung:
+
+* A -- B steht für eine ungerichtete Verbindung zwischen A und B
+* A --+ B ist eine einfache gerichtete Verbindung von A zu B
+* B +-- C ist eine einfache gerichtete Verbindung von B zu C
+* C +--+ D ist eine reziproke Beziehung zwischen C und D
+
+Mit dieser Konvention lassen sich auch einfache igraph Objekte herstellen: Merken Sie sich einfach, dass ein + die Pfeilrichtung in einem gerichteten Netzwerk darstellt.
+
+Um ein neues Netzwerk anzulegen, müssen wir dem Objekt einen Namen geben und eine Funktion zuweisen. Bei R läuft das über den "<-" Befehl. Links vom Pfeil steht das neue Objekt, rechts die entsprechende Funktion. 
+
+In dem Beispiel berechnen wir einen Wert und weißen dem Wert die Variable "a" zu. Dann können wir mit dem Wert weiterrechnen. Das gilt prinzipiell für alle Funktionen.
+
+```{r}
+2+4
+a <- 6
+4+a
+```
+
+# Übung 1: Eingabe eines Netzwerks
+
+Sie lernen jetzt, wie Sie schnell ein kleines Netzwerk als igraph Objekt anlegen.
+
+Dazu verwenden wir den Befehl "make_graph" und nennen unser neues netzwerk "netneu".
+
+Wir können jetzt verschiedene Befehle verwenden:
+
+Wir können einfach eine Verbindung zwischen Akteuren in einem Vektor angeben:
+c(1,2, 2,3, 2:3:3, 3,4, 5,1)
+
+dabei ist jedes Zahlenpaar eine Verbindung zwischen zwei Knoten
+
+# directed=FALSE
+
+gibt an, dass das Netzwerk ungerichtet ist.
+
+```{r}
+netneu <- make_graph( c(1,2, 2,3, 3,4, 3,1, 5,1), directed=FALSE)
+```
+
+Nach der Eingabe des Netzwerks wollen wir nun genauer anschauen. 
+
+```{r}
+netneu
+```
+
+Mit der Eingabe des Namen der Variable, auf die sie die Funktion angewandt haben (netneu) wird eine Zusammenfassung des igraph Objekts ausgegeben.
+
+Wir können das Netzwerk jetzt noch genauer untersuchen:
+
+```{r}
+ecount(netneu)
+```
+
+ecount() zählt die Anzahl der edges
+vcount() zählt die Anzahl der vertices/Knoten
+is.directed() klärt, ob das Netzwerk gerichtet oder ungerichtet ist.
+
+```{r}
+ecount(netneu)
+is.directed(netneu)
+```
+
+Wir werden jetzt die erste Visualisierung des Netzwerks machen!
+
+Dazu verwenden wir den Befehl "plot()"
+
+```{r}
+plot(netneu)
+```
+
+Sie sehen jetzt das Netzwerk unter dem Reiter "Plots". Mit der Zoom-Funktion können Sie sich das Netzwerk genauer anschauen.
+
+Alternativ können kleine Netzwerke auch direkt in als igraph Objekt angelegt werden. Dazu verwenden wir wieder den Befehl make_graph(), allerdings werden wir die Beziehungen zwischen den Akteuren direkt anlegen.
+
+Dazu verwenden wir die Konvention (~ John -- Mary, John -- Paul, Donald -- John, Mary -- Donald:Paul, Donald -- Melania)
+
+Mit -- wird eine Beziehung angezeigt, mit dem Doppelpunkt können mehrere Knoten ergänzt werden.
+
+```{r}
+netman <- make_graph(~ John -- Mary, John -- Paul, Donald -- John, Mary -- Donald:Paul, Donald -- Melania)
+```
+
+Das Netzwerk kann als gerichtetes Netzwerk übertragen werden, indem die Beziehungen eine Richtung erhalten.
+
+```{r}
+netman <- make_graph(~ John --+ Mary, John --+ Paul, Donald +-- John, Mary --+ Donald:Paul, Donald --+ Melania)
+```
+
+Visualisieren Sie beide Netzwerke mit dem plot() Befehl.
+
+```{r}
+plot(netman)
+```
+
+Sie haben jetzt gelernt, wie man ein kleines Netzwerk mit igraph anlegt.
+
+Sie können jetzt eine kleine Analyse der degrees, also der Anzahl der Verbindungen machen, indem Sie den Befehl "degree()" auf das Netzwerk anwenden:
+
+```{r}
+degree(netman)
+```
+Sie erhalten dann eine Liste der Knoten und der zugenordneten Beziehungen im Netzwerk
+
+Die absoluten Zahlen sagen uns aber noch nicht viel. Deshalb müssen die degrees normalisiert werden, d.h. die degrees werden durch alle möglichen Degrees innerhalb des Graphs geteilt. Gerade bei großen Netzwerken ist eine Normalisierung/Indexierung wichtig, damit die Degrees vergleichbar werden:
+
+```{r}
+degree(netman, normalized = TRUE)
+```
+
+Das gleiche geht natürlich auch für indegrees und outdegrees:
+
+```{r}
+degree(netman, mode = "in", normalized = TRUE)
+```
+
+
+Mit den Operatoren "in" und "out" können die in-/outdegrees gezählt werden:
+
+```{r}
+degree(netman, mode="in")
+degree(netman, mode="out")
+```
+
+Sie können mit dem cliques() Befehl das Netzwerk nach Cliquen untersuchen.
+
+```{r}
+largest_cliques(netman)
+```
+
+
+# Übung: Visualisierung eines kleinen Ego-Netzwerk (20 min)
+
+Lesen Sie sich folgende Information durch:
+
+#Katniss Network (Hunger Games/Tribute von Panem, Buch 1)
+
+Katniss Everdeen hat die Rolle ihrer Schwester, Primrose (Prim) in den 74. Hunger Games übernommen, Ihre Mutter ist Mrs. Everdeen. Ihr Wettbeweber und späterer Freund ist der Bäckerssohn Peeta Mellark. Madge, die Tochter des Bürgermeisters ist ihre beste Freundin. Ihr Vorbereitungsteam für den Wettbewerb besteht aus Octavia, Flavius und Venia. Haymitch ist der Mentor von Katniss und Peeta, der sie beim Wettbewerb unterstützt.
+
+http://dietributevonpanem.wikia.com/wiki/Katniss_Everdeen
+
+Legen Sie mit dem Befehl make_graph() ein kleines, ungerichtetes Ego-Netzwerk an von mindestens 6 alter an. Eine Verbindung zwischen den Akteuren bedeutet, dass die Akteure sich gegenseitig kennen. Skizzieren Sie das Netzwerk zunächst auf einem Blatt Papier.
+
+Verwenden Sie dann den Befehl make_graph(), um das Netzwerk "panem" anzulegen. Denken Sie dabei daran, dass Sie ein neues Netzwerk anlegen müssen und diesem die Funktion von make_graph zuweisen.
+
+Zählen Sie dann die Knoten (vertices) und Beziehungen (edges) mit den Befehlen vcount() und ecount(). 
+
+Analysieren Sie dann die größten Cliquen im Netzwerk. 
+
+Generieren Sei dann eine Visualisierung und vergleichen die Netzwerke mit ihrem Nachbarn. Sind diese gleich oder unterscheiden sich diese? Wenn es Unterschiede gibt, woran liegt das?
+
+
+# Zusammenfassung
+
+Sie haben gerlernt und können:
+* R und RStudio installieren,
+* R Pakete installieren und aufrufen.
+* das igraph Format aufrufen und interpretieren,
+* ein kleines Netzwerk manuell anlegen
+* das Netzwerk interpretieren (degree, cliquen)
+
+
+
+
+#Bonus-Package: schönere Visualisierung des Netzwerks
+
+```{r}
+# VisNetwork installieren
+install.packages(VisNetwork)
+# Library Visnetwork laden
+library(visNetwork)
+# igraph nach VisNetwork importieren
+toVisNetworkData(netman, idToLabel = TRUE)
+# Netzwerk plotten
+visIgraph(netman)
+# Physik hinzufügen
+visIgraph(netman, physics = TRUE, smooth = TRUE)
+
+
+```
