@@ -37,15 +37,10 @@ RStudio ist eine grafische Oberfläche von R. Sie haben in der Regel vier Felder
 
 Ich verwende folgende Anordnung:
 
-oben links: Source
-oben rechts: Environment
-unten links: Console
-unten rechts: Files, Plots, Help, etc.
-
-Source: hier können Sie Skripte und Dateien laden und ansehen.
-Environment: zeigt Datein, Datensätze und die Geschichte der Eingaben.
-Console: hier werden die Befehle direkt eingegeben und die Ergebnisse ausgegeben.
-Files, Plots: Anzeige von Dateienstruktur, Visualisierung, Installation von Paketen und Hilfsfunktion.
+* Oben links: Source: hier können Sie Skripte und Dateien laden und ansehen.
+* Oben rechts: Environment: zeigt Datein, Datensätze und die Geschichte der Eingaben.
+* Unten links: Console: hier werden die Befehle direkt eingegeben und die Ergebnisse ausgegeben.
+* Unten rechts: Files, Plots: Anzeige von Dateienstruktur, Visualisierung, Installation von Paketen und Hilfsfunktion.
 
 ## Konfiguration von R
 R kommt mit den Standard-Paketen für die statistische Analyse. Wir brauchen aber zusätzliche Pakete zur Netzwerkanalyse. Ein Paket ist ein Software-Paket, das wir über die Rubrik "Packages" > Install installieren können.
@@ -69,6 +64,7 @@ Installieren Sie folgende Pakete und deren abhängige Pakete:
 * igraph
 * igraphdata
 * intergraph
+* sna
 
 ```{r}
 install.packages("intergraph")
@@ -78,7 +74,7 @@ install.packages("intergraph")
 
 * R ist kontext-sensitiv, d.h. die Groß- und Kleinschreibung und die Zeichensetzung sind relevant! 
 * alle Befehle werden in der Console direkt eingegeben oder kopiert. Alternativ können auch komplexere Befehle über Source geladen werden und dann mit den "Run"-Befehl gestartet werden.
-* In der Console ist > der Indikator, dass Sie den Befehl eingeben können. Wenn Sie hier feststecken kommen Sie mit der Taste ESC wieder zurück.
+* In der Console ist ">"" der Indikator, dass Sie den Befehl eingeben können. Wenn Sie hier feststecken kommen Sie mit der Taste ESC wieder zurück.
 
 Übung: geben Sie den Befehl "demo(graphics)" in der Console ein und schauen Sie sich die Visualisierungen an.
 
@@ -86,12 +82,11 @@ install.packages("intergraph")
 demo(graphics)
 ```
 
-
 * alle Pakete und Objekte werden in " " gesetzt, Beispiel: "igraph"
 * mit dem ? vor einem direkten Befehl wird die Hilfefunktion aufgerufen, Beispiel: "?install.packages". Für jedes Paket werden die Argumente und Funktionen auch mit Beispielen erklärt.
 * Jeder Befehl schließt mit einer Klammer (), in der das Objekt und damit verbundende Funktionen und Argumente erläutert. Achten Sie darauf, dass die Klammern immer geschlossen werden, da manche Argumente verschachtelt sind.
 
-*Sie rufen ein Paket (bzw. eine Funktion) auf, indem sie den Befehl direkt nach > in die Konsole eingeben. Die Ausgaben erhalten Sie dann direkt darunter.
+*Sie rufen ein Paket (bzw. eine Funktion) auf, indem sie den Befehl direkt nach > in die Konsole eingeben. Die Ausgaben erhalten Sie dann direkt darunter.*
 
 Bei vielen Befehlen macht Ihnen RStudio Vorschläge zur Vervollständigung, beispielsweise Klammer, Datensätze, etc.
 
@@ -99,10 +94,86 @@ Wir werden das an einigen Beispielen üben.
 
 Sie müssen jetzt noch die *working directory" festlegen. Das ist der Ordner, in dem alle Dateien abgelegt werden. Dazu gehen Sie auf das Feld Files und wählen das entsprechende Verzeichnis aus (i.d.R. ein neuer Ordner auf dem Desktop). Gehen Sie dann auf > More > Set as Working Directory. 
 
+Alternativ können Sie die working directory direkt über die Konsole per Befehl definieren:
+
+```{r}
+setwd("~/Desktop/226503")
+```
+
+Mit dem Befehl wird der Ordner "226503" auf dem Desktop als Working Directory definiert.
 
 # Konventionen in R 
 
-Damit Sie einen Überblick über die Kernfunktionen von R haben emfehle ich, dass Sie das Paket "swirl" installieren und dann damit arbeiten. 
+"??" ruft direkt die Hilfefunktion zum jedem Befehl auf und zeigt den Kontext an. Sehr hilfreich. 
+
+">" in der Konsole zeigt an, dass Sie Befehle eingeben können. Wenn ein "+" auftaucht ist der Befehl unvollständig. Meistens fehlt hier eine Klammer oder ein Satzzeichen. Sie können das einfach ergänzen. Mit [esc] können Sie die Eingabe abbrechen.
+
+Mit dem # Zeichen wird ein Kommentar in den Befehl eingelesen, der nicht ausgegeben wird. Das ist sehr nützlich, um sich Notizen zu machen.
+
+R erfüllt auf der einen Seite alle Funktionen eines mathematischen Taschenrechners mitsamt logischen Operationen. Die Ausgaben einer Operation werden immer als [1] in der Konsole ausgegeben, auch wenn sie mehrere Befehle nacheinander eingeben.
+
+Probieren wir das gleich einmal aus!
+
+```{r}
+2+5 #einfache Addition
+4*3/2 #einfache Befehlsketten
+```
+
+*Übung:* Berechnen Sie Ihren 50. Geburtstag!
+
+Neben den einfachen Operationen kann R mit Variablen, Objekten und Funktionen arbeiten. Wir können jedem Term als Objekt bzw. als Variable definieren.
+
+```{r}
+2+4 # arithmentische Berechnung
+a <- 6 # Zuweisung eines Werts auf eine Variable
+4+a
+```
+
+Hier wurde die Variable "a" als Objekt mit dem Wert sechs definiert.
+
+*Übung:* Weisen Sie ihrem Geburtsjahr die Variable "geburt" zu. Gehen wir davon aus, dass Sie bis zum Alter 72 arbeiten müssen. Ab welchem Jahr können Sie in die Rente eintreten? Weisen Sie diesem Wert die Variable "rente" zu. Berechnen Sie jetzt > rente - geburt um zu wissen, wie lange Sie arbeiten müssen.
+
+## Logische Operatoren in R
+
+Logische Operatoren sind hilfreich, um bestimmte Daten zu selektieren. Wenn Sie unsicher sind, welcher Operator passt hilft eine kleine grafische Skizze des Problems meist weiter.
+
+* == gleich
+* != ungleich
+* < kleiner
+* > größer
+* <= kleiner gleich
+* >= größer gleich
+* & logisches UND
+* | logisches ODER
+* ! logisches NICHT
+
+## Vektoren sind eine Reihe von Werten, die eine bestimmte Funktion erfüllen
+
+* c(7,2,13) generiert den Vektor 7 2 13
+* 1:4 generiert den Vektor 1 2 3 4
+* 4:1 generiert den Vektor 4 3 2 1
+* TRUE gibt an, ob der Wert zutreffend sein soll
+* FALSE gibt an, ob der Wert nicht zutreffend sein soll
+
+## Vektoren können indiziert werden, d.h. es sollen nur bestimmte Werte verwendet werden
+
+* x[i] gibt die i-te Komponente des Vektors x aus
+* x[c(2,3,7)] gibt die 2., 3. und 7. Komponente des Vektors x aus 
+* x[sex="male"] Selektion des Vektors x anhand eines qualitativen Merkmals
+
+## einfache Programmierung
+
+* if(cond) {commands} führt die Befehle {commands} aus, wenn eine Bedingung (cond) als TRUE erfüllt ist
+* else {commands} ergänzt den if-Befehl für den Rest des Datensatzes
+ifelse(cond, x, y) ist cond = TRUE wird x zurückgegeben, sonst y
+
+
+Tipp: Eine Übersicht über wichtige R- Befehle finden Sie hier:
+http://www.uni-muenster.de/Stochastik/lehre/SS17/PrakStat/Materialien/R-Befehle.pdf
+
+## Bonuspaket:
+
+Damit Sie einen Überblick über die Kernfunktionen von R haben emfehle ich, dass Sie das Paket "swirl" installieren und dann die erste Lektion selbstständig erarbeitenc. 
 
 http://swirlstats.com/students.html
 
@@ -110,6 +181,7 @@ Swirl ist eine Lernsoftware, mit der Sie direkt in R lernen können (dauert ca. 
 
 ```{r}
 install.packages("swirl")
+library(swirl)
 swirl()
 ```
 
@@ -117,25 +189,27 @@ Das Programm führt Sie interaktiv durch die wichtigsten Funktionen in R.
 
 Sie sollten folgende Kapitel auf jeden Fall machen:
 
-1: R Programming: The basics of programming in R
-daraus folgende Unterkapitel
+1: R Programming: The basics of programming in R, Kapitel 1-8, 15
 
 Wer noch etwas vertiefen möchte:
-4. Exploratory Data Analysis, Kapitel 1-7.
+4: Exploratory Data Analysis, Kapitel 1-7.
 
 Ebenso sollten Sie das Video auf Video2Brain zur Einführung in R anschauen, wenn Ihnen etwas unklar ist. 
 
--> Video R
+https://www.video2brain.com/de/videotraining/r-und-rstudio-grundlagen/inhalte
 
 
 # igraph und igraphdata Pakete: Grundlagen
 
-Bitte laden Sie die Pakete "igraph" und "igraphdata"
+Bitte laden Sie die folgende Pakete zur Netzwerkanalyse
 
 ```{r}
-library("igraph")
-library("igraphdata")
+library("igraph") # grundlegendes Basispakete
+library("igraphdata") # zusätzliche Datenpakete
+library("intergraph") # Datenübergabe zwischen Bibliotheken
+library("visNetwork") # aktualisierte Visualisierung von Netzwerken
 ```
+Sofern die Pakete noch nicht installiert sind, können diese nicht geladen werden. Ggf. müssen Sie also zusätzliche Pakete und deren Abhängigkeiten installieren.
 
 Verschaffen Sie sich eine Übersicht in der Hilfefunktion über das Paket "igraphdata"
 
@@ -151,7 +225,7 @@ data(package="igraphdata")
 
 Der Befehl zeigt Ihnen die kompletten Datensätze als Datei im Feld Source an.
 
-Uns interessiert jetzt der Datensatz "karate". Das ist der berühmte Datensatz von W.W. Zachary von 1977: Zachary, W.W. (1977): (An information flow model for conflict and fission in small groups.)[http://www1.ind.ku.dk/complexLearning/zachary1977.pdf] Journal of Anthropological Research 33, 452-473.
+Uns interessiert später der Datensatz "karate". Das ist der berühmte Datensatz von W.W. Zachary von 1977: Zachary, W.W. (1977): An information flow model for conflict and fission in small groups. Journal of Anthropological Research 33, 452-473. https://www.jstor.org/stable/3629752
 
 Das ist ein kleines Netzwerk mit 34 Knoten und 78 Edges, das Zachary im Laufe von zwei Jahren erhoben hat. Es sind nur zwei Knoten benannt: Mr. Hi, der Karate-Trainer und Mr. A, der Präsident des Klubs. Beide waren in einem Wettbewerb, der zu einem Bruch zwischen Mr. A und Mr. Hi geführt hat. 
 
@@ -172,7 +246,7 @@ B = bipartite graph
 
 Danach kommt der Name des Netzwerks: Zachary's karate club network
 
-Was bedeutet jetzt UNW?
+*Übung:* Was bedeutet jetzt UNW für das Netzwerk?
 
 In der nächsten Zeile "+ attr:" werden die Attribute bzw. Eigenschaften der Knoten abgetragen. Jedes Attribut hat einen Namen und eine genauere Erläuterung in der Klammer: C steht für Charakter, also einen Texteintrag, N steht für numerical, also einen Zahleneintrag.
 
@@ -232,11 +306,9 @@ ecount(netneu)
 
 ecount() zählt die Anzahl der edges
 vcount() zählt die Anzahl der vertices/Knoten
-is.directed() klärt, ob das Netzwerk gerichtet oder ungerichtet ist.
 
 ```{r}
-ecount(netneu)
-is.directed(netneu)
+vcount(netneu)
 ```
 
 Wir werden jetzt die erste Visualisierung des Netzwerks machen!
@@ -262,7 +334,7 @@ netman <- make_graph(~ John -- Mary, John -- Paul, Donald -- John, Mary -- Donal
 Das Netzwerk kann als gerichtetes Netzwerk übertragen werden, indem die Beziehungen eine Richtung erhalten.
 
 ```{r}
-netman <- make_graph(~ John --+ Mary, John --+ Paul, Donald +-- John, Mary --+ Donald:Paul, Donald --+ Melania)
+netman <- make_graph(~ John --+ Mary, John --+ Paul, Donald +-- John, Mary --+ Donald:Paul, Donald --+ Melania:John:Jared:Ivanka)
 ```
 
 Visualisieren Sie beide Netzwerke mit dem plot() Befehl.
@@ -278,7 +350,7 @@ Sie können jetzt eine kleine Analyse der degrees, also der Anzahl der Verbindun
 ```{r}
 degree(netman)
 ```
-Sie erhalten dann eine Liste der Knoten und der zugenordneten Beziehungen im Netzwerk
+Sie erhalten dann eine Liste der Knoten (Vertices) und der zugenordneten Beziehungen im Netzwerk darunter.
 
 Die absoluten Zahlen sagen uns aber noch nicht viel. Deshalb müssen die degrees normalisiert werden, d.h. die degrees werden durch alle möglichen Degrees innerhalb des Graphs geteilt. Gerade bei großen Netzwerken ist eine Normalisierung/Indexierung wichtig, damit die Degrees vergleichbar werden:
 
@@ -306,6 +378,16 @@ Sie können mit dem cliques() Befehl das Netzwerk nach Cliquen untersuchen.
 largest_cliques(netman)
 ```
 
+Dazu später noch mehr.
+
+Damit wir schneller sehen, wer viele Verbindungen im Netzwerk hat, lassen sich auch die Größen der Knoten als Repräsentation des Degree-Maß angeben:
+
+```{r}
+degree(netman) #berechnet die Degree Werte in absoluten Zahlen
+plot(netman, vertex.size=degree(netman)^2) #visualisiert den Datensatz netman basierend auf der Größe der Degrees von Netman, die dann mit dem Befehl ^2 als Potenz ausgegeben, damit die Grafik einfacher zu lesen ist. Alternativ kann die Größe auch über eine Skalierungsfunktion ausgegeben werden. Ideal für die Darstellung sind Werte zwischen 5 und 15. 
+```
+
+Damit sehen wir im Netzwerk schneller, wer einen hohen Degree-Wert hat. 
 
 # Übung: Visualisierung eines kleinen Ego-Netzwerk (20 min)
 
@@ -313,20 +395,19 @@ Lesen Sie sich folgende Information durch:
 
 #Katniss Network (Hunger Games/Tribute von Panem, Buch 1)
 
-Katniss Everdeen hat die Rolle ihrer Schwester, Primrose (Prim) in den 74. Hunger Games übernommen, Ihre Mutter ist Mrs. Everdeen. Ihr Wettbeweber und späterer Freund ist der Bäckerssohn Peeta Mellark. Madge, die Tochter des Bürgermeisters ist ihre beste Freundin. Ihr Vorbereitungsteam für den Wettbewerb besteht aus Octavia, Flavius und Venia. Haymitch ist der Mentor von Katniss und Peeta, der sie beim Wettbewerb unterstützt.
+Katniss Everdeen hat die Rolle ihrer Schwester, Primrose (Prim) in den 74. Hunger Games übernommen, Ihre Mutter ist Mrs. Everdeen (MrsEverdeen). Ihr Wettbewerber in den 74. Hunger Games und späterer Freund ist der Bäckerssohn Peeta Mellark. Madge, die Tochter des Bürgermeisters ist beste Freundin von Katniss. Ihr Vorbereitungsteam für die Hunger Games besteht aus Octavia, Flavius und Venia. Haymitch ist der Mentor von Katniss und Peeta, der beide beim Wettbewerb unterstützt.
 
-http://dietributevonpanem.wikia.com/wiki/Katniss_Everdeen
+Quelle: http://dietributevonpanem.wikia.com/wiki/Katniss_Everdeen
 
-Legen Sie mit dem Befehl make_graph() ein kleines, ungerichtetes Ego-Netzwerk an von mindestens 6 alter an. Eine Verbindung zwischen den Akteuren bedeutet, dass die Akteure sich gegenseitig kennen. Skizzieren Sie das Netzwerk zunächst auf einem Blatt Papier.
+Legen Sie mit dem Befehl make_graph() ein kleines, ungerichtetes Ego-Netzwerk aus dem oben beschriebenen Text an. Eine Verbindung zwischen den Akteuren bedeutet, dass die Akteure sich gegenseitig kennen. Skizzieren Sie das Netzwerk zunächst auf einem Blatt Papier.
 
-Verwenden Sie dann den Befehl make_graph(), um das Netzwerk "panem" anzulegen. Denken Sie dabei daran, dass Sie ein neues Netzwerk anlegen müssen und diesem die Funktion von make_graph zuweisen.
+Verwenden Sie dann den Befehl make_graph(), um das Netzwerk "panem" anzulegen. Denken Sie dabei daran, dass Sie ein neues Netzwerk anlegen müssen und diesem die Funktion von make_graph zuweisen. Verwenden Sie nur eindeutige Namen, die nur aus Buchstaben bestehen und keine Satzzeichen wie Punkte oder Leerzeichen beinhalten.
 
 Zählen Sie dann die Knoten (vertices) und Beziehungen (edges) mit den Befehlen vcount() und ecount(). 
 
 Analysieren Sie dann die größten Cliquen im Netzwerk. 
 
-Generieren Sei dann eine Visualisierung und vergleichen die Netzwerke mit ihrem Nachbarn. Sind diese gleich oder unterscheiden sich diese? Wenn es Unterschiede gibt, woran liegt das?
-
+Generieren Sei dann eine Visualisierung und vergleichen die Netzwerke mit ihrem Nachbarn. Sind diese gleich oder unterscheiden sich diese? Wenn es Unterschiede gibt, woran liegt das? Anmerkung: die Visualisierung kann sich leicht unterscheiden, weil das der zugrundeliegende Algorithmus die Werte jedesmal neu berechnet. Es geht hier vielmehr darum, ob Sie dieselbe Zuordnung zu den Knoten vorgenommen haben.
 
 # Zusammenfassung
 
@@ -337,22 +418,22 @@ Sie haben gerlernt und können:
 * ein kleines Netzwerk manuell anlegen
 * das Netzwerk interpretieren (degree, cliquen)
 
-
-
+# Pause
 
 #Bonus-Package: schönere Visualisierung des Netzwerks
 
 ```{r}
-# VisNetwork installieren
-install.packages(VisNetwork)
-# Library Visnetwork laden
-library(visNetwork)
-# igraph nach VisNetwork importieren
-toVisNetworkData(netman, idToLabel = TRUE)
-# Netzwerk plotten
-visIgraph(netman)
-# Physik hinzufügen
-visIgraph(netman, physics = TRUE, smooth = TRUE)
+install.packages(VisNetwork) # VisNetwork installieren
+library(visNetwork) # Library Visnetwork laden
+toVisNetworkData(netman, idToLabel = TRUE) # igraph nach VisNetwork importieren
+degree(netman)
+visIgraph(netman) # Netzwerk plotten als statisches Netzwerk
+visIgraph(netman, physics = TRUE, smooth = TRUE) # Physik hinzufügen, generiert ein dynamisches Netzwerk
 
 
 ```
+
+# Falls noch Zeit ist
+* Arbeit am eigenen Datensatz (Datenbereinigung)
+* Arbeit an der Forschungsfrage
+* Vorbereitung für morgen
