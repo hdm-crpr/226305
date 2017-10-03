@@ -17,6 +17,8 @@ Zeit  |Aufgaben
 
 Für das Forschungsprojekt schreibt jedes Team einen Forschungsbericht, in dem detailliert der Zeitaufwand aller Teammitglieder stundengenau aufgeschlüsselt ist.
 
+<a href="https://imgflip.com/i/1wydib"><img src="https://i.imgflip.com/1wydib.png" title="made at imgflip.com"/></a>
+
 ## Prüfungsformen und Beurteilungsraster
 
 Das Modul Netzwerk- und Beziehungsmanagement besteht aus den Veranstaltungen 226503a „Grundlagen sozialer Netzwerke“ (3. Semester) und 226503b „Methoden der Netzwerkanalyse“ (4. Semester). Als Prüfungsleistung führen Sie im 3. Semester ein Online-Testat (bestanden/nicht-bestanden) durch  und entwickeln ein eigenes Forschungsdesign für Netzwerke. Dieses Forschungsdesign setzen Sie im 4. Semester in einem Team (Gruppenarbeit mit maximal 5 Personen) mit eigener Datenerhebung, Datensatz, Visualisierung und Interpretation der Ergebnisse (Forschungsbericht) um und präsentieren ihre Ergebnisse in einer öffentlichen Abschlussveranstaltung.
