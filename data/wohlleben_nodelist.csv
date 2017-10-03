@@ -1,0 +1,108 @@
+id,label,Art,geschlecht,zweck,type
+Ackermann,Jens,Person,female,NA,0
+Altermedia,Altermedia,Organisation,NA,Medium,1
+Arbeitsgericht_STR,Arbeitsgericht Stuttgart,Organisation,NA,Justiz,1
+Ausstieg,Aussteigerprogramm „Aktion Neustart“,Organisation,NA,Ausstieg,1
+BAF,Braune Aktionsfront,Organisation,NA,Kampf,1
+Blitzkrieg,Blitzkrieg,Organisation,NA,Musik,1
+Blood_Honour,Blood and Honour,Organisation,NA,Kampf,1
+Blutbanner,Blutbanner,Organisation,NA,Musik,1
+Boehnhardt,Uwe Böhnhardt,Person,male,NA,0
+Bordin,Norman Bordin,Person,male,NA,0
+Brandt,Tino Brandt,Person,male,NA,0
+Bratwurst_statt_Doener,Bratwurst statt Döner,Organisation,NA,Medium,1
+Braunes_Haus,Braunes Haus,Organisation,NA,Treffpunkt,1
+Burschenschaft_Normannia_Jena,Burschenschaft Normannia Jena,Organisation,NA,APO,1
+CGM,Christliche Gewerkschaft Metall,Organisation,NA,Wirtschaft,1
+Collegium_Humanum,Collegium Humanum,Organisation,NA,Treffpunkt,1
+Combat18,Combat18,Organisation,NA,Kampf,1
+Daimler,Daimler AG,Organisation,NA,Wirtschaft,1
+Daimler_Betriebsrat_UT,Daimler Betriebsrat Untertürkheim,Organisation,NA,Wirtschaft,1
+diBlasi,Giovanni di Blasi,Person,male,NA,0
+DK_1972,Deutscher Kreis von 1972 e.V.,Organisation,NA,Treffpunkt,1
+Donaldson,Stuart Donaldson,Person,male,NA,0
+Eichenlaub,Eichenlaub,Organisation,NA,Musik,1
+Ennemoser_A,Alexander Ennemoser,Person,male,NA,0
+Ennemoser_P,Patrick Ennemoser,Person,male,NA,0
+Erlwig,Erlwig,Person,male,NA,0
+Fest_Voelker,Fest der Völker,Organisation,NA,Treffpunkt,1
+Freies_Netz_Jena,Freies Netz Jena,Organisation,NA,Medium,1
+Freiheit_Wolle,Freiheit für Wolle,Organisation,NA,Treffpunkt,1
+Frontalkraft,Frontalkraft,Organisation,NA,Musik,1
+Gerlach,Holger Gerlach,Person,male,NA,0
+Gottschalk,Marco Gottschalk,Person,male,NA,0
+Graupner,Andreas Mucke Graupner,Person,male,NA,0
+H3,Kanzlei H3,Organisation,NA,Justiz,1
+Hammer,Alexander Hammer,Person,male,NA,0
+Hammerskin,Hammerskins,Organisation,NA,Kampf,1
+Harsch_Kollegen,Kanzlei Harsch & Kollegen,Organisation,NA,Justiz,1
+Heib,Klaus Heib,Person,male,NA,0
+Heinig,Alexander Heinig,Person,male,NA,0
+Heise,Rico Heise,Person,male,NA,0
+Hilburger,Oliver Hilburger,Person,male,NA,0
+HNG,Hilfsorganisation für nationale politische Gefangene und deren Angehörige,Organisation,NA,APO,1
+Hoehn,Karsten Höhn,Person,male,NA,0
+Hoffmann_KH,Karl-Heinz Hoffmann,Person,male,NA,0
+J_Landmannschaft_Ostpreussen,Junge Landsmannschaft Ostpreußen,Organisation,NA,APO,1
+Joetunheim,Jötunheim,Organisation,NA,Musik,1
+Jugend_f_Jena,Jugend für Jenda,Organisation,NA,APO,1
+Jugendwerkstatt_Jena,Jugendwerkstatt Jena,Organisation,NA,Treffpunkt,1
+Junge_Nationaldemokraten,Junge Nationaldemokraten,Organisation,NA,APO,1
+Kameradschaft_Jena,Kameradschaft Jena,Organisation,NA,Partei,1
+Kamfbund_d_Sozialisten,Kampfbund der Sozialisten,Organisation,NA,Kampf,1
+Kapke,Andre Kapke ,Person,male,NA,0
+Kiesewetter,Michele Kiesewetter,Person,female,NA,0
+Klemke,Olaf Klemke,Person,male,NA,0
+Kreuzritter_f_D,Kreuzritter für Deutschland,Organisation,NA,Kampf,1
+Lemke,Maximilian Lemke,Person,male,NA,0
+Mahler,Horst Mahler,Person,male,NA,0
+Malte_R,Malte Redeker,Person,male,NA,0
+Marcel_W,Marcel W,Person,male,NA,0
+Meenen,Uwe Meenen,Person,male,NA,0
+Moeck,Annett Müller,Person,female,NA,0
+Mueller,Michael Müller,Person,male,NA,0
+Mueller_Annett,Annett Müller,Person,male,NA,0
+Mundlos,Uwe Mundlos,Person,male,NA,0
+Nationale_Jugend_Jena,Nationale Jugend Jena,Organisation,NA,APO,1
+netzspeicher24,Netzspeicher 24,Organisation,NA,Medium,1
+Neues_Denken,Neues Denken (Zeitungsprojekt),Organisation,NA,Medium,1
+Noie_Werte,Noie Werte,Organisation,NA,Musik,1
+NPD,NPD Nationaldemokratische Partei Deutschlands,Organisation,NA,Partei,1
+NPD_Jena,NPD Jena,Organisation,NA,Partei,1
+NSU,Nationalsozialistischer Untergrund,Organisation,NA,Kampf,1
+NWJ,Nationale Widerstand Jena NWJ,Organisation,NA,Kampf,1
+Oidoxie,Oidoxie,Organisation,NA,Musik,1
+Oidoxie_Streetfighting,Oidoxie Streetfighting,Organisation,NA,Kampf,1
+Paul,Patrick Paul,Person,male,NA,0
+PNOS,Partei National Orientierter Schweizer,Organisation,NA,Partei,1
+Ronny_L,Ronny L,Person,male,NA,0
+Scharfy,Thomas Scharfy,Person,male,NA,0
+Schickhardt,Christian Schickhardt,Person,male,NA,0
+Schmiemann,Robin Schmiemann,Person,male,NA,0
+Schneiders,Nicole Schneiders,Person,female,NA,0
+Schulhof_CD,Schulhof CD,Organisation,NA,Musik,1
+Schwerdt,Frank Schwerdt,Person,male,NA,0
+Seemann,Sebastian Seemann,Person,male,NA,0
+SKD,Sonderkommando Dirlewanger,Organisation,NA,Musik,1
+Skinheads_Tirol,Skinheads Tirol Sektion Meran,Organisation,NA,Kampf,1
+Skrewdriver,Skrewdriver,Organisation,NA,Musik,1
+Stigger,Stigger,Organisation,NA,Musik,1
+Taetervolk,Tätervolk,Organisation,NA,Musik,1
+Tanz_Musikfest,Tanz und Musikfest Vlotho,Organisation,NA,Treffpunkt,1
+Tanzcafe_Balaton,Tanzcafe Balaton,Organisation,NA,Treffpunkt,1
+THS,Thüringer Heimatschutz,Organisation,NA,APO,1
+Thule_Net,Thule Net,Organisation,NA,Medium,1
+U-Haft_Muenchen,Untersuchungshaft München,Organisation,NA,Justiz,1
+U-Haft_Tonna,Untersuchungshaft Tonna,Organisation,NA,Justiz,1
+Uwocaust,Uwocaust,Organisation,NA,Musik,1
+Verfahren_Roeder,Verfahren Röder,Organisation,NA,Treffpunkt,1
+Wanderjugend_Gibor,Wanderjugend Gibor,Organisation,NA,APO,1
+Wartburgkreisboten,Wartburgkreisboten,Organisation,NA,Medium,1
+Wehrsportgruppe_Hoffmann,Wehrsportgruppe Hoffmann,Organisation,NA,Kampf,1
+Wendland,Michael Wendland,Person,ecou,NA,0
+Wohlleben,Ralf Wohlleben,Person,male,NA,0
+Woll,Sascha Woll,Person,male,NA,0
+Worch,Christian Worch,Person,male,NA,0
+Zentrum_Automobil,Zentrum Automobil e.V.,Organisation,NA,Wirtschaft,1
+Ziegler,Andreas Ziegler,Person,male,NA,0
+Zschaepe,Beate Zschäpe,Person,female,NA,0
