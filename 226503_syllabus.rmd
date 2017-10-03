@@ -66,7 +66,7 @@ Zudem haben Sie die Grundzüge von R und RStudio erlernt und können nun
 * Datenformate wie edgelists als CSV-Datei in R importieren,
 * das R-Paket "igraph" und weitere zur Analyse und Visualisierung von Netzwerdaten einsetzen.
 
-## begleitende Literatur
+## Begleitende Literatur
 
 Zusätzlich zur Pflichtlektüre der Veranstaltungstermine:
 * Fuhse, J. A. (2016): [Soziale Netzwerke](https://www.utb-studi-e-book.de/mylibrary/?q=jan+fuhse&order=relevance&dir=desc). Konstanz: UTB. *Aktuelles und lesenswertes Lehrbuch zum aktuellen Stand der Netzwerkforschung mit Übungen.* 
@@ -74,7 +74,7 @@ Zusätzlich zur Pflichtlektüre der Veranstaltungstermine:
 
 <img src="http://www.utb-shop.de/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/9/7/9783825245634_3.jpg" alt="Fuhse_Netzwerke" width="200">  <img src="http://www.transcript-verlag.de/media/image/thumbnail/9783899423655_720x720.jpg" alt="Holzer_Netzwerke" width="175">
 
-## vertiefende Literatur
+## Vertiefende Literatur
 
 * Christakis, N. F., Fowler, J. H. (2011): Die Macht sozialer Netzwerke. Frankfurt/Main: Fischer TB. *Das Taschenbuch ist nicht teuer und liefert einen guten Einstieg in die soziale Netzwerkanalyse. Leider nicht in unserer ebook-Sammlung vertreten, aber zur vertieften Anschaffung empfohlen. Eher einfach und für ein breites Publikum geschrieben*
 * Easley, D., & Kleinberg, J. (2010): Networks, Crowds, and Markets. Reasoning about a highly Connected World. Cambridge: Cambridge University Press. *Kostenlos als PDF erhältlich, mit 800 Seiten eine sehr umfangreiche Analyse relevanter Themen mit einem besonderen Schwerpunkt auf Wirtschaft und neuen Medien.*
