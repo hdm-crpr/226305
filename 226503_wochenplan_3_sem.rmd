@@ -13,8 +13,8 @@
 * Installation [SocNetV](http://socnetv.org/downloads/)
 
 *Literatur für Woche 1*
-* Krajic, K. (2017): Netzwerke überall? Anmerkungen zum wissenschaftlichen und praktischen Gebrauch von Netzwerk und Netzwerkanalyse. Paediatric Paedology 2017, 52, Suppl. 1: S4–S9; DOI 10.1007/s00608-017-0503-z.
-https://link.springer.com/content/pdf/10.1007%2Fs00608-017-0503-z.pdf
+* Krajic, K. (2017): [Netzwerke überall? Anmerkungen zum wissenschaftlichen und praktischen Gebrauch von Netzwerk und Netzwerkanalyse.](https://link.springer.com/content/pdf/10.1007%2Fs00608-017-0503-z.pdf) Paediatric Paedology 2017, 52, Suppl. 1: S4–S9; DOI 10.1007/s00608-017-0503-z.
+
 
 ## Woche 2: Warum Netzwerke?
 * Netzwerke als "the next big thing"
@@ -63,6 +63,7 @@ Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentier
 * Visualisierung Zachary's Karate Club in SocNetV
 
 ## Woche 5: Netzwerkmaße und -konfigurationen
+* Ego-Netzwerk vs. Gesamtnetzwerk
 * Dyaden, Triaden und Cliquen
 * Akteursbezogene Maße: Zentralität, Betweenness
 * Netzwerkbezogene Maße: Dichte, Cluster, Pfaddistanz
@@ -85,11 +86,10 @@ Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentier
 * Meinungsführer in Netzwerken
 
 ## Woche 9: Semanatische Netzwerke
+* Texte und Sprache aus der Netzwerkperspektive
+* Demo [Discourse Network Analyzer](https://github.com/leifeld/dna)
 
-
-
-## Woche 10: Forschungsdesigns der Netzwerkanalyse
-
+## Woche 10: Forschungsdesigns und Methoden der Datenerhebung
 * Installation [R](https://cran.uni-muenster.de/) und [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
 
 ## Woche 11/12: Entwicklung eines Forschungsdesigns
@@ -100,8 +100,3 @@ Jedes Team wählt auf Moodle einen Text aus, bereitet diesen vor und präsentier
 
 ## Woche 14/15: Wrap-up
 * Abgabe überarbeitetes Forschungsdesign
-
-
-
-
-
