@@ -24,7 +24,7 @@ Das Modul Netzwerk- und Beziehungsmanagement besteht aus den Veranstaltungen 226
 ## Anforderungen an das Forschungsprojekt
 
 Ein Netzwerkprojekt umfasst
-* eine klar umrissenenForschungsfrage,
+* eine klar umrissenene Forschungsfrage,
 * eine eigenständig durchgeführte Datenerhebung, -bereinigung, und -auswertung,
 * eine Analyse des Netzwerks nach gängigen Netzwerkmaßen (z.B. Zentralitätsmaße, Netzwerkmaße, etc.)
 * eine stimmige Visualisierung des Netzwerks, 
