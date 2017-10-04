@@ -5,10 +5,6 @@ date: "27 9 2017"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # 226503 Block Tag 1 (Einführung R)
 
 ## Ziele Tag 1
