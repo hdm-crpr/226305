@@ -1,3 +1,14 @@
+---
+title: "226503 Block Einführung R"
+author: "Swaran Sandhu"
+date: "27 9 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 # 226503 Block Tag 1 (Einführung R)
 
 ## Ziele Tag 1
@@ -64,6 +75,7 @@ Installieren Sie folgende Pakete und deren abhängige Pakete:
 * igraph
 * igraphdata
 * intergraph
+* sna
 
 ```{r}
 install.packages("intergraph")
@@ -81,11 +93,12 @@ install.packages("intergraph")
 demo(graphics)
 ```
 
+
 * alle Pakete und Objekte werden in " " gesetzt, Beispiel: "igraph"
-* mit dem ? vor einem direkten Befehl wird die Hilfefunktion aufgerufen, Beispiel: "?install.packages". Für jedes Paket werden die Argumente und Funktionen auch mit Beispielen erklärt.
+* mit dem ? vor einem direkten Befehl wird die Hilfefunktion aufgerufen, Beispiel: "??install.packages". Für jedes Paket werden die Argumente und Funktionen auch mit Beispielen erklärt.
 * Jeder Befehl schließt mit einer Klammer (), in der das Objekt und damit verbundende Funktionen und Argumente erläutert. Achten Sie darauf, dass die Klammern immer geschlossen werden, da manche Argumente verschachtelt sind.
 
-*Sie rufen ein Paket (bzw. eine Funktion) auf, indem sie den Befehl direkt nach > in die Konsole eingeben. Die Ausgaben erhalten Sie dann direkt darunter.*
+*Sie rufen ein Paket (bzw. eine Funktion) auf, indem sie den Befehl direkt nach > in die Konsole eingeben. Die Ausgaben erhalten Sie dann direkt darunter.
 
 Bei vielen Befehlen macht Ihnen RStudio Vorschläge zur Vervollständigung, beispielsweise Klammer, Datensätze, etc.
 
@@ -130,7 +143,7 @@ a <- 6 # Zuweisung eines Werts auf eine Variable
 
 Hier wurde die Variable "a" als Objekt mit dem Wert sechs definiert.
 
-*Übung:* Weisen Sie ihrem Geburtsjahr die Variable "geburt" zu. Gehen wir davon aus, dass Sie bis zum Alter 72 arbeiten müssen. Ab welchem Jahr können Sie in die Rente eintreten? Weisen Sie diesem Wert die Variable "rente" zu. Berechnen Sie jetzt > rente - geburt um zu wissen, wie lange Sie arbeiten müssen.
+*Übung:* Weisen Sie ihrem Geburtsjahr die Variable "geburt" zu. Gehen wir davon aus, dass Sie bis zum Alter 72 arbeiten müssen. Ab welchem Jahr können Sie in die Rente eintreten? Weisen Sie diesem Wert die Variable "rente" zu. Berechnen Sie jetzt > rente - 2017 um zu wissen, wie lange Sie arbeiten müssen.
 
 ## Logische Operatoren in R
 
@@ -167,35 +180,8 @@ Logische Operatoren sind hilfreich, um bestimmte Daten zu selektieren. Wenn Sie 
 ifelse(cond, x, y) ist cond = TRUE wird x zurückgegeben, sonst y
 
 
-Tipp: Eine Übersicht über wichtige R-Befehle finden Sie hier:
+Tipp: Eine Übersicht über wichtige R- Befehle finden Sie hier:
 http://www.uni-muenster.de/Stochastik/lehre/SS17/PrakStat/Materialien/R-Befehle.pdf
-
-## Bonuspaket:
-
-Damit Sie einen Überblick über die Kernfunktionen von R haben können Sie das Paket "swirl" installieren und dann die erste Lektion selbstständig erarbeitenc. 
-
-http://swirlstats.com/students.html
-
-Swirl ist eine Lernsoftware, mit der Sie direkt in R lernen können (dauert ca. 30 bis 60 min)
-
-```{r}
-install.packages("swirl")
-library(swirl)
-swirl()
-```
-
-Das Programm führt Sie interaktiv durch die wichtigsten Funktionen in R.
-
-Sie sollten folgende Kapitel auf jeden Fall machen:
-
-1: R Programming: The basics of programming in R, Kapitel 1-8, 15
-
-Wer noch etwas vertiefen möchte:
-4: Exploratory Data Analysis, Kapitel 1-7.
-
-Ebenso sollten Sie das Video auf Video2Brain zur Einführung in R anschauen, wenn Ihnen etwas unklar ist. 
-
-https://www.video2brain.com/de/videotraining/r-und-rstudio-grundlagen/inhalte
 
 
 # igraph und igraphdata Pakete: Grundlagen
@@ -203,12 +189,11 @@ https://www.video2brain.com/de/videotraining/r-und-rstudio-grundlagen/inhalte
 Bitte laden Sie die folgende Pakete zur Netzwerkanalyse
 
 ```{r}
-library("igraph") # grundlegendes Basispakete
-library("igraphdata") # zusätzliche Datenpakete
-library("intergraph") # Datenübergabe zwischen Bibliotheken
-library("visNetwork") # aktualisierte Visualisierung von Netzwerken
+library(igraph) # grundlegendes Basispakete
+library(igraphdata) # zusätzliche Datenpakete
+library(intergraph) # Datenübergabe zwischen Bibliotheken
+library(visNetwork) # aktualisierte Visualisierung von Netzwerken
 ```
-Sofern die Pakete noch nicht installiert sind, können diese nicht geladen werden. Ggf. müssen Sie also zusätzliche Pakete und deren Abhängigkeiten installieren.
 
 Verschaffen Sie sich eine Übersicht in der Hilfefunktion über das Paket "igraphdata"
 
@@ -224,7 +209,7 @@ data(package="igraphdata")
 
 Der Befehl zeigt Ihnen die kompletten Datensätze als Datei im Feld Source an.
 
-Uns interessiert später der Datensatz "karate". Das ist der berühmte Datensatz von W.W. Zachary von 1977: Zachary, W.W. (1977): An information flow model for conflict and fission in small groups. Journal of Anthropological Research 33, 452-473. https://www.jstor.org/stable/3629752
+Uns interessiert jetzt der Datensatz "karate". Das ist der berühmte Datensatz von W.W. Zachary von 1977: Zachary, W.W. (1977): An information flow model for conflict and fission in small groups. Journal of Anthropological Research 33, 452-473. https://www.jstor.org/stable/3629752
 
 Das ist ein kleines Netzwerk mit 34 Knoten und 78 Edges, das Zachary im Laufe von zwei Jahren erhoben hat. Es sind nur zwei Knoten benannt: Mr. Hi, der Karate-Trainer und Mr. A, der Präsident des Klubs. Beide waren in einem Wettbewerb, der zu einem Bruch zwischen Mr. A und Mr. Hi geführt hat. 
 
@@ -276,9 +261,14 @@ Dazu verwenden wir den Befehl "make_graph" und nennen unser neues netzwerk "netn
 
 Wir können jetzt verschiedene Befehle verwenden:
 
-Wir können einfach eine Verbindung zwischen Akteuren in einem Vektor angeben: c(1,2, 2,3, 2:3:3, 3,4, 5,1)
-dabei ist jedes Zahlenpaar eine Verbindung zwischen zwei Knoten: 
-directed=FALSE gibt an, dass das Netzwerk ungerichtet ist.
+Wir können einfach eine Verbindung zwischen Akteuren in einem Vektor angeben:
+c(1,2, 2,3, 2:3:3, 3,4, 5,1)
+
+dabei ist jedes Zahlenpaar eine Verbindung zwischen zwei Knoten
+
+* directed=FALSE
+
+gibt an, dass das Netzwerk ungerichtet ist.
 
 ```{r}
 netneu <- make_graph( c(1,2, 2,3, 3,4, 3,1, 5,1), directed=FALSE)
@@ -380,9 +370,8 @@ Damit wir schneller sehen, wer viele Verbindungen im Netzwerk hat, lassen sich a
 degree(netman) #berechnet die Degree Werte in absoluten Zahlen
 plot(netman, vertex.size=degree(netman)^2) #visualisiert den Datensatz netman basierend auf der Größe der Degrees von Netman, die dann mit dem Befehl ^2 als Potenz ausgegeben, damit die Grafik einfacher zu lesen ist. Alternativ kann die Größe auch über eine Skalierungsfunktion ausgegeben werden. Ideal für die Darstellung sind Werte zwischen 5 und 15. 
 ```
-Damit sehen wir im Netzwerk schneller, wer einen hohen Degree-Wert hat. 
 
-- Pause - 
+Damit sehen wir im Netzwerk schneller, wer einen hohen Degree-Wert hat. 
 
 # Übung: Visualisierung eines kleinen Ego-Netzwerk (20 min)
 
@@ -391,6 +380,7 @@ Lesen Sie sich folgende Information durch:
 #Katniss Network (Hunger Games/Tribute von Panem, Buch 1)
 
 Katniss Everdeen hat die Rolle ihrer Schwester, Primrose (Prim) in den 74. Hunger Games übernommen, Ihre Mutter ist Mrs. Everdeen (MrsEverdeen). Ihr Wettbewerber in den 74. Hunger Games und späterer Freund ist der Bäckerssohn Peeta Mellark. Madge, die Tochter des Bürgermeisters ist beste Freundin von Katniss. Ihr Vorbereitungsteam für die Hunger Games besteht aus Octavia, Flavius und Venia. Haymitch ist der Mentor von Katniss und Peeta, der beide beim Wettbewerb unterstützt.
+
 Quelle: http://dietributevonpanem.wikia.com/wiki/Katniss_Everdeen
 
 Legen Sie mit dem Befehl make_graph() ein kleines, ungerichtetes Ego-Netzwerk aus dem oben beschriebenen Text an. Eine Verbindung zwischen den Akteuren bedeutet, dass die Akteure sich gegenseitig kennen. Skizzieren Sie das Netzwerk zunächst auf einem Blatt Papier.
@@ -403,6 +393,8 @@ Analysieren Sie dann die größten Cliquen im Netzwerk.
 
 Generieren Sei dann eine Visualisierung und vergleichen die Netzwerke mit ihrem Nachbarn. Sind diese gleich oder unterscheiden sich diese? Wenn es Unterschiede gibt, woran liegt das? Anmerkung: die Visualisierung kann sich leicht unterscheiden, weil das der zugrundeliegende Algorithmus die Werte jedesmal neu berechnet. Es geht hier vielmehr darum, ob Sie dieselbe Zuordnung zu den Knoten vorgenommen haben.
 
+Vergleichen Sie die Projekte in Ihrem Team: Warum gibt es Unterschiede? Wie können Sie diese erklären?
+
 # Zusammenfassung
 
 Sie haben gerlernt und können:
@@ -412,7 +404,35 @@ Sie haben gerlernt und können:
 * ein kleines Netzwerk manuell anlegen
 * das Netzwerk interpretieren (degree, cliquen)
 
-# Pause 
+# Pause
+
+## Bonuspaket:
+
+Damit Sie einen Überblick über die Kernfunktionen von R haben emfehle ich, dass Sie das Paket "swirl" installieren und dann die erste Lektion selbstständig erarbeitenc. 
+
+http://swirlstats.com/students.html
+
+Swirl ist eine Lernsoftware, mit der Sie direkt in R lernen können (dauert ca. 30 bis 60 min)
+
+```{r}
+install.packages("swirl")
+library(swirl)
+swirl()
+```
+
+Das Programm führt Sie interaktiv durch die wichtigsten Funktionen in R.
+
+Sie sollten folgende Kapitel auf jeden Fall machen:
+
+1: R Programming: The basics of programming in R, Kapitel 1-8, 15
+
+Wer noch etwas vertiefen möchte:
+4: Exploratory Data Analysis, Kapitel 1-7.
+
+Ebenso sollten Sie das Video auf Video2Brain zur Einführung in R anschauen, wenn Ihnen etwas unklar ist. 
+
+https://www.video2brain.com/de/videotraining/r-und-rstudio-grundlagen/inhalte
+
 
 #Bonus-Package: schönere Visualisierung des Netzwerks
 
@@ -424,9 +444,12 @@ degree(netman)
 visIgraph(netman) # Netzwerk plotten als statisches Netzwerk
 visIgraph(netman, physics = TRUE, smooth = TRUE) # Physik hinzufügen, generiert ein dynamisches Netzwerk
 
+
 ```
 
-# Eigenarbeit in den Teams
+# Falls noch Zeit ist
 * Arbeit am eigenen Datensatz (Datenbereinigung)
 * Arbeit an der Forschungsfrage
 * Vorbereitung für morgen
+
+---------------------------------
