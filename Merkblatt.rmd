@@ -10,12 +10,12 @@ Das *Merkblatt* oder *Cheat Sheet* verwendet gängige Situationen, die bei der A
 * R ist *kontextsensitiv*, d.h. auch ein kleiner Tippfehler kann die Parameter und den Code verändern. Sorgfältig arbeiten!
 * Jeder Befehl in R wird mit [return] bestätigt und dann ausgeführt. Das Ergebnis wird von R als [1] ausgeführt und angezeigt.
 * mit [Pfeil oben] kann in der Konsole der letzte Befehl zurückgeholt und erneut verändert werden.
-* Sehr gute Einführungen zu den Basics von R gibt es bei [R-Stutorials](http://www.r-stutorials.de/einfuehrung), bei [Video2Brain](https://www.video2brain.com/de/videotraining/r-und-rstudio-grundkurs) und auch in weiteren Online-Tutorials, etwa direkt zu igraph vom [Entwickler Gábor Csárdi](http://igraph.github.io/netuser15/user-2015.html#1.)
-* Speziell zum Thema Visualisierung sind das Lernpaket ["isnar" von Michal Bojanowski](https://github.com/mbojan/isnar) sowie die ausführlichen Skripte von [Katya Ognyanova](https://github.com/kateto/R-Network-Visualization-Workshop). Für Fortgeschrittene die Skripte von [Pablo Barbera](https://github.com/pablobarbera/Rdataviz). Neu und zum Ausprobieren sind die Pakete [DiagrammeR](https://github.com/rich-iannone/DiagrammeR) oder [ggnet](https://github.com/briatte/ggnet). Datensätze zum Ausprobieren gibt es z.B. zu [Game of Thrones](https://github.com/anishsingh20/Network-Analysis-of-Game-of-Thrones), [Jazz Musik](https://github.com/VidhyaBatmaradjy/Social-network-analysis), [Star Wars](https://github.com/evelinag/StarWars-social-network) und nochmals [Star Wars](https://github.com/gastonstat/StarWars) oder die [Passagierliste der Titanic](https://github.com/paulhendricks/titanic)
+* Sehr gute Einführungen zu den Basics von R gibt es bei [R-Stutorials](http://www.r-stutorials.de/einfuehrung), bei [Video2Brain](https://www.video2brain.com/de/videotraining/r-und-rstudio-grundkurs) und auch in weiteren Online-Tutorials, etwa direkt zu igraph vom [Entwickler Gábor Csárdi](http://igraph.github.io/netuser15/user-2015.html#1.).
+* Speziell zum Thema Visualisierung sind das Lernpaket ["isnar" von Michal Bojanowski](https://github.com/mbojan/isnar) sowie die ausführlichen Skripte von [Katya Ognyanova](https://github.com/kateto/R-Network-Visualization-Workshop). Für Fortgeschrittene die Skripte von [Pablo Barbera](https://github.com/pablobarbera/Rdataviz). Neu und zum Ausprobieren sind die Pakete [DiagrammeR](https://github.com/rich-iannone/DiagrammeR) oder [ggnet](https://github.com/briatte/ggnet). Datensätze zum Ausprobieren gibt es z.B. zu [Game of Thrones](https://github.com/anishsingh20/Network-Analysis-of-Game-of-Thrones), [Jazz Musik](https://github.com/VidhyaBatmaradjy/Social-network-analysis), [Star Wars](https://github.com/evelinag/StarWars-social-network) und nochmals [Star Wars](https://github.com/gastonstat/StarWars) oder die [Passagierliste der Titanic](https://github.com/paulhendricks/titanic).
 
 ### Vertiefende Literatur
 Wir arbeiten hier überwiegend mit Online-Tutorials und quelloffenen Datensätzen. Zur Vertiefung sind folgende Texte lesenswert:
-* Luke, D. A. (2015). A User's Guide to Network Analysis in R. New York: Springer. [Dataset](https://github.com/DougLuke/UserNetR)
+* Luke, D. A. (2015). A User's Guide to Network Analysis in R. New York: Springer. [Dataset zum Buch](https://github.com/DougLuke/UserNetR).
 * Manderscheid, K. (2017). Sozialwissenschaftliche Datenanalyse mit R. 2. Auflage Wiesbaden: Springer.
 
 ### Typische Einstiegsprobleme
@@ -23,7 +23,7 @@ Wir arbeiten hier überwiegend mit Online-Tutorials und quelloffenen Datensätze
 * Aktuelle Versionen von R und RStudio sind installiert?
 
 * Dateien werden nicht geladen: Ist die working directory korrekt angegeben?
-> setwd("~/dein_ordner/")
+> setwd("~/dein_ordner/")   
 
 * Sind alle Funktionen in der Console zurückgesetzt?
 > rm()
@@ -39,10 +39,10 @@ Wir arbeiten hier überwiegend mit Online-Tutorials und quelloffenen Datensätze
 * Zusätzlich werden manchmal auch weitere Pakete installiert (z.b. "igraphdata", "intergraph", "visNetwork"). Immer prüfen, welche Pakete relevant sind!
 
 * In R hinterlegte Datensätze müssen erst aktiviert werden, beispielsweise für Zachary's Karate Club, der im Paket "igraphdata" hinterlegt ist:
-> library(igraphdata)
-> data(package="igraphdata")
-> data(karate)
-> karate
+> library(igraphdata)   
+> data(package="igraphdata")   
+> data(karate)   
+> karate    
 
 * Sind Konflikte ausgeschlossen? Manchmal verwenden die Pakete die Befehle und kommen deshalb in einen Konflikt bei der Auswertung (insbesondere die Pakete "igraph" und "sna"). Deshalb sollten die Pakete immer wieder ausgeschaltet werden, wenn Sie nicht mehr benötigt werden: entweder über RStudio oder direkt in Console mit dem detach Befehl:
 >  detach("package:igraph", unload=TRUE)
@@ -54,14 +54,13 @@ Wir arbeiten hier überwiegend mit Online-Tutorials und quelloffenen Datensätze
 
 Je nach Erhebungsmethode liegen die Daten in unterschiedlichen Formaten vor. Am weitesten verbreitet sind Matrizen oder einfache Edgelists. Um das Prozedere zu vereinfachen arbeiten wir nur mit Edge- und Nodelists.
 
-* Zur Erinnerung: eine einfache Edgelist ist nach der Logik *Sender -> Empfänger* in zwei Spalten aufgebaut:
-from | to
-John | Mary
-Erweiterte edgelists haben noch die weitere Attribute hinterlegt, wie etwa ein Gewicht, das die Art der Beziehung zwischen den Akteuren beschreibt:
-from | to | weight
-John | Mary | 3
+* Zur Erinnerung: eine einfache Edgelist ist nach der Logik *Sender -> Empfänger* in zwei Spalten aufgebaut:   
+from | to   
+John | Mary   
+Erweiterte edgelists haben noch die weitere Attribute hinterlegt, wie etwa ein Gewicht, das die Art der Beziehung zwischen den Akteuren beschreibt:   
+from | to | weight   
+John | Mary | 3   
 Klären muss man ebenfalls, ob es sich um ein *gerichtetes* oder *ungerichtetes* Netzwerk handelt. Das hat Konsequenzen für den Import und die Art der Datenanalyse.
-
 
 Um das Prozedere zu vereinfachen verwenden wir nur CSV Datensätze, die auf einer Edgelist basieren. Die Edgelist muss dabei folgendes Format haben: Sender, Empfänger.
 
