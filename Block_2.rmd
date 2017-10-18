@@ -5,7 +5,7 @@ date: "28 9 2017"
 output: html_document
 ---
 
-# Block 2: Visualiserung und Analyse von Netzwerken
+# Block 2: Visualisierung und Analyse von Netzwerken
 
 ## Lernziele
 Nach Block 2 und den Übungen können Sie
