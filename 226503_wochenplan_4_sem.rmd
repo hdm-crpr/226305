@@ -6,7 +6,7 @@
 * Einführung in ipgraph
 * Übung und Datenbereinigung
 
-## Block 2: Visualiserung und Interpretation von Netzwerken
+## Block 2: Visualisierung und Interpretation von Netzwerken
 * Interpretation von Netzwerken und Netzwerkmaßen
 * Visualisierung
 * Einlesen von Dateien in das igraph Format
