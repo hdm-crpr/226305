@@ -1,19 +1,20 @@
 ---
-title: "226503 Block 2 Visualisierung von Netzwerken"
+title: "226503 Block 3 Finetuning und Netzwerkmaße"
 author: "Swaran Sandhu"
 date: "28 9 2017"
 output: html_document
 ---
 
-# Block 2: Visualisierung und Analyse von Netzwerken
+** Work-in-progress **
+
+# Block 3: Visualisierung und Analyse von Netzwerken
 
 ## Lernziele
-Nach Block 2 und den Übungen können Sie
-* igraph Objekte sortieren und nach Node und Edge Attributen selektieren
-* Zentralitätsmaße und Netzwerkmaße berechnen
-* Gruppen innerhalb eines Netzwerks analysieren
-* Netzwerke nach spezifischen Variablen visualisieren
-* Daten aus CSV Dateien nach igraph einlesen und in ein igraph Objekt umwandeln
+Nach Block 3 und den Übungen können Sie
+* eigene Datensätze einlesen und in ein igraph Objekt umwandeln
+* igraph-Objekte manipulieren, d.h. Netzwerke nach einzelnen Attributen selektieren
+* Teilnetze isolieren und analysieren
+* Netzwerke sinnvoll mit einer Legende visualisieren
 
 Kurze Wiederholung von Block 1: 
 
