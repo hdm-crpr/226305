@@ -1,0 +1,389 @@
+---
+title: "226503 Block 3 Finetuning und Netzwerkmaße"
+author: "Swaran Sandhu"
+date: "28 9 2017"
+output: html_document
+---
+
+** Work-in-progress **
+
+# Block 2: Datenimport und igraph
+
+Kurze Wiederholung von Block 1: 
+
+*Denken Sie daran, zunächst ihre Packete in R zu laden, falls Sie ihren Arbeitsplatz nicht als Projekt gespeichert haben
+
+```{r}
+library("igraph")
+library("igraphdata")
+library("visNetwork")
+# lädt die oben genannten Pakete
+# Zur Erinnerung: falls die Pakete nicht geladen werden können müssen diese zunächst installiert werden (siehe Einleitung!)
+```
+
+#Katniss Network (Hunger Games/Tribute von Panem, Buch 1, etwas erweitert).
+
+```{r}
+katniss <- make_graph(~ Katniss -- Prim:MrsEverdeen:Peeta:Madge:Octavia:Flavius:Venia:Haymitch, Prim -- MrsEverdeen, Octavia -- Flavius:Venia, Peeta -- Haymitch, Haymitch -- Snow)
+plot(katniss)
+```
+
+Kleine Analyse des Netzwerks
+
+```{r}
+vcount(katniss)
+ecount(katniss)
+degree(katniss, mode="in")
+degree(katniss, mode = "in", normalized = TRUE)
+largest_cliques(katniss)
+```
+
+Visualisierung mit Degree
+
+```{r}
+scale_factor <- 4
+degree(katniss)
+plot(katniss, vertex.size=degree(katniss) * scale_factor) 
+```
+
+# Daten einlesen und manipulieren
+
+Wir arbeiten zunächst mit dem Zachary Datensatz: karate, der bereits im igraphdata Paket hinterlegt ist. Er muss also nicht erst eingelesen werden, sondern kann direkt aufgerufen werden.
+
+```{r}
+data(karate)
+karate
+```
+
+Wichtig - wie bei allen Netzwerken ist es, den Hintergrund des Datensatzes zu verstehen:
+
+##Eine kleine Geschichte von Zachary'y Karate Club (1977)
+Wayne Zachary ist Anthropologe und interessierte sich für den Zusammenhalt in kleinen Gruppen. Für seinen 1977 publizierten Aufsatz: An Information Flow Model for Conflict and Fission in Small Groups hat er über den Zeitraum von drei Jahren (1970 bis 1972) einen Karate-Club einer Universität untersucht. Innerhalb des Clubs gibt es einen schwelenden Konflikt zwischen dem Teilzeit-Karatelehrer "Mr. Hi" und dem Präsident des Clubs, "John A.". Beispielsweise will Mr. Hi die Preise für seine Stunden selbst festlegen während der Präsident daran interessiert ist, die Kosten für die Mitglieder möglichst gering zu halten.
+
+Im Laufe der Zeit wurde aus dieser eher kleinen Angelegenheit eine ideologische Kampflinie. Für die eine Gruppe war Mr. Hi ein weiser Mentor und eine Vaterfigur, der sich um seine Schüler kümmert. Für die Anhänger des Präsidenten war Mr. Hi ein Angestellter, der versucht, höhere Preise auf dem Rücken aller Mitglieder zu erlangen.
+
+Der Konflikt hatte seinen Preis und führte zu einem Zerwürfnis zwischen den Gruppenmitgliedern. Ungefähr die Hälfte der Gruppe folgte Mr. Hi in seinen neuen Club während die andere Hälfte bei John A im bestehenden Club bleibt.
+
+Zachary wollte herausfinden, wie es zu diesem Bruch kommen konnte. Deshalb hat der die Freundschaftsbeziehungen von 34 Clubmitgliedern erhoben, die sich in 78 Relationen abzeichnen. Dazu hat er acht unterschiedliche Dimensionen aggregiert:
+
+1. Beziehungen in und zwischen den akademischen Kursen an der Universität.
+2. Mitgliedschaft im privaten Karate-Club von Mr. Hi, wo Mr. Hi zusätzlich unterrichtet.
+3. Mitgliedschaft im privaten Karate-Club von Mr. Hi, wo viele seiner Unterstützer am Wochenende trainieren.
+4. Studenten unterrichten im Karate-Studio, das zuvor erwähnt wurde.
+5. Interaktion im Ratskeller der Universität, der im gleichen Keller wie der Karate-Club angesiedelt ist.
+6. Interaktion in einer studentischen Kneipe gegenüber des Campus
+7. Teilnahme an Karate-Wettbewerben, die von privaten Karate-Studios organisiert wurden.
+8. Teilnahme an universitären Karate-Wettbewerben. Diese wurden - wie die privaten - ebenfalls Samstags ausgetragen. Von daher ist die Teilnahme nur an einer Art Wettbewerb möglich.
+
+Diese Interaktionsräume wurden nun in einer Skala addiert: je mehr Interaktionen stattfinden, desto höher ist die Wahrscheinlichkeit für eine Freundschaft.
+
+Quelle: Zachary, W.W. (1977): An information flow model for conflict and fission in small groups. Journal of Anthropological Research 33, 452-473. https://www.jstor.org/stable/3629752
+
+## Analyse von Daten in einem igraph Objekt
+
+Um die Attribute in einem igraph Objekt besser zu verstehen, verwenden wir die Befehle V() für Vertex-Attribute und E() für Edge-Attribute.
+
+Mit dem $ Attribut wird ausgewählt, welches Attribut angezeigt werden soll.
+
+```{r}
+ V(karate)$name
+```
+
+Mit V(karate)$name werden alle Vertex Attribute aus dem Feld "Name" ausgelesen. Dabei deutlich, dass bis auf Mr. Hi und John A alle Akteure anonymisiert sind.
+
+Das Attribut Faction gibt an, wer sich nach dem Bruch welcher Fraktion zugeordnet hat. Es ist ein numerisches Attribut, deshalb ist es als /n angegeben und nimmt den Wert 1 oder 2 an. 1 ist die Fraktion um John A, 2 ist die Fraktion um den Karate Trainer Mr. Hi.
+
+*Label* ist ein Vertex-Attribut, das im Gegensatz zur ID jedem Knoten eine Bezeichnung zuweist. Das ist vor allem für eine schöne Visualisierung hilfreich.
+
+*Color* entspricht dem Vertex Attribut der Faction. Es dient dazu, dass die Knoten eindeutig eingefärbt werden können. Das ist dann sinnvoll, wenn man diese Eigenschaft weiter manipulieren möchte. Die Werte sind allerdings mit denen des Attributes "Faction" identisch.
+
+E gibt das Gewicht der 78 Beziehungen und ist ein numerisches Attribut, das von 1 bis maximal 7 reicht. Je höher die Zahl ausfällt, desto mehr überlappende Interaktionsmöglichkeiten gab es zwischen den beiden Akteuren.
+
+Wir können jetzt den Datensatz beispielsweise nach den beiden Gruppen aufteilen:
+
+```{r}
+V(karate)$Faction == '1'
+```
+
+Damit wird ein Vector generiert, der den Datensatz logisch unterteilt nach dem Argument, das genannt wurde, in diesem Fall 1 oder 2.
+
+Zudem lassen sich einzelne Knoten herausgreifen:
+
+```{r}
+mrhi <- V(karate)[label == "H"]
+
+```
+
+Wir haben jetzt den Knoten mit dem Label "H" den Wert mrhi zugewiesen. Damit lassen sich einzelne Knoten aber auch Gruppen basierend auf einen Attributswert zusammenfassen.
+
+Wir können jetzt fragen, welche Knoten um Mr Hi herum angesiedelt sind:
+
+```{r}
+E(karate)[ adj(mrhi) ]
+```
+
+Dazu wird ein Vektor E aus den Edges des Datensatzes karate erzeugt, die direkt an mrhi anschließen. Mit dem igraph Skript sieht man, dass 16 von 78 Beziehungen direkt an Mr Hi angrenzen.
+
+Einfacher ist es mit dem Befehl "incident()" einen einzelnen Knoten ins Zentrum der Analyse zu stellen und andere auszublenden. incident() für einen Knoten oder incident_edges() für mehrere Knoten selektiert jede Kante, die mit einem Knoten V verbunden ist:
+
+```{r}
+hi <- incident(karate, V(karate)[name=="Mr Hi"], mode="all")
+hi
+```
+
+Wir sehen: das Ergebnis ist das gleiche wie im ersten Verfahren, aber die Analyse ist deutlich einfacher und schneller.
+
+
+```{r}
+ecol <- rep("grey80", ecount(karate)) # alle Kanten in Grauton 80% Deckung
+ecol[hi] <- "orange" # alle Kanten von "Mr Hi" in orange
+vcol <- rep("grey40", vcount(karate)) # alle Knoten in Grauton 40% Deckung
+vcol[V(karate)$name=="Mr Hi"] <- "gold" # der Knoten von Mr. Hi in orange
+
+#  V(karate)$label <- NA # damit blenden wir die Labels der Knoten aus
+```
+
+```{r}
+plot(karate, vertex.color=vcol, edge.color=ecol)
+```
+
+## Untergruppen aus dem Netzwerk herausbilden
+
+In vielen Fällen ist es sinnvoll,  bestimmte Untergruppen aus einem Gesamtnetzwerk isoliert anzuschauen. Diese Untergruppen lassen sich leicht mit den Befehlen aus subgraph() herausarbeiten.
+
+Wir wollen jetzt aus unserem Karate Netzwerk nur die Gruppe mit der Faction = 1 behalten. Wir können dazu entweder die Knoten mit den Attribut 1 behalten oder alle anderen Knoten, die nicht das Attribut 1 haben löschen.
+
+Dazu müssen wir einen neuen Subgraph anlegen:
+
+```{r}
+karate1 <- delete_vertices(karate, V(karate)[Faction != "1"])
+plot(karate1)
+```
+
+Übrigt bleiben jetzt alle Knoten, die das Attribut 1 bei Faction haben, also das Netzwerk um John A.
+
+Es gibt aber noch einen anderen Weg, um das Netzwerk zu reduzieren, Wir wollen jetzt nicht Knoten löschen, wie oben, sondren alle Knoten, die die Eigenschaft Faction = 2 haben, also zum Netzwerk von Mr. Hi gehören, behalten und alle anderen Knoten löschen. Dazu verwenden wir den Befehl induce.subgraph() mit den gleichen Operatoren.
+
+```{r}
+karate2 <- induced.subgraph(karate, V(karate)[Faction != "2"])
+plot(karate2)
+```
+
+Das gleiche lässt sich auch für die Kanten in einem Netzwerk machen. Beispielsweise wollen wir nur Kanten mit einem Gewicht >= 4 in dem Netzwerk behalten:
+
+
+```{r}
+karate4 <- subgraph.edges(karate, E(karate)[weight > 4])
+karate4
+plot(karate4)
+```
+
+Natürlich lassen sich die Variablen in allen Beispiel entsprechend anpassen, dazu lassen sich die mathematisch-logisch eingängigen Konventionen verwenden
+* = entspricht genau dem Wert
+* > ist größer als bzw. < ist kleiner als
+* ! ist nicht (logischer Ausschluß)
+
+Hier ist es wichtig, sich die Gruppe, die besonders interessant ist, logisch abzuleiten. Manchmal ist es z.B. einfacher, alle Attribute zu löschen, die *nicht* zutreffen, um ein bestimmtes Attribut zu isolieren.
+
+# Visualisierung von Netzwerkmaßen
+
+[Zur Vertiefung sehr zu empfehlen: Ognyanova, K. (2017) Network visualization with R. Retrieved from www.kateto.net/network-visualization.]
+
+Prinzipiell sollten Sie sich vor der Visualisierung eines Netzwerks überlegen, welche Relationen und Netzwerkmaße sie darstellen wollen. Schließlich soll das Netzwerk eine Antwort auf Ihre Forschungsfrage liefern. Am besten ist es immer, wenn Sie sich zunächst eine Skizze anfertigen.
+
+Im allgemeinen können wir die Attribute von Knoten und Kanten visualisieren. Denken Sie auch daran, dass es sinnvoll sein kann, ein Netzwerk nach bestimmten Kriterien zu unterteilen, um es vergleichbar zu machen. 
+
+Für das *Netzwerk* stehen uns die typischen Netzwerkmaße zur Verfügung:
+* Dichte (density) / Kohäsion 
+* Pfaddistanz (path distance)
+* Cluster/Untergruppen 
+
+Für die *Knoten* stehen uns folgende Parameter zur Verfügung:
+* Größe (vertex.size), z.B. nach Zentralitätsmaßen wie Degree
+* Farbigkeit, z.B. mit unterschiedlichen Farben für das Geschlecht oder der Zugehörigkeit zu einer Untergruppe im Netzwerk. Hierzu wird ein Vektor definiert, der für bestimmte Eigenschaften greift.
+* Form, etwa Kreis oder Dreieck für bestimmte Attribute wie Geschlecht aber auch Branche oder ähnliches.
+
+Für die *Kanten* können die verschiedenen Attribute der Kanten visualisiert werden (edge.attributes), etwa
+* Art der Beziehung (Farbe)
+* Stärke der Beziehung (Dicke der Kante)
+
+Das sind die einfachsten Visualisierungsparameter. Wenn das Netzwerk und die Beantwortung der Forschungsfrage steht, kann die Visualisierung entsprechend verfeinert werden.
+
+Richtig interessant werden unsere Netzwerke immer dann, wenn wir bestimmte Attribute in Relation setzen können. Beispielsweise wollen wir den Degree-Wert der einzelnen Knoten durch die Größe der Knoten darstellen. 
+
+Sie erinnern sich: Degrees sind ein einfaches Zentralitätsmaß, das angibt, wie viele Verbindungen ein Knoten zu anderen Knoten hat.
+
+```{r}
+plot(karate, vertex.size=degree(karate), vertex.label=NA)
+```
+
+Der Befehl visualisiert jetzt das Netzwerk ohne labels aber mit den einfachen Häufigkeiten der ungerichteten Beziehungen, die ein Knoten haben kann. Das haben wir schon früher gesehen. 
+
+
+
+# Visualisierung von Zachary's Karate Club
+
+Rufen wir uns zunächst Zachary's Netzwerk nochmals in Erinnerung:
+
+```{r}
+plot(karate)
+```
+
+Wir sehen in Netzwerk, das bereits nach dem Vertex Attribut "Faction" farbig codiert ist. Warum ist das Netzwerk bereits kodiert?
+
+```{r}
+vertex_attr(karate, "color")
+vertex_attr(karate, "Faction")
+```
+
+Wir sehen, dass die beiden Attribute "color" und "vertex" identisch sind. Color wird für die Visualisierung automatisch ausgelesen.
+
+Wir löschen jetzt das Attribut "color" aus dem Datensatz und schreiben das Ergebnis in ein neues Netzwerk karate_new
+
+```{r}
+karate_new <- delete_vertex_attr(karate, "color")
+```
+
+Wir wollen jetzt den Datensatz neu einfärben, und zwar soll Faction 1 (um John A) die Farbe grün erhalten und Faction 2 um Mr Hi die Farbe rot.
+
+Dazu sollten wir uns zunächst die Farbpalette von R anschauen: http://kktg.net/sgr/wp-content/uploads/colors1.png, allerdings reichen auch die Farben "green" und "red".
+
+```{r}
+# wir legen jetzt eine Farbskala an, die genau zwei Farben umfasst
+farbe <- c("red", "green")
+# diese Farbskale wenden wir auf die Funktion color an, und zwar für das die Spalte "Faction"
+V(karate_new)$color <- farbe[V(karate_new)$Faction]
+plot(karate_new)
+```
+
+
+Wir können jetzt einfach die Farben im Vektor "farbe" austauschen, probieren Sie das einfach mal aus:
+
+```{r}
+farbe <- c("gold", "lightgreen")
+V(karate_new)$color <- farbe[V(karate_new)$Faction]
+plot(karate_new)
+```
+
+Wir haben bereits gelernt, wie wir die Größe der Knoten in Relation zu den Degrees setzen können:
+
+```{r}
+farbe <- c("gold", "lightgreen")
+V(karate_new)$color <- farbe[V(karate_new)$Faction]
+plot(karate_new, vertex.size=degree(karate), vertex.label=NA)
+```
+Achtung: es gibt den Befehl degree() mehrmals in R. Achten Sie darauf, dass Sie den Befehl aus dem igraph Paket verwenden. Wenn das Paket SNA noch geladen ist, kommt das zu Konflikten. Sie können das SNA Paket wieder aus dem Programmspeicher löschen: detach("package:sna", unload=TRUE)
+
+```{r}
+deg <- degree(karate, mode="all") # berechnet das Degree-Maß von allen Knoten
+V(karate)$size <- deg # weist dem Vektor Size die Berechnung des Degree-Maßes zu
+plot(karate, vertex.size=deg)
+```
+
+
+Als weitere Darstellung können wir die Stärke der Kanten visualisieren. Dazu benötigen wir einen Vektor, der die Kantenstärke erfasst. Prüfen wir vorher noch schnell, wie sich das Kantenattribut Weight verhält:
+
+```{r}
+edge.attributes(karate_new)$weight
+```
+Die Kantenstärke von 78 Kanten reicht von 1 bis maximal 7. Damit diese etwas übersichtlicher dargestellt werden, halbieren wir diesen Wert
+
+
+```{r}
+E(karate_new)$width <- E(karate_new)$weight/2
+plot(karate_new)
+```
+
+## Anpassung des Layouts, Testen verschiedener Layouts
+
+Wir haben bislang gelernt, wie man Knoten- und Kantenattribute entsprechend einfach visualisiert. Bislang haben wir uns um das Layout des Graphen nicht gekümmert. Die vorgegebenen Layouts basieren auf unterschiedlichen Algorithmen, die meist nach physikalischen Gesetzen der Anziehung zwischen Knoten definiert sind.
+
+Das igraph Paket hat die wichtigsten Algorithmen bereits integriert und wir können uns diese einfach im Vergleich ausgeben lassen:
+
+tbc
+
+
+## Zusammenfassung
+
+Sie haben bislang gelernt,
+* wie man einfache Visualisierungen am Datensatz durchführt,
+* Wie man Knoten und Kanten Farben und Stärken zuweisen kann.
+
+
+# Import von Daten aus einer Edgelist
+
+Sichern Sie sich den Datensatz Wohlleben von meinem Github Account in ihrer Working Directory. Der Datensatz besteht aus einer Edgelist und einer Nodelist. Wir können jetzt den Datensatz einfach nach R einlesen. 
+
+
+
+*Über den Wohlleben Datensatz*
+Ralf Wohlleben gilt als das "Mastermind" um den NSU. Ich habe über frei zugängliche Quellen versucht, das Ego-Netzwerk um Ralf Wohlleben zu rekonstruieren. Das Netzwerk ist ein two-mode (bi-partite) Netzwerk, das aus Personen und Organisationen besteht. Falls möglich und nötig habe ich die Beziehungen bis zur zweiten oder dritten Ebene von Wohlleben erstellt.
+
+Mit dem Befehl "read.csv()" können wir die CVS Dateien einfach einlesen. Wichtig ist, dass die Datei im entsprechende Verzeichnis liegt.
+
+```{r}
+nodes <- read.csv("wohlleben_nodelist.csv", header=T, as.is=T)
+nodes
+```
+
+Das gleiche gilt für die edgelist:
+
+```{r}
+edges <- read.csv("wohlleben_edgelist.csv", header=T, as.is=T)
+edges
+```
+
+Mit dem Befehl Head() können wir die ersten Zeilen des Datensatzes auslesen:
+
+```{r}
+head(nodes)
+head(edges)
+```
+
+Wir wandeln jetzt beide Listen in ein igraph Objekt um. Dazu müssen wir zunächst die Edgelist als Matrix definieren.
+```{r}
+el=as.matrix(links)
+wohl <- graph_from_edgelist(el, directed = FALSE)
+# ich habe das Netzwerk absichtlich als ungerichtet gesetzt, weil nicht klar ist, von wem die Beziehung initiiert wurde.
+
+```
+
+Wir können jetzt alles anwenden, was wir bereits vorher gelernt haben:
+
+```{r}
+plot(wohl, vertex.size=degree, vertex.label=NA, edge.arrow.width=0.4)
+```
+
+Bislang ist die Darstellung noch sehr unübersichtlich: das werden wir im Verlauf noch ändern. Jetzt müssen wir aber noch die Attribute aus der Nodelist importieren. Dazu überprüfen wir zunächst, welche Attribute bereits in dem igraph-objekt importiert sind:
+
+```{r}
+list.vertex.attributes(wohl)
+```
+
+Bislang gibt es nur das Attribut "name", das können wir uns auch anzeigen lassen: Damit erhalten wir alle Namen der Knoten.
+
+Uns fehlen jetzt aber nur die Vertex-Attribute aus der Nodelist, die wir auch importiert haben. Diese müssen wir nur dem bestehende ipgraph Objekt hinzufügen.
+
+* Wenn eine Nodelist vorhanden ist, kann diese mit dem gleichen Befehl eingelesen werden. Achtung: die Nodelist in Anzahl und ID bzw. Namen der Knoten mit der edgelist genau übereinstimmen!
+
+> nodes <- read.csv("meine_nodelist.csv", header=T, as.is=T)
+
+* Mit dem Befehl "head" lassen sich die Edge- und Nodelist schnell überprüfen:
+> head(edges)
+
+### Umwandlung der Edge- und Nodelist in ein igraph Objekt
+
+Die Edgelist ist jetzt eingelesen, aber bislang noch nicht als Matrix hinterlegt. Für igraph müssen die Objekte aber als Matrix hinterlegt sein. Mit dem Befehl "as.matrix" wandeln wir die Liste in eine Matrix um. Diese Matrix wird in
+> ties <-as.matrix(edges)
+
+Diese Matrix muss jetzt noch als igraph umgewandelt werden:
+> net <- graph_from_data_frame(d=ties, vertices=nodes directed=F)
+
+Wir erzeugen aus dem data_frame ein igraph Objekt, das ungerichtet ist und die Attribute aus der Nodelist übernommen hat.
+>net
+
+Um ein *gerichtetes* Netzwerk zu erzeugen, muss der Wert von directed auf "T" für TRUE gesetzt werden.
+
+* Wenn es nur um eine edgelist ohne weitere Informationen der Nodelist geht, kann der Befehl auch ohne das Attribut "vertices" ausgeführt werden.
+
+*tbc*
