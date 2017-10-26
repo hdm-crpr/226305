@@ -32,32 +32,32 @@ library("visNetwork")
 a) ungerichtetes vs. ungerichtetes Netzwerk
 
 Ihre Datei muss folgendes Format als CSV-Datei haben: Header: from, to, weight
-# nach der numerischen Angabe des Gewichts (in Zahlen, idealerweise von 1-5 oder ähnliches, maximal bis 10) können weitere Edge-Attribute in Spalten angefügt sein.
+nach der numerischen Angabe des Gewichts (in Zahlen, idealerweise von 1-5 oder ähnliches, maximal bis 10) können weitere Edge-Attribute in Spalten angefügt sein.
 
 Für das Beispiel verwenden wir den Wohleben-Datensatz.
 
-# Achten Sie darauf, dass Sie in der richtigen Working-Directory sind
-# Laden Sie sich die Wohlleben-Dateien aus dem GIT-Verzeichnis oder Moodle
-# Einlesen der Edgelist
+- Achten Sie darauf, dass Sie in der richtigen Working-Directory sind
+- Laden Sie sich die Wohlleben-Dateien aus dem GIT-Verzeichnis oder Moodle
+- Einlesen der Edgelist
 
 ```{r}
 el=read.csv("w_ego.csv", header=T, as.is=T)
 ```
 
-# mit diesem Befehl haben wir die Edgelist als Variable "el" eingelesen. Wir müssen jetzt noch igraph dazu bringen, dass die Edgelist "el" als igraph-objekt verstanden wird. das geht ganz einfach mit dem data.frame Befehl: das igraph Objekt "g" soll dabei ein ungerichtetes Netzwerk sein:
+mit diesem Befehl haben wir die Edgelist als Variable "el" eingelesen. Wir müssen jetzt noch igraph dazu bringen, dass die Edgelist "el" als igraph-objekt verstanden wird. das geht ganz einfach mit dem data.frame Befehl: das igraph Objekt "g" soll dabei ein ungerichtetes Netzwerk sein:
 
 g=graph.data.frame(el, directed = FALSE)
 
-# sollte sich das Netzwerk um ein gerichtetes Netzwerk handeln, einfach den Zusatz directed weglassen, also: g=graph.data.frame(el)
+sollte sich das Netzwerk um ein gerichtetes Netzwerk handeln, einfach den Zusatz directed weglassen, also: g=graph.data.frame(el)
 g=graph.data.frame(el)
 
-# Falls wir eine adjacency Matrix benötigen, kann diese schnell mit dem Befehl get.adjacency() hergestellt werden.
+Falls wir eine adjacency Matrix benötigen, kann diese schnell mit dem Befehl get.adjacency() hergestellt werden.
 
 adj=get.adjacency(g,attr='weight')
 
-# Damit wird eine symmetrische Matrix berechnet und das Attribut "weight" wird in die Matrix entsprechend der Tabelle eingetragen.
+Damit wird eine symmetrische Matrix berechnet und das Attribut "weight" wird in die Matrix entsprechend der Tabelle eingetragen.
 
-#Denken Sie daran, dass alle Edge-Werte mit dem Befehl E()$wert ausgelesen werden können, also
+Denken Sie daran, dass alle Edge-Werte mit dem Befehl E()$wert ausgelesen werden können, also
 
 E(g)$weight
 E(g)$relation
