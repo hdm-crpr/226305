@@ -42,3 +42,7 @@ Chen, B. (2017): Social Network Analysis in Education: https://bookdown.org/chen
 * Social Network Analysis in R (Curt Frye, Lynda): https://www.lynda.com/course-tutorials/Social-Network-Analysis-Using-R/508872-2.html
 * Social Network Analysis (Lada Adamic, (MOOC on Coursera): http://ai.umich.edu/portfolio/social-network-analysis/
 * Network Modeling for Epidemics: http://statnet.github.io/nme/index.html
+
+# Helpful links and examples
+* Step-by-step example on how to create a network from student data: https://learn.canvas.net/courses/1176/pages/5-dot-2-exercise-visualization-of-discussion-interactions
+
