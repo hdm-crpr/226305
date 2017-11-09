@@ -87,8 +87,8 @@ Mit dem Befehl wird die Datei direkt eingelesen, ohne Header.
 Die Edgelist ist jetzt eingelesen, aber bislang noch nicht als Matrix hinterlegt. Für igraph müssen die Objekte aber als Matrix hinterlegt sein. Mit dem Befehl "as.matrix" wandeln wir die Liste in eine Matrix um. Diese Matrix wird in
 > ties <-as.matrix(edges)
 
-Diese Matrix muss jetzt noch als igraph umgewandelt werden:
-> net <- graph_from_data_frame(d=ties, vertices=nodes directed=F)
+Diese Matrix muss jetzt noch als igraph umgewandelt werden. Wenn es ein gerichtetes Netzwerk ist, muss directed auf True (T) gesetzt werden.
+> net <- graph_from_data_frame(d=ties, vertices=nodes, directed=F)
 
 Wir erzeugen aus dem data_frame ein igraph Objekt, das ungerichtet ist und die Attribute aus der Nodelist übernommen hat.
 >net
@@ -97,4 +97,46 @@ Um ein *gerichtetes* Netzwerk zu erzeugen, muss der Wert von directed auf "T" f�
 
 * Wenn es nur um eine edgelist ohne weitere Informationen der Nodelist geht, kann der Befehl auch ohne das Attribut "vertices" ausgeführt werden.
 
+### Netzwerk sichern und wieder neu laden
+
+> netdf <- as_data_frame(net, what="both")
+erstellt einen Datenframe "netdf" aus dem igraph Objekt "net" mit sowohl edge- als auch nodelist
+
+> netdf
+ruft den Datenframe auf. Man sieht gut in der Dateistruktur, wie zunächst zunächst alle Knotenattribute und dann die Kantenattribute übernommen wurden. Sie sehen auch, dass der Datenframe automatisch alle Knoten numerisch codiert, um die Zuordnung zwischen Edge- und Vertex-Attribut herzustellen. Das ist in diesem Beispiel zufällig identisch.
+
+> save(netdf,file="netdf.rda")
+sichert den data.frame als R Data Objekt in der gesetzten working directory. Damit ist ihre Arbeit als Datenframe gesetichert
+
+> load(file = "netdf.rda")
+lädt die Datei des Datenframe zurück in R. Es muss genau der Dateiname eingegeben werden, mit dem sie ihr Netzwerk gesichert haben.
+
+> inet <- graph.data.frame(netdf, directed=TRUE, vertices=NULL)
+wandelt den Datenframe in ein igraph Objekt mit dem Namen "inet" um.
+
+inet
+ruft das "neue" igraph-Objekt "inet" auf, das zuvor als Datenframe gespeichert wurde.
+
+Damit lassen sich Zwischenschritte abspeichern, zudem muss das Netzwerk nicht immer neu geladen werden.
+
 ### Informationen aus einem igraph Objekt auslesen
+
+> edge_attr(net)
+zeigt die Verteilung des Attributs "weight" im Objekt "net" an.
+
+> vertex_attr(net)
+zeigt die Verteilung der Vertex-Attribute im Objekt "net" an.
+
+### Einfache Visualisierung
+
+> plot(net)
+visualisiert das igraph-Objekt "net" ohne weiter Parameter. Sieht meistens nicht schön aus.
+
+
+
+### Berechnung der Netzwerkmaße
+
+### Berechnung der Akteursmaße
+
+### Parameter der Visualisierung
+
