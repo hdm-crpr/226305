@@ -131,7 +131,11 @@ mrhi <- make_ego_graph(karate, order = 1, nodes = V(karate)$name == "Mr Hi", mod
 
 hi <- incident(karate, V(karate)[name=="Mr Hi"], mode="all")
 
-#Achtung: beide Selektionen liefern keinen separaten Subgraph, sondern nur eine Selektion von spezifischen Werten, die z.B. für die Visualisierung relevant sind.
+# Achtung: beide Selektionen liefern keinen separaten Subgraph, sondern nur eine Selektion von spezifischen Werten, die z.B. für die Visualisierung relevant sind.
+
+plot(mrhi[[1]])
+# liefert einen nicht besonders aufregenden Plot des Ego-Netzwerks von mrhi
+
 
 # Erstellen von eigenen Untergruppen aus dem Netzwerk
 
