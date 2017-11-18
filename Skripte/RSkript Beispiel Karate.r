@@ -203,6 +203,28 @@ plot(karate, layout=layout_with_graphopt, main="Graphopt")
 
 # Die Algorithmen Kamada-Kawai und MDS definieren eine stabile Position der Knoten in einem Koordinatensystem. Deshalb sind diese besonders gut geeignet, um die Entwicklung von Teilnetzwerken über die Zeit zu visualisieren.
 
+## DIAMETER (Durchmesser) berechnen und visualisieren
+
+library(igraph)
+library(igraphdata)
+data(karate)
+
+g <- karate
+d <- get.diameter(g)
+
+E(g)$color <- "grey"
+E(g)$width <- 1
+E(g, path=d)$color <- "red"
+E(g, path=d)$width <- 2
+V(g)$label.color <- "blue"
+V(g)$color  <- "SkyBlue2"
+V(g)[ d ]$label.color <- "black"
+V(g)[ d ]$color <- "red"
+
+plot(g, layout=layout.fruchterman.reingold, vertex.label.dist=0, vertex.size=15)
+title(main="Diameter of the Zachary Karate Club network")
+
+
 
 
 
