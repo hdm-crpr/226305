@@ -225,6 +225,24 @@ plot(g, layout=layout.fruchterman.reingold, vertex.label.dist=0, vertex.size=15)
 title(main="Diameter of the Zachary Karate Club network")
 
 
+# BONUS zum Ausprobieren: interaktiver Plot
+# Einfache interaktive Darstellung des Netzwerks via tkplot
+# Diese Anwendung ruft ein simples interaktives Fenster auf, in dem das Netzwerk repräsentiert wird. Die Funktion tkplot (http://igraph.org/r/doc/tkplot.html) setzt voraus, dass auf dem Mac X11 installiert ist.
 
+# Das Beispiel zeigt, wie einfach ein beliebiges Netzwerk visualisiert werden kann. Alle Visualisierungsparameter vor dem Plot-Befehl werden von tkplot übernommen, bzw. für tkplot selbst können bestimmte Parameter gesetzt werden.
+
+library(igraph)
+library(igraphdata)
+data(karate)
+
+# weist karate die Variable "g" zu.
+g <- karate
+
+# einfache Visualisierung
+V(g)$color <- "lightblue"
+E(g)$color <- "grey"
+
+# erzeugt einen interaktiven plot nach bestimmten Vorgaben
+tkplot(g, layout=layout.kamada.kawai, vertex.label.font=2, vertex.frame.color = "white")
 
 
