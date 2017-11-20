@@ -39,8 +39,4 @@ plot(h_in2)
 # Plot grafisch verschönern und mit Titel versehen
 plot(h_in2, vertex.size=degree(h_in2)*5, vertex.color="lightblue", vertex.frame.color="white", edge.arrow.size=.2, edge.curved=.2, vertex.label.dist=2, vertex.label.degree=0, vertex.label.cex=.8, vertex.label.family="Helvetica", vertex.label.font=2, main="Teilnetzwerk mit indegree > 2")
 
-
- 
-
-
-
+###
