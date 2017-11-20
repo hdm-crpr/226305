@@ -38,7 +38,7 @@ work <- graph_from_data_frame(d=wties, vertices=nodes, directed=T)
 # Kombination der Edge- und Nodelist in ein igraph-Objekt
 
 works <- simplify(work, edge.attr.comb = list(weight="sum"))
-helps <- simplify(ehelp, edge.attr.comb = list(weight="sum"))
+helps <- simplify(help, edge.attr.comb = list(weight="sum"))
 # addiert die Gewichte bei gleichen Beziehungen
 
 edge_attr(work)
