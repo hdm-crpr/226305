@@ -272,3 +272,43 @@ plot(h, layout=layout_with_graphopt, main="Graphhopt")
 plot(h, layout=layout_with_gem, main="GEM")
 
 # LEKTION 5: Legende angeben
+?igraph.plotting # liefert alle Visualiserungsparameter für ein Netzwerk
+
+# Wir verwenden als Beispiel wieder das Netzwerk "h"
+
+# VERTEX LABELS schöner machen
+vertex.label.dist=2 # gibt an, wie weit der Label vom Knoten entfernt platziert werden soll
+vertex.label.degree=0 # gibt an, in welchem Winkel der Label zum Knoten gesetzt wird
+vertex.label.cex=.8 # gibt die Größe des Labels an
+vertex.label.family="Helvetica" # gibt die Schriftart des Knotens an
+vertex.label.font=2 # gibt an, welcher Schriftschnitt verwendet wird.
+
+# Beispiel Netzwerk mit schöneren Vertex-labels visualisieren
+
+plot(h, vertex.size=degree(h)*1.5, vertex.color="lightblue", vertex.frame.color="white", edge.arrow.size=.2, edge.curved=.2, vertex.label.dist=2, vertex.label.degree=0, vertex.label.cex=.8, vertex.label.family="Helvetica", vertex.label.font=2, vertex.label.color="blue", main="Beispiel für Anpassung der Labels des Knoten")
+
+# EDGES schöner machen
+edge.arrow.size=.2, # Größe der Pfeilspitzen
+edge.curved=.2, # Krümmung der Kanten
+edge.color="red" # Farbe der Kanten
+edge.width=E(h)$weight # Gewicht der Kanten nach Edge-Attribut "weight"
+edge.label=E(h)$weight # falls es Labels gibt, können diese nach den Kantenattributen abgerufen werden
+edge.label.color="black" # Farbe der Kantenlabels
+edge.label.cex=.8 # Größe der Kantenlabels
+edge.label.family="Helvetica" # Schriftart der Kantenlabels
+
+# Beispiel
+plot(h, edge.arrow.size=.2, edge.curved=.2, edge.color="red", edge.width=E(h)$weight, vertex.shape="none", vertex.label=NA, edge.label=E(h)$weight, edge.label.color="black", edge.label.degree=0, edge.label.cex=.8, edge.label.family="Helvetica", edge.label.font=1, main="Beispiel für die Kantenvisualisierung")
+
+# TITEL und Untertitel hinzufügen
+# Einfach im Plot Befehl main und sub ergänzen
+plot(h, main="Unterstützungsnetzwerk n=38", sub="Erhebung WS 2017")
+
+# Schriften und Größen manipulieren
+title("Unterstützungsnetzwerk n=38", cex.main = 1, font.main= 4, col.main= "blue")
+
+###
+
+
+
+
