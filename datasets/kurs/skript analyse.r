@@ -4,8 +4,8 @@
 # LEKTION 2: igraph-objekte in Datenframe umwandeln und sichern bzw laden
 # LEKTION 3: Netzwerke manipulieren nach Vertex- und Edgeattributen
 # LEKTION 4: Netzwerkmaße berechnen und visualisieren
-# LEKTION 5: Akteursmaße berechnen und visualisieren
-# LEKTION 6: Netzwerke visuell verbessern mit Zusatzpaketen
+# LEKTION 5: Akteursmaße berechnen und visualisieren (siehe auch das Zusatzskript mit Visualisierungsparametern)
+# LEKTION 6: Vergleich zweier Netzwerke systematisch durchführen (mit unterschiedlichen Algorithmen)
 
 # LEKTION 1: Daten aus CSV Dateien einlesen und in igraph-Objekte umwandeln
 
@@ -53,7 +53,6 @@ vertex_attr(work)
 # LEKTION 2: Sicherung der Dateien
 
 # igraph Objekte können nicht direkt gesichert werden. Deshalb exportieren wir das igraph-Objekt in einen sogannten data.frame. Im Datenframe sind alle Edge- und Node-Attribute hinterlegt. Damit eignet sich das Format besonders gut für den Export in andere Datenformate und zum Zwischenspeichern der Arbeit.
-
 workdf <- as_data_frame(work, what="both")
 1
 
@@ -75,7 +74,6 @@ iwork
 # Zusammenfassung Lektion 2: Sie haben gelernt, wie man ein igraph-Objekt als Datenframe lokal sichert und dann weiter verwendet. Das hat mehrere Vorteile: Datenframes lassen sich schnell in andere Formate exportieren. Ausserdem können Sie so Zwischenschritte sichern und neue Netzwerke anlegen, die sie weiter bearbeiten wollen, etwa Teil- und Subnetzwerke ihres Original-Netzwerks.
 
 # LEKTION 3: Netzwerke manipulieren nach Vertex- und Edgeattributen
-
 # Übersicht über das igraph-Objekt help
 
 help
@@ -154,7 +152,6 @@ plot(help, layout=layout_with_fr, main="Gesamtnetzwerk")
 # Alle anderen Vertex-Attribute lassen sich genau so analyisieren. Wenn ein Visualisierungsskript vorhanden ist, können die Netzwerke leicht ausgetauscht werden.
 
 # Aufteilen des Netzwerks nach EINZELNEN Knoten (EGO-NETZWERKE im Gesamtnetzwerk)
-
 ego_size(h3)
 # zeigt die Knoten mit den meisten Verbindungen, ähnlich wie der degree Wert.
 
@@ -177,12 +174,10 @@ plot(king[[1]])
 
 
 # LEKTION 4: Netzwerkmaße berechnen und visualisieren
-
 # Zu Beginn der Analyse müssen Sie sich die Frage stellen, was sie besonders interessiert. Es gibt sehr viele Auswertungsmöglichkeiten. Ein Vergleich von Netzwerken oder Teilnetzwerken nach bestimmten Attributen ist meist gewinnbringender, als eine allgemeine Analyse.
 
 triad_census(help)
 # ausgegeben werden die 16 Triadentypen und deren Anzahl, siehe igraph triad_census Erklärung
-
 
 #4a) Teilnetzwerke und Cluster
 
@@ -250,46 +245,13 @@ betweenness(help)
 edge_betweenness(help)
 
 
-
-
-
-
-
-
 # Erste Visualisierung
 
 plot(works)
 plot(helps)
 
 
-## LEKTTION 2 Zusammenfassen und Trennen von Netzwerken
-
-# beide Teilnetzwerke lassen sich auch zusammenfassen. Allerdings werden dabei gleiche Beziehungen gelöscht.
-
-kurs <- work + help
-
-# Datensicherung der igraph-Objekte
-
-workdf <- as_data_frame(work, what="both")
-# erstellt einen Datenframe mit sowohl edge- als auch nodelist
-
-workdf 
-# ruft den Datenframe auf. Man sieht gut in der Dateistruktur, wie zunächst zunächst alle Knotenattribute und dann die Kantenattribute übernommen wurden. Sie sehen auch, dass der Datenframe automatisch alle Knoten numerisch codiert, um die Zuordnung zwischen Edge- und Vertex-Attribut herzustellen. Das ist in diesem Beispiel zufällig identisch.
-
-save(workdf,file="workdf.rda")
-# sichert den data.frame als R Data Objekt in der working directory. Damit ist ihre Arbeit gesichert.
-
-load(file = "workdf.rda")
-# lädt die Datei des Datenframe zurück in R.
-
-iwork <- graph.data.frame(workdf, directed=TRUE, vertices=NULL)
-# wandelt den Datenframe in ein igraph Objekt um.
-
-iwork
-# ruft das "neue" igraph-Objekt auf, das zuvor als Datenframe gespeichert wurde.
-
-
-# Vergleich zweier Netzwerke
+# LEKTION 6: Vergleich zweier Netzwerke (siehe auch: Visualisierungsparameter)
 
 # Visualisierung works (orange)
 deg <- degree(works) 
