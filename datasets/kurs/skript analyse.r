@@ -13,16 +13,16 @@
 
 setwd("~/Desktop/sna")
 # Legt die working directory / Arbeitsverzeichnis fest.
-# Laden Sie die Edge- und Nodelist in ihre working directory.
+# Edge- und Nodelist sind online in meinen github abgelegt und können daraus direkt eingelesen werden.
 
 library(igraph)
 # lädt das Paket "igraph"
 
-help <- read.csv("ehelp.csv", header=T, as.is=T, sep = ",")
-work <- read.csv("ework.csv", header=T, as.is=T, sep = ",")
+help <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/datasets/kurs/ehelp.csv", header=T, as.is=T, sep = ",")
+work <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/datasets/kurs/ework.csv", header=T, as.is=T, sep = ",")
 # lädt die edgelist aus der Datei in der working directory. Auf Trennzeichen achten!
 
-nodes <- read.csv("nodes.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/datasets/kurs/nodes.csv", header=T, as.is=T, sep = ",")
 # lädt die Nodelist aus der working direcotry
 
 head(help)
