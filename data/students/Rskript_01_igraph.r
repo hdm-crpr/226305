@@ -24,3 +24,5 @@ h <- simplify(h, edge.attr.comb = list(weight="sum"))
 
 #ruft das finale igraph-Objekt auf.
 h
+
+###
