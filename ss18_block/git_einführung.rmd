@@ -1,0 +1,6 @@
+# Github 101
+### Einführung
+
+1. Was ist Githubg?
+2. Dateien erstellen.
+3. Versionierung
