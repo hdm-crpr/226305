@@ -1,12 +1,16 @@
 # Netzwerk PR
 # Selektion Teilnetzwerk nach Degrees
 
+# Datensatz und Skript auf
+https://github.com/hdm-crpr/226305/tree/master/ss18_block/students/pr
+
 # Paket laden
 library(igraph)
 
 # edgelist einlesen
 # edgelist muss in der working directory liegen bzw. müssen Sie entsprechend ihrer edgelist umbenennen
-pr <- read.csv("elpr.csv", header=T, as.is=T, sep = ",")
+# ich habe den Datensatz auf mein Github geschoben
+pr <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/ss18_block/students/pr/el_pr_oj.csv", header=T, as.is=T, sep = ",")
 
 # edgelist prüfen
 pr
@@ -39,8 +43,14 @@ pr_plus1
 # zeigt, dass alle indegree-Werte mit 1 gelöscht wurden, auch die hohen Werte von gestern sind mit dabei.
 V(pr_plus1)$ind
 
-# Kleine Visualierung
-plot(pr_plus1, vertex.size=degree(pr_plus1, mode="in"), vertex.label=NA)
+# Kleine Visualisierung
+plot(pr_plus1, vertex.size=degree(pr_plus1, mode="in"), edge.arrow.size=0.05, vertex.label.cex=.5, vertex.label.color="black", layout = layout_with_fr, main="Zitationsnetzwerk PR-Einführungsliteratut", sub = "Visualisierung nach Indegree-Verteilung, indegree > 1")
+
+# Ohne Labels
+plot(pr_plus1, vertex.size=degree(pr_plus1, mode="in"), edge.arrow.size=0.05, layout = layout_with_fr, main="Zitationsnetzwerk PR-Einführungsliteratut", sub = "Visualisierung nach Indegree-Verteilung, indegree > 1")
 
 # Das Problem dabei ist aber, dass wir auch die untersuchte Quell-Literatur gelöscht haben, weil diese Knoten ja auch einen indegree = 1 hatten. Wir müssen also verhindern, dass die Quell-Knoten gelöscht werden.
 
+# Sie können folgendes tun:
+# a) im Skript die Anzahl der indegrees variieren und schauen, was passiert
+# b) Teilnetzwerke für die einzelnen Autoren erstellen und miteinander vergleichen
