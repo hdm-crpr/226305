@@ -1,4 +1,5 @@
 # Skript Visualisierungsparameter in R verstehen
+# mit Lösungen
 # Swaran Sandhu, sandhu@hdm-stuttgart.de
 # Inspiriert von: http://www.r-graph-gallery.com/248-igraph-plotting-parameters/ und http://kateto.net/network-visualization
 
@@ -28,12 +29,11 @@ head(nodes)
 
 # wandelt die edgelist in eine Matrix um und baut das igraph-Objekt
 hties <-as.matrix(help)
-help <- graph_from_data_frame(d=hties, vertices=nodes, directed=T)
+h <- graph_from_data_frame(d=hties, vertices=nodes, directed=T)
 
-help
-
+# help
 # addiert edges auf, wenn sie auf der gleichen Beziehung sind
-h <- simplify(help, edge.attr.comb = list(weight="sum"))
+# h <- simplify(help, edge.attr.comb = list(weight="sum"))
 
 # ruft das finale igraph-Objekt auf.
 h
@@ -97,13 +97,18 @@ plot(h)
 V(h)$label <- NA # überschreibt alle Labels mit dem Wert "NA", der nicht angezeigt wird.
 plot(h)
 # Labels wiederherstellen
+
+# vertex_attr(h)
 V(h)$label <- V(h)$name # weist dem Vertex-Attribut "label" wieder das Vertex-Attribut "name" zu.
 plot(h)
+
+# E(h)$color="black" #setzt die Farbe wieder auf schwarz für Kanten
+# plot(h)
 
 # Im Netzwerk sind Männer und Frauen abgelegt, die über das Vertex.Attribut $sex mit "1" (weiblich) oder "2" (männlich) kodiert sind. Alle Männer sollen nun mit der Farbe blau und alle Frauen mit der Farbe rot visualisiert werden.
 
 #FARBEN nach Vertex-Attributen definieren
-colrs <- c("pink", "lightblue")
+colrs <- c("blue", "yellow")
 #definiert das Farbspektrum, der verwendeten Farben und legt diese in einem neuen Vector colrs fest. Da wir wissen, dass wir bei §sex nur zwei Werte haben (männlich, weiblich) brauchen wir auch zwei Werte. Die direkten Farbpaletten sind hier hinterlegt: http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.
 V(h)$color <- colrs[V(h)$sex]
 # weist dem Vertex-Attribut color die Funktion colrs zu, die wir vorher mit zwei Farben definiert haben.
@@ -125,6 +130,8 @@ V(h)$shape = "circle"
 smokers <- V(h)[smoke == "2"]
 # wöhlt alle Knoten aus, die das Vertex-Attribut "2" bei $smoke gesetzt haben
 
+smokers
+
 V(h)[smokers]$shape = "square"
 # weist allen Werten von Smokers den Shape "square" zu.
 
@@ -145,10 +152,15 @@ V(h)[V(h)$tatoo == 2]$shape <- "rectangle"
 plot(h)
 
 
-
-# ÜBUNG
+# Übung 1
 # Visualisieren Sie das oben angelegte Hilfsnetzwerk farblich nach folgender Frage: "Wer arbeitet am meisten in einer Vertiefungsrichtung?"
 # Tipp: Überlegen Sie zunächst, welche Variable für die größere Anzahl im Netzwerk gilt. Selektieren Sie dann die zweite Form danach.
+
+# Übung 1: Lösung
+col= rev(heat.colors(4)) # definiert 4 Farben von der Heat.Colors-Palette, dreht Farbskala um
+V(h)$color <- col[V(h)$job] # weist den Vektor col auf die Werte 1 bis 4 von Job zu
+plot(h)
+
 
 # LEKTION 2: Relative Größen im Netzwerk abbilden.
 
@@ -174,8 +186,9 @@ vertex.label.font=2 # gibt an, welcher Schriftschnitt verwendet wird.
 plot(h, vertex.size=degree(h)*1.5, vertex.color="lightblue", vertex.frame.color="white", edge.arrow.size=.2, edge.curved=.2, vertex.label.dist=2, vertex.label.degree=0, vertex.label.cex=.8, vertex.label.family="Helvetica", vertex.label.font=2, vertex.label.color="blue", main="Beispiel für Anpassung der Labels des Knoten")
 
 # EDGES schöner machen
-edge.arrow.size=.2, # Größe der Pfeilspitzen
-edge.curved=.2, # Krümmung der Kanten
+# Welche Argumente machen Kanten schöner:
+edge.arrow.size=.2 # Größe der Pfeilspitzen
+edge.curved=.2 # Krümmung der Kanten
 edge.color="red" # Farbe der Kanten
 edge.width=E(h)$weight # Gewicht der Kanten nach Edge-Attribut "weight"
 edge.label=E(h)$weight # falls es Labels gibt, können diese nach den Kantenattributen abgerufen werden
@@ -184,7 +197,7 @@ edge.label.cex=.8 # Größe der Kantenlabels
 edge.label.family="Helvetica" # Schriftart der Kantenlabels
 
 # Beispiel
-plot(h, edge.arrow.size=.2, edge.curved=.2, edge.color="red", edge.width=E(h)$weight, vertex.shape="none", vertex.label=NA, edge.label=E(h)$weight, edge.label.color="black", edge.label.degree=0, edge.label.cex=.8, edge.label.family="Helvetica", edge.label.font=1, main="Beispiel für die Kantenvisualisierung")
+plot(h, edge.arrow.size=.2, edge.curved=.2, edge.color="white", edge.width=E(h)$weight, vertex.shape="none", vertex.label=NA, edge.label=E(h)$weight, edge.label.color="black", edge.label.degree=0, edge.label.cex=.8, edge.label.family="Helvetica", edge.label.font=1,  main="Beispiel für die Kantenvisualisierung")
 
 # TITEL und Untertitel hinzufügen
 # Einfach im Plot Befehl main und sub ergänzen
@@ -259,17 +272,24 @@ graphCol = palette(fine)[as.numeric(cut(inh, breaks = fine))]
 # der folgende Plot ist um einige weitere Visualisierungsparameter ergänzt
 plot(h, vertex.color=graphCol, vertex.label=NA, vertex.frame.color = "white", edge.color="lightblue", main = "Wer wird um Rat gefragt? (n=38)", sub = "Visualisierung nach normalisierter Indegree-Verteilung")
 
-# ÜBUNG: Berechnen und visualisieren sie weitere Zentralitätsmaße wie betweeness, eigenvector oder closeness.
+# ÜBUNG: Berechnen Sie die betweenness des Netzwerks h und visualisieren Sie die betweeness Maße auf durch die Größe der Knoten. Geben Sie ihrem Netzwerk eine Überschrift. Was fällt Ihnen im Gegensatz zu dem Degree Netzwerk auf?
+# Tipp: Befehl ??betweenness
 
+
+bh <- betweenness(h, v = V(h), directed = TRUE, weights = NULL,
+            nobigint = TRUE, normalized = TRUE)
+bh
+
+plot(h, vertex.size=bh*100, main="Verteilung Betweenness im Netzwerk")
 
 # UNTERGRUPPEN im Netzwerk visualisieren
 
 # Wir wissen, dass Knoten 18 am meisten indegrees hat. Wir wollen jetzt das direkte Netzwerk des Knoten 18 sehen und zwar alle direkten Verbindungen
-in_king <- make_ego_graph(h, order = 1, nodes = V(h)$name == 18, mode ="all")
+in_king <- make_ego_graph(h, order = 1, nodes = V(h)$name == 18, mode ="in")
 plot(in_king[[1]], main="Der oder die Ratsuche-Königin", sub="Ego-Netzwerk des Knotens mit den höchsten Indegrees im Netzwerk")
 
 # jetzt interessieren uns alle Verbindungen der zweiten Ordnung, d.h. es Knoten, die über maximal 2 Schritte mit dem Knoten 18 verbunden sind.
-in_king2 <- make_ego_graph(h, order = 2, nodes = V(h)$name == 18, mode ="all")
+in_king2 <- make_ego_graph(h, order = 2, nodes = V(h)$name == 18, mode ="in")
 plot(in_king2[[1]],  main="Der oder die Ratsuche-Königin, 2. Ordnung", sub="Ego-Netzwerk des Knotens mit den höchsten Indegrees im Netzwerk")
 
 # LEKTION 4: mit dem richtigen Algorithmus visualisieren
@@ -303,9 +323,11 @@ plot(h)
 # VERGLEICH von Netzwerken
 # Wenn Sie Netzwerke vergleichen wollen, sollten Sie den Kamada-Kawai Algorithmus verwenden: layout = layout_with_kk. Der Algorithmus definiert die Knoten immer an der gleichen Stelle. So können Sie Veränderungen leichter sehen.
 
+plot(h, layout = layout_with_kk)
+
 
 # legt fest, dass die Visualisierung in einer Tabelle von 2x2 Feldern definiert werden
-par(mfrow=c(2,2), mar=c(0,0,0,0))
+par(mfrow=c(2,2), mar=c(0,0,2,2))
 
 # definiert unterschiedliche Algorithmen
 plot(h, layout=layout_with_fr, main="Fruchterman-Rheingold")
@@ -333,12 +355,11 @@ title("Mein Titel",cex.main=2,col.main="blue")
 # Problem: Visualisierung ist abgeschnitten:
 # muss ich noch lösen!
 Definieren Sie den äußeren Rand auf 2
-par(oma=c(0,0,1,0))
+par(oma=c(0,0,2,2))
 plot(h,layout=layout_nicely, main="Layout nicely", adj = 0.5, line = -2)
 
 # Legende anfügen
 # tbc
-
 
 
 
