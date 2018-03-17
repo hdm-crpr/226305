@@ -44,12 +44,12 @@ pr_plus1
 V(pr_plus1)$ind
 
 # Kleine Visualisierung
-plot(pr_plus1, vertex.size=degree(pr_plus1, mode="in"), edge.arrow.size=0.05, vertex.label.cex=.5, vertex.label.color="black", layout = layout_with_fr, main="Zitationsnetzwerk PR-Einführungsliteratut", sub = "Visualisierung nach Indegree-Verteilung, indegree > 1")
+plot(pr_plus1, vertex.size=degree(pr_plus1, mode="in"), edge.arrow.size=0.05, vertex.label.cex=.5, vertex.label.color="black", layout = layout_with_fr, main="Zitationsnetzwerk PR-Einführungsliteratur", sub = "Visualisierung nach Indegree-Verteilung, indegree > 1")
 
 # Ohne Labels
 plot(pr_plus1, vertex.size=degree(pr_plus1, mode="in"), edge.arrow.size=0.05, layout = layout_with_fr, main="Zitationsnetzwerk PR-Einführungsliteratut", sub = "Visualisierung nach Indegree-Verteilung, indegree > 1")
 
-# Das Problem dabei ist aber, dass wir auch die untersuchte Quell-Literatur gelöscht haben, weil diese Knoten ja auch einen indegree = 1 hatten. Wir müssen also verhindern, dass die Quell-Knoten gelöscht werden.
+# Ich bin mir nur nicht sicher, ob wir nicht auch die Basisliteratur löschen, weil diese ja ggf. einen indegree von = 1 haben könnte (im Fall, dass das Buch nie von einem anderen zitiert wurde). Oder sehe ich das falsch? Das müssten Sie nochmals prüfen...
 
 # Sie können folgendes tun:
 # a) im Skript die Anzahl der indegrees variieren und schauen, was passiert
