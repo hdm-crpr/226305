@@ -1,0 +1,4 @@
+# Begleit-Tutorium für die Einführungsveranstaltung
+## Sie lernen die ersten Schritte in der Welt der Netzwerkanalyse kennen.
+
+Im Tutorium lernen Sie in kleineren Übungen, wie man eine einfache Netzwerkanalyse durchführt und die dazugehörenden Programme bedient.
