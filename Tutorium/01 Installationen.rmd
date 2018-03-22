@@ -1,1 +1,8 @@
 # Installation von R, RStudio und GIT
+Im ersten Tutorium lernt ihr, wie ihr R und RStudio installiert und wie man GitHub verwendet.
+## Installation von R
+R ist ein Open-Source Programm. Um R zu installieren, wählt man einen nahen Server aus. Wir wählen den Server der Uni Münster: https://cran.uni-muenster.de/.
+### Für Windows
+Klickt auf „Dowload R for Windows“. Danach geht ihr auf „Install R for the first time“. Wählt „Dowload R 3.4.4 for Windows“, um den Download zu starten. Die .exe Datei landet in eurem Download Ordner. Anklicken, Installation befolgen, R öffnen.
+### Für Mac
+Klickt auf „Download R for (Mac) OS X“. Wenn ihr nicht wisst, welches Betriebssystem ihr habt, schaut auf eurem Mac unter „Über diesen Mac“. Wählt dann auf der Web-Seite die richtige .pckg Datei aus, der Klick startet den Download. Im Finder könnt ihr unter „Downloads“ die .pckg Datei auswählen, die Installation befolgen und ebenfalls R öffnen.
