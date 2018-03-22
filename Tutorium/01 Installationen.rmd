@@ -17,11 +17,9 @@ GitHub ist eine „Versionsverwaltung für Softwareprojekte“. Das bedeutet, da
 Auf GitHub könnt ihr später euer R Skript hochladen und gemeinsam bearbeiten. Jede Änderung der Version wird euch dabei angezeigt. Wenn euer Skript auf dem Master-Branch (also auf dem Hauptzweig) eures Projektes liegt, könnt ihr pro Gruppenmitglied einen neuen Branch öffnen. In diesem Branches ist das R Skript aus dem Master Branch als Kopie gespeichert. Wenn ihr nun das Skript um eure Code-Zeilen erweitert und fertig seid, könnt ihr eine Pull Request an den Master Branch schicken. Dann kann ganz leicht entschieden werden, welche hervorgehobenen Neuerungen und Änderungen man übernimmt.
 ### Kleines GitHub ABC
 Begriff | Erklärung
-––––––––––––––––––––
+––––––– | ––––––––––
 Repository | Projekt, in dem eure Daten liegen
 Branch | Zweig. Auf jedem Zweig kann eine andere Version eurer Hauptdatei liegen, die ihr individuell bearbeiten könnt. Die Branches können am Ende wieder zusammengeführt werden.
-––––––––––––––––––––
 Commit | Eine neue Version des Branches/Dokuments wird eingereicht.
-––––––––––––––––––––
 Pull (Request) | Bitte, die Änderungen des eigenen Branches in das Hauptdokument aufzunehmen.
-––––––––––––––––––––
+
