@@ -1,1 +1,26 @@
 # Installation von R, RStudio und GIT
+Im ersten Tutorium lernt ihr, wie ihr R und RStudio installiert und wie man GitHub verwendet.
+## Installation von R
+R ist ein Open-Source Programm. Um R zu installieren, wählt man einen nahen Server aus. Wir wählen den Server der Uni Münster: https://cran.uni-muenster.de/.
+### Für Windows
+Klickt auf „Dowload R for Windows“. Danach geht ihr auf „Install R for the first time“. Wählt „Dowload R 3.4.4 for Windows“, um den Download zu starten. Die .exe Datei landet in eurem Download Ordner. Anklicken, Installation befolgen, R öffnen.
+### Für Mac
+Klickt auf „Download R for (Mac) OS X“. Wenn ihr nicht wisst, welches Betriebssystem ihr habt, schaut auf eurem Mac unter „Über diesen Mac“. Wählt dann auf der Web-Seite die richtige .pckg Datei aus, der Klick startet den Download. Im Finder könnt ihr unter „Downloads“ die .pckg Datei auswählen, die Installation befolgen und ebenfalls R öffnen.
+## Kleines R Intro
+R ist ein Kommandozeilen-Programm. Die Kommandozeile wird durch ein „>“ am Anfang der Zeile angezeigt. Hier schreibt ihr eure Befehle und führt sie mit Enter aus. Mit „#“ könnt ihr Kommentare kennzeichnen. Diese werden nicht ausgeführt, sondern erläutern Befehle und Ausführungen für z.B. eure Gruppenmitglieder.
+Ihr könnt euer gesamtes Projekt nur mithilfe von R durchführen. Das ist jedoch vor allem etwas für richtige „Coder“. Es gibt jedoch ein Programm, das uns hilft, mit R leichter und verständlicher umzugehen: RStudio!
+## Installation von RStudio
+Geht auf https://www.rstudio.com/, wählt Products/RStudio und klickt auf der Seite den Button „Download RStudio Desktop“. In der Tabelle könnt ihr unter „FREE“ auf „Download“ klicken. Die Web-Seite führt euch zu den „Installers for Supported Platforms“. Hier gibt es die Downloads für Windows und Mac OS X.
+**R muss vor RStudio installiert sein, da RStudio selbst kein Kommandozeilen-Programm ist, sondern nur eine grafische Oberfläche für R bietet, welche die Benutzung des Programms erleichtert!**
+## Wie verwendet man GitHub?
+GitHub ist eine „Versionsverwaltung für Softwareprojekte“. Das bedeutet, dass man auf GitHub bequem gemeinsam an einem Projekt arbeiten kann. Je nachdem, mit wie vielen Personen ihr gemeinsam arbeitet, kann es nämlich zu Problemen führen, wenn jeder daheim an seinem eigenen Projekt herumschraubt und man dann am Ende mühsam versucht, alle einzelnen Dokumente zusammenzutragen.
+Auf GitHub könnt ihr später euer R Skript hochladen und gemeinsam bearbeiten. Jede Änderung der Version wird euch dabei angezeigt. Wenn euer Skript auf dem Master-Branch (also auf dem Hauptzweig) eures Projektes liegt, könnt ihr pro Gruppenmitglied einen neuen Branch öffnen. In diesem Branches ist das R Skript aus dem Master Branch als Kopie gespeichert. Wenn ihr nun das Skript um eure Code-Zeilen erweitert und fertig seid, könnt ihr eine Pull Request an den Master Branch schicken. Dann kann ganz leicht entschieden werden, welche hervorgehobenen Neuerungen und Änderungen man übernimmt.
+### Kleines GitHub ABC
+Begriff | Erklärung
+------- | --------
+Repository | Projekt, in dem eure Daten liegen
+Branch | Zweig. Auf jedem Zweig kann eine andere Version eurer Hauptdatei liegen, die ihr individuell bearbeiten könnt. Die Branches können am Ende wieder zusammengeführt werden.
+Commit | Eine neue Version des Branches/Dokuments wird eingereicht.
+Pull (Request) | Bitte, die Änderungen des eigenen Branches in das Hauptdokument aufzunehmen.
+
+## Kleine Aufgabe
