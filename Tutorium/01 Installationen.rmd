@@ -18,11 +18,18 @@ Geht auf https://www.rstudio.com/, wählt Products/RStudio und klickt auf der Se
 **R muss vor RStudio installiert sein, da RStudio selbst kein Kommandozeilen-Programm ist, sondern nur eine grafische Oberfläche für R bietet, welche die Benutzung von R erleichtert!**
 
 ## Wie erstellt man ein Repository auf GitHub?
-GitHub ist eine Art Host, auf dem mehrere Personen gemeinsam an einem Code-Projekt arbeiten können. Mehr dazu im zweiten Tutorium. Zu allererst solltet ihr euch bei GitHub registrieren. 
-Oben rechts beim Plus-Zeichen könnt ihr unter „New Repository“ ein solches anlegen. Im Tutorium haben wir einen Testnamen gewählt, später benennt ihr euer Repository passend zu eurem Projekt und am besten ohne Sonderzeichen, sondern nur mit Buchstaben.
-Lasst das Repository auf öffentlich, alles andere kostet. Damit kann jede Person eure Dokumente anschauen! Da dies jedoch nur Code-Zeilen sein werden, ist es nicht schlimm. Schreibt aber keine sensiblen Daten in eure Dokumente.
-Drückt nicht „initializie“ und lasst die anderen Einstellungen auf „none“/„none“.
-Erstellt euer Repository!
-GitHub zeigt euch nun im ersten Abschnitt mehrere Code-Zeilen an, die ihr in eurem Terminal (Mac) oder in eurer Eingabeaufforderung (Windows) durchführen muss. Die Eingabeaufforderung muss als Administrator ausgeführt werden.
+GitHub ist eine Art Host, auf dem mehrere Personen gemeinsam an einem Code-Projekt arbeiten können. Mehr dazu im zweiten Tutorium. 
+
+* Zu allererst solltet ihr euch bei GitHub registrieren.
+* Oben rechts beim Plus-Zeichen könnt ihr unter „New Repository“ ein solches anlegen. Gebt dem Repository einen Projektnamen.
+* Lasst das Repository auf öffentlich, alles andere kostet. Damit kann jede Person eure Dokumente anschauen! Da dies jedoch nur Code-Zeilen sein werden, ist es nicht schlimm. Schreibt aber keine sensiblen Daten in eure Dokumente.
+* Drückt „initializie“ und lasst die anderen Einstellungen auf „none“/„none“.
+* Erstellt euer Repository!
+
+In die readme Datei könnt ihr eine kurze Erklärung eures späteren Projekts für andere GitHub-User reinschreiben, ihr müsst dies jedoch nicht tun.
+
+## Nice to know
+
+Wenn ihr den Haken bei initialize nicht setzt, zeigt euch GitHub nun im ersten Abschnitt mehrere Code-Zeilen an, die ihr in eurem Terminal (Mac) oder in eurer Eingabeaufforderung (Windows) ausführen könnt. Die Eingabeaufforderung muss als Administrator ausgeführt werden und muss die GIT-Befehle kennen. Da das bei einigen von euch nicht geklappt hat, haltet euch bitte an die obere Erklärung.
 An einer Stelle werden euch die Programme darum bitten, euren GitHub Nutzernamen und euer Passwort einzugeben. Beim Passwort bewegt sich der Cursor nicht weiter, lasst euch davon jedoch nicht beirren. Das Programm realisiert trotzdem, dass ihr gerade etwas eingebt, zeigt es aber zu eurem Schutz nicht an. Tippt also einfach euer Passwort ein und bestätigt mit Enter.
-Euer Repository sollte nun angelegt sein. In die readme Datei könnt ihr eine kurze Erklärung eures späteren Projekts für andere GitHub-User reinschreiben, ihr müsst dies jedoch nicht tun.
+Euer Repository sollte auch hier nun angelegt sein.
