@@ -1,0 +1,9 @@
+from,to,weight
+Anna,Tom,2
+Lisa,Frank,1
+Frank,Tom,2
+Frank,Anna,3
+Anna,Frank,3
+Elsa,Caroline,1
+Caroline,Elsa,3
+Lisa,Elsa,3
