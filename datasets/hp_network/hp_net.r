@@ -11,8 +11,7 @@ nodes <- read.csv("hp_nl.csv", header=T, as.is=T, sep = ",")
 # alternativ können wir die Daten aus dem github-Verzeichnis verwenden. Hier müssen die Daten aber als immer aus dem reinen Dateiformat raw ausgelesen werden.
 
 el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/datasets/hp_network/hp_el.csv", header=T, as.is=T, sep = ",")
-
-
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/datasets/hp_network/hp_nl.csv", header=T, as.is=T, sep = ",")
 
 
 # prüft, ob alle Variablen eingelesen wurden
