@@ -3,4 +3,4 @@ VisNetwork ist ein Paket, das igraph-Daten einlesen kann und etwas eleganter vis
 Beispieldatensatz Hilfsnetzwerk
 
 Visualisierung mit igraph
-
+![Visualisierung igraph](images/Visualisierung_igraph.png)
