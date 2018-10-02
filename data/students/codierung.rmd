@@ -5,25 +5,25 @@
 - Edges.csv (Edgelist)
 - Nodes.csv (Nodelist)
 - Codierung.rmd (Codierung der Datensätze)
-- sem.rda (dataframe für igraph-Datensätze)
 
 ## Ursprung und Datenerhebung
 Ich habe den Datensatz unter 38 Studierenden des dritten Semesters im Kurs Netzwerkanalyse erhoben. Die Daten sind nach der Erhebung nach einem Zufallsprinzip anonymisiert worden.
 
 Das Netzwerk ist ein gerichtetes one-mode Akteursnetzwerk. Es wurden zwei getrennte Fragen erhoben:
 
-*Projektarbeitsnetzwerk*  
+*Projektarbeitsnetzwerk work*  
 1a) Bei Hochschulprojekten arbeite ich am liebsten mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der Person ein.  
 1b) Bei Hochschulprojekten arbeite ich am auch gerne mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der zweiten Person ein.  
 
-Für das Zusammenarbeitsnetzwerk "work" wurde der Person, die zuerst genannt wurde, ein Gewicht von 3 vergeben, die zweite Person erhielt ein Gewicht von 1. Insgesamt waren 76 Beziehungsmuster möglich.  
+Für das Zusammenarbeitsnetzwerk "work" wurde der Person, die zuerst genannt wurde, ein Gewicht von 3 vergeben, die zweite Person erhielt ein Gewicht von 1. Insgesamt waren 76 Beziehungsmuster möglich und wurden ausgefüllt.  
 
-*Unterstützungsnetzwerk*  
+*Unterstützungsnetzwerk help*  
 2a) Wenn Sie ein Problem oder eine studiengangsbezogene Frage haben, an welchen ihrer Mitstudenten aus ihrem Semester wenden Sie sich zuerst?  Bitte tragen Sie auch hier wieder das Kürzel ein.  
 2b) Wenn Sie ein Problem oder eine studiengangsbezogene Frage haben, an welchen ihrer Mitstudenten aus ihrem Semester wenden Sie sich als nächstes? Bitte tragen Sie auch hier wieder das Kürzel ein.
 
-Für das Unterstützungsnetzwerk "help" wurde der Person, die zuerst genannt wurde, ein Gewicht von 3 vergeben, die zweite Person erhielt ein Gewicht von 1. Insgesamt waren 76 Beziehungsmuster möglich.
+Für das Unterstützungsnetzwerk "help" wurde der Person, die zuerst genannt wurde, ein Gewicht von 3 vergeben, die zweite Person erhielt ein Gewicht von 1. Insgesamt waren 76 Beziehungsmuster möglich und wurden ausgefüllt.
 
+Die Fragetypen sind angelehnt an die klassische Studie von Krackhardt (1992).
 
 # EDGE-Attribute
 
@@ -31,23 +31,25 @@ ID
 codiert von 1 bis 38, jede ID entspricht einem Studenten
 
 WEIGHT  
-3 = sehr starke Beziehung,
-1 = starke Beziehung vorhanden (zweite Nennung)
+3 = sehr starke Beziehung (erste ungestützte Nennung)
+1 = starke Beziehung vorhanden (zweite ungestützte Nennung)
 
-RELATION  
-6 = work: Projektbasierte Beziehung: Bei einem gerichteten Netzwerk präferiert der Sender (erste Spalte) die Zusammenarbeit mit der genannten Zielperson (zweite Spalte).  
-7 = help: Unterstützungsbeziehung: Bei einem gerichteten Netzwerk fragt der Sender (erste Spalte) die genannte Person (zweite Spalte) um Rat.
+RELATION
+Beschreibt die beiden Teilnetzwerke. Ist notwendig, um die beiden Netzwerke zu separieren oder vergleichen zu können.
+
+"work": Projektbasierte Beziehung: Bei einem gerichteten Netzwerk präferiert der Sender (erste Spalte) die Zusammenarbeit mit der genannten Zielperson (zweite Spalte).  
+"help": Unterstützungsbeziehung: Bei einem gerichteten Netzwerk fragt der Sender (erste Spalte) die genannte Person (zweite Spalte) um Rat.
 
 # NODE-Attribute  
   
 SEX  
 Bitte geben Sie ihr Geschlecht an:
-1 = weiblich;  
+1 = weiblich  
 2 = männlich
   
 CRPR  
 Welche Studienrichtung haben Sie vertieft?  
-1 = CR;  
+1 = CR  
 2 = PR
 
 AGE  
