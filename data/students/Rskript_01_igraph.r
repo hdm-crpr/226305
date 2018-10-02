@@ -4,7 +4,7 @@
 #Die Erklärung des Datensatzes und der Codierung finden Sie unter https://raw.githubusercontent.com/hdm-crpr/226305/master/datasets/kurs/codierung.rmd
 
 #liest die Dateien direkt aus dem github-Verzeichnis ein
-help <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/datasets/kurs/ehelp.csv", header=T, as.is=T, sep = ",")
+help <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/students/edges.csv", header=T, as.is=T, sep = ",")
 
 nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/students/nodes.csv", header=T, as.is=T, sep = ",")
 
