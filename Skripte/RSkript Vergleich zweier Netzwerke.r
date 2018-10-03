@@ -5,18 +5,32 @@
 # inspiriert von https://github.com/kateto/R-Network-Visualization-Workshop
 
 
-# Laden Sie die Dateien "e-work.csv" und "e-help.csv" in ihre working directory.
+# Variante 1: Laden Sie die Dateien "e-work.csv" und "e-help.csv" in ihre working directory.
+# Variante 2: Dateien können direkt über github eingelesen werden
 
-setwd("~/Desktop/sna")
+setwd("~/mein_pfad/") # hier muss natürlich der entsprechende lokale Ordner gewählt werden
 library(igraph)
 
-# liest die edgelist des Zusammenarbeits-Netzwerks ein
-edges <- read.csv("e-work.csv", header=T, as.is=T, sep = ";")
-work <- graph_from_data_frame(edges, directed = TRUE, vertices = NULL)
+# VARIANTE 1: lokale Dateien (zuvor abgespeichert)
+# liest die edgelist des Zusammenarbeits-Netzwerks "work" ein
+ework <- read.csv("e-work.csv", header=T, as.is=T, sep = ";")
+work <- graph_from_data_frame(ework, directed = TRUE, vertices = NULL)
 
-# liest die edgelist des Unterstützungsnetzwerks ein
-edges <- read.csv("e-help.csv", header=T, as.is=T, sep = ";")
-ehelp <- graph_from_data_frame(edges, directed = TRUE, vertices = NULL)
+# liest die edgelist des Unterstützungsnetzwerks "help" ein
+ehelp <- read.csv("e-help.csv", header=T, as.is=T, sep = ";")
+help <- graph_from_data_frame(ehelp, directed = TRUE, vertices = NULL)
+
+# VARIANTE 2: Verlinkung auf github verwenden
+# liest die Dateien direkt aus dem github-Verzeichnis aus (ggf. anpassen)
+
+# Edgelist work
+ework <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/Skripte/e-work.csv", header=T, as.is=T, sep = ";")
+work <- graph_from_data_frame(ework, directed = TRUE, vertices = NULL)
+
+ehelp <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/Skripte/e-help.csv", header=T, as.is=T, sep = ";")
+help <- graph_from_data_frame(ehelp, directed = TRUE, vertices = NULL)
+
+### gemeinsam weiter für beide Varianten ###
 
 # addiert die Gewichte bei gleichen Beziehungen
 works <- simplify(work, edge.attr.comb = list(weight="sum"))
