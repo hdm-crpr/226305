@@ -1,9 +1,9 @@
-# Vergleich zweier Netzwerke mit Visualisierung
+# Vergleich zweier Netzwerke mit einfacher Visualisierung
 # Skript für Lehrzwecke in der Veranstaltung 226305 Netzwerk- und Beziehungsmanagement
 
 # Autor: Swaran Sandhu, sandhu@hdm-stuttgart.de
 # inspiriert von https://github.com/kateto/R-Network-Visualization-Workshop
-
+# Hintergrund: Grundlage sind zwei Netzwerke studentische Netzwerke mit n=38 Teilnehmern mit zwei unterschiedlich gewichteten Beziehungen (3 = starke Beziehung, erste Nennung, 1 = Beziehung). Gefragt wurde nach jeweils zwei Nennungen der Personen, mit denen die Person am liebsten zusammenarbeitet (Netzwerk "work") und wen die Person um Rat fragt (Netzwerk "help). Es konnten maximal zwei Personen aus der gleichen Semesterstufe angegeben werden. Die erste Nennung gilt immer als die stärkere Beziehung. 
 
 # Variante 1: Laden Sie die Dateien "e-work.csv" und "e-help.csv" in ihre working directory.
 # Variante 2: Dateien können direkt über github eingelesen werden
