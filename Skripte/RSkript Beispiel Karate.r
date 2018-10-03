@@ -1,5 +1,7 @@
-# R-Skript zum Erlernen der Netzwerkanalyse in R
-# Swaran Sandhu, sandhu@hdm-stuttgart.de
+# Selbstlern R-Skript zum Erlernen der Netzwerkanalyse in R
+# Autor: Swaran Sandhu, sandhu@hdm-stuttgart.de
+# Inhalt: Das Skript verwendet den klassischen Datensatz "karate" (vgl. Zachary 1991), der häufig zur Erklärung von Netzwerkanalyse herangezogen wird, vgl. etwa: https://www.inertia7.com/projects/122 oder   Das Skript ist als "stand-alone" zum eigenständigen Erlernen konzipiert.
+
 
 # Inhaltsverzeichnis
 # LEKTION 1: Pakete installieren und Datensätze aufrufen
@@ -9,7 +11,7 @@
 
 # LEKTION 1: Pakete installieren und Datensätze aufrufen
 
-setwd("~/Desktop/226503") 
+setwd("~/Desktop/226503")
 # Arbeitsverzeichnis definieren (Menü > Session > Set Working Directory)
 
 install.packages("igraph") # installiert igraph Paket
@@ -45,7 +47,11 @@ name <- V(karate)$name
 label <- V(karate)$label
 color <- V(karate)$color
 
-# Wenn wir jetzt wissen wollen, wie die Bezeichnungen der Knoten verteilt ist, reicht die Eingabe von "label", um eine Aufstellung zu erhalten. Daraus wird ersichtlich: Knoten 1 ist "Mr Hi", Knoten 34 ist "John A", alle anderen Knoten sind anonyomisiert. Im Netzwerk werden diese über den Vertex "name" visualisiert.
+# Wenn wir jetzt wissen wollen, wie die Bezeichnungen der Knoten verteilt ist, reicht die Eingabe von "label", um eine Aufstellung zu erhalten.
+
+label
+
+#Daraus wird ersichtlich: Knoten 1 ist "Mr Hi", Knoten 34 ist "John A", alle anderen Knoten sind anonyomisiert. Im Netzwerk werden diese über den Vertex "name" visualisiert.
 
 # LEKTION 2: Einfache Netzwerkdaten analysieren
 
@@ -60,7 +66,7 @@ vcount(karate) # Anzahl der vertices
 # Dichte des Netzwerks (Anzahl der realisierten Beziehunge zwischen Knoten im Verhältnis zu allen möglichen Verbindungen)
 edge_density(karate)
 
-# Zentralisierte zwischen den Knoten 
+# Zentralisierte zwischen den Knoten
 centr_degree(karate, mode = c("all"), loops = TRUE, normalized = TRUE)
 
 
@@ -113,7 +119,7 @@ triad_census (karate)
 #Verbindungen der einzelnen Knoten
 
 #Auflistung der Verbindungen der Knoten (entspricht degree)
-ego_size(karate) 
+ego_size(karate)
 
 #Detaillierte Aufstellung aller Knoten und deren direkte Verbindung
 ego(karate)
@@ -126,16 +132,16 @@ ego(karate, order = 1, nodes = V(karate)$name == "Mr Hi", mode = "all")
 # mit make_ego_graph lassen sichn spezifische Knoten des Netzwerks auflisten.
 
 mrhi <- make_ego_graph(karate, order = 1, nodes = V(karate)$name == "Mr Hi", mode = "all")
+mrhi
 
 # Eine Alternative zu make_ego_graph ist der Befehl incident. Damit werden alle edges ausgewählt, die eine Verbindung zu einem bestimmten Knoten haben.
 
 hi <- incident(karate, V(karate)[name=="Mr Hi"], mode="all")
-
+hi
 # Achtung: beide Selektionen liefern keinen separaten Subgraph, sondern nur eine Selektion von spezifischen Werten, die z.B. für die Visualisierung relevant sind.
 
 plot(mrhi[[1]])
 # liefert einen nicht besonders aufregenden Plot des Ego-Netzwerks von mrhi
-
 
 # Erstellen von eigenen Untergruppen aus dem Netzwerk
 
@@ -143,29 +149,33 @@ plot(mrhi[[1]])
 
 # erstellt as Netzwerk k2, indem alle Knoten des Netzwerks karate gelöscht werden, die nicht den Wert "1" im Vertex-Attribut "Faction" haben. Es bleiben also nur nochn Mitglieder der Fraktion 2 übrig.
 k1 <- delete_vertices(karate, V(karate)[Faction == "2"])
+plot(k1)
 
-#Alternativer Befehl: hier wird statt dem logischen == (entspricht gleich) mit "!=" (ist nicht gleich) gearbeitet. Das ist immer dann besonders hilfreich, wenn ein Wert viele Ausprägungen annehmen kann. Das Ergebnis ist das gleiche, wie die Direktauswahl oben. 
+#Alternativer Befehl: hier wird statt dem logischen == (entspricht gleich) mit "!=" (ist nicht gleich) gearbeitet. Das ist immer dann besonders hilfreich, wenn ein Wert viele Ausprägungen annehmen kann. Das Ergebnis ist das gleiche, wie die Direktauswahl oben.
 
 k1a <- delete_vertices(karate, V(karate)[Faction != "1"])
+plot(k1a)
 
 # Erstellen eines Teilnetzwerks basierend auf bestimmten Beziehungswerten
 
-# Was für Knoten gilt lässt sich auch für die Kanten darstellen. Nachfolgend lassen sich Teilnetzwerke mit dem Befehl subgraph.edges erzeugen, wobei die Edges nach einem bestimmten Kriterium ausgewählt werden, in diesem Fall muss der Wert des edgeweights größer gleich 4 sein, d.h. es werden alle edges mit einem Gewicht kleiner als 4 gelöscht. Alternative Operatoren sind auch hier < kleiner, <= kleiner gleich, > größer und >= größer gleich sowie == entspricht genau und != entspricht nicht. 
+# Was für Knoten gilt lässt sich auch für die Kanten darstellen. Nachfolgend lassen sich Teilnetzwerke mit dem Befehl subgraph.edges erzeugen, wobei die Edges nach einem bestimmten Kriterium ausgewählt werden, in diesem Fall muss der Wert des edgeweights größer gleich 4 sein, d.h. es werden alle edges mit einem Gewicht kleiner als 4 gelöscht. Alternative Operatoren sind auch hier < kleiner, <= kleiner gleich, > größer und >= größer gleich sowie == entspricht genau und != entspricht nicht.
 
 k4 <- subgraph.edges(karate, E(karate)[weight >= 4])
+plot(k4)
 
 # Die Werte für die Edges lassen sich beliebig austauschen und einfach durch die Wiederholung des Befehls neu gestalten.
 
-# Alternativ lassen sich auch die Kanten selektieren. Dabei bleiben allerdings die gesamten Knoten übrig, deshalb ist es notwendig, einen sinnvollen Wert zur Auswahl zu definieren. 
+# Alternativ lassen sich auch die Kanten selektieren. Dabei bleiben allerdings die gesamten Knoten übrig, deshalb ist es notwendig, einen sinnvollen Wert zur Auswahl zu definieren.
 
 kw3 <- delete.edges(karate, which(E(karate)$weight <=3))
+plot(kw3)
 
 # In dieser Lektion haben Sie gelernt, wie man Teilbereiche des Netzwerks auswählt bzw. isoliert sowie einzelnen Knoten und deren Umgebung auswählt. Ausserdem können Sie nun Knoten und Kanten aus einem Netzwerk basierend auf bestimmten Attributen oder Netzwerkmaßen entfernen und neue Teilnetzwerke erstellen.
 
 # LEKTION 4: Graphische Darstellung von Netzwerken
 
 # Eine Übersicht über alle Befehle für die graphische Darstellung von Netzwerken erhölt man durch
-?igraph.plotting 
+?igraph.plotting
 
 # Alle Knotenattribute werden durch "vertex." dargestellt.
 # Alle Kantenattribute werden durch "edge." dargestellt.
@@ -173,9 +183,9 @@ kw3 <- delete.edges(karate, which(E(karate)$weight <=3))
 # Es ist möglich, alle Attribute des der Darstellung zu manipulieren: Hierbei werden neue Knoten und Kantenattribute angelegt, die dauerhaft bestehen bleiben und dann nicht mehr über den Befehl "plot" extra bearbeitet werden müssen.
 
 # definiert einige Attribute für das Netzwerk
-deg <- degree(karate) 
-V(karate)$size <- deg*3 
-E(karate)$width <- E(karate)$weight*1.5 
+deg <- degree(karate)
+V(karate)$size <- deg*3
+E(karate)$width <- E(karate)$weight*1.5
 E(karate)$arrow.size <- .4
 
 # definiert, dass die Kanten in der Farbe der verbundenen Knoten erstellt werden
@@ -190,18 +200,21 @@ plot(karate, edge.color=edge.col, edge.curved=.1)
 
 # Beispiel für Fruchterman-Rheingold Algorithmus zur Visualisierung
 
-plot(karate, layout = layout_with_fr, edge.color=edge.col, edge.curved=.2,)
+plot(karate, layout = layout_with_fr, edge.color=edge.col, edge.curved=.2, main="Fruchterman-Rheingold")
 
 
 # Vergleich verschiedener Layouts
 
-par(mfrow=c(2,2), mar=c(0,0,0,0))   
+par(mfrow=c(2,2), mar=c(0,0,0,0))
 plot(karate, layout=layout_with_fr, main="Fruchterman Rheingold")
 plot(karate, layout=layout_with_kk, main="Kamada Kawai")
 plot(karate, layout=layout_with_mds, main="Multidimensional Scaling")
 plot(karate, layout=layout_with_graphopt, main="Graphopt")
 
 # Die Algorithmen Kamada-Kawai und MDS definieren eine stabile Position der Knoten in einem Koordinatensystem. Deshalb sind diese besonders gut geeignet, um die Entwicklung von Teilnetzwerken über die Zeit zu visualisieren.
+
+# Rücksetzen der Aufteilung des Plot-Fensters
+par(mfrow=c(1,1), mar=c(3,3,3,3))
 
 ## DIAMETER (Durchmesser) berechnen und visualisieren
 
@@ -211,6 +224,7 @@ data(karate)
 
 g <- karate
 d <- get.diameter(g)
+d
 
 E(g)$color <- "grey"
 E(g)$width <- 1
@@ -218,15 +232,15 @@ E(g, path=d)$color <- "red"
 E(g, path=d)$width <- 2
 V(g)$label.color <- "blue"
 V(g)$color  <- "SkyBlue2"
-V(g)[ d ]$label.color <- "black"
-V(g)[ d ]$color <- "red"
+V(g)[d]$label.color <- "black"
+V(g)[d]$color <- "red"
 
-plot(g, layout=layout.fruchterman.reingold, vertex.label.dist=0, vertex.size=15)
-title(main="Diameter of the Zachary Karate Club network")
+plot(g, layout=layout_with_fr, vertex.label.dist=0, vertex.size=15, main="Diameter of the Zachary Karate Club network")
 
 
 # BONUS zum Ausprobieren: interaktiver Plot
 # Einfache interaktive Darstellung des Netzwerks via tkplot
+
 # Diese Anwendung ruft ein simples interaktives Fenster auf, in dem das Netzwerk repräsentiert wird. Die Funktion tkplot (http://igraph.org/r/doc/tkplot.html) setzt voraus, dass auf dem Mac X11 installiert ist.
 
 # Das Beispiel zeigt, wie einfach ein beliebiges Netzwerk visualisiert werden kann. Alle Visualisierungsparameter vor dem Plot-Befehl werden von tkplot übernommen, bzw. für tkplot selbst können bestimmte Parameter gesetzt werden.
@@ -245,4 +259,60 @@ E(g)$color <- "grey"
 # erzeugt einen interaktiven plot nach bestimmten Vorgaben
 tkplot(g, layout=layout.kamada.kawai, vertex.label.font=2, vertex.frame.color = "white")
 
+### ERGÄNZUNGEN aus anderen Tutorials ###
 
+# via https://github.com/jdwilson4/Network-Analysis-I/blob/master/Code/Network_Visualization.R
+
+#Example 1: Plotting the Karate club data set
+library(igraphdata)
+library(igraph)
+data(karate) #pre-loaded data already in R
+
+# Reproducible layout
+set.seed(42)
+l <- layout.kamada.kawai(karate)
+# Plot undecorated simple graph first.
+par(mfrow=c(1,1))
+plot(karate, layout=l, vertex.label=NA)
+
+##Decorating the Graph
+# Give labels to vertices according to their names
+V(karate)$label <- sub("Actor ", "", V(karate)$name)
+
+# Give leaders of each faction a rectangle shape and all others circles
+V(karate)$shape <- "circle"
+V(karate)[c("Mr Hi", "John A")]$shape <- "rectangle"
+
+
+# Differentiate two factions by color.
+V(karate)[Faction == 1]$color <- "red"
+V(karate)[Faction == 2]$color <- "dodgerblue"
+
+# Vertex area proportional to vertex strength
+# (i.e., total weight of incident edges).
+# Note - you can play around with this to make the visual up to your
+# tastes
+V(karate)$size <- 4*sqrt(graph.strength(karate))
+V(karate)$size2 <- V(karate)$size * .5
+
+# Weight edges by number of common activities
+E(karate)$width <- E(karate)$weight
+
+
+# Color edges by within/between faction.
+#Identify the vertices in each faction (F1 for Faction 1)
+F1 <- V(karate)[Faction==1]
+F2 <- V(karate)[Faction==2]
+
+E(karate)[ F1 %--% F1 ]$color <- "pink" #pink edges for F1 to F1
+E(karate)[ F2 %--% F2 ]$color <- "lightblue" #lightblue edges for F2 to F2
+E(karate)[ F1 %--% F2 ]$color <- "yellow" #yellow edges for F1 to F2
+
+# Offset vertex labels for smaller points (default=0).
+V(karate)$label.dist <-
+  ifelse(V(karate)$size >= 10, 0, 0.75)
+
+# Plot decorated graph, using same layout.
+plot(karate, layout=l)
+
+###
