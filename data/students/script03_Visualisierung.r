@@ -118,12 +118,14 @@ E(s)$width <- E(s)$weight # definiert die Kantenstärke nach dem hinterlegten Ge
 # Mit den Befehlen haben Sie die Edge-Attribute um 3 neue Werte ergänzt. Diese sind nun dauerhaft im igraph-Objekt hinterlegt.
 list.edge.attributes(s)
 
+edge.attributes(s)
+
 plot(s, layout = layout_with_fr)
 # generiert den neuen Plot mit dem Layout nach Fruchterman-Rheingold. Bitte beachten: Fruchterman-Rheingold berechnet das Netzwerk jedes Mal neu.
 
 # Die Variablen können auch leicht manipuliert werden, falls etwa das Gewicht noch wenig stärker visualisiert werden soll, können die Werte einfach umgeschrieben werden.
 E(s)$width <- E(s)$weight*2 # multipliziert die Gewicht mit dem Faktor 2, daher werden diese auch stärker visualisiert werden.
-E(s)$color="red" #setzt die Farbe rot für Kanten
+E(s)$color="black" #setzt die Farbe rot für Kanten
 E(s)$curved=.2 #leicht gebogenen Kanten für eine bessere Lesbarkeit.
 
 plot(s)
@@ -132,6 +134,7 @@ plot(s)
 
 # Keine Labels der Knoten anzeigen
 V(s)$label <- NA # überschreibt alle Labels mit dem Wert "NA", der nicht angezeigt wird.
+vertex.attributes(s)
 plot(s)
 
 # Labels wiederherstellen
@@ -152,7 +155,7 @@ vertex.attributes(s)$sex
 #Alle Männer sollen nun mit der Farbe blau und alle Frauen mit der Farbe rot visualisiert werden.
 
 #FARBEN nach Vertex-Attributen definieren
-colrs <- c("blue", "yellow")
+colrs <- c("blue", "green")
 
 #definiert das Farbspektrum, der verwendeten Farben und legt diese in einem neuen Vector colrs fest. Da wir wissen, dass wir bei §sex nur zwei Werte haben (männlich, weiblich) brauchen wir auch zwei Werte. Die direkten Farbpaletten sind hier hinterlegt: http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.
 
@@ -241,7 +244,7 @@ plot(s)
 plot(s,
      vertex.size=degree(s)*1.5,
      vertex.color="lightblue",
-     vertex.frame.color="white",
+     vertex.frame.color="blue",
      edge.arrow.size=.2,
      edge.curved=.2,
      vertex.label.dist=3,
@@ -272,7 +275,7 @@ plot(s,
      edge.width=E(s)$weight,
      vertex.shape="circle",
      vertex.color="red",
-     vertex.size=".5",
+     vertex.size=degree(s)*1.5,
      vertex.label=NA,
      edge.label=E(s)$weight,
      edge.label.color="black",
@@ -324,8 +327,8 @@ plot(h, edge.arrow.size=0.1, main="Hilfsnetzwerk")
 # direkter Vergleich der beiden Netzwerke herstellen
 
 par(mfrow=c(1,2), mar=c(0,0,2,0))
-plot(w, layout = layout_with_kk, edge.arrow.size=0.1, main="Arbeitsnetzwerk")
-plot(h, layout = layout_with_kk, edge.arrow.size=0.1, main="Hilfsnetzwerk")
+plot(w, layout = layout_with_fr, edge.arrow.size=0.1, main="Arbeitsnetzwerk")
+plot(h, layout = layout_with_fr, edge.arrow.size=0.1, main="Hilfsnetzwerk")
 
 # Die Netzwerke könnnen noch verfeinert werden, indem Sie entweder den simplify Befehl auf die Netzwerke anwenden, oder nur die starken Beziehungen analysieren (weight=3). Alternativ können Sie auch weitere Variablen für die Analyse heranziehen, wie etwa Geschlecht, Alter, etc.
 
@@ -360,7 +363,6 @@ eties <-as.matrix(el)
 s <- graph_from_data_frame(d=eties, vertices=nodes, directed=T)
 
 
-
 # hierzu können wir eine Bibliothek mit den vorgegebenen Farbpaletten installieren und laden
 install.packages('RColorBrewer')
 library('RColorBrewer')
@@ -377,7 +379,7 @@ display.brewer.pal(8, "Oranges") # Acht Abstufungen "blau"
 
 col=heat.colors(13)
 V(s)$color <- col[ins]
-plot(s, vertex.size=ins*3, vertex.label=ins, edge.color="grey", edge.arrow.size=.1)
+plot(s, vertex.label=ins, edge.color="grey", edge.arrow.size=.1)
 
 # Das klappt schon ganz gut, nur passen die Skala der Indegrees (von 0 bis 13) und die der Farbwerte noch nicht zusammen.
 
@@ -388,7 +390,7 @@ fine = 13
 palette = colorRampPalette(c('yellow','red'))
 
 # definiert die Farbskala auf die Werte
-graphCol = palette(fine)[as.numeric(cut(inh, breaks = fine))]
+graphCol=palette(fine)[as.numeric(cut(ins, breaks = fine))]
 
 # Plot mit Farbe nach dem Indegree-Wert
 plot(s, vertex.color=graphCol)
@@ -401,7 +403,7 @@ plot(s, vertex.color=graphCol, vertex.size=ins*2, vertex.label=ins)
 ins <- degree(s, mode = "in", normalized = TRUE)
 fine = 10
 palette = colorRampPalette(c('lightblue','darkblue'))
-graphCol = palette(fine)[as.numeric(cut(inh, breaks = fine))]
+graphCol = palette(fine)[as.numeric(cut(ins, breaks = fine))]
 
 # der folgende Plot ist um einige weitere Visualisierungsparameter ergänzt
 plot(s,
@@ -449,6 +451,8 @@ in_king2 <- make_ego_graph(s,
                            order = 2,
                            nodes = V(s)$name == 18,
                            mode ="in")
+in_king2
+
 plot(in_king2[[1]],
      edge.arrow.size=.2,
      edge.curved=.2,
@@ -472,7 +476,7 @@ plot(s)
 sd <- degree(s, mode = "all")
 fine = 4
 palette = colorRampPalette(c('lightblue','blue'))
-iblue = palette(fine)[as.numeric(cut(inh, breaks = fine))]
+iblue = palette(fine)[as.numeric(cut(sd, breaks = fine))]
 
 V(s)$size = sd
 V(s)$color = iblue
@@ -510,13 +514,3 @@ plot(s,layout=layout_nicely, main="Layout nicely", sub="Test Algorithmus")
 par(mfrow=c(1,1))
 plot(s,layout=layout_nicely)
 title("Mein Titel",cex.main=2,col.main="blue")
-
-# Problem: Visualisierung ist abgeschnitten:
-# muss ich noch lösen!
-
-# Definieren Sie den äußeren Rand auf 2
-par(oma=c(0,0,2,2))
-plot(s,layout=layout_nicely, main="Layout nicely", adj = 0.5, line = -2)
-
-# Legende anfügen
-# tbc
