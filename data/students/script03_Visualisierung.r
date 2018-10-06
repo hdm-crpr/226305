@@ -514,3 +514,65 @@ plot(s,layout=layout_nicely, main="Layout nicely", sub="Test Algorithmus")
 par(mfrow=c(1,1))
 plot(s,layout=layout_nicely)
 title("Mein Titel",cex.main=2,col.main="blue")
+
+# CLUSTER berechnen
+
+# Netzwerk s einlesen
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/students/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/students/nodes.csv", header=T, as.is=T, sep = ",")
+eties <-as.matrix(el)
+s <- graph_from_data_frame(d=eties, vertices=nodes, directed=T)
+s
+
+# Cluster mit der Walktrap Methode erstellen
+
+s
+gc <- cluster_walktrap(s)
+modularity(gc)
+membership(gc)
+plot(gc, s, edge.arrow.size=.2, main="Clusteranalyse des Netzwerks")
+
+# LEGENDE anfügen
+
+s
+# degrees berechnen
+degs <- degree(s)
+degs
+
+par(mfrow=c(1,1), mar=c(0,0,3,0))
+
+# Vorbereitung für Legen (muss noch angepasst werden)
+
+sizeCut<- c(0,4,8,12,16,20)
+sizeCutScale <- sizeCut
+plot(s,
+     layout = layout_with_fr,
+     vertex.label=NA,
+     edge.arrow.size=.2,
+     vertex.size=degs,
+     main = "Visualisierung nach Degrees mit Legende",
+     sub = "n=38, Studentennetzwerk")
+
+legend('topleft',
+       legend=unique(sizeCut),
+       pt.cex= sizeCutScale,
+       col='black')
+
+a <- legend('topleft',
+            legend=unique(sizeCut),
+            pt.cex=sizeCutScale,
+            col='white',
+            pch=21,
+            pt.bg='white')
+
+x <- (a$text$x + a$rect$left) / 2
+y <- a$text$y
+
+symbols(x,y,circles=sizeCutScale/300,inches=FALSE,add=TRUE,bg='orange')
+
+# Noch nicht ganz optimal, muss ich noch etwas anpassen.
+
+# Problem: Visualisierung ist abgeschnitten:
+# Definieren Sie den äußeren Rand auf 2
+par(oma=c(0,0,2,2))
+plot(s,layout=layout_nicely, main="Layout nicely", adj = 0.5, line = -2)
