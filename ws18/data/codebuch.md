@@ -1,11 +1,11 @@
-#Befragung WS18
+# Befragung WS18
 n=36 Befragte
 n=34 gültige Datensätze
 
 
-#Codebuch	
+# Codebuch	
 
-##Edge-Attribute
+## Edge-Attribute
 from "Sender"
 to "Empfänger" 
 (als gerichtetes Netzwerk)
@@ -19,7 +19,7 @@ work = Zusammenarbeit im Projekt
 help = Ratsuche 
 
 
-##Node-Attribute
+## Node-Attribute
 ID = ID der Edgelist
 
 sex	
