@@ -10,11 +10,11 @@ from "Sender"
 to "Empfänger"   
 (als gerichtetes Netzwerk)  
 
-weight
+weight  
 3 = erste Nennung  
 1 = zweite Nennung  
 
-relation
+relation  
 work = Zusammenarbeit im Projekt  
 help = Ratsuche   
 
@@ -22,15 +22,15 @@ help = Ratsuche
 ## Node-Attribute
 ID = ID der Edgelist
 
-sex	
+sex	 
 1	weiblich  
 2	männlich
 
-study	
+study	 
 1	PR  
 2	CR
 
-age	
+age	  
 1	bis 20  
 2	21-22  
 3	23-24  
@@ -40,7 +40,7 @@ smoke
 1	Nichtraucher  
 2	Raucher
 
-tatoo	
+tatoo	 
 1	Keines  
 2	Tatoo vorhanden
 
