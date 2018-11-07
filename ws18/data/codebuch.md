@@ -22,7 +22,7 @@ help = Ratsuche
 ## Node-Attribute
 ID = ID der Edgelist
 
-sex	 
+sex	  
 1	weiblich  
 2	männlich
 
