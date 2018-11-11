@@ -59,7 +59,7 @@ expenses
 5	über 600  
 6 kostenlos
 
-work	
+work  	
 1	keine Arbeit  
 2	halber Tag (5h Woche)  
 3	ganzer Tag (10h Woche)  
