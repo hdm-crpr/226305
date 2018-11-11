@@ -26,7 +26,7 @@ sex
 1	weiblich  
 2	männlich
 
-study	 
+crpr	 
 1	PR  
 2	CR
 
@@ -40,7 +40,7 @@ smoke
 1	Nichtraucher  
 2	Raucher
 
-tatoo	 
+tattoo	 
 1	Keines  
 2	Tatoo vorhanden
 
@@ -52,12 +52,12 @@ living
 5	sonstiges  
 
 expenses	
-1	kostenlos  
-2	bis 300  
-3	301-400  
-4	401-500  
-5	501-600  
-6	über 600  
+1	bis 300  
+2	301-400  
+3	401-500  
+4	501-600  
+5	über 600  
+6 kostenlos
 
 work	
 1	keine Arbeit  
