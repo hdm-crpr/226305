@@ -1,6 +1,6 @@
 # Befragung WS18
 n=36 Befragte  
-n=34 gültige Datensätze
+n=36 gültige Datensätze
 
 
 # Codebuch	
@@ -15,8 +15,8 @@ weight
 1 = zweite Nennung  
 
 relation  
-work = Zusammenarbeit im Projekt  
-help = Ratsuche   
+1 = Zusammenarbeit im Projekt  
+2 = Ratsuche   
 
 
 ## Node-Attribute
