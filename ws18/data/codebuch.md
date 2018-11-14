@@ -18,10 +18,10 @@ relation
 1 = Ratsuche (help) 
 2 = Zusammenarbeit (work)     
 
-Zusammenarbeit
+Zusammenarbeit   
 Bei Hochschulprojekten arbeite ich am liebsten mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der Person ein (maximal eine Nennung, keine Leerzeichen, keine Sonderzeichen, keine Anführungszeichen).
 
-Ratsuche
+Ratsuche   
 Wenn Sie ein Problem oder eine studiengangsbezogene Frage haben, an welchen ihrer Mitstudenten aus ihrem Semester wenden Sie sich zuerst?  Bitte tragen Sie auch hier wieder das Kürzel ein (maximal eine Nennung).
 
 ## Node-Attribute
@@ -42,7 +42,7 @@ age
 3	23-24  
 4	über 25  
 
-smoke
+smoke   
 (Als Raucher gilt, wer mindestens ein Mal pro Woche raucht (egal was und wie).
 1	Nichtraucher  
 2	Raucher
@@ -51,7 +51,7 @@ tattoo
 1	Keines  
 2	Tatoo vorhanden
 
-living 
+living     
 (Bitte geben Sie an, wie Sie wohnen. (Mit "wohnen" ist der Ort gemeint, an dem Sie ausserhalb der Präsenz an der Hochschule in der Vorlesungszeit am meisten Zeit verbringen)
 1	Familie  
 2	Wohnheim  
@@ -59,7 +59,7 @@ living
 4	Zimmer  
 5	sonstiges  
 
-expenses   
+expenses      
 (Bitte geben Sie an, wie hoch die (Warm-)Miete Ihrer Unterkunft im Monat ist (egal, ob Sie die Miete selbst bezahlen oder nicht).
 1	bis 300  
 2	301-400  
@@ -68,7 +68,7 @@ expenses
 5	über 600  
 6 kostenlos
 
-work
+work   
 (Ich arbeitete neben meinem  Studium in der Regel... (unter Arbeit sind alle Formen des Geldverdienens gemeint, egal welcher Art. Es geht hier um einen Mittelwert, der auch die Zeit in der vorlesungsfreien Zeit umfasst.). Ehrenamtliche unbezahlte Tätigkeiten wie Sport/Engagement, etc. zählen nicht dazu.)
 1	keine Arbeit  
 2	halber Tag (5h Woche)  
