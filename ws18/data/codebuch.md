@@ -36,7 +36,7 @@ age
 3	23-24  
 4	über 25  
 
-smoke	
+smoke	  
 1	Nichtraucher  
 2	Raucher
 
@@ -59,7 +59,7 @@ expenses
 5	über 600  
 6 kostenlos
 
-work  	
+work   
 1	keine Arbeit  
 2	halber Tag (5h Woche)  
 3	ganzer Tag (10h Woche)  
