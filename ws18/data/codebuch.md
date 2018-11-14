@@ -27,31 +27,31 @@ Wenn Sie ein Problem oder eine studiengangsbezogene Frage haben, an welchen ihre
 ## Node-Attribute
 ID = ID der Edgelist
 
-sex  	  
+*sex*  	  
 1	weiblich  
 2	männlich
 
-crpr  	 
+*crpr*  	 
 1	PR  
 2	CR
 
-age
-(Bitte geben Sie Ihr Alter in Jahren an)       	  
+*age*    
+(Bitte geben Sie Ihr Alter in Jahren an)        	  
 1	bis 20  
 2	21-22  
 3	23-24  
 4	über 25  
 
-smoke   
+*smoke*   
 (Als Raucher gilt, wer mindestens ein Mal pro Woche raucht (egal was und wie).    
 1	Nichtraucher  
 2	Raucher
 
-tattoo   	 
+*tattoo*   	 
 1	Keines  
 2	Tatoo vorhanden
 
-living     
+*living*     
 (Bitte geben Sie an, wie Sie wohnen. (Mit "wohnen" ist der Ort gemeint, an dem Sie ausserhalb der Präsenz an der Hochschule in der Vorlesungszeit am meisten Zeit verbringen)    
 1	Familie  
 2	Wohnheim  
@@ -59,7 +59,7 @@ living
 4	Zimmer  
 5	sonstiges  
 
-expenses      
+*expenses*      
 (Bitte geben Sie an, wie hoch die (Warm-)Miete Ihrer Unterkunft im Monat ist (egal, ob Sie die Miete selbst bezahlen oder nicht).    
 1	bis 300  
 2	301-400  
@@ -68,7 +68,7 @@ expenses
 5	über 600  
 6 kostenlos
 
-work   
+*work*   
 (Ich arbeitete neben meinem  Studium in der Regel... (unter Arbeit sind alle Formen des Geldverdienens gemeint, egal welcher Art. Es geht hier um einen Mittelwert, der auch die Zeit in der vorlesungsfreien Zeit umfasst.). Ehrenamtliche unbezahlte Tätigkeiten wie Sport/Engagement, etc. zählen nicht dazu.)    
 1	keine Arbeit  
 2	halber Tag (5h Woche)  
