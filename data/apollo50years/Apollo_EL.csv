@@ -1,0 +1,64 @@
+from,to,function,group,moonwalker,launch
+Aldrin,Apollo_11,LM Pilot,3,1,1969-07-16
+Aldrin,Gemini_12,Second Seat,3,0,1966-11-11
+Anders,Apollo_08,LM Pilot,3,0,1968-12-21
+Armstrong,Apollo_11,Commander,2,1,1969-07-16
+Armstrong,Gemini_08,Commander,2,0,1966-03-16
+Bean,Apollo_12,LM Pilot,3,1,1969-11-14
+Bean,Skylab_3,Commander,3,0,1973-07-28
+Borman,Apollo_08,Commander,2,0,1968-12-21
+Borman,Gemini_07,Commander,2,0,1965-12-04
+Cernan,Apollo_10,LM Pilot,3,0,1969-05-18
+Cernan,Apollo_17,Commander,3,1,1972-12-07
+Cernan,Gemini_09,Second Seat,3,0,1966-06-03
+Chaffee,Apollo_01,LM Pilot,3,0,1967-01-27
+Collins,Apollo_11,CM Pilot,3,0,1969-07-16
+Collins,Gemini_10,Second Seat,3,0,1966-07-18
+Conrad,Apollo_12,Commander,2,1,1969-11-14
+Conrad,Gemini_05,Second Seat,2,0,1965-08-21
+Conrad,Gemini_11,Commander,2,0,1966-98-12
+Cunningham,Apollo_07,LM Pilot,3,0,1968-10-11
+Duke,Apollo_16,LM Pilot,4,1,1972-04-16
+Eisele,Apollo_07,CM Pilot,3,0,1968-10-11
+Evans,Apollo_17,CM Pilot,4,0,1972-12-07
+Gordon,Apollo_12,CM Pilot,3,0,1969-11-14
+Gordon,Gemini_11,Second Seat,3,0,1966-98-12
+Grissom,Apollo_01,Commander,1,0,1967-01-27
+Grissom,Gemini_03,Commander,1,0,1961-03-23
+Grissom,Mercury_Liberty,Pilot,1,0,1961-07-21
+Haise,Apollo_13,LM Pilot,4,0,1970-04-11
+Irwin,Apollo_15,LM Pilot,4,1,1971-07-26
+Lovell,Apollo_08,CM Pilot,2,0,1968-12-21
+Lovell,Apollo_13,Commander,2,0,1970-04-11
+Lovell,Gemini_07,Second Seat,2,0,1965-12-04
+Lovell,Gemini_12,Commander,2,0,1966-11-11
+Mattingly,Apollo_16,CM Pilot,4,0,1972-04-16
+Mattingly,STS-4,NA,4,0,1982-06-27
+Mattingly,STS-51-C,NA,4,0,1985-01-24
+McDivitt,Apollo_09,Commander,2,0,1969-03-03
+McDivitt,Gemini_04,Commander,2,0,1965-06-03
+Mitchell,Apollo_14,LM Pilot,4,1,1971-01-31
+Roosa,Apollo_14,CM Pilot,4,0,1971-01-31
+Schirra,Apollo_07,Commander,1,0,1968-10-11
+Schirra,Gemini_06,Commander,1,0,1965-12-15
+Schirra,Mercury_Sigma,Pilot,1,0,1962-10-03
+Schmitt,Apollo_17,LM Pilot,4,1,1972-12-07
+Schweickart,Apollo_09,LM Pilot,3,0,1969-03-03
+Scott,Apollo_09,CM Pilot,3,0,1969-03-03
+Scott,Apollo_15,Commander,3,1,1971-07-26
+Scott,Gemini_08,Second Seat,3,0,1966-03-16
+Shepard,Apollo_14,Commander,1,1,1971-01-31
+Shepard,Mercury_Freedom,Pilot,1,0,1961-05-05
+Slayton,Apollo_Soyuz_Test,Pilot,1,0,1975-07-15
+Stafford,Apollo_10,Commander,2,0,1969-05-18
+Stafford,Apollo_Soyuz_Test,Commander,2,0,1975-07-15
+Stafford,Gemini_06,Second Seat,2,0,1965-12-15
+Swigert,Apollo_13,NA,4,0,1970-04-11
+White,Apollo_01,CM Pilot,2,0,1967-01-27
+White,Gemini_04,Second Seat,2,0,1965-06-03
+Worden,Apollo_15,CM Pilot,4,0,1971-07-26
+Young,Apollo_10,CM Pilot,2,0,1969-05-18
+Young,Apollo_16,Commander,2,1,1972-04-16
+Young,Gemini_03,Second Seat,2,0,1961-03-23
+Young,Gemini_10,Commander,2,0,1966-07-18
+Young,STS1_Columbia,Commander,2,0,1981-04-12
