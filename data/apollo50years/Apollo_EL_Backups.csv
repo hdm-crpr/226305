@@ -1,0 +1,145 @@
+from,to,role,group,moon,launch
+Aldrin,Apollo_08,Backup,3,0,1968-12-21
+Aldrin,Apollo_11,LM Pilot,3,1,1969-07-16
+Aldrin,Gemini_12,Second Seat,3,0,1966-11-11
+Allen,Apollo_15,Support,6,0,1971-07-26
+Anders,Apollo_11,Backup,3,0,1969-07-16
+Anders,Apollo_08,LM Pilot,3,2,1968-12-21
+Armstrong,Apollo_08,Backup,3,0,1968-12-21
+Armstrong,Gemini_08,Commander,2,0,1966-03-16
+Armstrong,Apollo_11,Commander,2,1,1969-07-16
+Bean,Apollo_09,Backup,3,0,1969-03-03
+Bean,Skylab_3,Commander,3,0,1973-07-28
+Bean,Apollo_12,LM Pilot,3,1,1969-11-14
+Borman,Apollo_08,Commander,2,2,1968-12-21
+Borman,Gemini_07,Commander,2,0,1965-12-04
+Brand,Apollo_15,Backup,5,0,1971-07-26
+Brand,Apollo_08,Support,5,0,1968-12-21
+Brand,Apollo_13,Support,5,0,1970-04-11
+Carr,Apollo_16,Backup,3,0,1972-04-16
+Carr,Apollo_08,Support,5,0,1968-12-21
+Carr,Apollo_12,Support,5,0,1969-11-14
+Cernan,Apollo_07,Backup,3,0,1968-10-11
+Cernan,Apollo_14,Backup,3,0,1971-01-31
+Cernan,Apollo_17,Commander,3,1,1972-12-07
+Cernan,Apollo_10,LM Pilot,3,2,1969-05-18
+Cernan,Gemini_09,Second Seat,3,0,1966-06-03
+Chaffee,Apollo_01,Pilot,3,0,1967-01-27
+Chapman,Apollo_14,Support,5,0,1971-01-31
+Collins,Apollo_11,CM Pilot,3,2,1969-07-16
+Collins,Gemini_10,Second Seat,3,0,1966-07-18
+Conrad,Apollo_09,Backup,2,0,1969-03-03
+Conrad,Gemini_11,Commander,2,0,1966-98-12
+Conrad,Apollo_12,Commander,2,1,1969-11-14
+Conrad,Gemini_05,Second Seat,2,0,1965-08-21
+Cooper,Apollo_10,Backup,1,0,1969-05-18
+Cooper,Gemini_05,Commander,1,0,1965-08-21
+Cooper,Mercury_Faith,Pilot,1,0,1963-05-15
+Cunningham,Apollo_01,Backup,3,0,1967-01-27
+Cunningham,Apollo_07,LM Pilot,3,0,1968-10-11
+Duke,Apollo_13,Backup,4,0,1970-04-11
+Duke,Apollo_17,Backup,4,0,1972-12-07
+Duke,Apollo_16,LM Pilot,4,1,1972-04-16
+Duke,Apollo_10,Support,4,0,1969-05-18
+Eisele,Apollo_01,Backup,3,0,1967-01-27
+Eisele,Apollo_10,Backup,3,0,1969-05-18
+Eisele,Apollo_07,CM Pilot,3,2,1968-10-11
+England,Apollo_16,Support,6,0,1972-04-16
+Engle,Apollo_14,Backup,5,0,1971-01-31
+Engle,Apollo_10,Support,5,0,1969-05-18
+Evans,Apollo_14,Backup,4,0,1971-01-31
+Evans,Apollo_17,CM Pilot,4,2,1972-12-07
+Evans,Apollo_07,Support,4,0,1968-10-11
+Evans,Apollo_11,Support,4,0,1969-07-16
+Fullerton,Apollo_14,Support,7,0,1971-01-31
+Fullerton,Apollo_17,Support,7,0,1972-12-07
+Gibson,Apollo_12,Support,4,0,1969-11-14
+Gordon,Apollo_09,Backup,3,0,1969-03-03
+Gordon,Apollo_15,Backup,3,0,1971-07-26
+Gordon,Apollo_12,CM Pilot,3,2,1969-11-14
+Gordon,Gemini_11,Second Seat,3,0,1966-98-12
+Grissom,Apollo_01,Commander,1,0,1967-01-27
+Grissom,Gemini_03,Commander,1,0,1961-03-23
+Grissom,Mercury_Liberty,Pilot,1,0,1961-07-21
+Haise,Apollo_08,Backup,4,0,1968-12-21
+Haise,Apollo_11,Backup,4,0,1969-07-16
+Haise,Apollo_16,Backup,4,0,1972-04-16
+Haise,Apollo_13,LM Pilot,4,0,1970-04-11
+Haise,Apollo_09,Support,4,0,1969-03-03
+Hartsfield,Apollo_16,Support,7,0,1972-04-16
+Henize,Apollo_15,Support,5,0,1971-07-26
+Henize,Apollo_16,Support,5,0,1972-04-16
+Irwin,Apollo_12,Backup,4,0,1969-11-14
+Irwin,Apollo_15,LM Pilot,4,1,1971-07-26
+Irwin,Apollo_10,Support,4,0,1969-05-18
+Lousma,Apollo_09,Support,5,0,1969-03-03
+Lousma,Apollo_10,Support,5,0,1969-05-18
+Lousma,Apollo_13,Support,5,0,1970-04-11
+Lovell,Apollo_11,Backup,2,0,1969-07-16
+Lovell,Apollo_08,CM Pilot,2,2,1968-12-21
+Lovell,Apollo_13,Commander,2,0,1970-04-11
+Lovell,Gemini_12,Commander,2,0,1966-11-11
+Lovell,Gemini_07,Second Seat,2,0,1965-12-04
+Mattingly,Apollo_13,Backup,4,0,1970-04-11
+Mattingly,Apollo_16,CM Pilot,4,2,1972-04-16
+Mattingly,STS-4,NA,4,0,1982-06-27
+Mattingly,STS-51-C,NA,4,0,1985-01-24
+Mattingly,Apollo_08,Support,4,0,1968-12-21
+Mattingly,Apollo_11,Support,4,0,1969-07-16
+McCandless,Apollo_10,Support,5,0,1969-05-18
+McCandless,Apollo_14,Support,5,0,1971-01-31
+McDivitt,Apollo_01,Backup,2,0,1967-01-27
+McDivitt,Apollo_09,Commander,2,0,1969-03-03
+McDivitt,Gemini_04,Commander,2,0,1965-06-03
+Mitchell,Apollo_10,Backup,4,0,1969-05-18
+Mitchell,Apollo_14,LM Pilot,4,1,1971-01-31
+Mitchell,Apollo_09,Support,4,0,1969-03-03
+Overmeyer,Apollo_16,Support,5,0,1972-04-16
+Overmeyer,Apollo_17,Support,5,0,1972-12-07
+Parker,Apollo_15,Support,5,0,1971-07-26
+Parker,Apollo_17,Support,5,0,1972-12-07
+Peterson,Apollo_16,Support,5,0,1972-04-16
+Pogue,Apollo_07,Support,5,0,1968-10-11
+Pogue,Apollo_11,Support,5,0,1969-07-16
+Pogue,Apollo_13,Support,5,0,1970-04-11
+Pogue,Apollo_14,Support,5,0,1971-01-31
+Roosa,Apollo_16,Backup,4,0,1972-04-16
+Roosa,Apollo_17,Backup,4,0,1972-12-07
+Roosa,Apollo_14,CM Pilot,4,2,1971-01-31
+Roosa,Apollo_09,Support,4,0,1969-03-03
+Schirra,Apollo_01,Backup,1,0,1967-01-27
+Schirra,Apollo_07,Commander,1,0,1968-10-11
+Schirra,Gemini_06,Commander,1,0,1965-12-15
+Schirra,Mercury_Sigma,Pilot,1,0,1962-10-03
+Schmitt,Apollo_15,Backup,4,0,1971-07-26
+Schmitt,Apollo_17,LM Pilot,4,1,1972-12-07
+Schweickart,Apollo_01,Backup,3,0,1967-01-27
+Schweickart,Apollo_09,LM Pilot,3,0,1969-03-03
+Scott,Apollo_01,Backup,3,0,1967-01-27
+Scott,Apollo_12,Backup,3,0,1969-11-14
+Scott,Apollo_09,CM Pilot,3,2,1969-03-03
+Scott,Apollo_15,Commander,3,1,1971-07-26
+Scott,Gemini_08,Second Seat,3,0,1966-03-16
+Shepard,Apollo_14,Commander,1,1,1971-01-31
+Shepard,Mercury_Freedom,Pilot,1,0,1961-05-05
+Slayton,Apollo_Soyuz_Test,Pilot,1,0,1975-07-15
+Stafford,Apollo_07,Backup,2,0,1968-10-11
+Stafford,Apollo_10,Commander,2,2,1969-05-18
+Stafford,Apollo_Soyuz_Test,Commander,2,0,1975-07-15
+Stafford,Gemini_06,Second Seat,2,0,1965-12-15
+Swigert,Apollo_13,CM Pilot,4,2,1970-04-11
+Swigert,Apollo_07,Support,4,0,1968-10-11
+Weitz,Apollo_12,Support,5,0,1969-11-14
+White,Gemini_04,Second Seat,2,0,1965-06-03
+White,Apollo_01,Senior Pilot,2,0,1967-01-27
+Worden,Apollo_12,Backup,4,0,1969-11-14
+Worden,Apollo_15,CM Pilot,4,2,1971-07-26
+Worden,Apollo_09,Support,4,0,1969-03-03
+Young,Apollo_07,Backup,2,0,1968-10-11
+Young,Apollo_13,Backup,2,0,1970-04-11
+Young,Apollo_17,Backup,2,0,1972-12-07
+Young,Apollo_10,CM Pilot,2,2,1969-05-18
+Young,Gemini_10,Commander,2,0,1966-07-18
+Young,STS1_Columbia,Commander,2,0,1981-04-12
+Young,Apollo_16,Commander,2,1,1972-04-16
+Young,Gemini_03,Second Seat,2,0,1961-03-23

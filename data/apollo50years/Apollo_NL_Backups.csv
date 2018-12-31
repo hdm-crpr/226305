@@ -1,0 +1,83 @@
+id,name,type,birth,group,background,testpilot,bachelor,master,phd,almamater1,almamater2,marriage,kids,divorced,religion,moonwalker,boyscout,boyscout_rank,career,freemason,fraternity,id
+Aldrin,Buzz Aldrin,0,1930,3,2,yes,yes,NA,yes,USMA,MIT,yes,3,yes,presbyterian,yes,yes,Tenderfoot,Airforce,yes,TauBetaPi,Aldrin
+Allen,Joseph Allen ,0,1937,6,4,no,1959,1965,yes,DePauw,Yale,NA,NA,NA,NA,no,no,NA,Corporate,no,BetaThetaPi,
+Anders,Bill Anders,0,1933,1,2,yes,1955,1962,no,USNA,AFIT,yes,4,no,catholic,no,yes,Lifescout,Corporate,no,TauBetaPi,Anders
+Apollo_01,Apollo 1,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,TauBetaPi,Apollo_01
+Apollo_07,Apollo 7,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Apollo_07
+Apollo_08,Apollo 8,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Apollo_08
+Apollo_09,Apollo 9,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Apollo_09
+Apollo_10,Apollo 10,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Apollo_10
+Apollo_11,Apollo 11,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,yes,NA,NA,NA,NA,NA,Apollo_11
+Apollo_12,Apollo 12,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,yes,NA,NA,NA,NA,NA,Apollo_12
+Apollo_13,Apollo 13,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Apollo_13
+Apollo_14,Apollo 14,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,yes,NA,NA,NA,NA,NA,Apollo_14
+Apollo_15,Apollo 15,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,yes,NA,NA,NA,NA,NA,Apollo_15
+Apollo_16,Apollo 16,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,yes,NA,NA,NA,NA,NA,Apollo_16
+Apollo_17,Apollo 17,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,yes,NA,NA,NA,NA,NA,Apollo_17
+Apollo_Soyuz_Test,Apollo-Soyuz,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Apollo_Soyuz_Test
+Armstrong,Neil Armstrong,0,1930,2,1,yes,1955,1970,no,Purdue,USC,yes,3,yes,deist,yes,no,NA,University,no,PhiDeltaTheta,Armstrong
+Bean,Alan Bean,0,1932,3,1,yes,1955,no,no,UTAustin,NA,yes,2,yes,NA,yes,yes,Firstclass,Nasa,no,NA,Bean
+Borman,Frank Borman,0,1928,2,2,yes,1950,1957,no,USMA,Caltech,yes,2,no,NA,no,no,NA,Corporate,no,NA,Borman
+Brand,Vance Brand,0,1931,5,1,yes,1960,1964,no,Boulder,UCLA,NA,NA,NA,NA,no,no,NA,Nasa,no,SigmaNu,
+Carr,Gerald Carr,0,1932,5,1,no,1954,1962,no,USC,Princeton,yes,NA,NA,NA,no,yes,Lifescout,Corporate,no,NA,
+Cernan,Gene Cernan,0,1934,3,1,no,1956,1963,no,Purdue,NPS,yes,1,yes,NA,yes,yes,Secondclass,Corporate,no,TauBetaPi,Cernan
+Chaffee,Roger Chaffee,0,1935,3,1,no,1957,no,no,Purdue,NA,yes,2,no,NA,no,yes,Eagle,Death,no,TauBetaPi,Chaffee
+Chapman,Philip Chapman,0,1935,5,2,no,1954,1967,yes,Sydney,MIT,NA,NA,NA,NA,no,no,NA,Corporate,no,NA,
+Collins,Michael Collins,0,1930,3,2,no,1952,no,no,USMA,NA,yes,0,no,Episcopalian,no,no,NA,Nasa,no,NA,Collins
+Conrad,Pete Conrad,0,1930,2,1,yes,1953,no,no,Princeton,NA,yes,4,yes,NA,yes,no,NA,Corporate,no,NA,Conrad
+Cooper,Gordon Cooper,0,1927,1,2,yes,1956,no,no,AFIT,NA,yes,2,no,NA,no,yes,Lifescout,Corporate,no,NA,
+Cunningham,Walter Cunningham,0,1932,3,3,no,1960,1961,no,UCLA,UCLA,yes,2,no,NA,no,no,NA,Corporate,no,NA,Cunningham
+Duke,Charles Duke,0,1935,3,2,no,1957,1964,no,USNA,MIT,yes,2,no,BornAgain,yes,yes,Eagle,Corporate,no,NA,Duke
+Eisele,Donn Eisele,0,1930,3,2,yes,1952,1960,no,USNA,AFIT,yes,NA,yes,NA,no,yes,Eagle,Corporate,yes,TauBetaPi,Eisele
+England,Anthony England,0,1942,6,4,no,1965,1970,yes,MIT,MIT,yes,0,no,NA,no,no,NA,University,no,NA,
+Engle,Joe Engle,0,1932,5,2,yes,1955,no,no,Kansas,no,yes,2,yes,NA,no,yes,Firstclass,Airforce,no,NA,
+Evans,Ronald Evans,0,1933,5,1,no,1956,1964,no,Kansas,NPS,yes,2,no,NA,no,yes,Lifescout,Corporate,no,TauBetaPi,Evans
+Fullerton,Gordon Fullerton,0,1936,7,2,yes,1957,1958,no,Caltech,Caltech,NA,NA,NA,NA,no,no,NA,Nasa,no,NA,
+Gemini_03,Gemini 03,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Gemini_03
+Gemini_04,Gemini 04,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Gemini_04
+Gemini_05,Gemini 05,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Gemini_05
+Gemini_06,Gemini 06,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Gemini_06
+Gemini_07,Gemini 07,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Gemini_07
+Gemini_08,Gemini 08,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Gemini_08
+Gemini_09,Gemini 09,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Gemini_09
+Gemini_10,Gemini 10,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Gemini_10
+Gemini_11,Gemini 11,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Gemini_11
+Gemini_12,Gemini 12,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Gemini_12
+Gibson,Edward,0,1936,4,4,no,1959,1964,yes,Rochester,Caltech,yes,4,no,NA,no,yes,Firstclass,Corporate,no,TauBetaPi,
+Gordon,Richard Gordon,0,1929,3,1,yes,1951,1961,no,Washington,NPS,yes,6,yes,NA,no,yes,Star,Corporate,no,NA,Gordon
+Grissom,Gus Grissom,0,1926,1,2,yes,1950,1956,no,Purdue,AFIT,yes,2,no,ChurchofChrist,no,yes,Boyscout,Death,no,TauBetaPi,Grissom
+Haise,Fred Haise,0,1933,5,2,no,1959,no,no,Oklahoma,no,yes,4,yes,NA,no,yes,Star,Corporate,no,TauBetaPi,Haise
+Hartsfield,Henry Hartsfield,0,1933,7,2,yes,1954,1971,no,Duke,Kentucky,yes,1,no,NA,no,no,NA,Nasa,no,NA,
+Henize,Karl Henize,0,1926,5,4,no,1947,1954,yes,UVA,Michigan,yes,4,no,NA,no,no,NA,Nasa,no,NA,
+Irwin,James Irwin,0,1930,5,2,yes,1951,1957,no,USNA,Michigan,yes,2,yes,BornAgain,yes,yes,NA,Foundation,yes,NA,Irwin
+Lousma,Jack Lousma,0,1936,5,1,no,1959,1965,no,Michigan,NPS,yes,4,no,NA,no,yes,Tenderfoot,Nasa,no,NA,
+Lovell,Jim Lovell,0,1928,2,1,yes,1952,no,no,USNA,NA,yes,4,no,NA,no,yes,Eagle,Corporate,no,AlphaPhiOmega,Lovell
+Mattingly,Ken Mattingly,0,1936,5,1,yes,1958,no,no,Auburn,NA,yes,NA,no,NA,no,yes,Life,Corporate,no,NA,Mattingly
+McCandless,Bruce,0,1937,5,1,no,1958,1965,no,USNA,Stanford,yes,2,no,NA,no,no,NA,Corporate,no,NA,
+McDivitt,James McDivitt,0,1929,2,2,yes,1959,no,no,Michigan,NA,yes,4,no,Catholic,no,yes,Tenderfoot,Corporate,no,TauBetaPi,McDivitt
+Mercury_Faith,M Faith,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Na,NA,NA,NA,
+Mercury_Freedom,M Freedom,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Mercury_Freedom
+Mercury_Liberty,M Liberty,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Mercury_Liberty
+Mercury_Sigma,M Sigma,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Mercury_Sigma
+Mitchell,Edgar Mitchell,0,1930,5,1,yes,1952,1964,yes,Carnegie,MIT,yes,3,yes,Esoteric,yes,yes,Lifescout,Corporate,yes,SigmaGammaTau,Mitchell
+Overmeyer,Bob Overmeyer,0,1936,5,1,yes,1958,1964,no,BW,NPS,yes,3,no,NA,no,yes,Firstclass,Corporate,no,NA,
+Parker,Robert Parker,0,1936,5,4,no,1958,1962,no,Amherst,Caltech,yes,5,no,NA,no,no,NA,Nasa,no,NA,
+Peterson,Donald Peterson,0,1933,5,0,yes,1955,1962,no,USMA,AFIT,yes,3,no,NA,no,no,NA,Nasa,no,NA,
+Pogue,William Pogue,0,1930,5,2,yes,1951,1960,no,OBU,OBU,yes,2,yes,NA,no,yes,Secondclass,Airforce,no,NA,
+Roosa,Stuart Roosa,0,1933,5,2,yes,1960,no,no,Boulder,NA,yes,3,no,NA,no,yes,NA,Corporate,no,NA,Roosa
+Schirra,Walter Schirra,0,1923,1,1,yes,1945,no,no,Newark,NA,yes,2,no,NA,no,yes,Firstclass,Corporate,yes,NA,Schirra
+Schmitt,Harrison Schmitt,0,1935,5,4,no,1957,1964,yes,Caltech,Harvard,yes,NA,NA,NA,yes,yes,NA,Politics,no,NA,Schmitt
+Schweickart,Rusty Schweickart,0,1935,3,2,no,1956,1963,no,MIT,MIT,yes,NA,yes,Esoteric,no,yes,Firstclass,Corporate,no,NA,Schweickart
+Scott,David Scott,0,1932,3,2,yes,1954,1962,no,USMA,MIT,yes,2,no,NA,yes,yes,Lifescout,Nasa,no,TauBetaPi,Scott
+Shepard,Alan Shepard,0,1923,1,1,yes,1944,1957,no,USNA,NWC,yes,3,no,ChristianScientist,yes,yes,NA,Corporate,no,NA,Shepard
+Skylab_3,Skylab3,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Skylab_3
+Slayton,Deke Slayton,0,1924,1,2,yes,1949,NA,no,Minnesota,NA,yes,1,yes,NA,no,yes,NA,Corporate,no,NA,Slayton
+Stafford,Thomas Stafford,0,1930,2,2,yes,1952,NA,no,USNA,NA,yes,2,yes,NA,no,yes,NA,Airforce,yes,NA,Stafford
+STS-4,STS4,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,STS-4
+STS-51-C,STS51C,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,STS-51-C
+STS1_Columbia,SS_Columbia,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,STS1_Columbia
+Swigert,Jack Swigert,0,1931,5,2,yes,1953,1965,no,Colorado,Rensselaer,no,0,NA,NA,no,yes,Secondclass,Politics,no,PhiGammaDelta,Swigert
+Weitz,Paul Weitz,0,1932,5,1,yes,1954,1964,no,Pennstate,NPS,yes,2,no,NA,no,NA,NA,Nasa,no,BetaThetaPi,
+White,Ed White,0,1930,2,2,yes,1952,1959,no,USMA,Michigan,yes,2,no,Methodist,no,no,NA,Death,no,NA,White
+Worden,Al Worden,0,1932,5,2,yes,1955,1963,no,USMA,Michigan,yes,0,yes,NA,no,yes,Firstclass,Corporate,no,NA,Worden
+Young,John Joung,0,1930,2,1,yes,1952,no,no,Georgia,NA,yes,2,yes,NA,yes,yes,Secondclass,Nasa,no,SigmaChi,Young
