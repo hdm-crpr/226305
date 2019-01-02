@@ -1,0 +1,90 @@
+id,name,type,birth,group,background,testpilot,moon,boyscout,boyscout_rank,career,freemason
+Aldrin,Aldrin,0,1930,3,2,yes,1,yes,Tenderfoot,Airforce,yes
+Allen,Allen ,0,1937,6,4,no,no,no,no,Corporate,no
+Anders,Anders,0,1933,3,2,yes,2,yes,Lifescout,Corporate,no
+Apollo_01,Apollo 1,1,1967,0,0,no,no,no,no,no,no
+Apollo_07,Apollo 7,1,1968,0,0,no,no,no,no,no,no
+Apollo_08,Apollo 8,1,1968,0,0,no,no,no,no,no,no
+Apollo_09,Apollo 9,1,1969,0,0,no,no,no,no,no,no
+Apollo_10,Apollo 10,1,1969,0,0,no,no,no,no,no,no
+Apollo_11,Apollo 11,1,1969,0,0,no,1,no,no,no,no
+Apollo_12,Apollo 12,1,1969,0,0,no,1,no,no,no,no
+Apollo_13,Apollo 13,1,1970,0,0,no,1,no,no,no,no
+Apollo_14,Apollo 14,1,1971,0,0,no,1,no,no,no,no
+Apollo_15,Apollo 15,1,1971,0,0,no,1,no,no,no,no
+Apollo_16,Apollo 16,1,1972,0,0,no,1,no,no,no,no
+Apollo_17,Apollo 17,1,1972,0,0,no,1,no,no,no,no
+Apollo_Soyuz_Test,Apollo-Soyuz,1,1975,0,0,no,no,no,no,no,no
+Armstrong,Armstrong,0,1930,2,4,yes,1,yes,Eagle,University,no
+Bassett,Bassett (+),0,1931,3,2,yes,no,yes,Lifescout,Death,no
+Bean,Bean,0,1932,3,1,yes,1,yes,Firstclass,Nasa,no
+Borman,Borman,0,1928,2,2,yes,2,no,no,Corporate,no
+Brand,Brand,0,1931,5,1,yes,no,no,no,Nasa,no
+Carpenter,Carpenter,0,1925,1,1,yes,no,no,no,Corporate,no
+Carr,Carr,0,1932,5,1,no,no,yes,Lifescout,Corporate,no
+Cernan,Cernan,0,1934,3,1,no,1,yes,Secondclass,Corporate,no
+Chaffee,Chaffee (+),0,1935,3,1,no,no,yes,Eagle,Death,no
+Chapman,Chapman,0,1935,6,2,no,no,no,no,Corporate,no
+Collins,Collins,0,1930,3,2,no,3,no,no,Nasa,no
+Conrad,Conrad,0,1930,2,1,yes,1,yes,Cubscout,Corporate,no
+Cooper,Cooper,0,1927,1,2,yes,no,yes,Lifescout,Corporate,yes
+Cunningham,Cunningham,0,1932,3,3,no,no,no,no,Corporate,no
+Duke,Duke,0,1935,3,2,no,1,yes,Eagle,Corporate,no
+Eisele,Eisele,0,1930,3,2,yes,no,yes,Eagle,Corporate,yes
+England,England,0,1942,6,4,no,no,yes,Star,University,no
+Engle,Engle,0,1932,5,2,yes,no,yes,Firstclass,Airforce,no
+Evans,Evans,0,1933,5,1,no,3,yes,Lifescout,Corporate,no
+Fullerton,Fullerton,0,1936,7,2,yes,no,yes,Eagle,Nasa,no
+Gemini_03,Gemini 03,1,1965,0,0,no,no,no,no,no,no
+Gemini_04,Gemini 04,1,1965,0,0,no,no,no,no,no,no
+Gemini_05,Gemini 05,1,1965,0,0,no,no,no,no,no,no
+Gemini_06,Gemini 06,1,1965,0,0,no,no,no,no,no,no
+Gemini_07,Gemini 07,1,1965,0,0,no,no,no,no,no,no
+Gemini_08,Gemini 08,1,1966,0,0,no,no,no,no,no,no
+Gemini_09,Gemini 09,1,1966,0,0,no,no,no,no,no,no
+Gemini_10,Gemini 10,1,1966,0,0,no,no,no,no,no,no
+Gemini_11,Gemini 11,1,1966,0,0,no,no,no,no,no,no
+Gemini_12,Gemini 12,1,1966,0,0,no,no,no,no,no,no
+Gibson,Gibson,0,1936,4,4,no,no,yes,Firstclass,Corporate,no
+Glenn,Glenn,0,1921,1,3,yes,no,no,no,Politics,yes
+Gordon,Gordon,0,1929,3,1,yes,no,yes,Star,Corporate,no
+Grissom,Grissom (+),0,1926,1,2,yes,no,yes,Secondclass,Death,yes
+Haise,Haise,0,1933,5,2,no,4,yes,Star,Corporate,yes
+Hartsfield,Hartsfield,0,1933,7,2,yes,no,no,no,Nasa,no
+Henize,Henize,0,1926,6,4,no,no,no,no,Nasa,no
+Irwin,Irwin,0,1930,5,2,yes,1,no,no,Foundation,no
+Lousma,Lousma,0,1936,5,1,no,no,yes,Tenderfoot,Nasa,no
+Lovell,Lovell,0,1928,2,1,yes,2,yes,Eagle,Corporate,no
+Mattingly,Mattingly,0,1936,5,1,yes,3,yes,Life,Corporate,no
+McCandless,McCandless,0,1937,5,1,no,no,no,NAno,Corporate,no
+McDivitt,McDivitt,0,1929,2,2,yes,no,yes,Tenderfoot,Corporate,no
+Mercury_Faith,M Faith,1,1963,0,0,no,no,no,no,no,no
+Mercury_Freedom,M Freedom,1,1961,0,0,no,no,no,no,no,no
+Mercury_Friendship,M Friendship,1,1962,0,0,no,no,no,no,no,no
+Mercury_Liberty,M Liberty,1,1961,0,0,no,no,no,no,no,no
+Mercury_Sigma,M Sigma,1,1962,0,0,no,no,no,no,no,no
+Mercury_Aurora,M Aurora,1,1962,0,0,no,no,no,no,no,no
+Mitchell,Mitchell,0,1930,5,1,yes,1,yes,Lifescout,Corporate,yes
+Overmeyer,Overmeyer,0,1936,7,1,yes,no,yes,Firstclass,Corporate,no
+Parker,Parker,0,1936,6,4,no,no,yes,Secondclass,Nasa,no
+Peterson,Peterson,0,1933,7,0,yes,no,no,no,Nasa,no
+Pogue,Pogue,0,1930,5,2,yes,no,yes,Secondclass,Airforce,no
+Roosa,Roosa,0,1933,5,2,yes,no,no,no,Corporate,no
+Schirra,Schirra,0,1923,1,1,yes,no,yes,Firstclass,Corporate,yes
+Schmitt,Schmitt,0,1935,4,4,no,1,yes,Tenderfoot,Politics,no
+Schweickart,Schweickart,0,1935,3,2,no,no,yes,Firstclass,Corporate,no
+Scott,Scott,0,1932,3,2,yes,1,yes,Lifescout,Nasa,no
+See,See (+),0,1927,2,2,yes,no,yes,Eaglescout,Death,no
+Shepard,Shepard,0,1923,1,1,yes,1,yes,Cubscout,Corporate,no
+Skylab_3,Skylab 3,1,1972,0,0,no,no,no,no,no,no
+Slayton,Slayton,0,1924,1,2,yes,no,no,no,Corporate,no
+Stafford,Stafford,0,1930,2,2,yes,2,yes,Star,Airforce,yes
+STS-4,SS Columbia (Testflight),1,1981,0,0,no,no,no,no,no,no
+STS-51-C,SS Discovery (3rd),1,1982,0,0,no,no,no,no,no,no
+STS1_Columbia,SS Columbia (1st),1,1985,0,0,no,no,no,no,no,no
+Swigert,Swigert,0,1931,5,2,yes,4,yes,Secondclass,Politics,no
+Weitz,Weitz,0,1932,5,1,yes,no,no,no,Nasa,yes
+White,White (+),0,1930,2,2,yes,no,yes,Secondclass,Death,no
+Williams,Williams (+),0,1932,3,1,yes,no,yes,Lifescout,Death,no
+Worden,Worden,0,1932,5,2,yes,3,yes,Firstclass,Corporate,no
+Young,Young,0,1930,2,1,no,1,yes,Secondclass,Nasa,no
