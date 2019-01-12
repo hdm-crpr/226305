@@ -40,7 +40,7 @@ background:
 3 = Marine Corps  
 4 = Civilian  
 
-group: orginal selection for training
+group: orginal selection for training  
 1 = Astronaut Group 1 1959 (Mercury 7)  
 2 = Astronaut Group 2 1962 (New Nine)  
 3 = Astronaut Group 3 1963 (The Fourteen)     
@@ -49,7 +49,11 @@ group: orginal selection for training
 6 = Astronaut Group 6 1967 (XS-11)  
 7 = Astronaut Group 7 1969   
    
-testpilot: active duty as designated testpilot?  
+testpilot:  
+active duty as designated testpilot?  
+1 = yes  
+2 = no  
+  
   
 moon: Connection to moon  
 1 = moonwalker (on the surface)  
@@ -61,9 +65,10 @@ boyscout: yes/no
 boyscout_rank: rank in the boyscouts     
   
 career: primary field of career after Apollo-Program (last occupation): 
-no clear distinction possible 
+no clear distinction possible, exploratory
   
-freemason: member of a freemason lodge  
+freemason: yes/no  
+member of a freemason lodge  
   
 
 
