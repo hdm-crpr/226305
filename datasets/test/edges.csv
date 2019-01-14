@@ -1,9 +1,0 @@
-from,to,weight
-LR,SWS,3
-SWS,LR,3
-LR,KB,3
-LR,TH,3
-LR,KK,2
-KK,SWS,2
-KK,KB,1
-KK,TH,1
