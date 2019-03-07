@@ -13,9 +13,9 @@ Weitere personenbezogene Daten finden Sie häufig in anderen Quellen. Diese bitt
 # Projektliste
 Bitte tragen Sie hier Ihre Projekte ein, damit ich einen vollständigen Überblick habe
 
-Name des Projekts
-Team (Kürzel reicht) 
-Link auf github-Datei 
+Name des Projekts  
+Team (Kürzel reicht)   
+Link auf github-Datei  
 
 
 
