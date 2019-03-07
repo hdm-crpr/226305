@@ -10,6 +10,12 @@ Quellenangabe: Eintrag "Debus, Kurt" in Munzinger Online/Personen - Internationa
 
 Weitere personenbezogene Daten finden Sie häufig in anderen Quellen. Diese bitte nach Möglichkeit durch zwei Belege absichern. 
 
+# Projektliste
+Bitte tragen Sie hier Ihre Projekte ein, damit ich einen vollständigen Überblick habe
+
+Name des Projekts
+Team (Kürzel reicht) 
+Link auf github-Datei 
 
 
 
