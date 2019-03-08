@@ -1,0 +1,46 @@
+id,name,party,age,sex,type
+Platzeck,Matthias Platzeck,3,4,2,0
+Pofalla,Ronald Pofalla,1,4,2,0
+Praetorius,Barbara Praetorius,NA,NA,1,0
+Tillich,Stanislaw Tillich,1,4,2,0
+Hasselfeldt,Gerda Hassfeldt,2,4,1,0
+Kampeter,Steffen Kampeter,1,3,2,0
+Kapferer,Stefan Kapferer,5,3,2,0
+Kempf,Dieter Kempf,NA,4,2,0
+Nemat,Claudia Nemat,NA,3,1,0
+Reiche,Katherina Reiche,1,2,1,0
+Roestel,Gunda Röstel,4,3,1,0
+Schweitzer,Eric Schweitzer,5,3,2,0
+Grothus,Antje Grothus,NA,3,1,0
+Wodtke,Hannelore Wodtke,1,NA,1,0
+Herntier,Christine Herntier,NA,4,1,0
+Kreuzberg,Michael Kreuzberg,1,4,2,0
+Priggen,Reiner Priggen,4,4,2,0
+Vassiliadis,Michael Vassiliadis,3,3,2,0
+Scheidt,Andreas Scheidt,3,3,2,0
+Koerzell,Stefan Körzell,3,3,2,0
+Kaiser,Martin Kaiser,NA,3,2,0
+Weiger,Hubert Weiger,NA,5,2,0
+Niebert,Kai Niebert,NA,1,2,0
+Allmendinger,Jutta Allmendinger,NA,4,1,0
+Matthes,Felix Matthes,NA,3,2,0
+Schellnhuber,Hans Joachim Schellnhuber,NA,4,2,0
+Niebuhr,Annekathrin Niebuhr,NA,NA,1,0
+Wehrspohn,Ralf Wehrspohn,NA,2,2,0
+Laemmel,Andreas Laemmel,1,3,2,0
+Lenz,Andreas Lenz,2,1,2,0
+Miersch,Matthias Miersch,3,2,2,0
+Politik,Politik,NA,NA,NA,1
+Verband,Verband (Industrie),NA,NA,NA,1
+Gewerk,Gewerkschaft,NA,NA,NA,1
+Umwelt,Umweltschutz,NA,NA,NA,1
+Industrie,Industrie (außer Energieunternehmen),NA,NA,NA,1
+Wissen,Wissenschaft,NA,NA,NA,1
+Regional,Regionalvertreter,NA,NA,NA,1
+CDU,CDU,NA,NA,NA,1
+CSU,CSU,NA,NA,NA,1
+SPD,SPD,NA,NA,NA,1
+Gruene,Gruene,NA,NA,NA,1
+FDP,FDP,NA,NA,NA,1
+Sozial,Sozialwesen,NA,NA,NA,1
+Energie,Energieunternehmen,NA,NA,NA,1
