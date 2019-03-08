@@ -18,13 +18,13 @@ Alter
 Geschlecht
 
 
-# Codebuch:
+### Codebuch:
 
 Erstellen Sie das Netzwerk mit der Google-Doc Vorlage aus der Veranstaltung, das Sie kopieren können und natürlich anpassen müssen
 
 https://docs.google.com/spreadsheets/d/1LWtza6paR5HFFA-fSZV8vioL8joFOIDXtQPdxKe79Kg/edit#gid=0
 
- # EDGELIST
+### EDGELIST
 
 Edgelist
 
@@ -64,7 +64,7 @@ Definieren Sie als weight den vermuteten Einfluss in der Kommission oder der Par
 2 = Stimmrecht / aktives Mandat
 3 = Vorsitzende / aktives Mandat oder Ministeramt
 
-# NODELIST
+### NODELIST
 
 id, name, type, party, age, sex
 
@@ -81,6 +81,6 @@ id, name, type, party, age, sex
 
 Exportieren Sie die Edge- und Nodelist als CSV-Dateien in ein Verzeichnis Ihrer Wahl oder auf github. Ich zeige im Code nur das Beispiel für Github.
 
-# Fragen
+### Fragen
 1) Welche Akteure haben in Ihrem Netzwerk den höchsten Zentralitätswert? Wie können Sie dies interpretieren?
 2) Exportieren Sie die Netzwerk-Grafik als PDF und setzen Sie diese in Ihre Abgabe ein.
