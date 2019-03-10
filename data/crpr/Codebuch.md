@@ -1,24 +1,24 @@
 # Datensatz Semesterverbund CR/PR #
+# Codebuch
 ### Swaran Sandhu, sandhu@hdm-stuttgart.de ###
 
 ## Inhalt
 - Edges.csv (Edgelist)
 - Nodes.csv (Nodelist)
-- Codierung.rmd (Codierung der Datensätze)
-- sem.rda (dataframe für igraph-Datensätze)
+- Codierung.rm (Codierung der Datensätze)
 
 ## Ursprung und Datenerhebung
 Ich habe den Datensatz unter den Studierenden des dritten Semesters im Kurs Netzwerkanalyse erhoben. Die Daten sind nach der Erhebung nach einem Zufallsprinzip anonymisiert worden.
 
 Das Netzwerk ist ein gerichtetes one-mode Akteursnetzwerk. Es wurden zwei getrennte Fragen erhoben:
 
-*Projektarbeitsnetzwerk*  
+*Projektarbeitsnetzwerk work*
 1a) Bei Hochschulprojekten arbeite ich am liebsten mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der Person ein.  
 1b) Bei Hochschulprojekten arbeite ich am auch gerne mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der zweiten Person ein.  
 
 Für das Zusammenarbeitsnetzwerk "work" wurde der Person, die zuerst genannt wurde, ein Gewicht von 3 vergeben, die zweite Person erhielt ein Gewicht von 1. Insgesamt waren 76 Beziehungsmuster möglich.  
 
-*Unterstützungsnetzwerk*  
+*Unterstützungsnetzwerk help*  
 2a) Wenn Sie ein Problem oder eine studiengangsbezogene Frage haben, an welchen ihrer Mitstudenten aus ihrem Semester wenden Sie sich zuerst?  Bitte tragen Sie auch hier wieder das Kürzel ein.  
 2b) Wenn Sie ein Problem oder eine studiengangsbezogene Frage haben, an welchen ihrer Mitstudenten aus ihrem Semester wenden Sie sich als nächstes? Bitte tragen Sie auch hier wieder das Kürzel ein.
 
