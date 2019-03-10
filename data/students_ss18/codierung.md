@@ -1,4 +1,4 @@
-# Datensatz Netzwerkanalyse Sommer 2018 #
+# Datensatz Semesterverbund CR/PR #
 ### Swaran Sandhu, sandhu@hdm-stuttgart.de ###
 
 ## Inhalt
@@ -8,9 +8,7 @@
 - sem.rda (dataframe für igraph-Datensätze)
 
 ## Ursprung und Datenerhebung
-Ich habe den Datensatz unter 41 Studierenden des dritten Semesters im Kurs Netzwerkanalyse erhoben. Die Daten sind nach der Erhebung nach einem Zufallsprinzip anonymisiert worden.
-
-Achtung: drei Studierenden haben sich nicht an der Erhebung beteiligt (39, 40, 41), sind aber in der Edgelist. Deshalb haben wir keine weiteren Informationen über diese Studierenden.
+Ich habe den Datensatz unter den Studierenden des dritten Semesters im Kurs Netzwerkanalyse erhoben. Die Daten sind nach der Erhebung nach einem Zufallsprinzip anonymisiert worden.
 
 Das Netzwerk ist ein gerichtetes one-mode Akteursnetzwerk. Es wurden zwei getrennte Fragen erhoben:
 
@@ -29,52 +27,55 @@ Für das Unterstützungsnetzwerk "help" wurde der Person, die zuerst genannt wur
 
 # EDGE-Attribute
 
-ID  
+id (eindeutige Codierung des Knoten) 
 codiert von 1 bis 38, jede ID entspricht einem Studenten
 
-WEIGHT  
+weight (Beziehungsstärke aufgrund der Nennung in den Fragen)
 3 = sehr starke Beziehung,
 1 = starke Beziehung vorhanden (zweite Nennung)
 
-RELATION  
-*work* = Projektbasierte Beziehung: Bei einem gerichteten Netzwerk präferiert der Sender (erste Spalte) die Zusammenarbeit mit der genannten Zielperson (zweite Spalte).  
-*help* = Untersstützungsbeziehung: Bei einem gerichteten Netzwerk fragt der Sender (erste Spalte) die genannte Person (zweite Spalte) um Rat.
+relation  
+1 = *work* = Projektbasierte Beziehung: Bei einem gerichteten Netzwerk präferiert der Sender (erste Spalte) die Zusammenarbeit mit der genannten Zielperson (zweite Spalte).  
+2 = *help* = Unterstützungsbeziehung: Bei einem gerichteten Netzwerk fragt der Sender (erste Spalte) die genannte Person (zweite Spalte) um Rat.
 
 # NODE-Attribute  
   
-SEX  
+id  
+Identische ID wie aus der edgelist zur Identifikation der Knoten.
+
+sex    
 Bitte geben Sie ihr Geschlecht an:
 1 = weiblich;  
 2 = männlich
   
-CRPR  
+crpr    
 Welche Studienrichtung haben Sie vertieft?  
 1 = CR;  
 2 = PR
 
-AGE  
+age   
 Bitte geben Sie Ihr Alter an:  
-1 = bis 20 Jahre  
-2 = 21 bis 22 Jahre  
+1 = bis 20 Jahre    
+2 = 21 bis 22 Jahre    
 3 = 23 bis 24 Jahre  
 4 = 25 und älter  
 
-SMOKE  
+smoke    
 Rauchen Sie mindestens ein Mal pro Woche?  
-1 = nein; 
-2 = ja
-
-TATOO  
-Haben Sie ein Tatoo?  
-1 = nein
-2 = ja
+1 = nein   
+2 = ja  
   
-LIVING  
-Bitte geben Sie an, wie Sie wohnen:  
-1 = Wohnheim  
-2 = bei den Eltern  
-3 = WG  
-4 = private Wohnung  
+tatoo    
+Haben Sie ein Tatoo?    
+1 = nein  
+2 = ja  
+  
+living    
+Bitte geben Sie an, wie Sie wohnen:    
+1 = Wohnheim   
+2 = bei den Eltern   
+3 = WG   
+4 = private Wohnung   
 
 JOB  
 Bitte geben Sie an, wie viel Zeit Sie pro Woche neben dem Studium arbeiten (kein Ehrenamt):  
