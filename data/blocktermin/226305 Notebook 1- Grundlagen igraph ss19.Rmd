@@ -1,0 +1,1112 @@
+---
+title: "226305 R Notebook WS18"
+author: "Swaran Sandhu"
+date: "16 12 2018"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### 226305 Lernskript R mit igraph 
+
+Ziel: am Ende des Skripts sollten Sie in der Lage sein, eine Analyse wie hier selbstständig mit Ihren Daten durchzuführen:
+https://shiring.github.io/networks/2017/05/15/got_final
+
+### Kapitel 1: Warum R Markdown Notebooks
+
+Dies ist ein R Markdown Dokument. Markdown ist eine interaktive Sprache, mit der man R-Code direkt ausführen kann. Das elegante: alles wird in plain text, d.h. ohne Formatierung im Dokument geschrieben. Die Formatierung bzw. das Rendering des Textes und des Codes übernimmt das Programm. RMarkdown eignet sich deshalb auch sehr gut für die Erstellung von Forschungsberichten oder ähnlichem in einer Gruppe (gemeinsam mit einer Versionsverwaltung).
+
+Lesetipps:
+https://rviews.rstudio.com/2018/11/01/r-markdown-a-better-approach/
+https://rmarkdown.rstudio.com/
+https://igraph.org/r/
+
+### Kapitel 1.1 Grundlagen von RMarkdown
+
+Nach den Übungen sollte Ihnen der R Code vertraut sein. Sie können alle Variablen im Code ändern, ohne  die Funktionalität zu stören.
+
+*Ausführen eines R Markdown Notebooks*
+Jeder Code-Schnippsel ("chunk") ist grau hinterlegt und kann durch den Menü-Befehl "run" oder den "play" Button im Code ausgeführt werden. Das Ergebnis wird direkt im Notebook angezeigt (auch in der Konsole, aber das ist für uns zweitranging)
+
+Gesamtes Notebook als HTML-Datei ausführen 
+(erscheint dann im Viewer: Cmd/Ctrl + Shift + i)
+
+Der R-Programmcode wird wie in einem normalen Skript eingetragen. Achten Sie darauf, dass Sie auch die entsprechenden Links auf den Code in github richtig setzen bzw. die entsprechenden Programmbibliotheken angeben. Das R Markdown Notebook hat die Datei-Kennzeichnung .rmd und wird von RStudio automatisch richtig als Quelle (Source-Datei) eingelesen. 
+
+## Kapitel 1.2: Überschriften, Formatierung und Navigation
+R-Markdown macht es extrem einfach, sich innerhalb eines Notebooks zu bewegen. Im Gegensatz zum reinen R Code legt R-Markdown automatisch Zwischenkapitel bei allen Überschriften und Chunks an.
+
+Überschriften werden in R Markdown mit einem # ausgezeichnet. 
+
+# Hauptüberschrift (erster Ordnung, z.B. Hauptkapitel 1)
+## Zwischenüberschrift (zweiter Ordnung, z.B. Kapitel 1.1)
+### Unterkapitel (dritter Ordnung, z.B. Unterkapitel 1.2.1)
+
+Die Kapitel lassen sich ganz unten in der Zeile des Notebooks als Navigation verwenden.
+
+Die weiteren Auszeichnungen im Text sind sehr einfach gehalten:
+
+kursiv wird mit *kursiv* gesetzt
+fett wird mit **fett** ausgezeichnet
+* definiert eine Aufzählung
+
+Weitere Informationen gibt es in RStudio unter
+R Markdown Cheat Sheet: Help > Cheatsheets > R Markdown Cheat Sheet,
+R Markdown Reference Guide: Help > Cheatsheets > R Markdown Reference Guide.
+
+### Kapitel 1.3: R Markdown Chunks
+Im Gegensatz zu normalen Skripten können Sie die Ergebnisse des Codes direkt im Notebook auslesen. Das macht die Rekonstruktion von Code sehr einfach und schnell. Der Code lässt sich einfach im entsprechenden Codefeld verändern. Eigene Codeabschnitte nennen sich "chunks". Diese chunks werden durch den Befehl "Cmd/Ctrl + Alt + i" (oder in der Menü-Zeile "insert") eingefügt. Der chunk ist durch die Befehle ``` eingeleitet und geschlossen.
+
+R Markdown interpretiert dies automatisch als ausführbaren Befehl. In der geschweiften Klammer steht die Bezeichnung für den chunk, damit dieser schneller im Notebook gefunden werden kann {r Bezeichnung für chunk} Die Annotation zum Code kann entweder direkt im Chunk mit einem vorgeschalteten # passieren oder ganz normal im Textdokument.
+
+Ergänzen von Code (z.B. für den finalen Forschungsbericht)
+Cmd/Ctrl + Alt + i
+
+### Kapitel 1.4: Export-Funktionen: KnittR für Word, HTML und PDF
+Das Paket rmarkdown muss vor der Verwendung von R Markdown installiert werden. Dazu werden auch unterstützende Programmbibliotheken wie knittR installiert. KnittR ermöglicht es, ein R Notebook in verschiedene Formate zu exportieren, wie etwa als HTML Datei, als Word-Dokument oder als PDF-Dokument. Dazu werden alle Markdown-Formatierungen einfach ausgelesen. Dies eignet sich ausgezeichnet für die Erstellung des Forschungsberichts (Notebook auf Github gemeinsam schreiben, dann für den Feinschliff exportieren)
+
+### Kapitel 1.5 Top-Tricks mit RStudio
+1) Immer darauf achten, dass die entsprechende Programmbibliothek auch geladen wurde.
+2) Immer daran denken: wenn ein R-Befehl unklar ist, lässt sich die Hilfefunktion mit einem vorangestellten Fragezeichen aufrufen!
+
+Besonders hilfreich: Code > Rename in Scope
+Damit lassen sich die Namen von Variablen für das gesamte Dokument ändern!
+https://rviews.rstudio.com/2016/11/11/easy-tricks-you-mightve-missed/
+
+Jetzt geht es aber los mit der Netzwerkanalyse!
+
+## Kapitel 1: igraph-objekt erstellen
+
+*Lernziele* Nach diesem Kapitel können Sie
+* eine Edgelist und eine Nodelist aus einem github-Verzeichnis einlesen,
+* daraus ein igraph-Objekt generieren,
+* und eine einfache Visualisierung des Objekts durchführen.
+
+Wir arbeiten im ersten Schritt vor allem mit der Programmbibliothek igraph. Stellen Sie sicher, dass sie die Bibliothek installiert haben. Bevor es losgeht. Bitte aktualisieren Sie ggf. R, RStudio und alle Programmbibliotheken auf die aktuellen Versionen. R können Sie einfach neu installieren, RStudio hat eine eingebaute Update-Funktion und die Programmbibliotheken lassen sich direkt aus RStudio heraus aktualisieren. 
+
+```{r igraph Bibliothek laden}
+library("igraph")
+```
+
+### Kapitel 2.1 Datensätze verwenden
+
+Jedes Netzwerk besteht aus zwei grundlegenden Elementen: 
+1) Kanten (auch edges oder ties), d.h. relationale Daten und
+2) Knoten (auch nodes oder vertices), d.h. knotenbezogene Daten.
+
+Ein minimales Netzwerk besteht z.B. nur aus der Definition der Beziehung zwischen Knoten. Eine Edgelist listet hier nur die Beziehung zwischen den Knoten auf, etwa
+
+from, to
+1, 2
+1, 3
+1, 5
+2, 3
+...
+
+Mit igraph lassen sich Beispielnetzwerke mit dem Befehl ?sample_pa erstellen:
+
+```{r Beispielnetzwerk sample_pa}
+beispiel <- sample_pa(18, power=1)
+plot(beispiel, edge.arrow.size=.3, main="Beispielnetzwerk")
+
+# Selbsttest: Manipulieren Sie direkt im Skript oben die Werte für n=18 und power=1. Was passiert, wenn 35 Personen im Netzwerk sind und die Power den Wert 2 hat?
+```
+
+
+
+Alternativ lassen sich auch two-mode Netzwerke mit dem Befehl ?sample_bipartite erstellen:
+
+```{r Beispielnetzwerk sample_bipartite}
+beispiel_twomode <- sample_bipartite(10, 5, type="Gnm", m=20, directed=TRUE, mode="all")
+beispiel_twomode
+vertex.attributes(beispiel_twomode)$type
+
+# Wir haben hier eine einfache Visualisierung mit einem kleinen Befehl eingeführt
+# ifelse definiert, dass die Ausprägung entsprechend dargestellt werden soll. 
+V(beispiel_twomode)$color <- ifelse(V(beispiel_twomode)$type, "lightblue", "salmon")
+V(beispiel_twomode)$shape <- ifelse(V(beispiel_twomode)$type, "circle", "square")
+
+plot(beispiel_twomode, edge.arrow.size=.3, main="Beispielnetzwerk two-mode (bipartite)")
+
+# gute Erklärung zu two-mode/bipartite Netzwerken hier:
+# https://rpubs.com/pjmurphy/317838
+```
+
+Hier würde eine einfache Edgelist oder der Befehl graph_from_literal genügen, um ein einfaches Netzwerk zu erstellen. 
+
+### Kapitel 2.2 Vorhandene Netzwerke verwenden
+
+Die Beispiele gehen davon aus, dass der Datensatz für das Netzwerk bereits erhoben und entsprechend dokumentiert ist. Auch igraph liefert einige Beispieldatensätze mit. Dazu muss das Paket "igraphdata" installiert werden.
+https://rdrr.io/cran/igraphdata/
+
+### Kapitel 2.2.1 Beispieldatensätze verwenden
+
+R hat bereits eingebaute Datensätze unter dem Paket igraphdata. Das Paket muss allerdings zuvor installiert werden.  Wichtig ist, dass die Codierung des Datensatzes klar nachvollziehbar ist. Es gibt viele Fundstellen für existierende Datensätze im Netz, die kostenlos weiterverwendet werden können https://www.kaggle.com/datasets.
+
+### Kapitel 2.2.2 Einlesen von CSV-Dateien
+
+Jetzt benötigen wir einen eigenen Datensatz, den wir bearbeiten wollen. Dieser Datensatz wurde zuvor auf github erstellt. Er analysiert 
+
+https://github.com/hdm-crpr/226305/tree/master/data/crpr
+
+Das Codebuch liefert uns eine detaillierte Beschreibung des Datensatzes, den wir verwenden werden. 
+
+https://github.com/hdm-crpr/226305/blob/master/data/crpr/Codebuch.md
+
+Für dieses Beispiel liegen die CSV-Dateien auf einem öffentlihc zugänglichen Server. Alternativ lassen sich die Datei auch in einem lokalen Verzeichnis bzw. der working directory ablegen. 
+
+Zum Einlesen des Datensatzes, der als .csv Datei vorliegt, verwenden wir den Befehl read.csv(), zur Überprüfung des Einlesens den Befehl head()
+
+
+```{r Datensatz einlesen}
+
+# Einlesen des Datensatzes von github: unbedingt sicherstellen, dass a) der Pfad korrekt ist und b) der Datensatz ausschließlich von raw.github... eingelesen wird, damit R einen direkten Zugriff auf die Datei hat
+
+# Einlesen der Edgelist: beachte den Separator ","
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr/edges.csv", header=T, as.is=T, sep = ",")
+# Einlesen der Nodelist
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr/nodes.csv", header=T, as.is=T, sep = ",")
+# Überprüfen der Daten
+head(el)
+head(nodes)
+
+```
+
+Im nächsten Schritt wird die Matrix der Edgelist mit dem Datensatz der Nodelist (Nodes) gekoppelt. Dazu werden alle IDs der from und to-Spalte der Edgelist mit den IDs der Nodelist automatisch abgeglichen. Diese müssen also genau übereinstimmen, sonst kann die Verbindung beider Listen nicht stattfinden. Ausserdem sollten alle Variablen in der Edge- und Nodelist numerisch codiert sein. Damit lassen sich logische Operatoren später einfacher einsetzen.
+
+Zur Verwendung von graph_from_data_frame:
+?graph_from_data_frame
+
+Die Variable "d" gibt an, welche Matrix bzw. welcher Data-Frame verwendet werden soll. "vertices" bezieht sich auf die Nodelist. Hier kann ein normales CSV-Dokument verwendet werden.
+
+Gerichtet oder ungerichtet wird definiert über das Argument: directed, das die Werte T für true (also gerichtet) oder F für False (also ungerichtet) annehmen kann. Das ist abhängig von Ihrer Forschungsfrage.
+
+```{r Erstellung igraph Objekt}
+
+# wandelt die Edgelist als Matrix um.
+edgematrix <-as.matrix(el)
+# ?graph_from_data_frame (erläutert den Befehl genauer)
+# erstellt ein igraph-objekt aus der Fusion von Edge- und Nodelist
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+# das igraph-Objekt heisst jetzt "s" (für students) und ist ein gerichtetes Netzwerk.
+s
+```
+
+### 2.3 Aufbau eines igraph-Objekts
+
+Die umfangreiche Dokumentation für igraph für R ist unter https://igraph.org/r/doc/ einsehbar, darauf greift auch https://rdrr.io/cran/igraph/ als interaktive Anleitung zurück.
+
+Jedes igraph Objekt ist gleich aufgebaut:
+
+1) Der beliebige Code nach igraph ist eine eindeutige ID für das igraph-Objekt. 
+
+2) In der gleichen Zeile liegt eine kurze Beschreibung des Objekt, die sich über 4 Buchstaben defniert:
+
+D-: gerichtetes (directed) oder ungerichtetes (undirected) Netzwerk
+N-: named, d.h. die IDs der Knoten haben Kennzeichnungen
+W-: weighted, d.h. es liegt ein Kantengewicht in der spalte "weight" vor
+B-: bipartite bzw. two-mode Netzwerk: es liegt die spalte "type" vor
+
+Danach kommt die Anzahl der Knoten bzw. Vertices und die Anzahl der Edges. 
+
+Die Attribute sind nach vertex (v/) oder edge(e/) aufgeschlüsselt und geben an, ob das Attribut als numerische Wert (n) oder als Text (c) c=characters angegeben ist. 
+
+Danach folgt eine Aufschlüsselung der Beziehungen zwischen den Knoten. 
+
+### 2.4 Einfache Visualisierung eines igraph Objekts
+
+Doch jetzt interessiert uns, wie das Netzwerk beschaffen ist. Das soll in einer einfachen Abbildung dargestellt werden. Keine Sorge, die genauen Befehle für die Visualisierung lernen Sie später noch ausführlicher. 
+
+```{r Kapitel 2: Einfache Visualisierung}
+plot(s, 
+     edge.arrow.size=.3, 
+     layout=layout_with_kk, 
+     main=" Studierende CR/PR, 3. Semester / Vollerhebung", 
+     sub="n=38 Vertices, KK-Algorithmus, ohne Gewicht")
+```
+
+Der Plot-Befehl verwendet folgende Erweiterungen:
+
+edge.arrow.size=.3: legt die Größe der Kantenspitze fest
+
+layout=layout_with_kk: 
+definiert den Layout-Algorithmus. Hier ist Kamada-Kawai (kk) vorgegeben, da der Algorithmus allen Knoten eine feste Position zuweist, d.h. die Abbildung bei allen Anwendungen gleich aussieht. Die anderen Algorithmen verwenden dynamische Berechnungen.
+
+main=" Studierende CR/PR, 3. Semester / Vollerhebung"
+definiert Hauptüberschrift
+sub="n=36 Vertices, KK-Algorithmus, ohne Gewicht": 
+definiert Unterüberschrift
+
+
+### Kapitel 3: Netzwerkattribute verstehen
+
+Jedes Netzwerk besteht aus Knoten und Kanten. Diese lassen sich mit den Befehlen vcount() und ecount() auslesen
+
+```{r Kapitel 3: Netzwerkattribute auszählen}
+vcount(s)
+ecount(s)
+38*2*2
+```
+
+Die Anzahl der edges (156) ergibt sich aus der Erhebungslogik: Es wurden 38 Personen zwei Mal zwei Fragen gestellt, die vollständig beantwortet wurden, daraus ergeben sich insgesamt 152 Beziehungen (38*2 = 76, 76*2 = 152)
+
+# Kapitel 3.1.1 Attribute auflisten und selektieren
+
+mit dem list() Befehl lassen sich die Edge- und Vertex-Attribute auflisten. Diese entsprechen den Spalten in der Edge- bzw. Nodelist. In der Edgelist werden die relationalen Daten nicht erfasst.
+
+
+```{r Kapitel 3: Netzwerkattribute auflisten}
+list.edge.attributes(s)
+list.vertex.attributes(s)
+```
+
+Wir kennen jetzt die Attribute des Netzwerks (genaugenommen kennen wir sie schon vorher, weil sie ja im Codebuch stehen).
+
+R verwendet das $-Zeichen als shortcut für die Auswahl der Attribute graph_attr und set_graph_attr. Immer, wenn wir den $ einsetzen bedeutet dies in igraph, dass wir mit den Attributen des Netzwerks arbeiten. Der Syntax ist einfach. 
+
+Merksatz für igraph: $ wählt ein Attribut aus der Liste!
+
+```{r Kapitel 3: Auswahl Edge-Attribute}
+edge.attributes(s)$weight
+edge.attributes(s)$relation
+```
+
+"relation" ist ein wichtiges edge-attribut, da es die Netzwerke in das "work" (Wert 1) und das "help" (Wert 2) aufteilt (siehe Codebuch). Beide Werte können entweder den Wert 1 oder 3 annehmen. Der höhere Wert drückt eine stärkere Beziehungsintensität aus. Mit der späteren Aufteilung in zwei Unternetzwerke kann damit ein Vergleich der Netzwerke erstellt werden.
+
+```{r Kapitel 3: Auswahl eines Vertex-Attributs}
+list.vertex.attributes(s)
+vertex.attributes(s)
+vertex.attributes(s)$sex
+```
+
+Exkurs: Codierung von Attributen: Die Vertex-Attribute sind unterschiedlich codiert, von rein dichotomen Werten, die nur eine Ausprägung haben können (männlich, weiblich)  bis hin zu ordinal skalierten Werten, die eine Reichweite angeben. Beispielsweise ist das Alter in vier Schritten skaliert: unter 20 (= Wert 1), 20-21(= Wert 2), 22-25(= Wert 3) und über 25 (= Wert 4). Diese Skala wurde nach Erfahrungswerten des spezifischen Samples erstellt. Generell ist es hilfreich, sich an etablierten Skalen zu orientieren.
+
+### Kapitel 3.3 Einzelne Attribute isolieren und verändern
+
+Um einzelne Attribute dauerhaft zu selektieren lassen sich entweder existierende Werte verändern oder neue Werte hinzufügen. Vertex-Attribute werden mit dem Großbuchstaben V(g) gekennzeichnet, Edge-Attribute entsprechend mit dem Großbuchstaben E(g). Neue Attribute werden erneut mit der Abkürzung $ ergänzt. Achtung: wenn neue Attribute ergänzt werden, dann werden diese dauerhaft ergänzt.
+
+### Kapitel 3.3.1 Vertex-Attribute selektieren und verändern
+
+```{r Kapitel 3: Vertex-Attribute ergänzen}
+
+# erstellt das Vertex-Attribut "color" und weist um das Attribut "blau" zu
+V(s)$color <- "lightblue"
+
+# ruft das Vertex-Attribut auf
+vertex.attributes(s)$color
+
+# zeigt eine Grafik
+plot(s, 
+     edge.arrow.size=.3, 
+     layout=layout_with_kk, 
+     main=" Studierende CR/PR, 3. Semester / Vollerhebung",
+     sub="Vertex-Attribut color auf lightblue gesetzt")
+
+# setzt das Attribut wieder zurück auf gelb, denn das Attribut wird jetzt dauerhaft so verwendet.
+V(s)$color <- "gold"
+
+plot(s, 
+     edge.arrow.size=.3, 
+     layout=layout_with_kk, 
+     main=" Studierende CR/PR, 3. Semester / Vollerhebung",
+     sub="Vertex-Attribut color zurückgesetzt")
+
+```
+
+Anmerkung: Das Vertex-Attribut "color" wird automatisch bei der Erstellung einer Grafik erkannt, siehe dazu ?igraph.plotting und das spätere Kapitel zur Visualisierung.
+
+### Kapitel 3.3.2 Edge-Attribute isolieren und verändern (multiplexe Netzwerke)
+
+*Multiplexe Netzwerke: zwei Typen von Kanten in einem Netzwerk*
+
+Multiplexe Netzwerke haben mehr als nur eine Kantenart, d.h. es werden mehrere Beziehungsarten im gleichen Graphen visualisiert. Dazu gibt es zwei Möglichkeiten (die sich auch kombinieren lassen): Farben und Formen. Achtung: multiplexe Netzwerke werden leicht unübersichtlich, deshalb sollte die Visualisierung immer mit Bedacht vorgenommen werden.
+
+1) *Kantenfarbe*n verwenden: wir haben in dem Edge-Attribut "relation" zwei Werte angebgeben, nämlich "1" (work) und "2" (help), die unterschiedliche Beziehungen beschreiben. Die Kanten lassen sich entsprechend einfärben.
+
+Dazu wird das Attribut edge.color mit zwei Farben angelegt. Der darauf folgende Befehl sagt, dass beim Wert 1 von Relation die erste Farbe verwendet werden soll und bei Wert 2 die zweite Farbe. Wenn *innerhalb* des Plot-Befehls bestimmte Attribute gesetzt werden, dann gelten diese nur für die daraus resultierenden Abbildung. 
+
+```{r Kapitel 3: Multiplexe Netzwerke: Kantenfarben verwenden}
+plot(s,
+     edge.arrow.size=.1,
+     edge.color=c("red", "blue")[(E(s)$relation=="1")+1],
+     vertex.color="gray90",
+     vertex.frame.color="white",
+     layout=layout_with_kk,
+     edge.curved=curve_multiple(s),
+     main="Multiplexes Netzwerk, d.h. verschiedene Formen der Beziehung",
+     sub="n=38, rot = Ratsuchenetzwerk, blau = Zusammenarbeit")
+
+# das Attribut curve_multiple beim Befehl edge.curved verhindert, dass sich die einzelnen edges direkt überlagern und erleichtert so die Sichtbarkeit der einzelnen Kanten.
+
+```
+
+Auf der Abbildung sieht man bereits jetzt, dass sich die beide Kantenfarben häufig überlagern. Mit dem Attribut curve_multiple() lässt sich dies vermeiden.
+
+### Kapitel 3.4 Vergleich von Netzwerken
+
+Ein einzelnes Netzwerk ist meistens nicht aussagekräftig. Wenn sich das Netzwerk nach bestimmten Kriterien aufteilen lässt, hilft dies bei der Analyse, um signifikante Unterschiede zu erkennen.
+
+### Kapitel 3.4.1 Vergleich zweier Netzwerke nach Edge-Attributen
+
+Netzwerke lassen sich nach bestimmten Kriterien aufteilen. Wir haben im Edge-Attribut "relation" zwei Werte, 1 und 2, die das Ratsuche- und Zusammenarbeitsnetzwerk definieren (siehe Codebuch).
+
+Um das Netzwerk entsprechend nach Edge-Attributen aufzutrennen, verwenden wir den Befehl "subgraph.edges". Hier werden aus einen Netzwerk entsprechende Unternetzwerke erstellt. In diesem Fall soll das neue Netzwerk "help" generiert werden, in dem alle Knoten und Kanten, die größer als 1 sind in das neue Netzwerk übertragen werden:
+
+
+```{r Kapitel 3: Netzwerk mit subgraph.edges unterteilen}
+
+# Erstellt das neue Netzwerk help, in dem nur alle Kanten verwendet werden, die einen Wert > 1 haben. Da der Wert 1 sich auf das Zusammenarbeitsnetzwerk bezieht, sind dies alle Unterstützungsnetzwerke. Alternativ lassen sich andere logische Operatoren verwenden.
+
+help <- subgraph.edges(s, E(s)[relation > 1])
+help
+plot(help)
+
+plot(help,
+     edge.arrow.size=.3,
+     layout=layout_with_kk,
+     edge.color="red",
+     edge.curved=.2,
+     edge.curved=curve_multiple(help),
+     main="Ratsuche-Netzwerk",
+     sub="n=38, KK-Algorithmus")
+```
+
+Das neue Netzwerk hat jetzt 38 Knoten und 76 Kanten, ist also genau entlang dem Edge-Attribut "relation" geteilt. Zum Vergleich muss genau so noch das Zusammenarbeitsnetzwerk "work" erstellt werden. 
+
+```{r Kapitel 3: Vergleichsnetzwerk work erstellen}
+work <- subgraph.edges(s, E(s)[relation < 2])
+work
+plot(work, main="Zusammenarbeit out-of-the-box")
+# Netzwerk verschönern mit wenigen Befehlen
+plot(work,
+     edge.arrow.size=.3,
+     layout=layout_with_kk,
+     edge.color="blue",
+     edge.curved=.2,
+     edge.curved=curve_multiple(work),
+     main="Zusammenarbeits-Netzwerk",
+     sub="n=38, KK-Algorithmus")
+```
+
+Wir haben jetzt aus dem selben Netzwerk zwei Netzwerke generiert. Auswahlkriterium war ein Edge-Attribut, das zwei Werte angenommen hat. 
+
+```{r Kapitel 3: Gegenüberstellung von Ratsuche und Zusammenarbeitsnetzwerk}
+
+par(mfrow=c(1,3), mar=c(0,0,2,1)) # definiert, dass 3 Abbildungen in einer Zeile stehen
+
+plot(s,
+     edge.arrow.size=.1,
+     edge.color=c("red", "blue")[(E(s)$relation=="1")+1],
+     vertex.color="gray90",
+     vertex.frame.color="white",
+     layout=layout_with_kk,
+     edge.curved=curve_multiple(s),
+     main="Multiplexes Netzwerk (gesamt)",
+     sub="n=38, rot = Ratsuchenetzwerk, blau = Zusammenarbeit")
+
+
+plot(help,
+     edge.arrow.size=.3,
+     layout=layout_with_kk,
+     edge.color="red",
+     edge.curved=.2,
+     edge.curved=curve_multiple(help),
+     main="Ratsuche-Netzwerk",
+     sub="n=38, KK-Algorithmus")
+
+plot(work,
+     edge.arrow.size=.3,
+     layout=layout_with_kk,
+     edge.color="blue",
+     edge.curved=.2,
+     edge.curved=curve_multiple(work),
+     main="Zusammenarbeits-Netzwerk",
+     sub="n=38, KK-Algorithmus")
+
+
+par(mfrow=c(1,1), mar=c(0,0,2,2)) # setzt die Darstellung wieder zurück
+
+```
+
+
+Das Unterstützungsnetzwerk help lässt sich beispielsweise nun auch nach der Stärke der Beziehungen unterteilen:
+
+```{r Kapitel 3: Aufteilen und Zusammenführen von Teilnetzwerken (subgraph.edges)}
+
+# unterteilt das Netzwerk in das Hilfsnetzwerk h1 mit einem Gewicht von 1
+h1 <- subgraph.edges(help, E(help)[weight == 1])
+# analog dazu das Hilfsnetzwerk mit einem Gewicht von 3
+h3 <- subgraph.edges(help, E(help)[weight == 3])
+# Vergleich der beiden Netzwerke
+h1
+h3
+# jedes Netzwerk hat jetzt genau 38 Knoten mit 38 Kanten
+
+par(mfrow=c(1,3), mar=c(0,0,2,1)) # definiert, dass 3 plots in einer Zeile stehen
+
+plot(h3,
+     layout=layout_with_kk,
+     edge.color="blue",
+     edge.arrow.size=.3,
+     edge.weight=3,
+     main="Ratsuche-Netzwerk (Gewicht 3)",
+     sub="n=38, Beziehungsstärke 3 (Gewicht), erste Nennung")
+
+plot(h1, layout=layout_with_kk,
+     main="Ratsuche-Netzwerk (Gewicht 1)",
+     edge.color="red",
+     edge.arrow.size=.3,
+     sub="n=38, Beziehungsstärke 1 (Gewicht), zweite Nennung")
+
+# die beiden getrennten Netzwerke lassen sich nun einfach mit einer Addition wieder in das ursprüngliche Netzwerk zurückversetzen:
+
+hk <- h1 + h3
+hk
+plot(hk, layout=layout_with_kk,
+     main="Ratsuche-Netzwerk (gesamt)",
+     edge.color="grey80",
+     edge.arrow.size=.3,
+     sub="n=38, 76 Kanten")
+
+# setzt die Ansicht wieder auf einen Graph pro Zeile zurück
+par(mfrow=c(1,1), mar=c(0,0,1,2))
+
+```
+
+Der Vergleich der Netzwerke h3 und h1 zeigt deutliche Unterschiede in den Präferenzen. Beispielsweise hat Knoten 18 eine sehr viel stärkere Relevanz bei der ersten Nennung als bei der zweiten. Bei der zweiten Nennung h1 verteilt sich das Netzwerk noch viel deutlicher mit den Knoten 30 und 36 als relevante Nennungen.
+
+```{r Kapitel 3: Bedeutung von einzelnen Knoten nach Degree-Wert}
+
+par(mfrow=c(1,2), mar=c(0,0,1,2))
+
+which.max(degree(h3)) # fragt, welcher Knoten den höchsten Degree-Wert hat
+h3_ind <- degree(h3, mode="in") # berechnet den indegree Wert von h3
+
+plot(h3,
+     layout=layout_with_kk,
+     edge.color="blue",
+     edge.arrow.size=.3,
+     edge.weight=3,
+     vertex.size=h3_ind,
+     main="Ratsuche-Netzwerk (Gewicht 3)",
+     sub="n=38, erste Nennung, mit Indegree")
+
+which.max(degree(h1)) # fragt, welcher Knoten den höchsten Degree-Wert hat
+h1_ind <- degree(h1, mode="in") # berechnet den indegree Wert von h1
+
+plot(h1, layout=layout_with_kk,
+     main="Ratsuche-Netzwerk (Gewicht 1)",
+     edge.color="red",
+     vertex.size=h1_ind,
+     edge.arrow.size=.3,
+     sub="n=38, zweite Nennung, mit Indegree")
+
+par(mfrow=c(1,1), mar=c(0,0,1,2))
+
+```
+
+### Kapitel 3.4.2 Vergleich zweier Netzwerke nach Vertex-Attributen
+
+Wenn Netzwerke nach Vertex-Attributen unterteilt werden benötigen sie einen anderen Befehl als bei den Edge-Attributen. Am einfachsten ist es die unbenötigten Knoten (und deren Kanten) mit dem Befehl delete_vertices() zu löschen. Nachfolgend interessieren uns nur weibliche Knoten im Ratsuche-Netzwerk.
+
+
+```{r Kapitel 3: Teilnetzwerke nach Vertex-Attributen (delete_vertices)}
+
+# Zeigt uns die Vertex-Attribute des Unternetzwerks "help" an.
+vertex_attr(help)
+# Wir wollen nun wissen, wie das Ratsuche-Netzwerk unter Frauen aussieht:
+h_fem <- delete_vertices(help, V(help)[sex == "2"])
+h_fem
+plot(h_fem, layout=layout_with_kk,
+     main="Ratsuche-Netzwerk weiblich",
+     edge.color="grey80",
+     edge.arrow.size=.3,
+     sub="n=31, 59 Kanten")
+
+# da die Werte für Geschlecht numerisch codiert sind können wir auch mit weiteren logischen Operatoren arbeiten:
+h_fem2 <- delete_vertices(help, V(help)[sex != "1"])
+# erzeugt ein identisches Netzwerk wie h_fem, verwendet aber einen anderen logischen Operator zur Auswahl
+
+```
+
+Numerische Vertex-Attribute lassen sich gut über sogenannte logische Operatoren selektieren. Beispielsweise ist das Alter von 1 bis 4 codiert. Jetzt soll das Netzwerk in jüngere und ältere unterteilt werden:
+
+```{r Kapitel 3: Selektion nach numerischen Vertex-Attributen, Beispiel Alter}
+
+# löscht alle Knoten mit den Werten größer 2, also 3 und 4, d.h. es bleiben alle Studierenden bis zum Alter 22 übrig.
+h_j <- delete_vertices(help, V(help)[age > "2"])
+
+# löscht alle Knoten mit den Werten kleiner 3, d.h. 1 und 2, d.h. es bleiben alle Studierenden älter als 22 Jahre übrig.
+h_a <- delete_vertices(help, V(help)[age < "3"])
+
+par(mfrow=c(1,2), mar=c(0,0,1,2))
+
+plot(h_j,
+     layout=layout_with_kk,
+     main="Ratsuche-Netzwerk jung",
+     vertex.color="lightgreen",
+     edge.color="grey80",
+     edge.arrow.size=.3,
+     sub="Alter bis 22",
+     )
+
+plot(h_a,
+     layout=layout_with_kk,
+     main="Ratsuche-Netzwerk alt",
+     vertex.color="lightblue",
+     edge.color="grey80",
+     edge.arrow.size=.3,
+     sub="Alter über 22",
+     )
+
+par(mfrow=c(1,1), mar=c(0,0,1,2))
+
+```
+
+### Kapitel 3.5 Ego-Netzwerke aus Netzwerken extrahieren
+
+Manchmal ist es hilfreich, bestimmte Knoten aus dem Netzwerk zu extrahieren, um diese genauer zu untersuchen. Damit "zoomt" man auf einen Knoten im Netzwerk. Sie erinnern sich: jedes Netzwerk besteht aus Egos (einzelne Knoten) und deren Alteri. Diese Ego-Netzwerke lassen sich auch einzeln analyisieren. 
+
+Als Beispiel dient und dazu das oben erstellte Netzwerk h3. Wir verwenden dafür die Befehle ego_size und make_ego_graph.
+
+```{r Kapitel 3: Einzelne Ego-Netzwerke isolieren}
+
+# Als Beispiel dient das Netzwerk h3 (Hilfsnetzwerk mit starker Beziehung). Falls dieses nicht erstellt wurde, können Sie ein anderes Netzwerk verwenden.
+
+# zeigt die Knoten mit den meisten Verbindungen, ähnlich wie der degree Wert.
+ego_size(h3)
+
+# Wir stellen fest, dass Knoten 18 die meisten degrees hat. Deshalb wollen wir ein Ego-Netzwerk aus diesem Graph generieren.
+degree(h3)
+
+# selektiert aus dem Netzwerk h3 alle Knoten, die mit Knoten 18 über einen Schritt verbunden sind.
+king <- make_ego_graph(h3, order = 1, nodes = V(h3)$name == 18, mode ="all")
+
+# liefert eine Liste der Verbindungen (in diesem Falle alle out/indgree Beziehungen von 18)
+king
+
+# liefert einen (nicht besonders aufregenden) Plot des selektierten Ego-Netzwerks "king"
+plot(king[[1]], 
+     main="Ego-Netzwerk Knoten 18, erster Grad",
+     vertex.color="gold",
+     edge.color="grey80",
+     edge.arrow.size=.3,
+     sub="nur direkte Beziehungen des ersten Grads (12 alteri)")
+
+# Neben den Beziehungen des ersten Grades lassen sich auch Beziehungen des zweiten Grades über das Attribut order setzen:
+
+king2 <- make_ego_graph(h3, order = 2, nodes = V(h3)$name == 18, mode ="all")
+plot(king2[[1]], 
+     main="Ego-Netzwerk Knoten 18, 2. Grad",
+     vertex.color="orange",
+     edge.color="grey80",
+     edge.arrow.size=.3,
+     sub="Beziehungen des zweiten Grads (21 alteri)")
+
+king3 <- make_ego_graph(h3, order = 3, nodes = V(h3)$name == 18, mode ="all")
+plot(king3[[1]], 
+     main="Ego-Netzwerk Knoten 18, 3. Grad",
+     vertex.color="red",
+     edge.color="grey80",
+     edge.arrow.size=.3,
+     sub="Beziehungen des dritten Grads, 22 alteri")
+
+# erst durch die Einbezierung der Beziehungen des zweiten Grads wird die Beziehungsstruktur innerhalb des Netzwerks sichtbar. 
+
+# Darstellung als Vergleich:
+
+par(mfrow=c(1,3), mar=c(0,0,1,2))
+plot(king[[1]], edge.arrow.size=.3, main="Ego_Netzwerk, erster Grad")
+plot(king2[[1]], edge.arrow.size=.3,  main="Ego_Netzwerk, zweiter Grad")
+plot(king3[[1]], edge.arrow.size=.3, main="Ego_Netzwerk, dritter Grad")
+
+par(mfrow=c(1,1), mar=c(0,0,1,2))
+     
+```
+
+Auch hier gilt: Ego-Netzwerke werden erst durch den Vergleich interpretierbar. Deutlich wird, dass die Vernetzung zwischen zweiten und dritten Grad nur eine geringe Steigerung ermöglicht. 
+
+### Kapitel 4: Netzwerke visualisieren
+
+Die Visualisierung von Netzwerken ist ein wichtiges Hilfsmittel, um Netzwerke besser zu verstehen. Allerdings ersetzt die Visualisierung nicht die statistische Analyse von Netzwerkmaßen. Um die späteren Visualisierungen jedoch besser verstehen zu können sind nachfolgend die wichtigsten Visualisierungsparameter für igraph erklärt.
+
+### 4.1 Grundlagen der Visualisierung
+
+igraph greift auf die Visualisierungsparameter des Basispakets von R zurück (siehe dazu etwa ?plot) und ergänzt diese um eigene Visualisierungsparameter 
+
+### 4.1.1 Farben
+
+R hat bereits eingebaute Funktionen, die eine Visualisierung erleichtern.
+
+```{r Kapitel 4: Visualisierung Farben}
+# ruft die Farben auf, die R standardmässig verwendet
+colors()
+# ruft neue Farbpaletten auf (ggf. RColorBrewer zunächst installieren)
+library(RColorBrewer)
+display.brewer.all()
+# zeigt verschiedene Farbpaletten
+display.brewer.pal(5, "Blues")
+display.brewer.pal(10, "Reds")
+bp8 <- display.brewer.pal(8, "Blues")
+bp8
+```
+
+### 4.1.2 Farbverläufe
+
+Wenn sich Farben überdecken sollen müssen sie teilweise transparent sein. Dies lässt sich aus einer Kombination von Farbpaletten und dem Attribut alpha erreichen:
+
+```{r Kapitel 4: Transparenter Farbverlauf}
+
+
+```
+
+
+### 4.1.3 Labels
+
+Labels sind Beschriftungen, die ein Netzwerk interpretierbar machen. Leider liefert R nur rudimentäre Funktionen, so dass eine sinnvolle Beschriftung und Verfeinerung meisten andere Pakete notwendig macht. Generell wird die Beschriftung über die Funktion legend() erzeugt.
+https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/legend.html oder ?legend.
+
+*Visualisierung nach Vertex-Attribut (zwei Farben) mit Legende*
+
+```{r Kapitel 4: Legende hinzufügen für Farben}
+
+# Es soll das Geschlecht im Netzwerk visualisiert und in der Legende dargestellt werden. Dazu ist es notwendig, die Codierung im Netzwerk zu kennen. Als Vorbereitung müssen zwei Vektoren erstellt werden, die in der Legende aufgegriffen werden: die Farben (colrs) und die Verteilung des Geschlechts (sex), damit die legende darauf zugreifen kann. 
+
+# Zunächst definiert der Vector colrs das Farbspektrum der verwendeten Farben. Da wir wissen, dass wir bei §sex nur zwei Werte haben (männlich, weiblich) brauchen wir auch zwei Werte. Die direkten Farbpaletten sind hier hinterlegt: http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.
+colrs <- c("pink", "lightblue")
+
+# der neue Vector "sex" besteht - analog zur Farbe - aus zwei Werten, nämlich männlich und weiblich.
+geschlecht <- c("weiblich", "männlich")
+
+V(s)$color <- colrs[V(s)$sex] # selektiert die Vertex-Farbe nach den Farben im Vector colrs
+
+plot(s, 
+     edge.arrow.size=.3, # Pfeilspitze auf .3
+     edge.color="grey70", # Kantenfarbe 70% Grau
+     layout=layout_with_kk, # Layout-Algorithmus Kamada-Kawai
+     vertex.frame.color=NA, # keine Ränder bei den Vertices anzeigen
+     vertex.label=NA, # keine Labels anzeigen (männlich/weiblich steht im Zentrum)
+     edge.curved=.2, # Kantenkrümmung von .2
+     edge.curved=curve_multiple(s), # Kanten sollen sich nicht überlagern
+     main="Studierende CR/PR nach Geschlecht", # Hauptüberschrift
+     sub="n=38, männlich/weiblich") # Unterüberschrift
+
+legend(x=1, # Position auf der X-Achse
+       y=-1, # Position auf der Y-Achse
+       legend = geschlecht, # ausgegeben wird der Vector "geschlecht"
+       col = colrs, # Farbcodierung nach Vector colrs
+       text.col= colrs, # Farbe der Legende in der Farbe des Vectors
+       bty = "n", # verhindert, dass eine Box gezogen wird
+       pch=20, # plotting characters: definiert einen Kreis (siehe ?graphics)
+       pt.cex = 2, # definiert die Textgröße
+       cex = 1, # skaliert die gesamte Legende
+       inset = c(0.1, 0.1) # rückt die Legende leicht ein.
+       )
+
+```
+
+Eine Alternative und vielleicht hier auch einfachere Visualierung ist eine simple deskriptive Statistik bzw. Häufigkeitsverteilung mittels eines Histograms:
+
+*Einfache Häufigkeitsverteilung eines Attributs als Histogram darstellen*
+
+```{r Kapitel 4: einfache Häufigkeitsverteilung als Histogram}
+
+# Die Häufigkeitsverteilung nach Geschlecht vorbereiten
+colrs <- c("pink", "lightblue")
+geschlecht <- c("weiblich", "männlich")
+
+# Auslesen der Attributwerte
+sex <- vertex.attributes(s)$sex
+hist(sex,
+     col=colrs,
+     labels = TRUE,
+     breaks=2,
+     xlab="Verteilung nach Geschlecht",
+     ylab="Häufigkeit",
+     xaxt='n',
+     ylim=c(0, 40),
+     main="Geschlechtsverteilung im Netzwerk")
+
+```
+
+
+### 4.2 Layout und Algorithmen
+
+Bei igraph sind viele Algorithmen bereits vorgegeben, nicht alle sind sinnvoll für die Darstellung eines Netzwerks. Für natürliche Netzwerke sind sogenannte spring-embedded Darstellungen sinnvoll. Sie gehen von phsyikalischen Gesetzen der Anziehung und Abstoßung zwischen den Knoten aus. Vereinfacht gesagt: je mehr Kanten ein Knoten hat, desto mehr Anziehungskraft übt er auf andere Knoten aus.
+
+*Darstellungen in der Übersicht*
+
+```{r Kapitel 4: Visualisierung in der Darstellung}
+
+# Code von Katherine Ognyanova via kateto.net, um verschiedene Visualisierungen darzustellen:
+
+# entfernt weitere Darstellungen, die wir nicht brauchen
+layouts <- grep("^layout_", ls("package:igraph"), value=TRUE)[-1]
+
+# legt ein Layout fest
+layouts <- layouts[!grepl("bipartite|merge|norm|sugiyama|tree", layouts)]
+
+# definiert eine 3x3 Felder Matrix für die Darstellung
+par(mfrow=c(3,3), mar=c(1,1,1,1)) 
+for (layout in layouts) {
+print(layout)
+l <- do.call(layout, list(s))
+
+# plottet das Netzwerk s auf die vorgegebenen Layout-Angaben
+plot(s, edge.arrow.mode=.3, layout=l, main=layout) }
+
+# setzt die Darstellung wieder auf eine einzelne Abbildung zurück
+par(mfrow=c(1,1), mar=c(0,0,0,1))
+ 
+```
+
+Generell und gut nutzbar sind folgende Algorithmen
+layout_with_kk: Kamada-Kawai, klassische Darstellung, Knoten sind fix definiert
+layout_with_fr: Fruchterman-Reingold, wird jedes Mal neu berechnet
+
+ergänzend:
+layout_with_mds: basiert auf multidimensionaler Skalierung, kommt auf den Fall an.
+layout_nicely: versucht automatisch eine optimale Lösung zu finden: bei unter 1000 Knoten wird automatisch Fruchterman-Reingold eingesetzt.
+
+Detailanpassungen wie Lesbarkeit der einzelnen Knoten, Abstände vergrößern und verkleinern ist im Kurs für Fortgeschrittene. 
+
+### 4.3 Überschriften für Abbildungen
+
+Überschriften lassen sich im plot-Befehl leicht anpassen.
+main= "Hauptüberschrift"
+sub= "Unterüberschrift"
+
+In manchen Fällen (bei langen Überschriften) soll die Überschrift über zwei Zeilen gehen. Dazu muss die Überschrift durch den Befehl new line \n  angepasst werden. Dazu müssen ggf. auch die Ränder der Abbildung angepasst werden.
+
+
+```{r Überschrift einer Abbildung über zwei Zeilen}
+
+# Anpassung des Abstands in der Abbildung
+par(mfrow=c(1,1), mar=c(1,1,3,1)) 
+
+# Einfügen einer Überschrift über zwei Zeilen
+plot(s,
+     layout=layout_with_kk,
+     edge.arrow.size=.3,
+     main="Überschrift \n Überschrift Zeile 2")
+```
+
+
+### 4.4 Seitengrößen, Schriftarten und -auszeichnungen
+
+Igraph bezieht sich auf den generischen plot() Befehl in R, d.h. die Parameter für die Funktion werden von dort übernommen, siehe ?plot() und für eine ausführlichere Darstellung etwa
+https://www.statmethods.net/advgraphs/parameters.html
+
+Ein wichtiger Befehl für die saubere Darstellung von Grafiken ist im Befehl par() festgelegt. Hier werden Parameter für die Visualisierung festgelegt. 
+
+Das Argument mar (für margin) definiert die Seitenränder in Zeilen (lines), die Reihenfolge ist unten, links, oben rechts: es müssen immer vier Werte definiert werden. Beispielsweise definiert der Befehl par(mar=c(5,3,6,2) folgende Abstände:
+unten = 5 Zeilen
+links = 3 Zeilen
+oben = 6 Zeilen
+rechts = 2 Zeilen
+
+Der Vektor mfrow=c() gibt an, wie viele Spalten und Zielen in einer Abbildung definiert werden, wobei der erste Wert die Zeile und der zweite Wert die Spalten angibt. Damit lassen sich mehrere Abbildungen vergleichen. Wir verwenden die Kombination von beiden Argumenten bzw. dem Vektor, um die Abbildungen darzustellen.
+
+Der Befehl *par(mfrow=c(1,2), mar=c(0,0,2,0))*
+
+definiert, dass zwei Abbildungen nebeinander (in einer Zeile) mit einem Zeilenabstand von 2 nach oben festgelegt werden. 
+
+Da dies ein fester Parameter ist, bleibt er für alle Abbildungen erhalten, bis er zurückgesetzt wird. Dazu reicht ein generischer Code am Ende einer Visualisierung:
+
+par(mfrow=c(1,1), mar=c(1,1,1,1))
+
+
+*Schriftarten*
+
+
+
+*Auszeichungen*
+
+
+
+### Kapitel 5: Netzwerkmaße I: Netzwerkmaße
+
+Netzwerkmaße beziehen sich auf das gesamte Netzwerk. Sie eigenen sich, um Netzwerke miteinander zu vergleichen.
+
+
+
+```{r Kapitel 5: Netzwerkmaße bzw. Komponenten des Netzwerks}
+
+# Der Befehl components() prüft, aus wie vielen Komponenten ein Netzwerk besteht. 
+components(s)
+
+# Die Ausgabe liefert auch die Größe der Komponenten, in diesem Fall sind die Komponenten 32 und 6 Knoten groß.
+
+# Sind die Komponenten des Netzwerks miteinander verbunden?
+is.connected(s)
+
+# Aufgabe: vergleichen Sie die oben erstellten Netzwerke h1 und h3? Was fällt bei den Komponenten auf?
+
+```
+
+
+### 5.1 Dichte (Density)
+
+```{r Kapitel 5: Netzwerkmaße Dichte}
+
+edge_density(s)
+edge_density(work)
+edge_density(help)
+
+```
+
+Die Dichte in unserem Netzwerk beträgt 10,81 % (gerundet), d.h. von allen möglichen Beziehungen zwischen den Knoten ist jede zehnte realisiert.
+
+
+### 5.2 Diameter (Umfang/Durchmesser)
+
+```{r Kapitel 5: Netzwerkmaße Umfang/Durchmesser}
+
+dia <- get.diameter(s)
+dia
+dia_work <- get.diameter(work)
+dia_work
+dia_help <- get.diameter(help)
+dia_help
+
+# fragt nach dem Typ der Daten
+class(dia)
+# definiert dia als Vector-Daten
+as.vector(dia)
+
+# Visualisierung des Durchmessers
+
+dia <- get.diameter(s, directed=T) # ruft die Werte auf
+vcol <- rep("gray80", vcount(s)) # setzt alle Werte der Knoten auf grau
+vcol[dia] <- "gold" # setzt alle Vertices des Diameters auf gold
+ecol <- rep("gray80", ecount(s)) # setzt alle Kanten auf grau
+ecol[E(s, path=dia)] <- "orange" # definiert die Farbe des Pfads
+
+# E(net, path=dia) sucht die Kanten entlang des Pfades und färbt diese ein
+plot(s,
+     layout=layout_with_kk,
+     vertex.color=vcol,
+     edge.color=ecol,
+     edge.arrow.size=.2,
+     edge.curved=.2,
+     main="Diameter im Netzwerk",
+     sub="kürzester Weg in einem gerichteten Netzwerk")
+
+```
+
+
+
+### 5.3 Pfaddistanzen
+
+### 5.3.1 durchschnittliche Pfaddistanz
+
+### 5.3.2 kürzeste Pfaddistanz
+
+### 5.3.3 längste Pfaddistanz
+
+### 5.4 Visualisierung der Netzwerkmaße
+
+
+### Kapitel 6: Netzwerkmaße II: Positionale bzw. Akteursmaße
+
+### 6.1 Zentralitätsmaße (Degree)
+
+```{r}
+
+# liefert die Anzahl der Kanten, die durch die Knoten gehen.
+
+degree(s)
+
+# Verteilung der Knoten als Histogram dargestellt
+ds <- degree(s)
+hist(ds, 
+     breaks=1:vcount(s)-1, 
+     main="Anzahl der Degrees im Netzwerk s")
+
+```
+
+
+### 6.2 Unterscheidung In- und Outdegree
+
+```{r Kapitel 6: Indegree und Outdegree}
+
+# Indegree
+degree(s, mode="in")
+centr_degree(s, mode="in", normalized=T)
+
+# Outdegree
+degree(s, mode="out")
+centr_degree(s, mode="out", normalized=T)
+
+inds <- degree(s, mode="in")
+inds
+outds <- degree(s, mode="out")
+outds
+
+# Visualisierung der beiden In- und Outdegrees Zentralitätsmaße im Vergleich
+
+par(mfrow=c(1,2), mar=c(0,0,2,2))
+
+plot(s,
+     layout=layout_with_kk,
+     edge.arrow.size=.1,
+     vertex.color="grey80",
+     vertex.frame.color="white",
+     vertex.size=inds*2,
+     main="Indegree")
+
+plot(s,
+     layout=layout_with_kk,
+     edge.arrow.size=.1,
+     vertex.color="grey80",
+     vertex.frame.color="white",
+     vertex.size=outds,
+     main="Outdegree")
+
+```
+
+
+
+### 6.3 Eigenvector-Zentralität
+
+```{r Kapitel 6:Zentralitätsmaße: Eigenvector}
+eigen_centrality(s, directed=T, weights=NA)
+centr_eigen(s, directed=T, normalized=T)
+```
+
+
+### 6.4 Closeness-Zentralität
+
+
+
+### 6.5 Betweenness-Zentralität
+
+```{r}
+edge_betweenness(s, directed=T, weights=NA)
+centr_betw(s, directed=T, normalized=T)
+```
+
+
+### 6.6 Visualisierung der Netzwerkmaße
+
+### 6.7 Zusammenhang zwischen den Netzwerkmaßen
+
+
+
+### Kapitel 7: Teilnetzwerke: Cluster und Communities
+
+### 7.1 Dyaden, Triaden und Cliquen
+
+```{r}
+
+# Triadenzensus
+count_triangles(s)
+# hier wird ausgegeben, welcher Knoten an wie vielen "Dreiecken" beteiligt ist (Gewichtung ist egal)
+
+triad_census(s)
+# Die Ausgabe von triad_census erfolgt entlang der vorgegebenen Reihenfolge des Triadenzensus. Beispielsweise sehen Sie, dass es nur drei echte Cliquen (Typ 003) in dem Netzwerk gibt. Der Typ 003 kommt immer an letzter Stelle, Typ 300 (isolates, keine Verbindung) wird immer zu Beginn gestellt.
+
+```
+
+
+```{r Cliquen}
+largest_cliques(s)
+```
+
+```{r Cliquen}
+largest_cliques(work)
+```
+
+
+### 7.2 Hubs und Authorities
+
+### 7.3 Communities und Cluster
+
+```{r Cluster berechnen}
+
+# Vorbereitung für Cluster-Berechnung
+
+?cluster_walktrap
+s
+gc <- cluster_walktrap(s)
+modularity(gc)
+membership(gc)
+par(mfrow=c(1,1), mar=c(0,0,1,2))
+plot(gc, s, edge.arrow.size=.2, main="Clusteranalyse des Gesamtnetzwerks")
+
+# Vergleich Ratsuche vs. Zusammenarbeit
+# Achtung: die Farben im Cluster werden zufällig erzeugt.
+
+par(mfrow=c(1,2), mar=c(0,0,1,2))
+
+gh <- cluster_walktrap(help)
+modularity(gh)
+membership(gh)
+plot(gh, help, edge.arrow.size=.2,
+     main="Communities Ratsuche",
+     sub="Walktrap-Algorithmus und Visualisierung")
+
+gw <- cluster_walktrap(work)
+modularity(gw)
+membership(gw)
+plot(gw, work, edge.arrow.size=.2,
+     main="Communities Zusammenarbeit",
+     sub="Walktrap-Algorithmus und Visualisierung")
+
+```
+
+
+
+### 7.4 K-Cores
+
+### 7.5 Homophilie
+
+### Ausblick auf die weiteren Kapitel
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+# Anhang: weiterführende und vertiefende Literatur
+
+Generelle Quellen und Tutorials zu R, igraph und dem Umgang mit Daten:
+
+Grundsätzlich: Hadley Wickham R for Data Science (insbesondere Abschnitte I und V)
+https://r4ds.had.co.nz/
+
+Die umfangreiche Dokumentation für igraph für R ist unter https://igraph.org/r/doc/ einsehbar, darauf greift auch https://rdrr.io/cran/igraph/ als interaktive Anleitung zurück.
+
+Grundlagenliteratur:
+Luke, D. A. (2015): A User's guide to network analysis in R. 
+Cham: Springer. DOI 10.1007/978-3-319-23883-8
+(PDF in der Universitätsbibliothekt Stuttgart verfügbar: https://www.ub.uni-stuttgart.de/)
+
+Ausgezeichnete R und igraph Tutorials von Katherine Ognyanova, werden regelmässig aktualisiert: http://kateto.net/tutorials/
+
+Mit guter Dokumentation und vielen Beispielen
+https://www.markanthonyhoffman.com/social_network_analysis/index.html
+
+Für Fortgeschrittene (mit tidygraph und ggplot2)
+https://www.jessesadler.com/post/network-analysis-with-r/
+
+Zum Vertiefen die Tutorials von Harvard Data Science
+https://dss.iq.harvard.edu/workshop-materials
+https://rpubs.com/wctucker/302110
+
+Workshop-Unterlagen von James Curley zu Network Vizualization 
+https://github.com/jalapic/NetworkViz und zu SNA generell (eher für Fortgeschrittene): https://github.com/jalapic/SNA_workshop
+
+Etwas technisch orientiert, dafür interaktiv:
+https://github.com/gbertagnolli/Networks-LM-Math
+
+Beispielcode für eine Zeitreihenanalyse
+https://github.com/Smithsonian/Network-Analysis-in-R-with-igraph-Package/blob/master/Network%20Analysis%20with%20iGraph%20Package.R
+
+
+
+
