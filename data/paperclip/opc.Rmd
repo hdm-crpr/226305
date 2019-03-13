@@ -1,0 +1,46 @@
+---
+title: "Operation Paperclip"
+output: html_notebook
+---
+
+Codebuch
+
+vertex.attributes
+1 = Organisation
+0 = Person
+
+edge.attributes
+1 = vor 1933
+2 = 1933 - 1945 
+3 = ?
+4 = ?
+
+
+
+```{r}
+
+library(igraph)
+# list das igraph-objekt ein
+
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/paperclip/pc_edges.csv", header = T, as.is = T)
+
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/paperclip/pc_nodes.csv", header = T, as.is = T)
+
+head(el)
+head(nodes)
+
+edgematrix <-as.matrix(el)
+
+pc <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+
+# igraph-objekt paperclip (pc)
+# erster plot
+
+plot(pc, 
+     vertex.label=NA,
+     edge.arrow.size=.3,
+     edge.curved=.3,
+     layout = layout_nicely,
+     main="Operation Paperclip")
+```
+
