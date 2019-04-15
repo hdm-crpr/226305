@@ -10,7 +10,7 @@
 ## Ursprung und Datenerhebung
 Ich habe den Datensatz unter den Studierenden des dritten Semesters im Kurs Netzwerkanalyse erhoben. Die Daten sind nach der Erhebung nach einem Zufallsprinzip anonymisiert worden.
 
-Das Netzwerk ist ein gerichtetes one-mode Akteursnetzwerk. Es wurden zwei getrennte Fragen erhoben:
+Das Netzwerk ist ein *gerichtetes one-mode Akteursnetzwerk*. Es wurden zwei getrennte Fragen erhoben:
 
 **Projektarbeitsnetzwerk work**
 1a) Bei Hochschulprojekten arbeite ich am liebsten mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der Person ein.  
@@ -41,11 +41,11 @@ codiert von 1 bis 38, jede ID entspricht einem Studenten
 # NODE-Attribute  
   
 **id**  
-Identische ID wie aus der edgelist zur Identifikation der Knoten.
+Identische ID wie aus der edgelist zur Identifikation der Knoten. In diesem Fall sind alle personenbezogenen Daten anonymisiert von 1 bis 38.
 
 **sex**    
 Bitte geben Sie ihr Geschlecht an:
-1 = weiblich;  
+1 = weiblich     
 2 = männlich
   
 **crpr***    
