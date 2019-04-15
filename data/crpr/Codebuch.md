@@ -77,7 +77,7 @@ Bitte geben Sie an, wie Sie wohnen:
 3 = WG   
 4 = private Wohnung   
 
-**job**  
+**work**  
 Bitte geben Sie an, wie viel Zeit Sie pro Woche neben dem Studium arbeiten (kein Ehrenamt):  
 1 = keinen    
 2 = bis 5h/Woche  
