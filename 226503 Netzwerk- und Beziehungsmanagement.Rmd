@@ -1,0 +1,14 @@
+---
+title: "226305 Syllabus Netzwerk- und Beziehungsmanagement"
+author: "Swaran Sandhu"
+date: "7 8 2019"
+output:
+  tufte::tufte_handout: default
+  tufte::tufte_html: default
+---
+
+# Lernziele
+
+Das Modul Netzwerk- und Beziehungsmanagement besteht aus den Veranstaltungen 226305a „Grundlagen sozialer Netzwerke“ (3. Semester) und 226305b „Methoden der Netzwerkanalyse“ (4. Semester). Als Prüfungsleistung führen Sie im 3. Semester ein Online-Testat (bestanden/nicht-bestanden) durch und erarbeiten im 4. Semester im Team eine eigene Netzwerkanalyse (Gruppenarbeit) mit eigener Datenerhebung, Visualisierung und Interpretation (Umfang ca. 10-20 Seiten, Gruppenarbeit mit maximal 4 Personen). 
+
+Pflichtlektüre: Fuhse, Jan Arendt (2016): Soziale Netzwerke. Konzepte und Forschungsmethoden. Konstanz/München: UVK (an der HdM digital erhältlich über die UTB-Bibliothek).
