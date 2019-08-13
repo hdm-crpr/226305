@@ -17,7 +17,7 @@
 
 ## Tutorials on Network Visualization
 Both tutorials below are highly recommended, the later is a bit more for advanced R users.
-* State of the Art tutorial on Visualzation by Katya Ognyanova: http://kateto.net/network-visualization
+* State of the art [tutorial](http://kateto.net/network-visualization) by Katya Ognyanova 
 * Stunning tutorial how to use ggraph by David Schoch aka Mr. Stochastics [Slides](http://talks.schochastics.net/netVizR/slides.html#1) and [Code](http://mr.schochastics.net/netVizR.html)
 
 ## Tutorials for statnet package
