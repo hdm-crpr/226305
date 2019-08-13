@@ -11,7 +11,7 @@
 * General introduction to the igraph package: http://igraph.org/r/
 * General introducation into R and SNA by Katya Ognyanova [PDF](https://kateto.net/wp-content/uploads/2018/03/R%20for%20Networks%20Workshop%20-%20Ognyanova%20-%202018.pdf) and [Code as ZIP](https://kateto.net/wp-content/uploads/2018/03/ruworkshop.zip)
 * Nice [summary with code](https://www.jessesadler.com/post/network-analysis-with-r/) by Jesse Adler on SNA with R covering various packages
-* Advanced and detailed introduction to igraph and analysis methods by David Schoch aka Mr. Stochastics [Tutorial(http://mr.schochastics.net/netAnaR.html) and [Code as ZIP](http://mr.schochastics.net/files/netAnaR.zip)
+* Advanced and detailed introduction to igraph and analysis methods by David Schoch aka Mr. Stochastics [Tutorial](http://mr.schochastics.net/netAnaR.html) and [Code as ZIP](http://mr.schochastics.net/files/netAnaR.zip)
 * RStudio [Tutorial](https://rstudio-pubs-static.s3.amazonaws.com/74248_3bd99f966ed94a91b36d39d8f21e3dc3.html) on igraph 
 * Nice [examples](http://michael.hahsler.net/SMU/LearnROnYourOwn/code/igraph.html) by Michael Hahsler
 
