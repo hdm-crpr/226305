@@ -53,7 +53,7 @@ Chen, B. (2017): Social Network Analysis in Education: https://bookdown.org/chen
 * [Network Modeling for Epidemics with statnet](http://statnet.github.io/nme/index.html) 
 
 # Helpful links and examples
-* Step-by-step [example](https://learn.canvas.net/courses/1176/pages/5-dot-2-exercise-visualization-of-discussion-interactions) on how to create a network from student data: 
-* How to connect Visone and R, nice [explanation](http://visone.info/wiki/index.php?title=R_console_(tutorial)&oldid=887) of the R code: 
-* Coding [example](http://visone.info/wiki/index.php?title=R_console_(tutorial)&oldid=887) for Network of World Trades: ≈
+* Step-by-step [example](https://learn.canvas.net/courses/1176/pages/5-dot-2-exercise-visualization-of-discussion-interactions) on how to create a network from student data  
+* How to connect Visone and R, nice [explanation](http://visone.info/wiki/index.php?title=R_console_(tutorial)&oldid=887) of the R code  
+* Coding [example](http://visone.info/wiki/index.php?title=R_console_(tutorial)&oldid=887) for Network of World Trades  
 
