@@ -5,4 +5,7 @@
 ## Made with Shiny
 
 *Actors in Wes Anderson Movies*  
-https://committedtotape.shinyapps.io/wesandersonnetwork/
+Interactive App: https://committedtotape.shinyapps.io/wesandersonnetwork/  
+Code: https://davidsmale.netlify.com/portfolio/wes-anderson-actor-network/
+
+
