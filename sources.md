@@ -10,11 +10,15 @@
 ## Tutorials for igraph package
 * General introduction to the igraph package: http://igraph.org/r/
 * General introducation into R and SNA by Katya Ognyanova [PDF](https://kateto.net/wp-content/uploads/2018/03/R%20for%20Networks%20Workshop%20-%20Ognyanova%20-%202018.pdf) and [Code as ZIP](https://kateto.net/wp-content/uploads/2018/03/ruworkshop.zip)
-* State of the Art tutorial on Visualzation by Katya Ognyanova: http://kateto.net/network-visualization
 * Nice [summary with code](https://www.jessesadler.com/post/network-analysis-with-r/) by Jesse Adler on SNA with R covering various packages
+* Advanced and detailed introduction to igraph and analysis methods by David Schoch aka Mr. Stochastics [Tutorial](http://mr.schochastics.net/netAnaR.html) and [Code as ZIP] (http://mr.schochastics.net/files/netAnaR.zip)
 * RStudio [Tutorial](https://rstudio-pubs-static.s3.amazonaws.com/74248_3bd99f966ed94a91b36d39d8f21e3dc3.html) on igraph 
 * Nice [examples](http://michael.hahsler.net/SMU/LearnROnYourOwn/code/igraph.html) by Michael Hahsler
 
+## Tutorials on Network Visualization
+Both tutorials below are highly recommended, the later is a bit more for advanced R users.
+* State of the Art tutorial on Visualzation by Katya Ognyanova: http://kateto.net/network-visualization
+* Stunning tutorial how to use ggraph by David Schoch aka Mr. Stochastics [Slides](http://talks.schochastics.net/netVizR/slides.html#1) and [Code] (http://mr.schochastics.net/netVizR.html)
 
 ## Tutorials for statnet package
 * General introduction to the package: http://www.statnet.org/
