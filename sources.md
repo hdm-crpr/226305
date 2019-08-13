@@ -30,7 +30,7 @@ https://www.springer.com/de/book/9783319238821
 Bojanowski, M. (2020 announced). Introduction to Social Network Analysis with R. New York: Wiley & Sons.
 
 ## Open Source Online Books
-Barabasi, A.-L. (o.J.): Network Science: http://networksciencebook.com/chapter/1
+Barabasi, A.-L. (o.J.): Network Science: http://networksciencebook.com/chapter/1  
 Chen, B. (2017): Social Network Analysis in Education: https://bookdown.org/chen/snaEd/
 
 ## Open Source Datasets
