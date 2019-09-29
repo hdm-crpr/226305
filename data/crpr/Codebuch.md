@@ -27,10 +27,12 @@ Für das Unterstützungsnetzwerk "help" wurde der Person, die zuerst genannt wur
 
 # EDGE-Attribute
 
-**id** (eindeutige Codierung des Knoten) 
+**id**  
+(eindeutige Codierung des Knoten)   
 codiert von 1 bis 38, jede ID entspricht einem Studenten
 
-**weight** (Beziehungsstärke aufgrund der Nennung in den Fragen)
+**weight**  
+Beziehungsstärke aufgrund der Nennung in den Fragen)  
 3 = sehr starke Beziehung,
 1 = starke Beziehung vorhanden (zweite Nennung)
 
