@@ -12,7 +12,7 @@ Ich habe den Datensatz unter den Studierenden des dritten Semesters im Kurs Netz
 
 Das Netzwerk ist ein *gerichtetes one-mode Akteursnetzwerk*. Es wurden zwei getrennte Fragen erhoben:
 
-**Projektarbeitsnetzwerk work**
+**Projektarbeitsnetzwerk work**  
 1a) Bei Hochschulprojekten arbeite ich am liebsten mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der Person ein.  
 1b) Bei Hochschulprojekten arbeite ich am auch gerne mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der zweiten Person ein.  
 
