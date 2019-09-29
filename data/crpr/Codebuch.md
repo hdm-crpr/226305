@@ -44,7 +44,7 @@ codiert von 1 bis 38, jede ID entspricht einem Studenten
 Identische ID wie aus der edgelist zur Identifikation der Knoten. In diesem Fall sind alle personenbezogenen Daten anonymisiert von 1 bis 38.
 
 **sex**    
-Bitte geben Sie ihr Geschlecht an:
+Bitte geben Sie ihr Geschlecht an:  
 1 = weiblich  
 2 = männlich
   
