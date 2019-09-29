@@ -1,0 +1,192 @@
+---
+title: "Netzwerkanalyse und -visualisierung"
+subtitle: "SNA Helper (RStudio add-in)"
+author: "Swaran Sandhu | sandhu@hdm-stuttgart.de"
+date: "`r Sys.Date()`"
+output: tint::tintHtml
+---
+
+```{r setup, include=FALSE}
+library(tint)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tint'))
+options(htmltools.dir.version = FALSE)
+```
+
+# Worum geht es?
+SNA Helper ist ein sehr neues Add-in für RStudio, das die Manipulation und Auswertung von igraph-Objekten vereinfacht. Übersicht und Demo unter https://github.com/schochastics/snahelper
+
+# Installation
+
+```{r Installation von SNA Helper}
+
+# Es müssen zwei Pakete installiert werden.
+# install.packages("graphlayouts")
+# install.packages("snahelper")
+
+# Danach RStudio neu starten!
+```
+
+## Start und Verwendung
+Nach der Installation muss RStudio neu gestartet werden. SNA Helper ist über den Menüpunkt "add-ins" aufrufbar und hat drei Unterpunkte:
+
+* Netbuilder
+* Netreader
+* SNAHelper
+
+Wir werden nur die beiden Funktionen Netreader und SNAHelper verwenden.
+
+# Netreader
+Netreader erlaubt das Einlesen von Edge- und Nodelisten ohne vorherigen Code. Dazu müssen die Edge- und Nodelist lokal als CSV-Datei vorliegen. Für dieses Beispiel verwenden wir den gleichen studentischen Datensatz
+
+https://github.com/hdm-crpr/226305/tree/master/data/crpr
+
+Kopieren Sie die Rohdaten (raw.github) in einen Plaintexteditor wie Atom und sichern die Datei entsprechend in einem Ordner mit der Dateiendung .csv. 
+
+1. Öffnen Sie in Netreader über das add-in Menü
+2. Edgelist laden und Netzwerk speichern
+3. Nodelist laden (wird hier Attributes genannt, meint aber das gleiche)
+4. Review Code: Code kopieren und in R ausführen
+5. Netzwerk "g" wird aus den beiden Dateien generiert.
+
+Achtung: achten Sie darauf, die Dateiformate und z.B. den Header richtig anzugeben, sonst funktioniert der Import nicht.
+
+```{r Netreader: Datei aufrufen}
+
+# Den Code aus dem Netreader-Prozess kopiert und damit das neue Objekt erstellt
+# Achtung: Das ist nur ein Beispielcode, da ich die Dateien lokal in meinem Verzeichnis Blocktermin abgelegt habe. Sie müssen natürlich bei Netreader den entsprechenden Verweis auf Ihrem Laptop angeben.
+# 
+library(igraph)
+# load raw network data ----
+A <- utils::read.table(file = '/Volumes/Data/owncloud/Lehre/2019 WS/226305/Blocktermin/data/edges.csv',
+                header = TRUE, sep = ',', quote = '', stringsAsFactors = FALSE)
+
+# create network ----
+g <- graph_from_data_frame(A,directed = TRUE)
+
+# load raw attribute data ----
+attrs <- utils::read.table(file = '/Volumes/Data/owncloud/Lehre/2019 WS/226305/Blocktermin/data/nodes.csv',
+                    header = TRUE, sep = ',', quote = '', stringsAsFactors = FALSE)
+
+# add attributes to network ----
+vnames <- get.vertex.attribute(g,'name')
+identCol <- which(apply(attrs,2,function(x) all(x%in%vnames)))[1]
+anames <- attrs[,identCol]
+attrs <- attrs[,-identCol]
+perm <- match(vnames,anames)
+for(attr in names(attr)){
+   g <- set_vertex_attr(g,name = attr,value = attr[[attr]][perm])
+}
+
+# Ergänzung: Erste Visualisierung des Netzwerks
+plot(g)
+
+```
+
+# SNA Helper
+Wir haben gerade aus zwei lokalen Edge- und Nodelisten ein Netzwerk "g" erstellt. Dieses Netzwerk kann im SNA Helper weiterverwendet werden.
+
+## Netzwerk in SNA Helper aufrufen
+Markieren Sie zunächst das neu erstellte Netzwerk "students" im Skript und rufen dann über das add-in Menü den SNAHelper auf.
+
+```{r}
+g # dieses igraph Objekt markieren und dann SNA-Helper aus add-ins aufrufen
+```
+
+Mit SNAHelper lassen sich erste Analysen des Netzwerks durchführen. Sie sehen aber auch, dass das Netzwerk noch unübersichtlich ist, da eigentlich mehrere Netzwerke übereinander gelegt sind (z.B. das multiplexe Netzwerk help und work)
+
+Mit dem SNAHelper lassen sich schnell einfache Berechnungen durchführen, die anschließend als Code ausgegeben werden und so in das Skript eingebaut werden können. Überlegen Sie aber immer, was genau erforscht werden soll. 
+
+SNAHelper kann die wichtigsten Zentralitätsmaße berechnen und als neue Attribute festlegen und sowohl Kanten- als auch Knotenfarben basierend auf den Attributen festlegen.
+
+*Achtung!* Sobald Sie SNAHelper verlassen ("done"), wird die erstellte Abbildung in das Skript zurückkopiert. Vorher also unbedingt sichern.
+
+Übungsaufgaben:
+
+1) Zentralitätsmaße
+1a) Welchen Knoten hat den höchsten Indegree-Wert?
+1b) Welchen Knoten hat den hächsten Betweenness-Wert?
+1c) Visualisieren Sie das Netzwerk nach den beiden oben genannten Werten durch die Knotengröße und Farbabstufung. Wählen Sie als kleinste Knotengröße 2 und als grö0te Knotengröße den Wert 20.
+
+2) Multiplexe Netzwerke
+2a) Visualisierung Sie die beiden Vertiefungsnetzwerke CR und PR durch entsprechend unterschiedliche Kantenfarben.
+
+
+Um SNAHelper sinnvoll zu verwenden, sollte das Netzwerk zunächst aufgeteilt werden. So lassen sich die beiden Netzwerke genauer vergleichen.
+
+
+# Verfeinerte Analyse
+
+## Netzwerk unterteilen in help und work Unternetzwerke
+Wir wissen, dass das Netzwerk zwei Relationen gleichzeitig abbildet, nämlich help und work (siehe Codebuch https://github.com/hdm-crpr/226305/blob/master/data/crpr/Codebuch.md : work = 1, relation = 2)
+
+```{r Teilnetzwerke erstellen}
+
+w1 <- subgraph.edges(g, E(g)[relation == 1])
+h1 <- subgraph.edges(g, E(g)[relation == 2])
+
+w1
+h1
+
+par(mfrow=c(1,2), mar=c(0,0,2,1)) # zwei Abbildungen in einer Zeile
+plot(w1, main="Zusammenarbeit")
+plot(h1, main="Hilfesuche")
+par(mfrow=c(1,1), mar=c(0,0,2,1)) # setzt Abbildungen zurück
+
+```
+
+
+## Übung Vergleichsnetzwerke
+
+Damit die Netzwerke verglichen werden können, müssen wir noch die jetzt nicht mehr notwendige Spalte "relation" löschen oder ihr den entsprechenden Wert zuweisen
+
+Vergleichen Sie die Netzwerke help und work auf folgende Fragen:
+
+```{r Netzwerkvergleich}
+
+# ruft die Teilnetzwerke aus
+w1
+h1
+
+# löscht das inzwischen nicht mehr notwendige Edge-Attribute Relation
+w2 <- delete_edge_attr(w1, "relation")
+h2 <- delete_edge_attr(h1, "relation")
+
+# markieren für SNA-Helper
+w2 
+h2
+
+```
+
+
+1) Ist der gleiche Knoten in beiden Netzwerken am populärsten? Wer ist am zweit-populärsten?
+2) Welche Knoten übernehmen eine Brokerage-Rolle? Sind diese identisch?
+
+## Beispiel für den in SNAHelper generierten Code
+
+```{r SNAHelper generierter Code für ggraph}
+library(ggraph)
+ggraph(h2, layout = "manual", x = V(h2)$x, y = V(h2)$y) + 
+	 geom_edge_parallel0(aes(width = weight), 
+    edge_colour = "#A8A8A8", edge_alpha = 1, arrow = arrow(angle = 30, length = unit(0.15, 
+        "inches"), ends = "last", type = "closed"), end_cap = circle(7, "pt")) + 
+	 scale_edge_width(range = c(0.5, 
+    2.5)) + 
+	 geom_node_point(aes(fill = betweenness, size = betweenness), colour = "#000000", 
+    shape = 21, stroke = 0) + 
+	 scale_fill_gradient(low = "#87CEFF", high = "#27408B") + 
+    scale_size(range = c(5, 20)) + 
+	 geom_node_text(aes(label = name), colour = "#000000", 
+    size = 6.5, family = "Helvetica") + 
+	 theme_graph() + 
+	 theme(legend.position = "bottom")
+
+```
+
+
+
+
+
+
+
+
