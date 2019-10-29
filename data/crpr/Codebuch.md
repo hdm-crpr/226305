@@ -49,6 +49,7 @@ Identische ID wie aus der edgelist zur Identifikation der Knoten. In diesem Fall
 Bitte geben Sie ihr Geschlecht an:  
 1 = weiblich  
 2 = männlich
+3 = divers
   
 **crpr***    
 Welche Studienrichtung haben Sie vertieft?  
