@@ -48,7 +48,7 @@ Identische ID wie aus der edgelist zur Identifikation der Knoten. In diesem Fall
 **sex**    
 Bitte geben Sie ihr Geschlecht an:  
 1 = weiblich  
-2 = männlich
+2 = männlich  
 3 = divers
   
 **crpr***    
