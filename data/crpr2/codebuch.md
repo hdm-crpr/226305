@@ -46,22 +46,9 @@ Beziehungsart zwischen den Personen
 3 = *love* Liebesbeziehung zwischen Akteuren, codiert nach dem Attribut *complicated*
 
 **complicated**  
-1 = single,    
-2 = Tinder-Match,   
-3 = One-Night-Stand,  
-4 = Beziehung unter 3 Monate,   
-5 = Beziehung über 3 Monate,   
-6 = Verlobung,   
-7 = Heirat,   
-8 = Scheidung,  
-9 = complicated.
-
-**time**  
-1 = 2016,        
-2 = 2017,  
-3 = 2018,   
-4 = 2019,    
-5 = 2020.    
+1 = Beziehung,      
+2 = Tinder-Match,     
+3 = Crush.  
 
 
 # NODE-Attribute  
