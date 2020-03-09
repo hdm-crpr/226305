@@ -1,7 +1,6 @@
 # Datensatz Semesterverbund CRPR2 #
-# Codebuch
-# Stand 2020-03-10
-## erstellt von Swaran Sandhu | sandhu@hdm-stuttgart.de ###
+Codebuch Stand 2020-03-10
+erstellt von Swaran Sandhu | sandhu@hdm-stuttgart.de ###
 
 ## Inhalt
 - Edges.csv (Edgelist)
@@ -25,7 +24,8 @@ Für das Zusammenarbeitsnetzwerk "work" wurde der Person, die zuerst genannt wur
 
 Für das Unterstützungsnetzwerk "help" wurde der Person, die zuerst genannt wurde, ein Gewicht von 3 vergeben, die zweite Person erhielt ein Gewicht von 1. Insgesamt waren 76 Beziehungsmuster möglich.
 
-
+**Beziehungsnetzwerk love**
+Mit dem Edge-Attribut *love* wurden fiktive Beziehungsmuster zwischen den Studierenden angelegt, die über das Edge-Attribut *complicated* weiter präzisiert sind.
 
 
 # EDGE-Attribute
@@ -43,7 +43,7 @@ Beziehungsstärke aufgrund der Nennung in den Fragen)
 Beziehungsart zwischen den Personen  
 1 = *work* Projektbasierte Beziehung: Bei einem gerichteten Netzwerk präferiert der Sender (erste Spalte) die Zusammenarbeit mit der genannten Zielperson (zweite Spalte).  
 2 = *help* Unterstützungsbeziehung: Bei einem gerichteten Netzwerk fragt der Sender (erste Spalte) die genannte Person (zweite Spalte) um Rat.
-3 = *love* Liebesbeziehung zwischen Akteuren, codiert nach dem Attribut **complicated**
+3 = *love* Liebesbeziehung zwischen Akteuren, codiert nach dem Attribut *complicated*
 
 **complicated**
 1 = single,    
