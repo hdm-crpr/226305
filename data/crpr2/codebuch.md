@@ -1,6 +1,6 @@
 # Datensatz Semesterverbund CRPR2 #
-Codebuch Stand 2020-03-10
-erstellt von Swaran Sandhu | sandhu@hdm-stuttgart.de ###
+Codebuch Stand 2020-03-10   
+erstellt von Swaran Sandhu (sandhu@hdm-stuttgart.de)
 
 ## Inhalt
 - Edges.csv (Edgelist)
@@ -15,15 +15,15 @@ Das Netzwerk ist ein *gerichtetes one-mode Akteursnetzwerk*. Es wurden zwei getr
 **Projektarbeitsnetzwerk work**  
 1a) Bei Hochschulprojekten arbeite ich am liebsten mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der Person ein.  
 1b) Bei Hochschulprojekten arbeite ich am auch gerne mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der zweiten Person ein.  
-
+  
 Für das Zusammenarbeitsnetzwerk "work" wurde der Person, die zuerst genannt wurde, ein Gewicht von 3 vergeben, die zweite Person erhielt ein Gewicht von 1. Insgesamt waren 76 Beziehungsmuster möglich.  
 
 **Unterstützungsnetzwerk help**  
 2a) Wenn Sie ein Problem oder eine studiengangsbezogene Frage haben, an welchen ihrer Mitstudenten aus ihrem Semester wenden Sie sich zuerst?  Bitte tragen Sie auch hier wieder das Kürzel ein.  
 2b) Wenn Sie ein Problem oder eine studiengangsbezogene Frage haben, an welchen ihrer Mitstudenten aus ihrem Semester wenden Sie sich als nächstes? Bitte tragen Sie auch hier wieder das Kürzel ein.
-
+  
 Für das Unterstützungsnetzwerk "help" wurde der Person, die zuerst genannt wurde, ein Gewicht von 3 vergeben, die zweite Person erhielt ein Gewicht von 1. Insgesamt waren 76 Beziehungsmuster möglich.
-
+  
 **Beziehungsnetzwerk love**
 Mit dem Edge-Attribut *love* wurden fiktive Beziehungsmuster zwischen den Studierenden angelegt, die über das Edge-Attribut *complicated* weiter präzisiert sind.
 
@@ -42,10 +42,10 @@ Beziehungsstärke aufgrund der Nennung in den Fragen)
 **relation**
 Beziehungsart zwischen den Personen  
 1 = *work* Projektbasierte Beziehung: Bei einem gerichteten Netzwerk präferiert der Sender (erste Spalte) die Zusammenarbeit mit der genannten Zielperson (zweite Spalte).  
-2 = *help* Unterstützungsbeziehung: Bei einem gerichteten Netzwerk fragt der Sender (erste Spalte) die genannte Person (zweite Spalte) um Rat.
+2 = *help* Unterstützungsbeziehung: Bei einem gerichteten Netzwerk fragt der Sender (erste Spalte) die genannte Person (zweite Spalte) um Rat.  
 3 = *love* Liebesbeziehung zwischen Akteuren, codiert nach dem Attribut *complicated*
 
-**complicated**
+**complicated**  
 1 = single,    
 2 = Tinder-Match,   
 3 = One-Night-Stand,  
@@ -56,8 +56,8 @@ Beziehungsart zwischen den Personen
 8 = Scheidung,  
 9 = complicated.
 
-**time**
-1 = 2016,      
+**time**  
+1 = 2016,        
 2 = 2017,  
 3 = 2018,   
 4 = 2019,    
