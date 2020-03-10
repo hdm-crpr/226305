@@ -1,0 +1,402 @@
+---
+title: "226503 Blocktag 1"
+author: "Swaran Sandhu"
+date: '2020-03-05'
+output:
+  html_document:
+    df_print: paged
+---
+
+# Konventionen
+Das Fallbeispiel ist ein fiktives Studentennetzwerk mit 38 Relationen. Siehe das Codebuch auf github für weitere Informationen:
+
+https://github.com/hdm-crpr/226305/blob/master/data/crpr2/codebuch.md
+
+##########################
+# Block 2: Netzwerkmaße #
+#########################
+
+Notwendige Pakete installieren
+
+```{r Pakete installieren}
+library(igraph)
+```
+
+# Netzwerk einlesen
+
+```{r igraph Objekt erstellen }
+# Wir lesen unser Netzwerk ein:
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+s
+edge.attributes(s)
+E(s)$arrow.size <- .2 
+plot(s,
+     layout=layout_with_kk,
+     main ="out-of-the-box Visualisierung des Netzwerks")
+```
+
+# Netzwerkmaße im Überblick
+
+Bei der Untersuchung des Gesamtnetzwerks werden *generelle Netzwerkmaße* berechnet. Die wichtigsten sind
+* Dichte (density)
+* Durchmesser (diameter)
+* Pfaddistanz (path_distance)
+
+*Positionale Maße* geben eine Auskunft über die Bedeutung der einzelnen Knoten innerhalb des Netzwerks. Die wichtigste postionalen oder akteursbezogenen Maße sind
+* Degree (indegree/outdegree)
+* Closeness
+* Betweenness
+
+
+### Dichte (Density)
+
+```{r Dichte generell}
+# Wir lesen unser Netzwerk ein:
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .2 
+# Berechnung der Dichte des Netzwerks s
+edge_density(s)
+
+
+```
+
+Die Dichte in unserem Netzwerk beträg t0.1251778, das bedeutet, dass 12,53 % (gerundet), von allen möglichen Beziehungen zwischen den Knoten realisiert wurde. Dies bedeutet auch, dass zwischen knapp 90% der Knoten keine Beziehungen bestehen. Wir gehen zu leicht davon aus, dass Netzwerke eine hohe Dichte haben. Das würde aber voraussetzen, dass jeder Knoten mit allen anderen Knoten verbunden ist, wie dies etwa in Cliquen der Fall ist.
+
+Aussagekräftig werden die Dichtewerte besonders dann, wenn Netzwerke miteinander verglichen werden. Dazu können wir z.B. das CRPR Netzwerk in drei Teilnetzwerke (work, help, love) zerlegen.
+
+```{r Dichte: Vergleich der Teilnetzwerke}
+# Wir lesen unser Netzwerk ein:
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .2 
+
+# Teilnetzwerke erstellen
+work <- subgraph.edges(s, E(s)[relation==1]) 
+help <- subgraph.edges(s, E(s)[relation==2]) 
+love <- subgraph.edges(s, E(s)[relation==3])
+
+# Visualisierung
+par(mfrow=c(1,4), mar=c(0,0,2,1)) 
+plot(s, main="Gesamtnetzwerk")
+plot(work, main="Work")
+plot(help, main="Help")
+plot(love, main="Love")
+par(mfrow=c(1,1), mar=c(0,0,1,1)) 
+
+# Berechnung der Dichte für die Netzwerke
+edge_density(s)
+edge_density(work)
+edge_density(help)
+edge_density(love)
+
+par(mfrow=c(1,3), mar=c(0,0,2,1)) 
+```
+
+Bei der Analyse wird deutlich, dass die Teilnetzwerke work und help genau die gleiche Dichte haben, nämlich 5.40 Prozent. Dies lässt sich aus dem Setting erklären, dass jeder der 38 Knoten genau zwei Beziehungen angeben konnte. Das Liebesnetzwerk hat eine geringe Dichte von 0.47%. 
+
+## Durchmesser (diameter)
+Der Durchmesser ist ein wichtiges Maß, um die Konstellation eines Netzwerks besser zu verstehen. Auch hier richtet sich die Analyse wieder nach einem Vergleich.
+
+
+```{r Diameter (Durchmesser)}
+# https://igraph.org/r/doc/diameter.html
+
+# Wir lesen unser Netzwerk ein:
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .2 
+
+# Was ist der kürzeste Pfad in einem Netzwerk?
+get.diameter(s)
+
+# Welche Knoten sind am weitesten voneinander entfernt?
+farthest_vertices(s) 
+
+```
+
+```{r Kürzeste Pfaddistanz visualisieren}
+# Wir lesen unser Netzwerk ein:
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .2 
+
+# Visualisierung der Pfaddistanz
+# 
+dia <- get.diameter(s, directed=T) # ruft die Werte auf
+vcol <- rep("gray80", vcount(s)) # setzt alle Werte der Knoten auf grau
+vcol[dia] <- "gold" # setzt alle Vertices des Diameters auf gold
+ecol <- rep("gray80", ecount(s)) # setzt alle Kanten auf grau
+ecol[E(s, path=dia)] <- "orange" # definiert die Farbe des Pfads
+
+# sucht die Kanten entlang des Pfades und färbt diese ein
+plot(s,
+     layout=layout_with_kk,
+     vertex.color=vcol,
+     edge.color=ecol,
+     edge.arrow.size=.2,
+     edge.curved=.2,
+     main="Diameter im Netzwerk",
+     sub="kürzester Weg in einem gerichteten Netzwerk")
+
+```
+
+```{r Pfaddistanzen im Vergleich}
+# Wir lesen unser Netzwerk ein:
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .2 
+
+# Teilnetzwerke erstellen
+work <- subgraph.edges(s, E(s)[relation==1]) 
+
+# Gesamtnetzwerk: kürzester Pfad
+dia <- get.diameter(s, directed=T) 
+vcol <- rep("gray80", vcount(s)) 
+vcol[dia] <- "gold" 
+ecol <- rep("gray80", ecount(s)) 
+ecol[E(s, path=dia)] <- "orange" 
+
+# Teilnetzwerk work
+dia_w <- get.diameter(work, directed=T) 
+wvcol <- rep("gray80", vcount(work)) 
+wvcol[dia_w] <- "gold" 
+wecol <- rep("gray80", ecount(work)) 
+wecol[E(work, path=dia_w)] <- "orange" 
+
+
+# Visualisierung
+plot(s,
+     layout=layout_with_kk,
+     vertex.color=vcol,
+     edge.color=ecol,
+     edge.arrow.size=.2,
+     edge.curved=.2,
+     main="Diameter im Gesamtnetzwerk",
+     sub="kürzester Weg in einem gerichteten Netzwerk")
+
+
+plot(work,
+     layout=layout_with_kk,
+     vertex.color=wvcol,
+     edge.color=wecol,
+     edge.arrow.size=.2,
+     edge.curved=.2,
+     main="Diameter im Netzwerk WORK",
+     sub="kürzester Weg in einem gerichteten Netzwerk")
+
+```
+
+# Positionale Maße und Zentralitätsmaße
+Das wichtigste Zentralitätsmaß ist der Degree. Dieser Wert gibt eine Auskunft darüber, mit wie vielen Kanten ein Knoten verknüpft ist. Degree ist ein Gesamtwert, der unterteilt werden kann in indegree (eingehende Kanten) und outdegree (ausgehende Kanten). 
+
+
+```{r Degree-Werte in der Übersicht}
+# Netzwerk einlesen
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .2 
+
+
+# Einfache Berechnung des Degree als Gesamtwert
+ds <- degree(s)
+ds
+
+# Die Darstellung ist etwas irritierend: in der oberen Zeile stehen die IDs und in der unteren Zeile die Anzahl der Kanten des jeweiligen Knotens.
+
+# Dieser Wert lässt sich auch für die Visualisierung des Netzwerks verwenden:
+
+plot(s,
+     layout=layout_with_kk,
+     vertex.size=ds,
+     vertex.label=NA,
+     vertex.frame.color=NA,
+     edge.color="grey20",
+     main = "Visualisierung Gesamtnetzwerk",
+     sub = "n=38, Größe der Knoten nach degree-Wert")
+
+```
+
+```{r Einzelknoten visualisieren, z.B. durch Rahmenfarbe}
+# Wir wollen den Knoten mit dem höchsten degree-Wert dauerhaft hervorheben.
+# Netzwerk einlesen
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .2 
+
+
+# Berechnung indegree
+s_deg <- degree(s, mode="in")
+s_deg
+
+# Welcher Knoten hat den höchsten Indegree-Wert?
+which.max(s_deg)
+
+# Dauerhafte Markierung des Knoten 18 (in diesem Fall wir die Rahmenfarbe rot gesetzt)
+V(s)[V(s)$name == 18]$frame.color <- "red"
+plot(s,
+     layout=layout_with_kk,
+     vertex.size=s_deg,
+     vertex.label=NA,
+     vertex.color="grey75",
+     edge.color="grey80",
+     main = "Visualisierung Gesamtnetzwerk",
+     sub = "n=38, höchster indegree-Wert in rot umrandet")
+
+```
+
+```{r Ego-Netzwerk des höchsten Degrees}
+# Uns interessiert das Ego-Netzwerk vom Indegree-King
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .2 
+
+
+# ego_size() zeigt uns den Wert mit den höchsten Verbindungen (degrees)
+V(s)$egos <- ego_size(s)
+vertex.attributes(s)$egos
+which.max(vertex.attributes(s)$egos)
+
+# erzeugt ein Egonetzwerk
+ego_g <- make_ego_graph(s, order = 1, nodes = V(s)$name == 18, mode ="all")
+ego_net <- ego_g[[1]]
+plot(ego_net,
+     #vertex.size=degree(ego_net), # falls die Knotengröße nach Degree-Wert angezeigt werden soll
+     main="Ego-Netzwerk von Knoten 18",
+     sub="Alle Degrees")
+```
+
+
+
+### 6.2 Unterscheidung In- und Outdegree
+
+```{r Indegree und Outdegree im Vergleich}
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .2 
+
+# Indegree
+degree(s, mode="in")
+centr_degree(s, mode="in", normalized=T)
+
+# Outdegree
+degree(s, mode="out")
+centr_degree(s, mode="out", normalized=T)
+
+inds <- degree(s, mode="in")
+inds
+outds <- degree(s, mode="out")
+outds
+
+# Visualisierung der beiden In- und Outdegrees Zentralitätsmaße im Vergleich
+
+par(mfrow=c(1,2), mar=c(0,0,2,2))
+
+plot(s,
+     layout=layout_with_kk,
+     edge.arrow.size=.1,
+     vertex.color="grey80",
+     vertex.frame.color="white",
+     vertex.size=inds*2,
+     main="Indegree")
+
+plot(s,
+     layout=layout_with_kk,
+     edge.arrow.size=.1,
+     vertex.color="grey80",
+     vertex.frame.color="white",
+     vertex.size=outds,
+     main="Outdegree")
+
+```
+Frage: Warum sieht die ABbildung Outdegree so aus?
+
+
+```{r Triaden und Cliquen}
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .2 
+
+# Triadenzensus
+count_triangles(s)
+# hier wird ausgegeben, welcher Knoten an wie vielen "Dreiecken" beteiligt ist (Gewichtung ist egal)
+
+triad_census(s)
+# Die Ausgabe von triad_census erfolgt entlang der vorgegebenen Reihenfolge des Triadenzensus. Beispielsweise sehen Sie, dass es nur drei echte Cliquen (Typ 003) in dem Netzwerk gibt. Der Typ 003 kommt immer an letzter Stelle, Typ 300 (isolates, keine Verbindung) wird immer zu Beginn gestellt.
+
+# Größte Cliquen finden
+largest_cliques(s)
+
+```
+
+
+```{r Cluster berechnen}
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .2 
+
+# Vorbereitung für Cluster-Berechnung
+
+work <- subgraph.edges(s, E(s)[relation==1]) 
+help <- subgraph.edges(s, E(s)[relation==2]) 
+
+
+?cluster_walktrap
+s
+gc <- cluster_walktrap(s)
+modularity(gc)
+membership(gc)
+par(mfrow=c(1,1), mar=c(0,0,1,2))
+plot(gc, s, edge.arrow.size=.2, main="Clusteranalyse des Gesamtnetzwerks")
+
+# Vergleich Ratsuche vs. Zusammenarbeit
+# Achtung: die Farben im Cluster werden zufällig erzeugt.
+
+par(mfrow=c(1,2), mar=c(0,0,1,2))
+
+gh <- cluster_walktrap(help)
+modularity(gh)
+membership(gh)
+plot(gh, help, edge.arrow.size=.2,
+     main="Communities Ratsuche",
+     sub="Walktrap-Algorithmus und Visualisierung")
+
+gw <- cluster_walktrap(work)
+modularity(gw)
+membership(gw)
+plot(gw, work, edge.arrow.size=.2,
+     main="Communities Zusammenarbeit",
+     sub="Walktrap-Algorithmus und Visualisierung")
+
+```
+
+
+
+
+
+
