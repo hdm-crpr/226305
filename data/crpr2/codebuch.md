@@ -46,9 +46,9 @@ Beziehungsart zwischen den Personen
 3 = *love* Liebesbeziehung zwischen Akteuren, codiert nach dem Attribut *complicated*
 
 **complicated**  
-1 = Beziehung,      
-2 = Tinder-Match,     
-3 = Crush.  
+1 = Beziehung (typische Paarbeziehung, d.h. reziprok zwischen beiden PartnerInnen),      
+2 = Tinder-Match (hat die person rechts geswiped, muss aber nicht gegenseitig sein)     
+3 = Crush (einseitig verliebt, ohne dass die Person etwas davon weiss).  
 
 
 # NODE-Attribute  
