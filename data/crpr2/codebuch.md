@@ -96,6 +96,6 @@ Welche Haarfarbe?
 1 = braun,      
 2 = schwarz,   
 3 = blond,    
-4 = brunette.    
+4 = rot.    
 
 ##
