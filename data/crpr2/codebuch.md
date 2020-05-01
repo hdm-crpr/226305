@@ -47,7 +47,7 @@ Beziehungsart zwischen den Personen
 
 **complicated**  
 1 = Beziehung (typische Paarbeziehung, d.h. reziprok zwischen beiden PartnerInnen),      
-2 = Tinder-Match (hat die person rechts geswiped, muss aber nicht gegenseitig sein)     
+2 = Tinder-Like (hat die person rechts geswiped, muss aber nicht gegenseitig sein)     
 3 = Crush (einseitig verliebt, ohne dass die Person etwas davon weiss).  
 
 
