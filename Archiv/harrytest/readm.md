@@ -1,1 +1,1 @@
-Das ist der Test für das HP Netzwerk.
+Testdateien für das Einlesen einer Edge- und Nodelist.
