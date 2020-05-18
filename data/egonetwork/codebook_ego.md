@@ -14,7 +14,7 @@ to = ID des Knoten (Richtung)
   
 *weight* 
 Beziehungsgewicht für Frage 2.1, codiert als   
-1 = weniger als ein mal im Monat,  
+1 = weniger als ein Mal im Monat,  
 2 = mindestens ein Mal im Monat,  
 3 = mindestens ein Mal pro Woche,  
 4 = täglich.  
@@ -33,7 +33,7 @@ Beziehungsgewicht für Frage 2.1, codiert als
 6 = Kommilitone,   
 7 = Mitglied in gleicher Gruppe (Sport, Verein, Kirche, etc.),   
 8 = Ratgeber (z.B. Anwalter, Berater, Therapeut, spiritueller Beistand, etc.),   
-9 = Freund (nichts von oben).
+9 = feste Beziehung / Partnerschaft.
   
 ## Nodelist
 Die Nodelist erfasst alle soziodemographischen Daten. Dazu gehören auch ihre eigenen ;-).
