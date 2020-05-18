@@ -24,7 +24,7 @@ Beziehungsgewicht für Frage 2.1, codiert als
 2 = drei bis sechs Jahre,  
 3 = mehr als sechs Jahre.  
   
-*relationship*
+*relationship*  
 1 = Eltern oder Kinder (Verwandtschaft ersten Grades),  
 2 = Geschwister (Verwandtschaft ersten Grades),  
 3 = Verwandtschaft zweiten Grades (Onkel, Tante),   
@@ -41,7 +41,7 @@ Die Nodelist erfasst alle soziodemographischen Daten. Dazu gehören auch ihre ei
 *ID*  
 ID muss identisch zur Edgelist sein (z.B. Name, Abkürzung, etc.)
 
-*sex* (Geschlecht)
+*sex* (Geschlecht)  
 1 = weiblich,  
 2 = männlich,  
 3 = divers,  
