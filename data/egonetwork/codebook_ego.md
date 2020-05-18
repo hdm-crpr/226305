@@ -1,43 +1,44 @@
 # Codebuch Ego-Netzwerkanalyse
 
-Wir erstellen ein gerichtetes Ego-Netzwerk aus dem Namensgenerator und -interpretator. Fehlende Daten werden mit NA codiert. 
+Wir erstellen ein gerichtetes Ego-Netzwerk aus dem Namensgenerator und -interpretator. Fehlende Daten werden mit NA codiert. Die Daten sind aus Partnerinterviews entstanden. Sie erstellen ihr eigenes Ego-Netzwerk mit den Daten, die Ihr Interviewpartner erhoben hat.
 
-Grundsätzlich: bitte keine Sonderzeichen verwenden, keine Leerzeichen in den Datenfelder. Fehlende Werte freilassen oder mit NA codieren.
+Grundsätzlich: bitte keine Sonderzeichen verwenden, keine Leerzeichen in den Datenfelder. Fehlende Werte freilassen oder mit NA codieren. Nicht vergessen, auch das Ego (also sich selbst) zu erheben. 
 
 WICHTIG: die IDs von der Edgelist müssen mit den IDs der Nodelist genau übereinstimmen!
 
-## Edgelist
-Für die Edgelist müssen Sie die Beziehungen aus Abschnitt 2 und Abschnitt 3 als Edgelist erfassen. Das Gewicht drückt dabei die Beziehungsintensität aus (1 = schwache Beziehung, 2 = starke Beziehung).
-
-### Codierung Edgelist
+### Edgelist
+Für die Edgelist müssen Sie die Beziehungen aus Abschnitt 2 und Abschnitt 3 als Edgelist erfassen.
+  
 from = ID des Knoten  
 to = ID des Knoten (Richtung)
+  
 *weight* 
-Beziehungsgewicht für Frage 2.1, codiert als 
+Beziehungsgewicht für Frage 2.1, codiert als   
 1 = weniger als ein mal im Monat,  
-2 = mindestens ein Mal im Monat, 
-3 = mindestens ein Mal pro Woche,
-4 = täglich,
+2 = mindestens ein Mal im Monat,  
+3 = mindestens ein Mal pro Woche,  
+4 = täglich.  
 
-*duration*
-1 = weniger als drei Jahre,  
-2 = drei bis sechs Jahre,
-3 = mehr als sechs Jahre.
-
+*duration*  
+1 = weniger als drei Jahre,   
+2 = drei bis sechs Jahre,  
+3 = mehr als sechs Jahre.  
+  
 *relationship*
-1 = Eltern oder Kinder (Verwandtschaft ersten Grades)
-2 = Geschwister (Verwandtschaft ersten Grades)
-3 = Verwandtschaft zweiten Grades (Onkel, Tante)
-4 = Nachbarn 
-5 = Arbeitskollege
-6 = Kommilitone
-7 = Mitglied in gleicher Gruppe (Sport, Verein, Kirche, etc.)
-8 = Ratgeber (z.B. Anwalter, Berater, Therapeut, spiritueller Beistand, etc.)
-9 = Freund (nichts von oben)
-
+1 = Eltern oder Kinder (Verwandtschaft ersten Grades),  
+2 = Geschwister (Verwandtschaft ersten Grades),  
+3 = Verwandtschaft zweiten Grades (Onkel, Tante),   
+4 = Nachbarn,   
+5 = Arbeitskollege,   
+6 = Kommilitone,   
+7 = Mitglied in gleicher Gruppe (Sport, Verein, Kirche, etc.),   
+8 = Ratgeber (z.B. Anwalter, Berater, Therapeut, spiritueller Beistand, etc.),   
+9 = Freund (nichts von oben).
+  
 ## Nodelist
+Die Nodelist erfasst alle soziodemographischen Daten. Dazu gehören auch ihre eigenen ;-).
 
-ID  
+*ID*  
 ID muss identisch zur Edgelist sein (z.B. Name, Abkürzung, etc.)
 
 *sex* (Geschlecht)
@@ -45,7 +46,7 @@ ID muss identisch zur Edgelist sein (z.B. Name, Abkürzung, etc.)
 2 = männlich,  
 3 = divers,  
 
-*ethnicity* (Herkunft)
+*ethnicity* (Herkunft)  
 1 = deutsch,   
 2 = Mittel/Osteuropa (auch UK),  
 3 = Südeuropa,  
