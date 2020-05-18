@@ -1,0 +1,98 @@
+---
+title: "Ego-Netzwerkanalyse"
+output: html_notebook
+---
+
+In diesem Notebook finden Sie das Beispiel, um das eigene Ego-Netzwerk zu visualisieren.
+
+Datensatz: https://github.com/hdm-crpr/226305/tree/master/data/egonetwork
+Codebuch: https://github.com/hdm-crpr/226305/blob/master/data/egonetwork/codebook_ego.md
+
+
+```{r Mein Ego-Netzwerk, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+# Lädt die Programmbibliothek igraph
+library(igraph)
+
+# Einlesen der Edge- und Nodelist
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/egonetwork/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/egonetwork/nodes.csv", header=T, as.is=T, sep = ",")
+
+# Matrix erstellen
+edgematrix <-as.matrix(el)
+
+# Zusammenführen von Edge- und Nodelist als igraph-Objekt
+# Der Wert "FALSE" erstellt das Netzwerk ungerichtet
+ego <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=FALSE)
+
+# Aufrufen des igraph-Objekts
+ego
+
+
+```
+
+```{r Einfache Visualisierung}
+
+# Einfache Visualisierung
+plot(ego)
+
+```
+```{r Visualisierung nach Interaktionshäufigkeit}
+# Verschönerte Visualisierung
+
+plot(ego,
+     layout=layout_nicely,
+     vertex.shape="none",
+     vertex.color="grey70",
+     vertex.label.font=1,
+     vertex.label.color="black",
+     edge.color="green",
+     edge.width=E(ego)$weight, # Interaktionshäufigkeit
+     main = "Ego-Netzwerk: Interaktionshäufigkeit",
+     sub = "Kürzel eintragen")
+```
+
+```{r Visualisierung nach Dauer der Beziehung}
+# Verschönerte Visualisierung
+
+plot(ego,
+     layout=layout_nicely,
+     vertex.shape="none",
+     vertex.color="grey70",
+     vertex.label.font=1,
+     vertex.label.color="black",
+     edge.color="red",
+     edge.width=E(ego)$duration, # Dauer der Beziehung
+     main = "Ego-Netzwerk: Dauer der Beziehung",
+     sub = "Kürzel eintragen")
+```
+
+
+```{r Visualisierung der Knoteneigenschaften}
+
+# Verschönerte Visualisierung
+
+# Illustration der Knoteneigenschaften
+
+# Form nach Geschlecht
+V(ego)[V(ego)$sex == 1]$shape <- "circle"
+V(ego)[V(ego)$sex == 2]$shape <- "square"
+
+# Farbe nach Geschlecht
+V(ego)[V(ego)$sex == 1]$color <- "pink"
+V(ego)[V(ego)$sex == 2]$color <- "blue"
+
+# Art der Beziehung
+E(ego)[E(ego)$relationship == 6]$color <- "green"
+E(ego)[E(ego)$relationship == 9]$color <- "gold"
+E(ego)[E(ego)$relationship == 7]$color <- "brown"
+
+plot(ego,
+     layout=layout_nicely,
+     vertex.size=15,
+     vertex.label=NA,
+     vertex.frame.color=NA,
+     edge.width=E(ego)$duration, # Dauer der Beziehung
+     main = "Visualisierte Edge- und Node-Attribute",
+     sub = "Edges: gold = Partnerschaft, grün = Kommilitonen, braun = Mitglied \nNodes: rosa = weiblich, blau = männlich")
+```
