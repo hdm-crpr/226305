@@ -1,0 +1,7 @@
+from,to,weight,duration,relationship
+Ego,Anne,3,2,6
+Ego,Johannes,2,2,6
+Ego,Seripha,1,3,9
+Ego,Helena,4,1,7
+Anne,Johannes,9,3,9
+Anne,Helena,2,3,9
