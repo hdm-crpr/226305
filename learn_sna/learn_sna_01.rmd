@@ -1,0 +1,234 @@
+---
+title: "226305 Tutorial"
+subtitle: "1 Netzwerk-Attribute"
+author: "Swaran Sandhu"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Anleitung
+
+**Worum geht es?**
+In diesem Tutorium lernen Sie, wie man mit R und dem Paket igraph Netzwerkdaten einliest und bereits einfache Visualisierungen erstellt. Grundlagen dafür ist ein studentisches Netzwerk eines Semesters, das verschiedene Beziehungsmuster hat.
+
+**Was brauche ich?**
+- aktuelle Installation von R und RStudio  
+- Datensatz mit Edge- und Nodelist  
+- Codebuch des Datensatzes unter https://github.com/hdm-crpr/226305/blob/master/data/crpr2/codebuch.md 
+
+**Wozu brauche ich das?**
+Für jede Analyse ist es wichtig, den Datensatz und die entsprechenden Attribute genau zu verstehen.
+
+**Konventionen**
+Für jede Aufgabe erhalten Sie ein Beispiel. Der R-Code ist dabei *kursiv* dargestellt. Dann erhalten Sie eine **Übungsaufgabe**, die sie direkt im Terminal ausführen können. Manchmal ist der Code bereits voreingestellt und Sie nur ein paar Variablen austauschen. Bei anderen Aufgaben müssen Sie den Code selbst schreiben oder mehrere Teilschritte miteinander verbinden. Ab und an gibt es auch eine kleine Hilfestellung, die Sie abrufen können, wenn Sie nicht mehr weiterkommen. Bitte machen Sie die nächste Aufgabe nur dann, wenn Sie die vorherige verstanden und richtig abgeschlossen haben.
+
+Wenn nachfolgend Befehle beschreiben werden, dann wird *g* als Platzhalter für das igraph-Objekt behandelt, *plot(g)* erstellt also den Plot des igraph-Objekts *g*. Achten Sie darauf, dass die Referenzierung immer sauber durchgeführt ist, v.a. wenn neue Teilnetzwerke erstellt wurden.
+
+Achtung:R ist kontext-sensitiv, achten Sie deshalb bitte auf die korrekte Schreibweise der Befehle und Dateien, die Art der Klammern und deren Schließung und die entsprechenden Zeichen innerhalb eines Befehls.
+
+
+## 1 Netzwerk einlesen
+In diesem Kapitel lernen Sie, wie man Datensätze für das Paket igraph einliest. 
+
+**igraph-Objekt initialisieren (Beispieldatensatz)**
+
+Denken Sie immmer daran, vor dem Einlesen die entsprechenden Programmpakete zu laden
+
+*library(igraph)*
+
+Die Dateien müssen im CSV-Format vorliegen und werden als Edgelist und Nodelist mit dem Befehl read.csv eingelesen. Achten Sie hierbei, dass die Parameter richtig gesetzt sind (Kopfziele und Trennzeichen)
+
+*el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")*
+
+*nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")*
+
+Mit dem Befehl as.matrix erzeugen wir aus der Edgelist eine Matrix. 
+
+*edgematrix <-as.matrix(el)*
+
+graph_from_data verbindet die Matrix mit der Nodelist und gibt ihr die Bezeichnung "s". Achten Sie hier auf darauf, ob das Netzwerk gerichtet oder ungerichtet ist.
+
+*s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)*
+
+Das neu erstellte igraph-objekt "s"" verfügt über bestimmte Eigenschaften.
+
+s
+
+***
+
+Lesen Sie nun ihr Netzwerk aus Ihrem github-Verzeichnis ein und geben dem igraph-Objekt einen sinnvollen Namen (nicht main_igraph):
+
+```{r Eigenes_igraph-Objekt_erstellen, exercise=TRUE, exercise.lines = 10}
+library(igraph)
+el <- read.csv("XX", header=T, as.is=T, sep = ",")
+nodes <- read.csv("XX", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+mein_igraph <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+mein_igraph
+```
+
+## 2 igraph-objekt verstehen
+In diesem Kapitel lernen Sie, wie man ein igraph-Objekt schnell interpretiert. Jedes igraph Objekt verfügt über eine feste Konvention, mit der es interpretiert werden kann. Damit sieht man schnell, welche Edge- und Nodeattribute das Netzwerk aufweist.
+
+```{r Netzwerkattribute_verstehen}
+library(igraph)
+
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+s
+```
+
+In der ersten Zeile wird die "Class", also die Art des Objekts als igraph definiert. Der Code danach identifiziert das Objekt eindeutig. Danach kommen vier mögliche Ausprägungen des Netzwerks
+
+1) gerichtet (D) oder ungerichtet (N)
+2) mit Attributen (N) (named)
+3) gewichtet (W) (weighted)
+4) bipartite oder two-mode (B), d.h. muss das Vertex-Attribute type beinhalten.
+
+Nicht jedes Feld muss belegt sein. 
+
+Danach folgt zunächst die Anzahl der Knoten (V für vertices) und Kanten (E für edges)
+  
+Danach folgt eine Beschreibung der Attribute. Dabei wird der Name des Attributs zuerst genannt. In den Klammer werden zwei Eigenschaften präzisiert.
+e/v Edge- oder Vertex-Attribut
+n/c/l numerische (n), textliche (c) oder logische (l) Daten des Attributs.
+  
+Danach folgt ein Auszug der Beziehungen aus der Edgelist, die grafisch dargestellt sind. Um einen schnellen Überblick über die Anzahl der Knoten und Kanten zu erhalten, helfen uns die ecount(g) für die Anzahl der Edges und vcount(g) für die Anzahl der Kanten (Vertices).
+
+## 3 Netzwerkattribute 
+Die Netzwerkattribute lassen sich mit dem Befehl list.vertex.attributes(g) anzeigen für die Node-Atttribute, gleiches gilt für list.edge.attributes(g) für die Kantenattribute. 
+  
+Sollen die Werte eines bestimmten Attributes ausgewählt werden, dann wird das enstprechende Attribut mit *$* selektiert und mit dem Befehl *edge.attributes(g)* oder *vertex.attributes(g)* gekoppelt. Liegt z.B. das Edge-Attribut "weight", dann lassen sich diese Werte mit dem Befehl *edge.attributes(g)$weight* auslesen.
+
+*Aufgabe*
+- Wie viele Vertices und Edges hat das Netzwerk s?  
+- Erstellen Sie eine Liste aller Kanten- und Knotenattribute.  
+- Zeigen Sie die Werte für das Attribut "relation"" und das Attribut "sex" an.  
+```{r Netzwerkattribute_lesen, exercise=TRUE, exercise.lines = 15}
+library(igraph)
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+s
+```
+
+## 4 Einfache Visualisierung
+Mit  *plot(g)* lassen sich einfache Visualisierungen durchführen. Der plot() Befehl überschreibt alle vorher erstellten Parameter und definiert diese nur für diesen plot. Sollen bestimmte Eigenschaften des Netzwerks dauerhaft festgelegt werden, dann ist es einfacher, diese Eigenschaften vorab dauerhaft zu definieren.
+
+Der Layout-Befehl layout_with_kk verwendet den Kamada-Kawai Algorithmus. Sein Vorteil ist, dass die Knoten immer an auf der gleichen Position festgelegt werden. Die Funktion *main=* legt den Titel des Abbildung fest, die Funktion *sub=* den entsprechenden Untertitel.
+
+*Aufgabe*  
+- Ändern Sie den Titel der Abbildung.  
+- Ändern Sie das verwendete Layout mit dem Fruchterman-Rheingold-Algorithmen (layout_with_fr) 
+
+```{r Visualisierung, exercise=TRUE, exercise.lines = 6}
+plot(s,
+     layout=layout_with_kk,
+     main ="out-of-the-box Visualisierung des Netzwerks")
+```
+
+
+## 5 Attribute festlegen
+Netzwerkattribute sind hilfreich, um Netzwerke besser zu verstehen. Sie sind wichtige Parameter für die spätere Visualisierung von Netzwerken. Jedes Netzwerk hat zusätzlich zu den erhobenen Attributen feststehende Visualisierungsparameter. Diese lassen sich beliebig manipulieren. Werden die Daten ein Mal festgeschrieben, dann gelten sie für alle weiteren Netzwerke. 
+
+Merke: Die Befehle **V(g)** und **E(g)** erstellen dauerhaft neue Vertex bzw. Edge-Attribute, die mit bestimmten Eigenschaften versehen werden können. Mit $ wird auf die entsprechenden Attribute zugegriffen.Die Attribute lassen sich auch durch "NA" komplett löschen oder durch ein bestehendes Attribut wieder ergänzen. 
+
+Beispielsweise wird hier die Füllfarbe eines Knotens auf dunkelorange definiert V(s)$color<-"darkorange". Mit vertex.attributes(g)$color kann dieser Wert angezeigt werden. Der Rahmen eines Knoten kann durch die Zuweisung des Wert "NA" ausgeblendet werden V(g)$frame.color<-"NA". Dies gilt auch für Kantenattribute. Beispielsweise lassen sich die Pfeilspitzen auf den Wert .2 setzen E(s)$arrow.size<-.2 oder die Farbe der Kanten entsprechend festlegen E(s)$color<-"darkorange"
+
+Manchmal ist es hilfreich die Labels auszublenden V(s)$label<-NA. Um diese wieder herzustellen das Vertex-Attribut "Label" mit dem Wert des Vertex-Attributs "Name" wieder überschrieben: V(s)$label<-V(s)$name. 
+Eine Übersicht aller Edge- und Vertex-Attribute, die mit diesen Befehlen verändert werden können liefert die Hilfefunktion ?igraph.plotting
+
+**Aufgabe**  
+- Die Visualisierung des Netzwerks soll dauerhaft folgende Farben haben:
+- Die Knoten in "darkblue"" mit einem Rand in "lightblue""
+- Die Kanten in "lightblue"" mir einer Pfeilspitze von .3
+- Eine neue, passende Hauptüberschrift und Unterüberschrift
+
+```{r Netzwerkattribute_manipulieren, exercise=TRUE, exercise.lines = 15}
+
+?igraph.plotting
+
+V(s)$color <- "darkorange"
+V(s)$frame.color <- "NA"
+E(s)$arrow.size <- .2
+E(s)$color <- "darkorange"
+
+plot(s,
+     layout=layout_with_kk,
+     main ="Visualisierung mit geänderten Attributen")
+
+```
+
+## 6 Visualisierung verbessern
+Wir lesen jetzt das Netzwerk erneut ein, da wir die oben gesetzten Attribute überschreiben wollen. Dann wird das Netzwerk verschönert und optimiert. 
+
+Dabei werden wir die Ränder (margins) des Plotbereichs mit dem Befehl par() auf 0 setzen. Dazu wird ein Vector angelegt, der für die Ränder auf allen Kantenseiten auf 0 setzt.
+
+Im Plotbefehl selbst sind folgende verwenden wir folgende Argumente:
+asp=0 definiert, dass die Verhältnisse im Netzwerk erhalten bleiben sollen. Wir legen die Größe der Knoten mit 10 Punkt fest und die Farbe der Kanten in einen abgestuften Graubereich. 
+
+Das wichtigste neue Argument ist, dass die Kanten des Netzwerks S nun als so gekrümmt dargestellt werden sollen edge.curved, dass sich auch mehrfache Beziehungen nicht überlagern.
+
+```{r nice_visualzation, exercise=TRUE, exercise.lines = 15}
+library(igraph)
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+s
+
+par(mar=c(0,0,0,0)) 
+
+plot(s,
+     asp=0, 
+     layout=layout_with_kk,
+     vertex.size=10,
+     edge.arrow.size=.4,
+     edge.color="grey50",
+     edge.curved=curve_multiple(s))
+
+par(mar=c(0,0.5,0.5,0)) 
+```
+
+**Aufgabe**
+Verwenden Sie Ihre Kenntnisse aus dem Tutorial und erstellen eine ähnliche Visualisierung ihres Datensatzes. Dies geht ungefähr bis zu einer Größe von 50 Knoten relativ gut. Wenn Sie über 200 Knoten haben, werden Sie keine sinnvolle Visualisierung erstellen können. Sie lernen im nächsten Tutorial, wie sich *Teilnetzwerke* visualisieren lassen.
+
+Achten Sie auf folgende Punkte bzw. ändern einige Parameter:
+- Farben und Größe der Knoten und Farbe Knotenrahmen,   
+- Farbe der Kanten,  
+- ggf. Algorithmus verändern,  
+- Titel des Netzwerks hinzufügen,  
+- Seitenränder verändern.  
+
+Eine Aufstellung über die in R verwendeten Farben erhalten Sie über den Befehl colors().
+
+```{r own_visualization, exercise=TRUE, exercise.lines = 15}
+library(igraph)
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+s
+
+par(mar=c(0,0,0,0)) 
+
+plot(s,
+     asp=0, 
+     layout=layout_with_kk,
+     vertex.size=10,
+     edge.arrow.size=.4,
+     edge.color="grey50",
+     edge.curved=curve_multiple(s))
+
+par(mar=c(0,0.5,0.5,0)) 
+```
