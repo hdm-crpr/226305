@@ -29,9 +29,9 @@ https://github.com/hdm-crpr/226305/blob/master/data/crpr2/codebuch.md
 9. Fragen Sie Kommilitonen, Documentation, Tutorials, Stackoverflow, etc.
 
 
-#############################################
-# Block 1: Visualisierung und Teilnetzwerke #
-#############################################
+####################################
+# Visualisierung und Teilnetzwerke #
+####################################
 
 # Grundlegende Visualisierungen
 
@@ -202,7 +202,7 @@ Mit dem simplify() Befehl lassen sich Netzwerke vereinfachen. Der Befehl löscht
 In unserem Netzwerk sind zwei bekannte Relationen definiert: Projektzusammenarbeit (work) und Ratsuche (help). Beide können ein Gewicht von 3 (erste Nennung) oder 1 (zweite Nennung) annehmen. Dies bedeutet, dass z.B. die Beziehung zwischen zwei Knoten in eine Richtung den Minimal-Wert von 1 annahmen kann (in einer Relation z.B Zusammenarbeit wurde die Person als zweites genannt) und maximal 6 (in beiden Beziehungen (Ratsuche und Zusammenarbeit) wurde die Person als erstes genannt). Um das Netzwerk besser zu verstehen, lassen sich die Kantengewichte, die in der gleichen Beziehung stehen, mit dem Befehl edge.attr.comb (also verbinde die Edge-Attribute) als summarische Funktion abbilden.
 
 
-```{r Netzwerk vereinfachen, weight aufaddieren}
+```{r Netzwerk vereinfachen}
 # Wir erstellen das Ausgangsnetzwerk nochmals neu, da durch die obige Ergänzung der Edge-Attribute die Edge-Attribute nicht mehr numerisch waren. 
 
 library(igraph)
@@ -211,17 +211,19 @@ el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/cr
 nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
 edgematrix <-as.matrix(el)
 s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
-s
+# s
 
 # Zur Vereinfachung wollen wir nur die Gewichte der Beziehungen der Netzwerke help und work aufaddieren. Dazu müssen wir zunächst die zusätzlichen Edge-Attribute love in $relation und das edge-attribute complicated löschen, da complicated als NA codiert wurde (nicht alle Beziehungen haben die Werte von complicated)
 
-list.edge.attributes(s)
-edge.attributes(s)
+# list.edge.attributes(s)
+# edge.attributes(s)
 
-# Das Edge-Attribut "relation" hat jetzt noch die Werte der Kategorie 1=work, 2=help und 3=love. Da wir nicht die Gewichte von "love" mitaufkalkulieren wollen, löschen wir die Knoten, die die Kategorie 3 als Edge-Attribute in relation genannt haben. Dazu benötigen wir den Befehl subgraph.edges()
+# Das Edge-Attribut "relation" hat jetzt noch die Werte der Kategorie 1=work, 2=help und 3=love. Da wir nicht die Gewichte von "love" mitaufkalkulieren wollen, löschen wir die Knoten, die die Kategorie 3 als Edge-Attribute in relation genannt haben. Dazu benötigen wir den Befehl subgraph.edges() und den logischen Operator != ungleich
 
-s_hw_clean <- subgraph.edges(s_hw_clean, E(s_hw_clean)[relation<3]) # löscht alle Werte über dem Wert 3. 
+s_hw_clean <- subgraph.edges(s, E(s)[relation!=3]) # löscht alle Werte, die nicht 3 sind (logischer Operator ungleich). 
+s_hw_clean
 edge.attributes(s_hw_clean)$relation 
+
 
 # Das Netzwerk hat jetzt die Ausgangskonfiguration mit 38 Knoten und 152 Kanten!
 # Der Wert 152 ergibt sich aus der Beantwortung der vier Fragen zu Zusammenarbeit und Ratsuche
@@ -231,32 +233,6 @@ edge.attributes(s_hw_clean)$relation
 list.edge.attributes(s_hw_clean)
 edge.attributes(s_hw_clean)
 
-# Anwendung des simplify-Befehl 
-
-# mit dem simplify-Befehl werden gleiche Kanten aufaddiert und als Gewicht eingetragen. Der Befehl list(weight="sum") funktioniert nur bei numerischen Werten. Deshalb haben wir die Werte NA vorher bereinigt und das Edge-Attribut gelöscht.
-
-s_simpl <- simplify(s_hw_clean, 
-                    remove.multiple=TRUE, 
-                    edge.attr.comb=list(weight="sum"))
-
-# Analyse des neuen Netzwerks
-s_simpl
-ecount(s_simpl)
-edge.attributes(s_simpl)$weight
-# Dadurch verändert sich auch die Anzahl der Edges von 152 auf 116, da gleiche Beziehungen entsprechend aufaddiert wurden.
-
-plot(s_simpl,
-     edge.arrow.size=0.2, # kleine Pfeilspitzen
-     edge.curved=0.2, # leichte Krümmung der Kanten
-     edge.color="red", # Kanten in rot
-     vertex.color="red", # Knoten in rot
-     vertex.frame.color="red", # Knotenrahmen in rot
-     vertex.label.color="white", # Label in weiss
-     layout=layout_with_kk, # layout mit Kamada-Kawai
-     vertex.size=degree(s_simpl)*1.5, # definiert die Größe der Knoten nach degree und multipliziert den Wert mit 1.5, damit die Darstellung besser wird
-     edge.width=E(s_simpl)$weight/2, # Kantenstärke als aufaddiertes Gewicht
-     main="Beispielnetzwerk (simplified)", 
-     sub="Edges aufaddiert, dadurch nur noch 116 edges")
 ```
 
 
@@ -265,6 +241,47 @@ plot(s_simpl,
 ## Einzelne Attribute visualisieren
 
 Um einzelne Attribute dauerhaft zu selektieren lassen sich entweder existierende Werte verändern oder neue Werte hinzufügen. Vertex-Attribute werden mit dem Großbuchstaben V(g) gekennzeichnet, Edge-Attribute entsprechend mit dem Großbuchstaben E(g). Neue Attribute werden erneut mit der Abkürzung $ ergänzt. Achtung: wenn neue Attribute ergänzt werden, dann werden diese dauerhaft ergänzt.
+
+
+```{r Vertex-Attribute dauerhaft ergänzen }
+# Wir erstellen das Ausgangsnetzwerk nochmals neu, da durch die obige Ergänzung der Edge-Attribute die Edge-Attribute nicht mehr numerisch waren. 
+
+el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+s
+
+# erstellt das Vertex-Attribut "color" und weist um das Attribut "blau" zu
+V(s)$color <- "lightblue"
+
+# ruft das Vertex-Attribut auf
+vertex.attributes(s)$color
+
+par(mfrow=c(1,2), mar=c(0,0,2,1)) # definiert, dass zwei Abbildungen in einer Zeile stehen
+
+# zeigt eine Grafik
+plot(s, 
+     edge.arrow.size=.3, 
+     layout=layout_with_kk, 
+     main="Vollerhebung blau",
+     sub="Vertex-Attribut color auf Farbe lightblue gesetzt")
+
+# setzt das Attribut wieder zurück auf gelb, denn das Attribut wird jetzt dauerhaft so verwendet.
+V(s)$color <- "gold"
+plot(s, 
+     edge.arrow.size=.3, 
+     layout=layout_with_kk, 
+     main="Vollerhebung gold",
+     sub="Vertex-Attribut color zurück auf gold")
+
+par(mfrow=c(1,1), mar=c(0,0,2,1)) # setzt die Abbildung wieder zurück
+
+# Übungsaufgabe
+# Verändern Sie die Vertex-Farbe in "green" und die Edge-Farbe in "blue"
+
+
+```
 
 
 ```{r Vertex-Attribute dauerhaft ergänzen}
@@ -303,8 +320,6 @@ par(mfrow=c(1,1), mar=c(0,0,2,1)) # setzt die Abbildung wieder zurück
 
 # Übungsaufgabe
 # Verändern Sie die Vertex-Farbe in "green" und die Edge-Farbe in "blue"
-
-
 ```
 
 # Visualisierung nach Edge-Attributen
@@ -436,8 +451,9 @@ s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
 s
 
 # definiert die Kantenformen nach dem Edge-Attribut relation
-V(s)[V(s)$sex == 1]$shape <- "circle" # weiblich
-V(s)[V(s)$sex == 2]$shape <- "square" # männlich
+V(s)[V(s)$sex == 1]$shape <- "vrectangle" # weiblich
+V(s)[V(s)$sex == 2]$shape <- "crectangle" # männlich
+V(s)[V(s)$sex == 2]$shape <- "circle" # männlich
 
 # Visualisierung des Netzwerks nach Geschlechtsmerkmalen
 plot(s,
@@ -503,7 +519,7 @@ Komplexe Selektionen von Netzwerken sind extrem hilfreich, benötigen aber eine 
 
 ## Selektion von Teilnetzwerken nach Edge-Attributen
 
-### Kapitel 3.4.1 Vergleich zweier Netzwerke nach Edge-Attributen
+### Vergleich zweier Netzwerke nach Edge-Attributen
 
 Netzwerke lassen sich nach bestimmten Kriterien aufteilen. Wir haben im Edge-Attribut "relation" zwei Werte, 1 und 2, die das Ratsuche- und Zusammenarbeitsnetzwerk definieren (siehe Codebuch).
 
@@ -928,7 +944,7 @@ col_sex <- c("pink", "lightblue", "orange")
 sex <- c("weiblich", "männlich", "divers")
 
 # WICHTIG: die Reihenfolge von Farbe und Geschlecht korrespondiert mit der Nennung des Vertex-Attributs sex (1=weiblich, 2=männlich, 3=divers)
-V(s)$color <- colrs[V(s)$sex] # selektiert die Vertex-Farbe nach den Farben im Vector colrs
+V(s)$color <- col_sex[V(s)$sex] # selektiert die Vertex-Farbe nach den Farben im Vector colrs
 
 # Abbildung nach Geschlecht
 plot(s, 
@@ -947,8 +963,8 @@ plot(s,
 legend(x=1, # Position auf der X-Achse
        y=-1, # Position auf der Y-Achse
        legend = sex, # ausgegeben wird der Vector "geschlecht"
-       col = colrs, # Farbcodierung nach Vector colrs
-       text.col= colrs, # Farbe der Legende in der Farbe des Vectors
+       col = col_sex, # Farbcodierung nach Vector colrs
+       text.col= col_sex, # Farbe der Legende in der Farbe des Vectors
        bty = "n", # verhindert, dass eine Box gezogen wird
        pch=20, # plotting characters: definiert einen Kreis (siehe ?graphics)
        pt.cex = 2, # definiert die Textgröße
@@ -1098,5 +1114,4 @@ Optional:
 4) Wird Tinder eher von jüngeren oder älteren genutzt?
 5) Spielen Haar- und Augenfarbe eine Rolle?
 6) Erstellen Sie das Ego-Netzwerk von der Person, die am meisten Crushes hat.
-
 
