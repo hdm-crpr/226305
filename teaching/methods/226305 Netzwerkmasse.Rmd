@@ -11,7 +11,7 @@ Das Fallbeispiel ist ein fiktives Studentennetzwerk mit 38 Relationen. Siehe das
 https://github.com/hdm-crpr/226305/blob/master/data/crpr2/codebuch.md
 
 ##########################
-# Block 2: Netzwerkmaße #
+# Netzwerkmaße verstehen #
 #########################
 
 Notwendige Pakete installieren
@@ -285,7 +285,7 @@ plot(ego_net,
 
 
 
-### 6.2 Unterscheidung In- und Outdegree
+### Unterscheidung In- und Outdegree
 
 ```{r Indegree und Outdegree im Vergleich}
 el <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/crpr2/edges.csv", header=T, as.is=T, sep = ",")
@@ -359,10 +359,8 @@ s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
 E(s)$arrow.size <- .2 
 
 # Vorbereitung für Cluster-Berechnung
-
 work <- subgraph.edges(s, E(s)[relation==1]) 
 help <- subgraph.edges(s, E(s)[relation==2]) 
-
 
 ?cluster_walktrap
 s
@@ -392,9 +390,4 @@ plot(gw, work, edge.arrow.size=.2,
      sub="Walktrap-Algorithmus und Visualisierung")
 
 ```
-
-
-
-
-
 
