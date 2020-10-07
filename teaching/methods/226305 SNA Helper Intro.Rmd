@@ -2,7 +2,6 @@
 title: "Netzwerkanalyse und -visualisierung"
 subtitle: "SNA Helper (RStudio add-in)"
 author: "Swaran Sandhu | sandhu@hdm-stuttgart.de"
-date: "`r Sys.Date()`"
 output: tint::tintHtml
 ---
 
@@ -182,11 +181,4 @@ ggraph(h2, layout = "manual", x = V(h2)$x, y = V(h2)$y) +
 	 theme(legend.position = "bottom")
 
 ```
-
-
-
-
-
-
-
 
