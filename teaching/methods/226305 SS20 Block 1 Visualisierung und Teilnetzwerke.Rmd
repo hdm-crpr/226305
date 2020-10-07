@@ -1,8 +1,8 @@
 ---
-title: "226503 Blocktag 1"
-subtitle: "Notebook für Blocktag 1"
+title: "226503 Blocktag"
+subtitle: "Übung Visualisierung"
 author: "Swaran Sandhu"
-date: "2020-03-10"
+date: "2020-10-06"
 ---
 
 # Setup für Markdown Ausgabe
