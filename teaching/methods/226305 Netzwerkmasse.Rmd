@@ -1,10 +1,8 @@
 ---
-title: "226503 Blocktag 1"
+title: "226503 Blocktermin"
 author: "Swaran Sandhu"
-date: '2020-03-05'
-output:
-  html_document:
-    df_print: paged
+date: '2020-10-06'
+output: html_document
 ---
 
 # Konventionen
@@ -66,7 +64,7 @@ edge_density(s)
 
 ```
 
-Die Dichte in unserem Netzwerk beträg t0.1251778, das bedeutet, dass 12,53 % (gerundet), von allen möglichen Beziehungen zwischen den Knoten realisiert wurde. Dies bedeutet auch, dass zwischen knapp 90% der Knoten keine Beziehungen bestehen. Wir gehen zu leicht davon aus, dass Netzwerke eine hohe Dichte haben. Das würde aber voraussetzen, dass jeder Knoten mit allen anderen Knoten verbunden ist, wie dies etwa in Cliquen der Fall ist.
+Die Dichte in unserem Netzwerk beträgt 0.1251778, das bedeutet, dass 12,53 % (gerundet), von allen möglichen Beziehungen zwischen den Knoten realisiert wurde. Dies bedeutet auch, dass zwischen knapp 90% der Knoten keine Beziehungen bestehen. Wir gehen zu leicht davon aus, dass Netzwerke eine hohe Dichte haben. Das würde aber voraussetzen, dass jeder Knoten mit allen anderen Knoten verbunden ist, wie dies etwa in Cliquen der Fall ist.
 
 Aussagekräftig werden die Dichtewerte besonders dann, wenn Netzwerke miteinander verglichen werden. Dazu können wir z.B. das CRPR Netzwerk in drei Teilnetzwerke (work, help, love) zerlegen.
 
