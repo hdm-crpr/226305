@@ -1,0 +1,5 @@
+from,to,weight,relation,year
+adam,eva,1,1,2011
+adam,eva,2,1,2015
+adam,sith,1,2,2014
+adam,lilith,3,3,2013
