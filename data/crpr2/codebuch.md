@@ -5,7 +5,7 @@ erstellt von Swaran Sandhu (sandhu@hdm-stuttgart.de)
 ## Inhalt
 - Edges.csv (Edgelist)
 - Nodes.csv (Nodelist)
-- Codebuch.rm (Codierung der Datensätze)
+- Codebuch.md (Codierung der Datensätze)
 
 ## Ursprung und Datenerhebung
 Ich habe den Datensatz unter den Studierenden des dritten Semesters im Kurs Netzwerkanalyse erhoben. Die Daten sind nach der Erhebung nach einem Zufallsprinzip anonymisiert worden.
