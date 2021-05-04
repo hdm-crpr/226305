@@ -56,6 +56,12 @@ Beziehungsart zwischen den Personen
 **id**  
 Identische ID wie aus der edgelist zur Identifikation der Knoten. In diesem Fall sind alle personenbezogenen Daten anonymisiert von 1 bis 38.
 
+**name**
+Vorname (fiktiv)
+
+**name2** 
+Vorname abgekürzt, z.B. für Visualiserung, falls der Name zu lange ist
+
 **sex**    
 Bitte geben Sie ihr Geschlecht an:  
 1 = weiblich  
