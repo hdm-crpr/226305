@@ -1,5 +1,5 @@
 # Datensatz Semesterverbund CRPR2 #
-Codebuch Stand 2020-03-10   
+Codebuch Stand 2021-05
 erstellt von Swaran Sandhu (sandhu@hdm-stuttgart.de)
 
 ## Inhalt
