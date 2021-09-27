@@ -1,0 +1,4 @@
+from,to,weight
+sb,p,2
+sb,s,2
+s,sb,2
