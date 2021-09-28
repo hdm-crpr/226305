@@ -1,0 +1,62 @@
+---
+title: "Twitter Netzwerk Stadtpalais"
+author: "Swaran Sandhu"
+date: "9/28/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Die Daten beziehen sich auf den Twitter-Account des Stadtpalais auf [github](https://github.com/hdm-crpr/226305/tree/master/data/twitter_sp).
+
+# Datensatz einlesen
+
+```{r Twitter Netzwerk Stadtpalais einlesen, fig.height=6, fig.width=10}
+
+library(igraph)
+
+# Einlesen der Edge- und Nodelist
+edges <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/twitter_sp/edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/twitter_sp/nodes.csv", header=T, as.is=T, sep = ",")
+
+# Matrix erstellen
+edgematrix <-as.matrix(edges)
+
+# Zusammenführen von Edge- und Nodelist als igraph-Objekt s
+sp <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+E(s)$arrow.size <- .3
+
+plot(sp,
+		 aps=0,
+		 layout=layout_with_kk,
+		 main="Twitter-Netzwerk Stadtpalais",
+		 sub="Stand: September 2021"
+)
+```
+
+### Teilnetzwerke erstellen
+
+Wir wollen nur Knoten, die mehr als 100.000 Follower haben
+
+```{r Followerselektion, fig.height=6, fig.width=10}
+
+list.vertex.attributes(sp)
+vertex.attributes(sp)$followers_count
+
+
+sp_follower <- delete_vertices(sp, V(sp)[followers_count < 100000]) 
+sp_follower
+vertex.attributes(sp_follower)$followers_count
+
+list.vertex.attributes(sp_follower)
+
+plot(sp_follower,
+		 aps=0,
+		 layout=layout_with_kk,
+		 edge.arrow.size=.4,
+		 main="Twitter-Netzwerk Stadtpalais",
+		 sub="Follower > 100.000"
+)
+```
