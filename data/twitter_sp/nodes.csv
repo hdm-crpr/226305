@@ -1,4 +1,4 @@
-id,handle,followers_count,friends_count,isProxy
+id,name,followers_count,friends_count,isProxy
 0,"titanic",565116,25,0
 1,"kamil2_0",978,1006,0
 2,"jonassmith",2626,1083,0
