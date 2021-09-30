@@ -1,0 +1,100 @@
+id,name,sex,background,type
+amann,Max Amann,1,1,1
+bechstein,Helene Bechstein,2,2,1
+below,Nicolaus von Below,1,3,1
+blomberg,Werner von Blomberg,1,3,1
+bormann,Martin Bormann,1,1,1
+bouhler,Philipp Bouhler,1,1,1
+bruckmann,Elsa Bruckmann,2,2,1
+brueckner,Wilhelm Brueckner,1,1,1
+chamberlain,Houston Stewart Chamberlain,1,2,1
+dietrich,Otto Dietrich,1,1,1
+dinter,Artur Dinter,1,2,1
+dirksen,Viktoria von Dirksen,2,2,1
+eckart,Dietrich Eckart,1,2,1
+epp,Franz Ritter von Epp,1,1,1
+esser,Hermann Esser,1,1,1
+feder,Gottfried Feder,1,1,1
+frank,Hans Frank,1,1,1
+guenther,Hans F. K. Guenther,1,1,1
+hoffmann,Hermine Hoffmann,2,2,1
+kirdorf,Emil Kirdorf,1,2,1
+lammers,Hans Heinrich Lammers,1,1,1
+maurice,Emil Maurice,1,1,1
+mayr,Karl Mayr,1,1,1
+salomon,Franz Pfeffer von Salomon,1,1,1
+poehner,Ernst Poehner,1,3,1
+reichenau,Walter von Reichenau,1,3,1
+rosenberg,Alfred Rosenberg,1,1,1
+schaub,Julius Schaub,1,1,1
+schreck,Julius Schreck,1,2,1
+speer,Albert Speer,1,1,1
+wagner,Winifred Wagner,2,2,1
+himmler,Heinrich Himmler,1,1,1
+hess,Rudolf Hess,1,1,1
+goebbels,Joseph Goebbels,1,1,1
+heydrich,Reinhard Heydrich,1,3,1
+goering,Hermann Goering,1,1,1
+schirach,Baldur von Schirach,1,1,1
+hitler,Adolf Hitler,1,1,1
+bohlen,Gustav Krupp von Bohlen und Halbach,1,2,1
+thyssen,Fritz Thyssen,1,2,1
+frick ,Wilhelm Frick,1,1,1
+fick,Roderich Fick,1,4,1
+schwarz,Franz Xaver Schwarz,1,1,1
+weber,Christian Weber,1,1,1
+borsig,Ernst Borsig,1,2,1
+papen,Franz von Papen,1,1,1
+hugenberg,Alfred Hugenberg,1,1,1
+keppler,Wilhelm Keppler,1,3,1
+gansser,Emil Gansser,1,2,1
+goerdeler,Carl Friedrich Goerdeler,1,1,1
+schacht,Hjalmar Schacht,1,1,1
+hossbach,Friedrich Hossbach,1,3,1
+scheubnerrichter,Max Erwin von Scheubner-Richter,1,4,1
+ribbentrop,Joachim von Ribbentrop,1,1,1
+luedecke,Kurt Luedecke,1,2,1
+kerrl,Hans Kerrl,1,4,1
+darre,Richard Walther Darre,1,3,1
+leybold,Otto Leybold,1,4,1
+hanfstaengl,Ernst Hanfstaengl,1,3,1
+aust,Hermann Aust,1,2,1
+sa,Sturmabteilung,NA,3,2
+ss,Schutzstaffel,NA,3,2
+strauss,Emil Georg von Strauss,1,2,1
+hessen,Prinz Philipp von Hessen,1,1,1
+hohenlohe,Stephanie zu Hohenlohe-Waldenburg-Schillingsfuerst,2,4,1
+biskupski,Vasilij Biskupski,1,3,1
+roder,Lorenz Roder,1,4,1
+singer,Johann Singer,1,1,1
+wiedemann,Fritz Wiedemann,1,3,1
+stosstrupp,Stosstrupp Hitler,NA,1,2
+berchtold,Josef Berchtold,1,1,1
+kempka,Erich Kempka,1,4,1
+troost,Paul Ludwig Troost,1,4,1
+neithardt,Georg Neithardt,1,4,1
+feverlag,Franz-Eher-Verlag,NA,4,2
+riefenstahl,Leni Riefenstahl,2,4,1
+kapp,Wolfgang Kapp,1,1,1
+graf,Urlich Graf,1,1,1
+kursell,Otto von Kursell,1,4,1
+lehmann,Julius Friedrich Lehmann,1,4,1
+schickedanz,Arno Schickedanz,1,1,1
+koerner,Oskar Koerner,1,2,1
+boepple,Ernst Boepple,1,4,1
+burhenne,Karl Burhenne,1,2,1
+biv,Bayrischer Industriellen Verlag,,2,2
+sesselmann,Marc Sesselmann,1,1,1
+streicher,Julius Streicher,1,1,1
+ludendorff,Erich Ludendorff,1,1,1
+kriebel,Hermann Kriebel,1,3,1
+pfordten,Theodor von der Pfordten,1,4,1
+springorum,Fritz Springorum,1,2,1
+roehm,Ernst Roehm,1,3,1
+hierl,Konstantin Hierl,1,3,1
+pietzsch,Albert Pietzsch,1,2,1
+pleiger,Paul Pleiger,1,2,1
+kehrl,Hans Kehrl,1,2,1
+class,Heinrich Class,1,1,1
+fiehler,Karl Fiehler,1,1,1
+nsdap,NSDAP,,1,2
