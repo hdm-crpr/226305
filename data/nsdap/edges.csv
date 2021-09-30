@@ -1,4 +1,4 @@
-from,to,weight,relation,start,end,time
+from,to,weight,relation,start,end,tt
 amann,hitler,3,1,1920,1939,1
 bechstein,hitler,3,1,1921,1939,2
 below,hitler,3,1,1937,1939,8
