@@ -57,9 +57,9 @@ Beziehungsart zwischen den Personen
 Identische ID wie aus der edgelist zur Identifikation der Knoten. In diesem Fall sind alle personenbezogenen Daten anonymisiert von 1 bis 38.
 
 **name**
-Vorname (fiktiv)
+numerische ID
 
-**name2** 
+**name_first**
 Vorname abgekürzt, z.B. für Visualiserung, falls der Name zu lange ist
 
 **sex**    
@@ -89,6 +89,10 @@ Rauchen Sie mindestens ein Mal pro Woche?
 Tatoo vorhanden?   
 1 = nein  
 2 = ja  
+
+**phone**  
+1 = android  
+2 = iOS/iphone  
   
 **eyes**    
 Welche Augenfarbe?    
@@ -103,5 +107,12 @@ Welche Haarfarbe?
 2 = schwarz,   
 3 = blond,    
 4 = rot.    
+
+**location** 
+Wohnort, als string/characters codiert  
+
+**county**  
+Bundesland, als string/characters codiert  
+
 
 ##
