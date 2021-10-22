@@ -1,5 +1,5 @@
 # Datensatz Semesterverbund CRPR2 #
-Codebuch Stand 2021-05
+Codebuch Stand 2021-05, aktualisiert 2021-10
 erstellt von Swaran Sandhu (sandhu@hdm-stuttgart.de)
 
 ## Inhalt
@@ -72,6 +72,15 @@ Bitte geben Sie ihr Geschlecht an:
 Welche Studienrichtung haben Sie vertieft?  
 1 = CR  
 2 = PR
+
+**height**  
+Größe in cm   
+
+**weight**  
+Gewicht in kg  
+
+**age_real**   
+Alter in natürlichen Zahlen.  
 
 **age**   
 Bitte geben Sie Ihr Alter an:  
