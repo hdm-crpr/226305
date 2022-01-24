@@ -27,12 +27,20 @@ Für das Unterstützungsnetzwerk *help* wurde der Person, die zuerst genannt wur
 **Beziehungsnetzwerk love**
 Das Edge-Attribut *complicated* beschreibt drei unterschiedliche Beziehungsmuster innerhalb der Gruppe. Diese Kriterien haben kein eigenes Gewicht, sondern sind über die Art der Beziehung definiert (reziproke Paarbeziehung, tinder-Aktivität, einseitige Beziehung).
 
+**Umgang mit fehlgenden Werten**
+Fehlende Werte werden nicht erfasst.
 
 # EDGE-Attribute
 
 **id**  
 (eindeutige Codierung des Knoten)   
 codiert von 1 bis 38, jede ID entspricht einem Studenten
+
+**from**
+initiierender Knoten, in diesem Fall: Student/in fragt um Rat oder zeigt präferierte Zusammenarbeit
+
+**to**
+erhaltender Knoten, in diesem Fall: Student/in wird um Rat gefragt oder für Zusammenarbeit präferiert
 
 **weight**  
 Beziehungsstärke aufgrund der Nennung in den Fragen)  
