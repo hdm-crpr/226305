@@ -24,7 +24,7 @@ Für das Zusammenarbeitsnetzwerk *work* wurde der Person, die zuerst genannt wur
   
 Für das Unterstützungsnetzwerk *help* wurde der Person, die zuerst genannt wurde, ein Gewicht von 3 vergeben, die zweite Person erhielt ein Gewicht von 1. Insgesamt waren 76 Beziehungsmuster möglich.
   
-**Beziehungsnetzwerk love**
+**Beziehungsnetzwerk love**  
 Das Edge-Attribut *complicated* beschreibt drei unterschiedliche Beziehungsmuster innerhalb der Gruppe. Diese Kriterien haben kein eigenes Gewicht, sondern sind über die Art der Beziehung definiert (reziproke Paarbeziehung, tinder-Aktivität, einseitige Beziehung).
 
 **Umgang mit fehlgenden Werten**
