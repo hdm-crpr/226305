@@ -1,8 +1,8 @@
 # Codebuch
 
-Erhoben wurde die Gästeliste der Talkshow Anne Will im Jahr 2022 zum Thema Ukraine.
-Quelle: https://www.fernsehserien.de/anne-will/folgen/500-keine-entspannung-im-konflikt-mit-putin-wie-ist-ein-neuer-krieg-zu-verhindern-1532088
-Grundregel: keine Sonderzeichen, keine Leerzeichen, etc.
+Erhoben wurde die Gästeliste der Talkshow Anne Will im Jahr 2022 zum Thema Ukraine.  
+Quelle: https://www.fernsehserien.de/anne-will/folgen/500-keine-entspannung-im-konflikt-mit-putin-wie-ist-ein-neuer-krieg-zu-verhindern-1532088  
+Grundregeln: keine Sonderzeichen, keine Leerzeichen, etc.
 
 ## Edgelist
 from = ID des Knoten Mitglied  
