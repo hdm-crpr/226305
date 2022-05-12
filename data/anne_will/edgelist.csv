@@ -1,1 +1,10 @@
 from,to,relationship
+UL,500,1
+UL,CDU,2
+LK,500,1
+LK,SPD,2
+NR,500,1
+NR,CDU,2
+SW,Linke,2
+SW,500,1
+CS,500,1
