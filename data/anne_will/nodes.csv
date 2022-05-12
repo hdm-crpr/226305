@@ -1,71 +1,51 @@
-from,to,relationship
-UL,CDU,2
-UL,500,1
-LK,SPD,2
-LK,500,1
-LK,503,1
-LK,506,1
-NR,CDU,2
-NR,500,1
-NR,501,1
-SW,Die Linke,2
-SW,500,1
-CS,500,1
-AW,500,1
-AW,501,1
-AW,502,1
-AW,503,1
-AW,504,1
-AW,505,1
-AW,506,1
-AW,507,1
-AW,508,1
-CL,FDP,2
-CL,501,1
-KS,501,1
-LM,501,1
-KD,501,1
-EG,501,1
-FT,502,1
-AM,502,1
-AM,508,1
-AGL,FDP,2
-AGL,502,1
-AGL,504,1
-ER,502,1
-RH,Grüne,2
-RH,503,1
-CM,503,1
-KP,503,1
-RK,CDU,2
-RK,503,1
-CLA,SPD,2
-CLA,504,1
-CH,504,1
-MW,504,1
-SB,504,1
-OS,SPD,2
-OS,505,1
-MS,CSU,2
-MS,506,1
-VG,506,1
-MB,Grüne,2
-MB,506,1
-RM,506,1
-AB,Grüne,2
-AB,502,1
-AB,507,1
-SE,SPD,2
-SE,507,1
-MASZ,FDP,2
-MASZ,507,1
-JW,CDU,2
-JW,507,1
-MF,507,1
-KK,SPD,2
-KK,508,1
-BH,Grüne,2
-BH,508,1
-RP,CDU,2
-RP,508,1
-HW,508,1
+id,name,party,sector,country
+UL,Ursula von der Leyen,CDU,Politik,Deutschland
+LK,Lars Klingbeil,SPD,Politik,Deutschland
+NR,Norbert Röttgen,CDU,Politik,Deutschland
+SW,Sahra Wagenknecht,Die Linke,Politik,Deutschland
+CS,Constanze Stelzenmüller,,Recht,Deutschland
+AW,Anne Will,,Journalismus,Deutschland
+CL,Christian Lindner,FDP,Politik,Deutschland
+KS,Karl Schlögel,,Geschichte,Deutschland
+LM,Ljudmyla Melnyk,,Politik,Ukraine
+KD,Kristina Dunz,,Journalismus,Deutschland
+EG,Egils Levits,,Politik,Lettland
+FT,Frans Timmermans,,Politik,Niederlande
+AM,Andrij Melnyk,,Politik,Ukraine
+AGL,Alexander Graf Lambsdorff,FDP,Politik,Deutschland
+ER,Egon Ramms,,Militär,Deutschland
+RH,Robert Habeck,Grüne,Politik,Deutschland
+CM,Claudia Major,,Politik,Deutschland
+KP,Katja Petrowskaja,,Journalismus,Ukraine
+RK,Roderich Kiesewetter,CDU,Politik,Deutschland
+CLA,Christine Lambrecht,SPD,Politik,Deutschland
+CH,Christoph Heusgen,,Politik,Deutschland
+MW,Marina Weisband,,Literatur,Ukraine
+SB,Stefanie Babst,,Politik,UK 
+OS,Olaf Scholz,SPD,Politik,Deutschland
+MS,Markus Söder,CSU,Politik,Deutschland
+VG,Veronika Grimm,,Wirtschaft,Deutschland
+MB,Marieluise Beck,Grüne,Politik,Deutschland
+RM,Robin Alexander Michel,,Journalismus,Deutschland
+AB,Annalena Baerbock,Grüne,Politik,Deutschland
+SE,Saskia Esken,SPD,Politik,Deutschland
+MASZ,Marie-Agnes Strack-Zimmermann,FDP,Politik,Deutschland
+JW,Johann David Wadephul,CDU,Politik,Deutschland
+MF,Markus Feldenkirchen,,Journalismus,Deutschland
+KK,Kevin Kühnert,SPD,Politik,Deutschland
+BH,Britta Haßelmann,Grüne,Politik,Deutschland
+RP,Ruprecht Polenz,CDU,Politik,Deutschland
+HW,Prof. Harald Welzer,,Soziologie,Deutschland
+SPD,SPD,,,
+CDU,CDU,,,
+Linke,Die Linke,,,
+FDP,FDP,,,
+500, Keine Entspannung,,,
+501,02_27 Putin führt Krieg,,,
+502,03_06 Krieg gegen die Ukraine,,,
+503,03_13 Angriff auf die Ukraine,,,
+504,03_20 Putins Angriff,,,
+505,03_27 Olaf Scholz zu Gast,,,
+506,04_04 Streit um russisches Öl,,,
+507,05_01 Panzer ins Kriegsgebiet,,,
+508,05_08 Waffen für die Ukraine
