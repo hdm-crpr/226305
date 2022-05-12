@@ -1,0 +1,122 @@
+---
+title: "Beispielnetzwerk"
+subtitle: "Gäste bei Anne Will 2020 zum Ukraine-Krieg"
+author: "Swaran Sandhu"
+date: '2022-05-12'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(igraph)
+```
+
+# Vorbereitung Testat
+
+## Daten und Codebuch
+
+Die Daten und das Codebuch sind in meinem
+[Github-Account](https://github.com/hdm-crpr/226305/tree/master/data/anne_will)
+hinterlegt.
+
+## Netzwerk einlesen
+
+Wir lesen unseren Datensatz ein. Manchmal dauert es etwas, bis die Daten
+auf github aktualisiert sind.
+
+**Grundregeln:**
+
+-   keine Leer- oder Sonderzeichen in IDs
+
+-   keine Leerzeichen auf github (Datei vorher umbenennen, möglichst
+    einfacher Namen)
+
+-   R muss ab und an neu gestartet werden (Restart R and run all chunks)
+
+```{r Netzwerk einlesen}
+
+# Programmbibliothek laden
+library(igraph)
+
+# Einlesen der Edge- und Nodelist
+edges <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/anne_will/edges.csv", header=T, as.is=T, sep = ",")
+
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/anne_will/nodes.csv", header=T, as.is=T, sep = ",")
+
+# Matrix erstellen
+edgematrix <-as.matrix(edges)
+
+# Zusammenführen von Edge- und Nodelist als igraph-Objekt s
+aw <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=F)
+aw
+```
+
+## Datensatz vorbereiten
+
+```{r Netzwerk analysieren, fig.height=6, fig.width=9}
+
+# Einfacher plot
+plot(aw,
+     asp=0,
+     vertex.size=5,
+     vertex.label=NA,
+     layout=layout_nicely,
+     main="Gäste Anne Will zum Ukraine Krieg")
+
+# Attribute anzeigen lassen
+list.vertex.attributes(aw)
+list.edge.attributes(aw)
+
+# Farben festlegen für die Parteien
+# vertex.attributes(aw)$party
+# colors()
+
+
+# Farben für Attribut "party" festlegen
+V(aw)[V(aw)$party == "SPD"]$color <- "red"
+V(aw)[V(aw)$party == "Linke"]$color <- "purple"
+V(aw)[V(aw)$party == "CDU"]$color <- "lightblue"
+V(aw)[V(aw)$party == "CSU"]$color <- "darkblue"
+V(aw)[V(aw)$party == "Grüne"]$color <- "green"
+V(aw)[V(aw)$party == "FDP"]$color <- "yellow"
+
+```
+
+## Two-Mode Netzwerk
+
+Ein two-mode Netzwerk besteht aus zwei unterschiedlichen Knotentypen,
+üblicherweise Akteure und Organisationen/Event, die über
+Mitgliedschaften definiert sind.
+
+Wenn in der Nodelist das Attribut "type" mit den Werten 1 und 2 vergeben
+ist, lassen sich zusätzlich zur Farbe auch die Form der Knoten anpassen
+(das ist zusätzlich zu der Aufgabe und wird nicht im Testat verlangt:
+ist aber später für Ihr Projekt hilfreich.
+
+```{r Two-Mode Netzwerk erstellen}
+
+# Vertex-Attribute anzeigen lassen
+list.vertex.attributes(aw)
+
+# Formen für two-Netzwerk festlegen
+V(aw)[V(aw)$type == 1]$shape <- "circle" # weiblich
+V(aw)[V(aw)$type == 2]$shape <- "square" # männlich
+
+```
+
+```{r Netzwerk visualisieren, fig.height=6, fig.width=9}
+
+# Netzwerk mit Farben visualisieren
+
+plot(aw,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.size=degree(aw)*2,
+     vertex.frame.color="grey80",
+     edge.color="grey20",
+     edge.arrow.size=.2,
+     main="Gäste Anne Will zum Ukraine Krieg",
+     sub="Visualisierung nach Parteizugehörigkeit und Häufigkeit")
+
+```
