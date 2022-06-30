@@ -68,7 +68,7 @@ Identische ID wie aus der edgelist zur Identifikation der Knoten. In diesem Fall
 numerische ID
 
 **name_first**
-Vorname abgekürzt, z.B. für Visualiserung, falls der Name zu lange ist
+Vorname abgekürzt, z.B. für Visualisierung, falls der Name zu lange ist
 
 **sex**    
 Bitte geben Sie ihr Geschlecht an:  
