@@ -17,9 +17,9 @@ Folgende Daten sollen erhoben werden:
 **Edgelist**:   
 from: ID als Initiale Vor- und Nachname  
 to: ID als Initiale Vor- und Nachname  
-year: numerisch, in ganzen Zahlen und Beginn der Beziehung, z.B. 1976
-relation: 
-1 = Aufsichtsrat  
+year: numerisch, in ganzen Zahlen und Beginn der Beziehung, z.B. 1976  
+relation: Art der Beziehung zwischen den Knoten
+1 = Aufsichtsratsmandat
 2 = Geschäftsführung/Vorstand   
 3 = Beirat  
 4 = Ehrenamt   
@@ -28,7 +28,7 @@ relation:
   
 **Nodelist**: 
 id: ID als Initiale Vor- und Nachname  
-type: 1 = Person, 2 = Organisation  
+type: 1 = Person, 2 = Organisation    
 sex: 1 = männlich, 2 = weiblich  
 age: Geburtsjahr in ganzen Zahlen 
 education: Ort des höchsten Bildungsabschlusses  
