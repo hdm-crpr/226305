@@ -1,0 +1,61 @@
+---
+title: "Springer Netzwerk"
+author: "Swaran Sandhu"
+date: "2023-11-11"
+output: html_document
+---
+
+# Setup des Dokuments
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(igraph)
+```
+
+# Worum geht es?
+Wir zeigen an einem Beispiel, wie man ein Netzerk aus einem github-Account einliest. Achten Sie darauf, Chunks und Inhalt immer zu trennen. Jeder Chunk benötigt einen klaren Namen, Code und Interpretation werden voneinander getrennt.
+
+## Codebuch und Datensatz via Github
+
+```{r Netzwerk einlesen}
+
+# Einlesen der Edgelist aus github link: beachte den Separator ","
+edges <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/springer/edges.csv", header=T, as.is=T, sep = ",")
+
+# Einlesen der Nodelist
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr/226305/master/data/springer/nodes.csv", header=T, as.is=T, sep = ",")
+
+# Überprüfen der Daten (nur, falls notwendig)
+# head(edges)
+# head(nodes)
+
+# wandelt die Edgelist als Matrix um.
+edgematrix <-as.matrix(edges)
+
+# ?graph_from_data_frame (erläutert den Befehl genauer)
+# erstellt ein igraph-objekt aus der Fusion von Edge- und Nodelist
+springer <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+
+# das igraph-Objekt heisst jetzt springer und ist ein gerichtetes Netzwerk.
+springer
+
+```
+
+
+# Visualisierung
+
+```{r Einfache Visualisierung, fig.height=3, fig.width=4}
+plot(springer,
+     edge.arrow.size=.3,
+     layout=layout_with_kk,
+     main="Axel-Springer Netzwerk",
+     sub="Interlocking Relationships, n=2 Fälle")
+
+```
+
+
+
+
+
+
